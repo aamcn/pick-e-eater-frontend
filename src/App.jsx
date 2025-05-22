@@ -46,7 +46,7 @@ function App() {
   return (
     <div>
       <div>
-        <p>hi</p>
+        <h1>Pick 'E' Eater</h1>
       </div>
       <PeopleSelector people={people} dislikedMeals={dislikedMeals} setDislikedMeals={setDislikedMeals}/>
       <div>

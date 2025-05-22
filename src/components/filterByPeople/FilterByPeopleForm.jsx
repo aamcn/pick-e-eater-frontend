@@ -27,7 +27,7 @@ function PeopleSelector({ people, dislikedMeals, setDislikedMeals }) {
     return (
         <form>
             {people && people.map(person => {
-                return <TickBoxTemplate person={person} selectedPeople={selectedPeople} setSelectedPeople={setSelectedPeople} />
+                return <TickBoxTemplate key={`${person.name}key`} person={person} selectedPeople={selectedPeople} setSelectedPeople={setSelectedPeople} />
             })}
         </form>
     )

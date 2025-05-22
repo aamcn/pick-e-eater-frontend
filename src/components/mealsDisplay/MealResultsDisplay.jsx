@@ -10,9 +10,16 @@ function MealResultsDisplay({meals, dislikedMeals}){
     return(
         <div>
             <h3>Meals</h3>
+            <ul>
             {filteredMeals && filteredMeals.map(meal =>{
-                return <p>{meal.name}</p>
+                return <li key={meal.id}> 
+                    <p>{meal.name}</p>
+                    <p>{meal.type}</p>
+                    <p>{meal.sub_type}</p>
+                    <p>{meal.difficulty}</p>  
+                </li>
             })}
+            </ul>
         </div>   
          )
 }
