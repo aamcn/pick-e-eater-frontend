@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios';
+import PeopleSelector from './components/filterByPeople/FilterByPeopleForm';
 function App() {
   const [people, setPeople] = useState([])
   const [meals, setMeals] = useState([])
@@ -44,6 +45,7 @@ function App() {
     <>
       <div>
         <p>hi</p>
+        <PeopleSelector people={people}/>
       </div>
     </>
   )
