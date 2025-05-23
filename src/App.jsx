@@ -1,76 +1,99 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios';
-import PeopleSelector from './components/filterByPeople/FilterByPeopleForm';
-import MealResultsDisplay from './components/mealsDisplay/MealResultsDisplay';
-import ResultsFilter from './components/filterResults/ResultsFilter';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import PeopleSelector from "./components/filterByPeople/FilterByPeopleForm";
+import MealResultsDisplay from "./components/mealsDisplay/MealResultsDisplay";
+import ResultsFilter from "./components/filterResults/ResultsFilter";
+import AddMealForm from "./components/AddMealForm/AddMealForm";
 
 function App() {
-  const [people, setPeople] = useState([])
-  const [meals, setMeals] = useState([])
-  const [dislikedMeals, setDislikedMeals] = useState([0])
-  const [currentPeopleMeals, setCurrentPeopleMeals] = useState([])
-  const [filteredMeals, setFilteredMeals] = useState(currentPeopleMeals)
-  const [selectedPeople, setSelectedPeople] = useState([])
+  const [people, setPeople] = useState([]);
+  const [meals, setMeals] = useState([]);
+  const [dislikedMeals, setDislikedMeals] = useState([0]);
+  const [currentPeopleMeals, setCurrentPeopleMeals] = useState([]);
+  const [filteredMeals, setFilteredMeals] = useState(currentPeopleMeals);
+  const [selectedPeople, setSelectedPeople] = useState([]);
 
   function getUsers() {
-    axios.get('http://localhost:3000/people',
-      { method: "cors" },
-      { withCredentials: true },
-    )
+    axios
+      .get(
+        "http://localhost:3000/people",
+        { method: "cors" },
+        { withCredentials: true },
+      )
       .then(function (response) {
-        setPeople(response.data)
+        setPeople(response.data);
       })
       .catch(function (error) {
         console.log(error);
-      })
+      });
   }
 
   function getMeals() {
-    axios.get('http://localhost:3000/meals',
-      { method: "cors" },
-      { withCredentials: true },
-    )
+    axios
+      .get(
+        "http://localhost:3000/meals",
+        { method: "cors" },
+        { withCredentials: true },
+      )
       .then(function (response) {
-        setMeals(response.data)
+        setMeals(response.data);
       })
       .catch(function (error) {
         console.log(error);
-      })
+      });
   }
 
   function removeDislikedMeals() {
-    const filteredArray = meals.filter(meal => {
+    const filteredArray = meals.filter((meal) => {
       if (!dislikedMeals.includes(meal.id)) {
-        return meal
+        return meal;
       }
-    })
-    setCurrentPeopleMeals(filteredArray)
+    });
+    setCurrentPeopleMeals(filteredArray);
   }
 
   useEffect(() => {
-    getUsers()
-    getMeals()
-  }, [])
+    getUsers();
+    getMeals();
+  }, []);
 
   useEffect(() => {
-    removeDislikedMeals()
-  }, [dislikedMeals])
+    removeDislikedMeals();
+  }, [dislikedMeals]);
 
   return (
     <div>
       <div>
         <h1>Pick 'E' Eater</h1>
       </div>
-      <PeopleSelector people={people} selectedPeople={selectedPeople} setSelectedPeople={setSelectedPeople} dislikedMeals={dislikedMeals} setDislikedMeals={setDislikedMeals} />
       <div>
-        <ResultsFilter setFilteredMeals={setFilteredMeals} currentPeopleMeals={currentPeopleMeals} setCurrentPeopleMeals={setCurrentPeopleMeals} meals={meals}/>
+        <AddMealForm />
+      </div>
+      <PeopleSelector
+        people={people}
+        selectedPeople={selectedPeople}
+        setSelectedPeople={setSelectedPeople}
+        dislikedMeals={dislikedMeals}
+        setDislikedMeals={setDislikedMeals}
+      />
+      <div>
+        <ResultsFilter
+          setFilteredMeals={setFilteredMeals}
+          currentPeopleMeals={currentPeopleMeals}
+          setCurrentPeopleMeals={setCurrentPeopleMeals}
+          meals={meals}
+        />
       </div>
       <div>
-        <MealResultsDisplay meals={meals} dislikedMeals={dislikedMeals} setDislikedMeals={setDislikedMeals}
-          filteredMeals={filteredMeals} />
+        <MealResultsDisplay
+          meals={meals}
+          dislikedMeals={dislikedMeals}
+          setDislikedMeals={setDislikedMeals}
+          filteredMeals={filteredMeals}
+        />
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
