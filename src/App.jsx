@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react'
 import axios from 'axios';
 import PeopleSelector from './components/filterByPeople/FilterByPeopleForm';
 import MealResultsDisplay from './components/mealsDisplay/MealResultsDisplay';
+import ResultsFilter from './components/filterResults/ResultsFilter';
 
 function App() {
   const [people, setPeople] = useState([])
   const [meals, setMeals] = useState([])
-  const [dislikedMeals, setDislikedMeals] = useState([])
-
-
+  const [dislikedMeals, setDislikedMeals] = useState([0])
+  const [currentPeopleMeals, setCurrentPeopleMeals] = useState([])
+  const [filteredMeals, setFilteredMeals] = useState(currentPeopleMeals)
+  const [selectedPeople, setSelectedPeople] = useState([])
 
   function getUsers() {
     axios.get('http://localhost:3000/people',
@@ -36,21 +38,36 @@ function App() {
       })
   }
 
-
+  function removeDislikedMeals() {
+    const filteredArray = meals.filter(meal => {
+      if (!dislikedMeals.includes(meal.id)) {
+        return meal
+      }
+    })
+    setCurrentPeopleMeals(filteredArray)
+  }
 
   useEffect(() => {
     getUsers()
     getMeals()
   }, [])
 
+  useEffect(() => {
+    removeDislikedMeals()
+  }, [dislikedMeals])
+
   return (
     <div>
       <div>
         <h1>Pick 'E' Eater</h1>
       </div>
-      <PeopleSelector people={people} dislikedMeals={dislikedMeals} setDislikedMeals={setDislikedMeals}/>
+      <PeopleSelector people={people} selectedPeople={selectedPeople} setSelectedPeople={setSelectedPeople} dislikedMeals={dislikedMeals} setDislikedMeals={setDislikedMeals} />
       <div>
-        <MealResultsDisplay meals={meals} dislikedMeals={dislikedMeals} setDislikedMeals={setDislikedMeals}/>
+        <ResultsFilter setFilteredMeals={setFilteredMeals} currentPeopleMeals={currentPeopleMeals} setCurrentPeopleMeals={setCurrentPeopleMeals} meals={meals}/>
+      </div>
+      <div>
+        <MealResultsDisplay meals={meals} dislikedMeals={dislikedMeals} setDislikedMeals={setDislikedMeals}
+          filteredMeals={filteredMeals} />
       </div>
     </div>
   )

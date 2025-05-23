@@ -1,11 +1,7 @@
 
-function MealResultsDisplay({meals, dislikedMeals}){
+function MealResultsDisplay({meals, filteredMeals}){
 
-    const filteredMeals = meals.filter(meal => {
-        if(!dislikedMeals.includes(meal.id)){
-            return meal
-        }
-    })
+   
 
     return(
         <div>
