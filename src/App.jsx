@@ -3,7 +3,8 @@ import axios from "axios";
 import PeopleSelector from "./components/filterByPeople/FilterByPeopleForm";
 import MealResultsDisplay from "./components/mealsDisplay/MealResultsDisplay";
 import ResultsFilter from "./components/filterResults/ResultsFilter";
-import AddMealForm from "./components/AddMealForm/AddMealForm";
+import AddMealForm from "./components/addMealForm/AddMealForm";
+import AddDislikesForm from "./components/addDislikesForm/AddDislikesForm";
 
 function App() {
   const [people, setPeople] = useState([]);
@@ -68,6 +69,9 @@ function App() {
       </div>
       <div>
         <AddMealForm />
+      </div>
+      <div>
+        <AddDislikesForm meals={meals}  people={people}/>
       </div>
       <PeopleSelector
         people={people}
