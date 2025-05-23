@@ -5,7 +5,7 @@ function FilterCheckBox({ field, onChange}) {
 
         <fieldset onChange={onChange}>
             <label htmlFor={field}>{field}</label>
-            <input defaultValue={field} id={field} name={field} type='checkbox' />
+            <input  defaultValue={field} id={field} name={field} type='checkbox' />
         </fieldset>
     )
 }
