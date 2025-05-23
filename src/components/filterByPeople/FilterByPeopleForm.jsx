@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import TickBoxTemplate from "./TickBoxTemplate";
 
+
 function PeopleSelector({ people, dislikedMeals, setDislikedMeals }) {
   const [selectedPeople, setSelectedPeople] = useState([]);
+  const [hidden, setIsHidden] = useState(true)
 
   useEffect(() => {
     collectMeals();
@@ -19,10 +21,23 @@ function PeopleSelector({ people, dislikedMeals, setDislikedMeals }) {
     setDislikedMeals(unique);
   };
 
+
+  const handleToggle = (event) => {
+    event.preventDefault()
+    if(hidden == true){
+        setIsHidden(false)
+    } else {
+        setIsHidden(true)
+    }
+}
+
   useEffect(() => {}, [dislikedMeals]);
 
   return (
-    <form>
+   <div>
+    <button onClick={handleToggle}>Choose Diners</button>
+    {!hidden && 
+     <form>
       {people &&
         people.map((person) => {
           return (
@@ -34,7 +49,8 @@ function PeopleSelector({ people, dislikedMeals, setDislikedMeals }) {
             />
           );
         })}
-    </form>
+    </form>} 
+   </div>
   );
 }
 

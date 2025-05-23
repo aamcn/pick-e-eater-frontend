@@ -14,6 +14,10 @@ function ResultsFilter({
   const [mealSubTypeFields, setMealSubTypeFields] = useState([]);
   const [checkedMealSubTypes, setCheckedMealSubTypes] = useState([]);
 
+  const [hiddenDiff, setIsHiddenDiff] = useState(true)
+  const [hiddenType, setIsHiddenType] = useState(true)
+  const [hiddenSub, setIsHiddenSub] = useState(true)
+
   function getMealDifficulties() {
     const difficultyArr = meals.map((meal) => {
       return meal.difficulty;
@@ -77,6 +81,37 @@ function ResultsFilter({
     }
   };
 
+
+  const handleToggleDiff = (event) => {
+    event.preventDefault()
+    if(hiddenDiff == true){
+        setIsHiddenDiff(false)
+    } else {
+        setIsHiddenDiff(true)
+    }
+}
+
+const handleToggleType = (event) => {
+  event.preventDefault()
+  if(hiddenType == true){
+      setIsHiddenType(false)
+  } else {
+      setIsHiddenType(true)
+  }
+}
+
+const handleToggleSub = (event) => {
+  event.preventDefault()
+  if(hiddenSub == true){
+      setIsHiddenSub(false)
+  } else {
+      setIsHiddenSub(true)
+  }
+}
+
+
+
+
   function removeDiffMeals() {
     const filteredArray = currentPeopleMeals.filter((meal) => {
       if (!checkedDifficulties.includes(meal.difficulty)) {
@@ -119,7 +154,8 @@ function ResultsFilter({
       <h3>Filter</h3>
       <div>
         <h4>Difficulty</h4>
-        {difficultyFields &&
+        <button onClick={handleToggleDiff}>Choose Difficulty</button>
+    {!hiddenDiff && difficultyFields &&
           difficultyFields.map((difficultyField) => {
             return (
               <FilterCheckBox
@@ -131,7 +167,8 @@ function ResultsFilter({
       </div>
       <div>
         <h4>Type</h4>
-        {mealTypeFields &&
+        <button onClick={handleToggleDiff}>Choose Types</button>
+    {!hiddenDiff && mealTypeFields &&
           mealTypeFields.map((typeField) => {
             return (
               <FilterCheckBox
@@ -143,7 +180,8 @@ function ResultsFilter({
       </div>
       <div>
         <h4>Cuisine</h4>
-        {mealSubTypeFields &&
+        <button onClick={handleToggleDiff}>Choose Types</button>
+    {!hiddenSub && mealSubTypeFields &&
           mealSubTypeFields.map((subTypeField) => {
             return (
               <FilterCheckBox

@@ -1,7 +1,9 @@
 import axios from "axios";
-
+import { useState } from "react";
 
 function AddDislikesForm({ people, meals }){
+const [hidden, setIsHidden] = useState(true)
+
 
 const handleSelectChange = (event) => {
     console.log(event.target.value)
@@ -14,6 +16,15 @@ const handleFormSubmit = (event) => {
     console.log(formToJson)
     postFormData(formToJson)
     
+}
+
+const handleToggle = (event) => {
+    event.preventDefault()
+    if(hidden == true){
+        setIsHidden(false)
+    } else {
+        setIsHidden(true)
+    }
 }
 
 function postFormData(formData) {
@@ -34,6 +45,8 @@ function postFormData(formData) {
 
     return(
         <div>
+            <button onClick={handleToggle}>Update dislikes</button>
+            {!hidden && 
             <form onSubmit={handleFormSubmit}>
                 <fieldset>
                     <label htmlFor="personId" >Person:</label>|
@@ -54,7 +67,7 @@ function postFormData(formData) {
                     </select>
                 </fieldset>
                 <button type='submit'>Submit</button>
-            </form>
+            </form>}
         </div>
     )
 }
