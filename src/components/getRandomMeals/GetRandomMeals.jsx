@@ -22,7 +22,6 @@ function GetRandonMeals({filteredMeals}){
         setNumberOfMeals(event.target.value)
       }
 
-
     return(
         <div>
             <input onChange={handleDayChange} type='number' min='1' max='7'/>

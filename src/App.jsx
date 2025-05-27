@@ -8,13 +8,15 @@ import AddDislikesForm from "./components/addDislikesForm/AddDislikesForm";
 import GetRandonMeals from "./components/getRandomMeals/GetRandomMeals";
 
 function App() {
-  const [people, setPeople] = useState([]);
-  const [meals, setMeals] = useState([]);
+  const [allDiners, setAllDiners] = useState([]);
+  const [allMeals, setAllMeals] = useState([]);
   const [dislikedMeals, setDislikedMeals] = useState([0]);
-  const [currentPeopleMeals, setCurrentPeopleMeals] = useState([]);
-  const [filteredMeals, setFilteredMeals] = useState(currentPeopleMeals);
+  const [selectedDinersMeals, setSelectedDinersMeals] = useState([]);
+  const [filteredMeals, setFilteredMeals] = useState(selectedDinersMeals);
   const [selectedPeople, setSelectedPeople] = useState([]);
+ 
 
+  //Fetches peopleData from the people database table and stores it in state
   function getUsers() {
     axios
       .get(
@@ -23,13 +25,14 @@ function App() {
         { withCredentials: true },
       )
       .then(function (response) {
-        setPeople(response.data);
+        setAllDiners(response.data);
       })
       .catch(function (error) {
         console.log(error);
       });
   }
 
+  //Fetches mealsData from the meals database table and stores it in state
   function getMeals() {
     axios
       .get(
@@ -38,7 +41,7 @@ function App() {
         { withCredentials: true },
       )
       .then(function (response) {
-        setMeals(response.data)
+        setAllMeals(response.data)
         setFilteredMeals(response.data);
       })
       .catch(function (error) {
@@ -46,24 +49,33 @@ function App() {
       });
   }
 
+  /*
+    Filters the full meal list by returning meals that are NOT found in the 'dislikedMeals' array in state.
+    The filtered array is then stored in 'currentPeopleMeals' state.
+  */
   function removeDislikedMeals() {
-    const filteredArray = meals.filter((meal) => {
+    const filteredArray = allMeals.filter((meal) => {
       if (!dislikedMeals.includes(meal.id)) {
         return meal;
       }
     });
-    setCurrentPeopleMeals(filteredArray);
+    setSelectedDinersMeals(filteredArray);
   }
 
+
+  //On render the meals and users fetch functions are called.
   useEffect(() => {
     getUsers();
     getMeals();
   }, []);
 
+  //When 'dislikedMeals' state is updated 'removeDislikedMeals' function is called.
   useEffect(() => {
     removeDislikedMeals();
   }, [dislikedMeals]);
 
+
+  
   return (
     <>
       <div className="titleContainer">
@@ -75,10 +87,10 @@ function App() {
         <AddMealForm />
       </div>
       <div>
-        <AddDislikesForm meals={meals}  people={people}/>
+        <AddDislikesForm allMeals={allMeals}  allDiners={allDiners}/>
       </div>
       <PeopleSelector
-        people={people}
+        allDiners={allDiners}
         selectedPeople={selectedPeople}
         setSelectedPeople={setSelectedPeople}
         dislikedMeals={dislikedMeals}
@@ -87,15 +99,14 @@ function App() {
       <div>
         <ResultsFilter
           setFilteredMeals={setFilteredMeals} 
-          currentPeopleMeals={currentPeopleMeals}
-          setCurrentPeopleMeals={setCurrentPeopleMeals}
-          meals={meals}
+          selectedDinersMeals={selectedDinersMeals}
+          allMeals={allMeals}
         />
       </div>
       </div>
       <div className="mealResultsDisplay">
         <MealResultsDisplay
-          meals={meals}
+          allMeals={allMeals}
           dislikedMeals={dislikedMeals}
           setDislikedMeals={setDislikedMeals}
           filteredMeals={filteredMeals}

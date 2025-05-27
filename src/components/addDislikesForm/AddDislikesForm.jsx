@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-function AddDislikesForm({ people, meals }){
+function AddDislikesForm({ allDiners, allMeals }){
 const [hidden, setIsHidden] = useState(true)
 
 
@@ -52,7 +52,7 @@ function postFormData(formData) {
                     <label htmlFor="personId" >Person:</label>|
                     <select id="personId" name="personId" onChange={handleSelectChange}>
                         <option>Pick a Name</option>
-                        {people && people.map(person => {
+                        {allDiners && allDiners.map(person => {
                            return <option value={person.id}>{person.name}</option>
                         })}
                     </select>
@@ -61,7 +61,7 @@ function postFormData(formData) {
                 <label htmlFor="mealId" >Meal:</label>|
                 <select id="mealId" name="mealId" onChange={handleSelectChange}>
                         <option>Pick a Meal</option>
-                        {meals && meals.map(meal => {
+                        {allMeals && allMeals.map(meal => {
                            return <option value={meal.id}>{meal.name}</option>
                         })}
                     </select>

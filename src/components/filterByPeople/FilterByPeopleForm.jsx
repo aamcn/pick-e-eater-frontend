@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import TickBoxTemplate from "./TickBoxTemplate";
 
 
-function PeopleSelector({ people, dislikedMeals, setDislikedMeals }) {
+function PeopleSelector({ allDiners, dislikedMeals, setDislikedMeals }) {
   const [selectedPeople, setSelectedPeople] = useState([]);
   const [hidden, setIsHidden] = useState(true)
 
@@ -38,12 +38,12 @@ function PeopleSelector({ people, dislikedMeals, setDislikedMeals }) {
     <button onClick={handleToggle}>Choose Diners</button>
     {!hidden && 
      <form className="form">
-      {people &&
-        people.map((person) => {
+      {allDiners &&
+        allDiners.map((diner) => {
           return (
             <TickBoxTemplate
-              key={`${person.name}key`}
-              person={person}
+              key={`${diner.name}key`}
+              person={diner}
               selectedPeople={selectedPeople}
               setSelectedPeople={setSelectedPeople}
             />

@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import FilterCheckBox from "./FilterCheckBox";
 
 function ResultsFilter({
-  meals,
-  currentPeopleMeals,
-  filteredMeals,
+  allMeals,
+  selectedDinersMeals,
   setFilteredMeals,
 }) {
   const [difficultyFields, setDifficultyFields] = useState([]);
@@ -19,21 +18,21 @@ function ResultsFilter({
   const [hiddenSub, setIsHiddenSub] = useState(true)
 
   function getMealDifficulties() {
-    const difficultyArr = meals.map((meal) => {
+    const difficultyArr = allMeals.map((meal) => {
       return meal.difficulty;
     });
     setDifficultyFields([...new Set(difficultyArr)]);
   }
 
   function getMealTypes() {
-    const mealTypeArr = meals.map((meal) => {
+    const mealTypeArr = allMeals.map((meal) => {
       return meal.type;
     });
     setMealTypeFields([...new Set(mealTypeArr)]);
   }
 
   function getMealSubTypes() {
-    const subTypeArr = meals.map((meal) => {
+    const subTypeArr = allMeals.map((meal) => {
       return meal.sub_type;
     });
     setMealSubTypeFields([...new Set(subTypeArr)]);
@@ -113,7 +112,7 @@ const handleToggleSub = (event) => {
 
 
   function removeDiffMeals() {
-    const filteredArray = currentPeopleMeals.filter((meal) => {
+    const filteredArray = selectedDinersMeals.filter((meal) => {
       if (!checkedDifficulties.includes(meal.difficulty)) {
         return meal;
       }
@@ -136,7 +135,7 @@ const handleToggleSub = (event) => {
     getMealTypes();
     getMealDifficulties();
     getMealSubTypes();
-  }, [currentPeopleMeals]);
+  }, [selectedDinersMeals]);
 
   useEffect(() => {
     console.log(checkedMealTypes);
@@ -146,7 +145,7 @@ const handleToggleSub = (event) => {
     checkedDifficulties,
     checkedMealTypes,
     checkedMealSubTypes,
-    currentPeopleMeals,
+    selectedDinersMeals,
   ]);
 
   return (
