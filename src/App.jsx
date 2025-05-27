@@ -5,6 +5,7 @@ import MealResultsDisplay from "./components/mealsDisplay/MealResultsDisplay";
 import ResultsFilter from "./components/filterResults/ResultsFilter";
 import AddMealForm from "./components/addMealForm/AddMealForm";
 import AddDislikesForm from "./components/addDislikesForm/AddDislikesForm";
+import GetRandonMeals from "./components/getRandomMeals/GetRandomMeals";
 
 function App() {
   const [people, setPeople] = useState([]);
@@ -37,7 +38,8 @@ function App() {
         { withCredentials: true },
       )
       .then(function (response) {
-        setMeals(response.data);
+        setMeals(response.data)
+        setFilteredMeals(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -63,10 +65,12 @@ function App() {
   }, [dislikedMeals]);
 
   return (
-    <div>
-      <div>
+    <>
+      <div className="titleContainer">
         <h1>Pick 'E' Eater</h1>
       </div>
+      <div className="allFormsContainer">
+        <GetRandonMeals filteredMeals={filteredMeals}/>
       <div>
         <AddMealForm />
       </div>
@@ -82,13 +86,14 @@ function App() {
       />
       <div>
         <ResultsFilter
-          setFilteredMeals={setFilteredMeals}
+          setFilteredMeals={setFilteredMeals} 
           currentPeopleMeals={currentPeopleMeals}
           setCurrentPeopleMeals={setCurrentPeopleMeals}
           meals={meals}
         />
       </div>
-      <div>
+      </div>
+      <div className="mealResultsDisplay">
         <MealResultsDisplay
           meals={meals}
           dislikedMeals={dislikedMeals}
@@ -96,7 +101,7 @@ function App() {
           filteredMeals={filteredMeals}
         />
       </div>
-    </div>
+    </>
   );
 }
 

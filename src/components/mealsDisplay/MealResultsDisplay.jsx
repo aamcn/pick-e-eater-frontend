@@ -1,6 +1,6 @@
 function MealResultsDisplay({ meals, filteredMeals }) {
   return (
-    <div>
+    <>
       <h3>Meals</h3>
       <ul>
         <hr></hr>
@@ -17,7 +17,7 @@ function MealResultsDisplay({ meals, filteredMeals }) {
             );
           })}
       </ul>
-    </div>
+    </>
   );
 }
 

@@ -167,8 +167,8 @@ const handleToggleSub = (event) => {
       </div>
       <div>
         <h4>Type</h4>
-        <button onClick={handleToggleDiff}>Choose Types</button>
-    {!hiddenDiff && mealTypeFields &&
+        <button onClick={handleToggleType}>Choose Types</button>
+    {!hiddenType && mealTypeFields &&
           mealTypeFields.map((typeField) => {
             return (
               <FilterCheckBox
@@ -180,7 +180,7 @@ const handleToggleSub = (event) => {
       </div>
       <div>
         <h4>Cuisine</h4>
-        <button onClick={handleToggleDiff}>Choose Types</button>
+        <button onClick={handleToggleSub}>Choose subTypes</button>
     {!hiddenSub && mealSubTypeFields &&
           mealSubTypeFields.map((subTypeField) => {
             return (

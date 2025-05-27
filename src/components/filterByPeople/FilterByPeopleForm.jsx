@@ -37,7 +37,7 @@ function PeopleSelector({ people, dislikedMeals, setDislikedMeals }) {
    <div>
     <button onClick={handleToggle}>Choose Diners</button>
     {!hidden && 
-     <form>
+     <form className="form">
       {people &&
         people.map((person) => {
           return (

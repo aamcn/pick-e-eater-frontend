@@ -4,7 +4,6 @@ function FilterCheckBox({ field, onChange }) {
       <label htmlFor={field}>{field}</label>
       <input
         icon={"-"}
-        defaultChecked="checked"
         defaultValue={field}
         id={field}
         name={field}
