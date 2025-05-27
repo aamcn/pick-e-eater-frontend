@@ -10,9 +10,9 @@ import GetRandonMeals from "./components/getRandomMeals/GetRandomMeals";
 function App() {
   const [allDiners, setAllDiners] = useState([]);
   const [allMeals, setAllMeals] = useState([]);
-  const [dislikedMeals, setDislikedMeals] = useState([0]);
+  const [dislikedMeals, setDislikedMeals] = useState([]);
   const [selectedDinersMeals, setSelectedDinersMeals] = useState([]);
-  const [filteredMeals, setFilteredMeals] = useState(selectedDinersMeals);
+  const [filteredMeals, setFilteredMeals] = useState([]);
   const [selectedDiners, setSelectedDiners] = useState([]);
 
   //Fetches peopleData from the people database table and stores it in state
@@ -40,8 +40,8 @@ function App() {
         { withCredentials: true },
       )
       .then(function (response) {
-        setAllMeals(response.data);
         setFilteredMeals(response.data);
+        setAllMeals(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -69,7 +69,9 @@ function App() {
 
   //When 'dislikedMeals' state is updated 'removeDislikedMeals' function is called.
   useEffect(() => {
+    if(dislikedMeals.length >= 1){
     removeDislikedMeals();
+    }
   }, [dislikedMeals]);
 
   return (
@@ -102,9 +104,6 @@ function App() {
       </div>
       <div className="mealResultsDisplay">
         <MealResultsDisplay
-          allMeals={allMeals}
-          dislikedMeals={dislikedMeals}
-          setDislikedMeals={setDislikedMeals}
           filteredMeals={filteredMeals}
         />
       </div>
