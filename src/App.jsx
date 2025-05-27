@@ -13,8 +13,7 @@ function App() {
   const [dislikedMeals, setDislikedMeals] = useState([0]);
   const [selectedDinersMeals, setSelectedDinersMeals] = useState([]);
   const [filteredMeals, setFilteredMeals] = useState(selectedDinersMeals);
-  const [selectedPeople, setSelectedPeople] = useState([]);
- 
+  const [selectedDiners, setSelectedDiners] = useState([]);
 
   //Fetches peopleData from the people database table and stores it in state
   function getUsers() {
@@ -41,7 +40,7 @@ function App() {
         { withCredentials: true },
       )
       .then(function (response) {
-        setAllMeals(response.data)
+        setAllMeals(response.data);
         setFilteredMeals(response.data);
       })
       .catch(function (error) {
@@ -62,7 +61,6 @@ function App() {
     setSelectedDinersMeals(filteredArray);
   }
 
-
   //On render the meals and users fetch functions are called.
   useEffect(() => {
     getUsers();
@@ -74,35 +72,33 @@ function App() {
     removeDislikedMeals();
   }, [dislikedMeals]);
 
-
-  
   return (
     <>
       <div className="titleContainer">
         <h1>Pick 'E' Eater</h1>
       </div>
       <div className="allFormsContainer">
-        <GetRandonMeals filteredMeals={filteredMeals}/>
-      <div>
-        <AddMealForm />
-      </div>
-      <div>
-        <AddDislikesForm allMeals={allMeals}  allDiners={allDiners}/>
-      </div>
-      <PeopleSelector
-        allDiners={allDiners}
-        selectedPeople={selectedPeople}
-        setSelectedPeople={setSelectedPeople}
-        dislikedMeals={dislikedMeals}
-        setDislikedMeals={setDislikedMeals}
-      />
-      <div>
-        <ResultsFilter
-          setFilteredMeals={setFilteredMeals} 
-          selectedDinersMeals={selectedDinersMeals}
-          allMeals={allMeals}
+        <GetRandonMeals filteredMeals={filteredMeals} />
+        <div>
+          <AddMealForm />
+        </div>
+        <div>
+          <AddDislikesForm allMeals={allMeals} allDiners={allDiners} />
+        </div>
+        <PeopleSelector
+          allDiners={allDiners}
+          selectedDiners={selectedDiners}
+          setSelectedDiners={setSelectedDiners}
+          dislikedMeals={dislikedMeals}
+          setDislikedMeals={setDislikedMeals}
         />
-      </div>
+        <div>
+          <ResultsFilter
+            setFilteredMeals={setFilteredMeals}
+            selectedDinersMeals={selectedDinersMeals}
+            allMeals={allMeals}
+          />
+        </div>
       </div>
       <div className="mealResultsDisplay">
         <MealResultsDisplay

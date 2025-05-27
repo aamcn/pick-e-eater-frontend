@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import FilterCheckBox from "./FilterCheckBox";
 
-function ResultsFilter({
-  allMeals,
-  selectedDinersMeals,
-  setFilteredMeals,
-}) {
+function ResultsFilter({ allMeals, selectedDinersMeals, setFilteredMeals }) {
   const [difficultyFields, setDifficultyFields] = useState([]);
   const [checkedDifficulties, setCheckedDifficulties] = useState([]);
   const [mealTypeFields, setMealTypeFields] = useState([]);
@@ -13,10 +9,14 @@ function ResultsFilter({
   const [mealSubTypeFields, setMealSubTypeFields] = useState([]);
   const [checkedMealSubTypes, setCheckedMealSubTypes] = useState([]);
 
-  const [hiddenDiff, setIsHiddenDiff] = useState(true)
-  const [hiddenType, setIsHiddenType] = useState(true)
-  const [hiddenSub, setIsHiddenSub] = useState(true)
+  const [hiddenDiff, setIsHiddenDiff] = useState(true);
+  const [hiddenType, setIsHiddenType] = useState(true);
+  const [hiddenSub, setIsHiddenSub] = useState(true);
 
+  /*
+    Extract each meals difficulty from the 'allMeals' array.
+    Removes duplicates from the array and stores the array of unique strings in the 'difficultyFields' array in state.
+  */
   function getMealDifficulties() {
     const difficultyArr = allMeals.map((meal) => {
       return meal.difficulty;
@@ -24,6 +24,10 @@ function ResultsFilter({
     setDifficultyFields([...new Set(difficultyArr)]);
   }
 
+  /* 
+    Extract each meals 'Type' from the 'allMeals' array. 
+    Removes duplicate types from the array and stores the array of unique types in the 'mealTypeFields' array in state.
+  */
   function getMealTypes() {
     const mealTypeArr = allMeals.map((meal) => {
       return meal.type;
@@ -31,6 +35,11 @@ function ResultsFilter({
     setMealTypeFields([...new Set(mealTypeArr)]);
   }
 
+  /*
+    Extract each meals 'sub_type' from the 'allMeals' array.
+    Removes duplicate 'sub_type' from the array and stores the array of unique 'sub_type' in the 'mealSubTypeFields' 
+    array in state.
+  */
   function getMealSubTypes() {
     const subTypeArr = allMeals.map((meal) => {
       return meal.sub_type;
@@ -38,6 +47,11 @@ function ResultsFilter({
     setMealSubTypeFields([...new Set(subTypeArr)]);
   }
 
+  /* 
+    Adds or removes a difficulty from 'checkedDifficulties' depending on whether the checkbox is checked or unchecked.
+    If checkbox is checked, insert the defaultValue (difficulty) into the checkedDifficultiess array in state.
+    If checkbox is unchecked, filter the defaultValue (difficulty) from the checkedDifficultiess array and update state.
+  */
   const handleDiffifcultyClick = (event) => {
     if (!event.target.checked)
       setCheckedDifficulties((checkedDifficulties) => [
@@ -45,13 +59,19 @@ function ResultsFilter({
         event.target.value,
       ]);
     if (event.target.checked) {
-      const t = checkedDifficulties.filter(
+      const filteredDifficultes = checkedDifficulties.filter(
         (value) => value != event.target.value,
       );
-      setCheckedDifficulties(t);
+      setCheckedDifficulties(filteredDifficultes);
     }
   };
 
+
+  /* 
+    Adds or removes a 'Type' from 'checkedMealTypes' depending on whether the checkbox is checked or unchecked.
+    If checkbox is checked, insert the defaultValue (Type) into the 'checkedMealTypes' array in state.
+    If checkbox is unchecked, filter the defaultValue (Type) from the 'checkedMealTypes' array and update state.
+  */
   const handleMealTypeClick = (event) => {
     if (!event.target.checked)
       setCheckedMealTypes((checkedMealTypes) => [
@@ -65,6 +85,11 @@ function ResultsFilter({
     }
   };
 
+   /* 
+    Adds or removes a 'sub_type' from 'checkedMealSubTypes' depending on whether the checkbox is checked or unchecked.
+    If checkbox is checked, insert the defaultValue (sub_type) into the 'checkedMealSubTypes' array in state.
+    If checkbox is unchecked, filter the defaultValue (sub_type) from the 'checkedMealSubTypes' array and update state.
+  */
   const handleMealSubTypeClick = (event) => {
     if (!event.target.checked)
       setCheckedMealSubTypes((checkedMealSubTypes) => [
@@ -80,36 +105,35 @@ function ResultsFilter({
     }
   };
 
-
+  //When button is clicked it toggles the display of the form depending on its current state.
   const handleToggleDiff = (event) => {
-    event.preventDefault()
-    if(hiddenDiff == true){
-        setIsHiddenDiff(false)
+    event.preventDefault();
+    if (hiddenDiff == true) {
+      setIsHiddenDiff(false);
     } else {
-        setIsHiddenDiff(true)
+      setIsHiddenDiff(true);
     }
-}
+  };
 
-const handleToggleType = (event) => {
-  event.preventDefault()
-  if(hiddenType == true){
-      setIsHiddenType(false)
-  } else {
-      setIsHiddenType(true)
-  }
-}
+  //When button is clicked it toggles the display of the form depending on its current state.
+  const handleToggleType = (event) => {
+    event.preventDefault();
+    if (hiddenType == true) {
+      setIsHiddenType(false);
+    } else {
+      setIsHiddenType(true);
+    }
+  };
 
-const handleToggleSub = (event) => {
-  event.preventDefault()
-  if(hiddenSub == true){
-      setIsHiddenSub(false)
-  } else {
-      setIsHiddenSub(true)
-  }
-}
-
-
-
+  //When button is clicked it toggles the display of the form depending on its current state.
+  const handleToggleSub = (event) => {
+    event.preventDefault();
+    if (hiddenSub == true) {
+      setIsHiddenSub(false);
+    } else {
+      setIsHiddenSub(true);
+    }
+  };
 
   function removeDiffMeals() {
     const filteredArray = selectedDinersMeals.filter((meal) => {
@@ -154,7 +178,8 @@ const handleToggleSub = (event) => {
       <div>
         <h4>Difficulty</h4>
         <button onClick={handleToggleDiff}>Choose Difficulty</button>
-    {!hiddenDiff && difficultyFields &&
+        {!hiddenDiff &&
+          difficultyFields &&
           difficultyFields.map((difficultyField) => {
             return (
               <FilterCheckBox
@@ -167,7 +192,8 @@ const handleToggleSub = (event) => {
       <div>
         <h4>Type</h4>
         <button onClick={handleToggleType}>Choose Types</button>
-    {!hiddenType && mealTypeFields &&
+        {!hiddenType &&
+          mealTypeFields &&
           mealTypeFields.map((typeField) => {
             return (
               <FilterCheckBox
@@ -180,7 +206,8 @@ const handleToggleSub = (event) => {
       <div>
         <h4>Cuisine</h4>
         <button onClick={handleToggleSub}>Choose subTypes</button>
-    {!hiddenSub && mealSubTypeFields &&
+        {!hiddenSub &&
+          mealSubTypeFields &&
           mealSubTypeFields.map((subTypeField) => {
             return (
               <FilterCheckBox

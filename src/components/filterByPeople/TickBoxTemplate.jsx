@@ -1,20 +1,25 @@
-function TickBoxTemplate({ person, setSelectedPeople, selectedPeople }) {
+function TickBoxTemplate({ diner, setSelectedDiners, selectedDiners }) {
+  
+  
+  //Adds or removes a diner depending on whether the checkbox is checked or unchecked.
   const tickedBox = (event) => {
+    //If checkbox is checked, insert the defaultValue (A diner) into the selectedDiners array and update state.
     if (event.target.checked)
-      setSelectedPeople((selectedPeople) => [...selectedPeople, person]);
+      setSelectedDiners((selectedDiners) => [...selectedDiners, diner]);
+    //If checkbox is unchecked, filter the defaultValue (diner) from the selectedDiners array and update state.
     if (!event.target.checked) {
-      const t = selectedPeople.filter((value) => value != person);
-      setSelectedPeople(t);
+      const filteredDiners = selectedDiners.filter((value) => value != diner);
+      setSelectedDiners(filteredDiners);
     }
   };
 
   return (
     <fieldset onChange={tickedBox}>
-      <label htmlFor={person.name}>{person.name}</label>
+      <label htmlFor={diner.name}>{diner.name}</label>
       <input
-        defaultValue={person}
-        id={person.name}
-        name={person.name}
+        defaultValue={diner}
+        id={diner.name}
+        name={diner.name}
         type="checkbox"
       />
     </fieldset>

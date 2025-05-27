@@ -1,23 +1,20 @@
 :root {
-  
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
- 
 }
 
-
-.titleContainer{
+.titleContainer {
   grid-column: 1/3;
   grid-row: 1;
 }
 
-.allFormsContainer{
+.allFormsContainer {
   grid-column: 1;
   grid-row: 2;
 }
 
-.mealsResultsDisplay{
+.mealsResultsDisplay {
   overflow: auto;
   grid-column: 2;
   grid-row: 2;
@@ -34,7 +31,7 @@ a:hover {
 
 body {
   margin: 0;
-  display:grid;
+  display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 30fr;
   min-width: 320px;
