@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import TickBoxTemplate from "./TickBoxTemplate";
 
 function PeopleSelector({ allDiners, setDislikedMeals }) {
-  
   const [selectedDiners, setSelectedDiners] = useState([]);
   const [hidden, setIsHidden] = useState(true);
 
@@ -14,12 +13,11 @@ function PeopleSelector({ allDiners, setDislikedMeals }) {
         dislikesArray.push(diner);
       });
     });
-  //Removes duplicate dislikes from the array before setting it to state.
+    //Removes duplicate dislikes from the array before setting it to state.
     let unique = [...new Set(dislikesArray)];
     setDislikedMeals(unique);
   };
 
-  
   //When button is clicked it toggles the display of the form depending on its current state.
   const handleToggle = (event) => {
     event.preventDefault();
@@ -37,7 +35,6 @@ function PeopleSelector({ allDiners, setDislikedMeals }) {
   useEffect(() => {
     collectDinerDislikes();
   }, [selectedDiners]);
-
 
   return (
     <div>

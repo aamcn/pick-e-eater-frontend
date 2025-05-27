@@ -2,18 +2,18 @@ import axios from "axios";
 import { useState } from "react";
 
 /* 
-    Renders a form allowing the user to select a diner and a meal, on form submission the diner ID and the meal ID
-    is posted to the server storing the meal in the diners disliked meals column.
+  Renders a form allowing the user to select a diner and a meal, on form submission the diner ID and the meal ID
+  is posted to the server storing the meal in the diners disliked meals column.
 */
-
 function AddDislikesForm({ allDiners, allMeals }) {
   const [hidden, setIsHidden] = useState(true);
 
-
-  //Prepares form data before posting to server
+  /* 
+    prepares form data before posting to server by creating formData object from the event.target and coverts 
+    it to JSON before passing it to the 'postFormData' function.
+  */
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    //Create formData object and coverts it to JSON and calls function to post form to server.
     const bodyFormData = new FormData(event.target);
     const formToJson = axios.formToJSON(bodyFormData);
     postFormData(formToJson);
@@ -46,7 +46,6 @@ function AddDislikesForm({ allDiners, allMeals }) {
     }
   };
 
-  
   const handleSelectChange = (event) => {
     console.log(event.target.value);
   };

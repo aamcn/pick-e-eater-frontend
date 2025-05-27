@@ -5,10 +5,16 @@ function GetRandonMeals({ filteredMeals }) {
   const [randomMeals, setRandomMeals] = useState([]);
   const [numberOfMeals, setNumberOfMeals] = useState(0);
 
+  //Returns a random integer between 0 and the passed in argument.
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
 
+  /*
+    When the user clicks the submit button the current random meals are cleared.
+    For the total 'numberOfMeals' a random integer is created, this integer is used as the index number 
+    to select a meal from the 'filteredMeals' array and add it to the randomMeals array in state.
+  */
   const handleGetRandomClick = (event) => {
     setRandomMeals([]);
     for (let i = 0; i < numberOfMeals; i++) {
@@ -18,6 +24,7 @@ function GetRandonMeals({ filteredMeals }) {
     }
   };
 
+  //When the user changes the input value, the value is stored in state (numberOfMeals).
   const handleDayChange = (event) => {
     setNumberOfMeals(event.target.value);
   };
@@ -26,7 +33,6 @@ function GetRandonMeals({ filteredMeals }) {
     <div>
       <input onChange={handleDayChange} type="number" min="1" max="7" />
       <button onClick={handleGetRandomClick}>Submit</button>
-
       <div>
         <RandomMealsDisplay randomMeals={randomMeals} />
       </div>

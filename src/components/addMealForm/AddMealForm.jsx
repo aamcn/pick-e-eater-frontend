@@ -3,11 +3,13 @@ import { useState } from "react";
 
 function AddMealForm() {
   const [hidden, setIsHidden] = useState(true);
-  
-  //Prepares form data to be posted to server as JSON. 
+
+  /* 
+    prepares form data before posting to server by creating formData object from the event.target and coverts 
+    it to JSON before passing it to the 'postFormData' function.
+  */
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    //Creates a formData object from event.target and converts it to JSON before passing it to 'postFormData' as an argument.
     const bodyFormData = new FormData(event.target);
     const formToJson = axios.formToJSON(bodyFormData);
     postFormData(formToJson);
