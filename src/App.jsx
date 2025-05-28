@@ -7,6 +7,7 @@ import AddMealForm from "./components/addMealForm/AddMealForm";
 import AddDislikesForm from "./components/addDislikesForm/AddDislikesForm";
 import GetRandonMeals from "./components/getRandomMeals/GetRandomMeals";
 import "./app.scss";
+import Header from "./components/header/Header";
 function App() {
   const [allDiners, setAllDiners] = useState([]);
   const [allMeals, setAllMeals] = useState([]);
@@ -76,9 +77,7 @@ function App() {
 
   return (
     <>
-      <div className="titleContainer">
-        <h1>Pick 'E' Eater</h1>
-      </div>
+      <Header />
       <div className="allFormsContainer">
         <GetRandonMeals filteredMeals={filteredMeals} />
         <div>
