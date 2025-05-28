@@ -90,15 +90,13 @@ function App() {
           dislikedMeals={dislikedMeals}
           setDislikedMeals={setDislikedMeals}
         />
-        <MealFilterControls
+        {/* <MealFilterControls
           setFilteredMeals={setFilteredMeals}
           selectedDinersMeals={selectedDinersMeals}
           allMeals={allMeals}
-        />
+        /> */}
       </div>
-      <MealResultsDisplay
-        filteredMeals={filteredMeals}
-      />
+      <MealResultsDisplay filteredMeals={filteredMeals} />
       <ToolBar />
     </>
   );

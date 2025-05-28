@@ -1,8 +1,14 @@
-@use '../../../base';
+@use "../../../base";
 
-.dinerCheckBox{
+.dinerCheckBox {
   display: flex;
   flex-direction: column;
-  background-color: base.$container-background-color;
+  background-color: base.$button-background-color;
+  border-radius: 0.5em;
+  width: 15%;
+  height: 15%;
+  text-align: center;
+  padding: 0.5em 0em 0.5em 0em;
+  font-family: base.$text-font;
+  color: base.$title-color;
 }
-

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./getRandomMeals.scss"
+import "./getRandomMeals.scss";
 import RandomMealsDisplay from "../randomMealsDisplay/RandomMealsDisplay";
 
 function GetRandonMeals({ filteredMeals }) {
@@ -31,7 +31,7 @@ function GetRandonMeals({ filteredMeals }) {
   };
 
   return (
-    <div className='randomMealContainer'>
+    <div className="randomMealContainer">
       <input onChange={handleDayChange} type="number" min="1" max="7" />
       <button onClick={handleGetRandomClick}>Submit</button>
       <div>

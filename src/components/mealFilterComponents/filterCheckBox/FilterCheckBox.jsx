@@ -1,8 +1,8 @@
-import "./filterCheckBox.scss"
+import "./filterCheckBox.scss";
 
 function FilterCheckBox({ field, onChange }) {
   return (
-    <div className='filterCheckBox' onChange={onChange}>
+    <div className="filterCheckBox" onChange={onChange}>
       <label htmlFor={field}>{field}</label>
       <input
         icon={"-"}

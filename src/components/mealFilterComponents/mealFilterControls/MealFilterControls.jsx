@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import FilterCheckBox from "../filterCheckBox/FilterCheckBox";
-import "./mealFilterControls.scss"
-function MealFilterControls({ allMeals, selectedDinersMeals, setFilteredMeals }) {
+import "./mealFilterControls.scss";
+function MealFilterControls({
+  allMeals,
+  selectedDinersMeals,
+  setFilteredMeals,
+}) {
   const [difficultyFields, setDifficultyFields] = useState([]);
   const [checkedDifficulties, setCheckedDifficulties] = useState([]);
   const [mealTypeFields, setMealTypeFields] = useState([]);
@@ -66,7 +70,6 @@ function MealFilterControls({ allMeals, selectedDinersMeals, setFilteredMeals })
     }
   };
 
-
   /* 
     Adds or removes a 'Type' from 'checkedMealTypes' depending on whether the checkbox is checked or unchecked.
     If checkbox is checked, insert the defaultValue (Type) into the 'checkedMealTypes' array in state.
@@ -85,7 +88,7 @@ function MealFilterControls({ allMeals, selectedDinersMeals, setFilteredMeals })
     }
   };
 
-   /* 
+  /* 
     Adds or removes a 'sub_type' from 'checkedMealSubTypes' depending on whether the checkbox is checked or unchecked.
     If checkbox is checked, insert the defaultValue (sub_type) into the 'checkedMealSubTypes' array in state.
     If checkbox is unchecked, filter the defaultValue (sub_type) from the 'checkedMealSubTypes' array and update state.
@@ -138,7 +141,7 @@ function MealFilterControls({ allMeals, selectedDinersMeals, setFilteredMeals })
   /*
   
   */
-  
+
   function removeDiffMeals() {
     const filteredArray = selectedDinersMeals.filter((meal) => {
       if (!checkedDifficulties.includes(meal.difficulty)) {
@@ -178,10 +181,10 @@ function MealFilterControls({ allMeals, selectedDinersMeals, setFilteredMeals })
   ]);
 
   return (
-    <div className='controlsContainer'>
-       <h4>Difficulty</h4>
-      <div className='filterOptionsContainer'>
-         { difficultyFields &&
+    <div className="controlsContainer">
+      <h4>Difficulty</h4>
+      <div className="filterOptionsContainer">
+        {difficultyFields &&
           difficultyFields.map((difficultyField) => {
             return (
               <FilterCheckBox
@@ -192,8 +195,8 @@ function MealFilterControls({ allMeals, selectedDinersMeals, setFilteredMeals })
           })}
       </div>
       <h4>Type</h4>
-      <div className='filterOptionsContainer'>
-             { mealTypeFields &&
+      <div className="filterOptionsContainer">
+        {mealTypeFields &&
           mealTypeFields.map((typeField) => {
             return (
               <FilterCheckBox
@@ -204,8 +207,8 @@ function MealFilterControls({ allMeals, selectedDinersMeals, setFilteredMeals })
           })}
       </div>
       <h4>Cuisine</h4>
-      <div className='filterOptionsContainer'>
-        { mealSubTypeFields &&
+      <div className="filterOptionsContainer">
+        {mealSubTypeFields &&
           mealSubTypeFields.map((subTypeField) => {
             return (
               <FilterCheckBox

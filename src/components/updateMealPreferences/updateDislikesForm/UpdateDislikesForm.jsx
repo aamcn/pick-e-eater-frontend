@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import "./updateDislikesForm.scss"
+import "./updateDislikesForm.scss";
 /* 
   Renders a form allowing the user to select a diner and a meal, on form submission the diner ID and the meal ID
   is posted to the server storing the meal in the diners disliked meals column.
@@ -51,7 +51,7 @@ function AddDislikesForm({ allDiners, allMeals }) {
   };
 
   return (
-    <div className='updateDislikesContainer'>
+    <div className="updateDislikesContainer">
       <button onClick={handleToggle}>Update dislikes</button>
       {!hidden && (
         <form onSubmit={handleFormSubmit}>

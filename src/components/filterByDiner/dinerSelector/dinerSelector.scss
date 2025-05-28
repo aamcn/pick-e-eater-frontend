@@ -1,18 +1,21 @@
-@use '../../../base';
+@use "../../../base";
 
-.dinerSelectorContainer{
+.dinerSelectorContainer {
   overflow: auto;
   background-color: base.$container-background-color;
   max-width: 100%;
 }
 
-
-.dinerCheckBoxes{
-  display:flex;
+.dinerCheckBoxes {
+  display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  padding: 1em 0em 1em 0em;
 }
 
-.dinerSelectorTitle{
-  text-align: center;
+.dinerSelectorTitle {
+  font-family: base.$title-font;
+  text-align: left;
+  margin-left: 1em;
+  font-size: 4vw;
 }

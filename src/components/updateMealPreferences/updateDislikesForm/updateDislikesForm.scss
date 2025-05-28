@@ -1,6 +1,6 @@
-@use '../../../base';
+@use "../../../base";
 
-.updateDislikesContainer{
+.updateDislikesContainer {
   overflow: auto;
   background-color: base.$container-background-color;
 }

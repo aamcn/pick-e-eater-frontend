@@ -1,7 +1,9 @@
-@use '../../../base';
+@use "../../../base";
 
-.filterCheckBox{
+.filterCheckBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   background-color: base.$container-background-color;
-  padding:1em;
+  padding: 0em 1em 0em 1em;
 }
-

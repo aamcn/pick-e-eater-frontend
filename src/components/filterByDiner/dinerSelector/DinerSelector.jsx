@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CheckBoxTemplate from "../checkBoxTemplate/CheckBoxTemplate";
-import './dinerSelector.scss'
+import "./dinerSelector.scss";
 function DinerSelector({ allDiners, setDislikedMeals }) {
   const [selectedDiners, setSelectedDiners] = useState([]);
   const [hidden, setIsHidden] = useState(true);
@@ -37,21 +37,23 @@ function DinerSelector({ allDiners, setDislikedMeals }) {
   }, [selectedDiners]);
 
   return (
-    <div className='dinerSelectorContainer'>
+    <div className="dinerSelectorContainer">
+      <hr></hr>
       <h3 className="dinerSelectorTitle">Choose Who's Eating</h3>
-        <div className="dinerCheckBoxes">
-          {allDiners &&
-            allDiners.map((diner) => {
-              return (
-                <CheckBoxTemplate
-                  key={`${diner.name}key`}
-                  diner={diner}
-                  selectedDiners={selectedDiners}
-                  setSelectedDiners={setSelectedDiners}
-                />
-              );
-            })}
-        </div>
+      <div className="dinerCheckBoxes">
+        {allDiners &&
+          allDiners.map((diner) => {
+            return (
+              <CheckBoxTemplate
+                key={`${diner.name}key`}
+                diner={diner}
+                selectedDiners={selectedDiners}
+                setSelectedDiners={setSelectedDiners}
+              />
+            );
+          })}
+      </div>
+      <hr></hr>
     </div>
   );
 }

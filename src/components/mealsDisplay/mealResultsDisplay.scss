@@ -1,9 +1,33 @@
-@use '../../base';
+@use "../../base";
 
-.mealDisplayContainer{
-  grid-row:3;
+.mealDisplayContainer {
+  grid-row: 3;
   overflow: auto;
   background-color: base.$container-background-color;
+  padding: 0.5em;
+  margin-bottom: 0.2em;
 }
 
+.mealDisplay {
+  padding: 0;
+  display: grid;
+  gap: 1em;
+  grid-template-columns: 1fr 1fr;
+}
 
+.mealCard {
+  border-radius: 1em;
+  list-style: none;
+  text-align: center;
+  background-color: base.$mealcard-background-color;
+  padding: 1em 0em 1em 0em;
+  font-family: base.$text-font;
+  border-bottom: solid base.$toolbar-background-color;
+}
+
+.mealTitle {
+  font-size: 4vw;
+  font-family: base.$title-font;
+  color: base.$title-color;
+  text-decoration: underline;
+}

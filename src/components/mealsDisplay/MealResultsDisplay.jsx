@@ -1,27 +1,21 @@
-
-import "./mealResultsDisplay.scss"
+import "./mealResultsDisplay.scss";
 
 function MealResultsDisplay({ meals, filteredMeals }) {
-
-
   return (
-    <div className='mealDisplayContainer'>
-      <h3>Meals</h3>
-      <ol>
-        <hr></hr>
+    <div className="mealDisplayContainer">
+      <ul className="mealDisplay">
         {filteredMeals &&
           filteredMeals.map((meal) => {
             return (
-              <li key={meal.id}>
-                <p>{meal.name}</p>
+              <li className="mealCard" key={meal.id}>
+                <h4 className="mealTitle">{meal.name}</h4>
                 <p>{meal.type}</p>
                 <p>{meal.sub_type}</p>
                 <p>{meal.difficulty}</p>
-                <hr></hr>
               </li>
             );
           })}
-      </ol>
+      </ul>
     </div>
   );
 }

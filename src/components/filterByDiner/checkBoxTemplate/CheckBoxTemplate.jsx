@@ -1,4 +1,4 @@
-import "./checkBoxTemplate.scss"
+import "./checkBoxTemplate.scss";
 
 function CheckBoxTemplate({ diner, setSelectedDiners, selectedDiners }) {
   /*
@@ -16,7 +16,7 @@ function CheckBoxTemplate({ diner, setSelectedDiners, selectedDiners }) {
   };
 
   return (
-    <div className='dinerCheckBox' onChange={tickedBox}>
+    <div className="dinerCheckBox" onChange={tickedBox}>
       <label htmlFor={diner.name}>{diner.name}</label>
       <input
         defaultValue={diner}

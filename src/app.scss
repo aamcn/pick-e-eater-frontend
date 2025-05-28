@@ -1,18 +1,17 @@
-@use 'base';
+@use "base";
 
 :root {
-  
 }
 
 body {
   margin: 0;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 5fr 5fr 1fr;
+  grid-template-rows: 1fr 1fr 8fr 1fr;
   min-width: 320px;
   height: 100svh;
   background-color: base.$main-background-color;
-  color:  base.$main-color;
+  color: base.$main-color;
 }
 
 .headerContainer {
@@ -20,10 +19,9 @@ body {
   grid-row: 1;
 }
 
-.allFormsContainer{
+.allFormsContainer {
   grid-row: 2;
   grid-column: 1;
-  background-color: red;
 }
 
 a {
@@ -41,13 +39,17 @@ h1 {
   text-align: center;
 }
 
-h1,h2,h3,h4{
-  margin:0;
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  color: base.$main-color;
 }
 
 button {
   border-radius: 1em;
-  border:none;
+  border: none;
   padding: 1em;
   font-size: 3.5vw;
   font-weight: 500;
@@ -61,7 +63,6 @@ button {
 button:hover {
   border-color: #646cff;
 }
-
 
 @media (prefers-color-scheme: light) {
   :root {

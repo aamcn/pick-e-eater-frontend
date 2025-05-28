@@ -1,1 +1,6 @@
-@use '../../../base';
+@use "../../../base";
+
+.headerContainer {
+  display: flex;
+  justify-content: center;
+}

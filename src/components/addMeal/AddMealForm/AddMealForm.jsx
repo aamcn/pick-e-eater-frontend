@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import "./addMealForm.scss"
+import "./addMealForm.scss";
 function AddMealForm() {
   const [hidden, setIsHidden] = useState(true);
 
@@ -43,7 +43,7 @@ function AddMealForm() {
   };
 
   return (
-    <div className='addMealContainer'>
+    <div className="addMealContainer">
       <button onClick={handleToggle}>Update Meals</button>
       {!hidden && (
         <form onSubmit={handleFormSubmit}>
