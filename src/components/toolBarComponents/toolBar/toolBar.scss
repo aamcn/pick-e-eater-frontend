@@ -10,3 +10,8 @@
   grid-row: 4;
   padding: 1em 0em 1em 0em;
 }
+
+.toolBarActionButton{
+  border:solid base.$mealcard-background-color;
+  color:base.$title-color;
+}

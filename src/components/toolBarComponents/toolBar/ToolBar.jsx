@@ -3,7 +3,7 @@ import "./toolBar.scss";
 function ToolBar() {
   return (
     <div className="toolBarContainer">
-      <button>Hi</button>
+      <button className="toolBarActionButton">+</button>
     </div>
   );
 }
