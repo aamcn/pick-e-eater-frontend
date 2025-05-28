@@ -5,7 +5,7 @@ import MealResultsDisplay from "./components/mealsDisplay/MealResultsDisplay";
 import ResultsFilter from "./components/filterResults/ResultsFilter";
 import AddMealForm from "./components/addMealForm/AddMealForm";
 import AddDislikesForm from "./components/addDislikesForm/AddDislikesForm";
-import GetRandonMeals from "./components/getRandomMeals/GetRandomMeals";
+import GetRandonMeals from "./components/randomMealSelector/getRandomMeals/GetRandomMeals";
 import "./app.scss";
 import Header from "./components/headerComponents/header/Header";
 function App() {
@@ -18,7 +18,7 @@ function App() {
 
   //Fetches peopleData from the people database table and stores it in state
   function getUsers() {
-    axios
+    axios 
       .get(
         "http://localhost:3000/people",
         { method: "cors" },
