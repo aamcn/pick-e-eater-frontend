@@ -8,6 +8,7 @@ import AddDislikesForm from "./components/updateMealPreferences/updateDislikesFo
 import GetRandonMeals from "./components/randomMealSelector/getRandomMeals/GetRandomMeals";
 import "./app.scss";
 import Header from "./components/headerComponents/header/Header";
+import ToolBar from "./components/toolBarComponents/toolBar/ToolBar";
 function App() {
   const [allDiners, setAllDiners] = useState([]);
   const [allMeals, setAllMeals] = useState([]);
@@ -18,7 +19,7 @@ function App() {
 
   //Fetches peopleData from the people database table and stores it in state
   function getUsers() {
-    axios 
+    axios
       .get(
         "http://localhost:3000/people",
         { method: "cors" },
@@ -70,14 +71,14 @@ function App() {
 
   //When 'dislikedMeals' state is updated 'removeDislikedMeals' function is called.
   useEffect(() => {
-    if(dislikedMeals.length >= 1){
-    removeDislikedMeals();
+    if (dislikedMeals.length >= 1) {
+      removeDislikedMeals();
     }
   }, [dislikedMeals]);
 
   return (
     <>
-      <Header /> 
+      <Header />
       <div className="allFormsContainer">
         <GetRandonMeals filteredMeals={filteredMeals} />
         <AddMealForm />
@@ -90,15 +91,15 @@ function App() {
           setDislikedMeals={setDislikedMeals}
         />
         <MealFilterControls
-            setFilteredMeals={setFilteredMeals}
-            selectedDinersMeals={selectedDinersMeals}
-            allMeals={allMeals} 
-          />
-      </div>
-        <MealResultsDisplay
-          filteredMeals={filteredMeals}
+          setFilteredMeals={setFilteredMeals}
+          selectedDinersMeals={selectedDinersMeals}
+          allMeals={allMeals}
         />
-      
+      </div>
+      <MealResultsDisplay
+        filteredMeals={filteredMeals}
+      />
+      <ToolBar />
     </>
   );
 }

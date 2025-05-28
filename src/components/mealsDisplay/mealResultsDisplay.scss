@@ -1,6 +1,7 @@
 @use '../../base';
 
 .mealDisplayContainer{
+  grid-row:3;
   overflow: auto;
   background-color: base.$container-background-color;
 }
