@@ -1,4 +1,4 @@
-import PageTitle from "./PageTitle";
+import PageTitle from "../pageTitle/PageTitle";
 
 function Header(){
 

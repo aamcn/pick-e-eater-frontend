@@ -1,4 +1,4 @@
-
+import "./pageTitle.scss"
 function PageTitle(){
 
     return(

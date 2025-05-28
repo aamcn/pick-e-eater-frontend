@@ -7,7 +7,7 @@ import AddMealForm from "./components/addMealForm/AddMealForm";
 import AddDislikesForm from "./components/addDislikesForm/AddDislikesForm";
 import GetRandonMeals from "./components/getRandomMeals/GetRandomMeals";
 import "./app.scss";
-import Header from "./components/header/Header";
+import Header from "./components/headerComponents/header/Header";
 function App() {
   const [allDiners, setAllDiners] = useState([]);
   const [allMeals, setAllMeals] = useState([]);
