@@ -3,8 +3,8 @@ import axios from "axios";
 import DinerSelector from "./components/filterByDiner/dinerSelector/DinerSelector";
 import MealResultsDisplay from "./components/mealsDisplay/MealResultsDisplay";
 import MealFilterControls from "./components/mealFilterComponents/mealFilterControls/MealFilterControls";
-import AddMealForm from "./components/addMealForm/AddMealForm";
-import AddDislikesForm from "./components/addDislikesForm/AddDislikesForm";
+import AddMealForm from "./components/addMeal/AddMealForm/AddMealForm";
+import AddDislikesForm from "./components/updateMealPreferences/updateDislikesForm/UpdateDislikesForm";
 import GetRandonMeals from "./components/randomMealSelector/getRandomMeals/GetRandomMeals";
 import "./app.scss";
 import Header from "./components/headerComponents/header/Header";
@@ -77,7 +77,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header /> 
       <div className="allFormsContainer">
         <GetRandonMeals filteredMeals={filteredMeals} />
         <AddMealForm />

@@ -1,33 +1,24 @@
 @use 'base';
 
 :root {
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  
 }
-
 
 body {
   margin: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 11fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 5fr 6fr;
   min-width: 320px;
-  min-height: 100svh;
+  height: 100svh;
+  background-color: base.$main-background-color;
+  color:  base.$main-color;
 }
-
 
 .headerContainer {
   grid-column: 1/3;
   grid-row: 1;
 }
-
-.allFormsContainer {
-  grid-column: 1;
-  grid-row: 2;
-}
-
-
 
 a {
   font-weight: 500;
@@ -44,29 +35,19 @@ h1 {
   text-align: center;
 }
 
-
-fieldset{
-  border:solid;
-  text-align: center;
-}
-
-input{
-  border:solid;
-}
-
-
-
 button {
-  border-radius: 8px;
+  border-radius: 1em;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  padding: 0.5em;
+  font-size: 1vw;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  font-family: base.$text-font;
+
+  background-color: base.$button-background-color;
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }

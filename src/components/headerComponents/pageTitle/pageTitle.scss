@@ -1,5 +1,7 @@
 @use '../../../base';
 
-h1{
-    color: base.$primary-color;
+.pageTitle{
+    font-family: base.$title-font;
+    color: base.$title-color;
+    text-shadow: 1px 1px 1px black;
 }

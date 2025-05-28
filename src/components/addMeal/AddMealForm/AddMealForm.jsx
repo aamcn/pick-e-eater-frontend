@@ -1,11 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
-
-/* 
-  Renders a form allowing the user to select a diner and a meal, on form submission the diner ID and the meal ID
-  is posted to the server storing the meal in the diners disliked meals column.
-*/
-function AddDislikesForm({ allDiners, allMeals }) {
+import "./addMealForm.scss"
+function AddMealForm() {
   const [hidden, setIsHidden] = useState(true);
 
   /* 
@@ -19,11 +15,11 @@ function AddDislikesForm({ allDiners, allMeals }) {
     postFormData(formToJson);
   };
 
-  //Function to post form to the server.
+  //Posts passed in formData to the server.
   function postFormData(formData) {
     axios
       .post(
-        "http://localhost:3000/people/add-meal-to-dislikes",
+        "http://localhost:3000/meals/add-new-meal",
         { formData },
         { method: "cors" },
         { withCredentials: true },
@@ -46,34 +42,26 @@ function AddDislikesForm({ allDiners, allMeals }) {
     }
   };
 
-  const handleSelectChange = (event) => {
-    console.log(event.target.value);
-  };
-
   return (
-    <div>
-      <button onClick={handleToggle}>Update dislikes</button>
+    <div className='addMealContainer'>
+      <button onClick={handleToggle}>Update Meals</button>
       {!hidden && (
         <form onSubmit={handleFormSubmit}>
           <fieldset>
-            <label htmlFor="personId">Person:</label>|
-            <select id="personId" name="personId" onChange={handleSelectChange}>
-              <option>Pick a Name</option>
-              {allDiners &&
-                allDiners.map((person) => {
-                  return <option value={person.id}>{person.name}</option>;
-                })}
-            </select>
+            <label htmlFor="name">Meal Name</label>
+            <input id="name" name="name" type="text" />
           </fieldset>
           <fieldset>
-            <label htmlFor="mealId">Meal:</label>|
-            <select id="mealId" name="mealId" onChange={handleSelectChange}>
-              <option>Pick a Meal</option>
-              {allMeals &&
-                allMeals.map((meal) => {
-                  return <option value={meal.id}>{meal.name}</option>;
-                })}
-            </select>
+            <label htmlFor="type">Type</label>
+            <input id="type" name="type" type="text" />
+          </fieldset>
+          <fieldset>
+            <label htmlFor="subType">Cuisine</label>
+            <input id="subType" name="subType" type="text" />
+          </fieldset>
+          <fieldset>
+            <label htmlFor="difficulty">Difficulty</label>
+            <input type="text" id="difficulty" name="difficulty" />
           </fieldset>
           <button type="submit">Submit</button>
         </form>
@@ -82,4 +70,4 @@ function AddDislikesForm({ allDiners, allMeals }) {
   );
 }
 
-export default AddDislikesForm;
+export default AddMealForm;
