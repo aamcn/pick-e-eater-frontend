@@ -1,6 +1,8 @@
+import "./filterCheckBox.scss"
+
 function FilterCheckBox({ field, onChange }) {
   return (
-    <fieldset onChange={onChange}>
+    <fieldset className='checkBoxContainer' onChange={onChange}>
       <label htmlFor={field}>{field}</label>
       <input
         icon={"-"}

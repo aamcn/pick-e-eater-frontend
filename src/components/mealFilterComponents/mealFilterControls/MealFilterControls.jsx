@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import FilterCheckBox from "./FilterCheckBox";
-
-function ResultsFilter({ allMeals, selectedDinersMeals, setFilteredMeals }) {
+import FilterCheckBox from "../filterCheckBox/FilterCheckBox";
+import "./mealFilterControls.scss"
+function MealFilterControls({ allMeals, selectedDinersMeals, setFilteredMeals }) {
   const [difficultyFields, setDifficultyFields] = useState([]);
   const [checkedDifficulties, setCheckedDifficulties] = useState([]);
   const [mealTypeFields, setMealTypeFields] = useState([]);
@@ -178,7 +178,7 @@ function ResultsFilter({ allMeals, selectedDinersMeals, setFilteredMeals }) {
   ]);
 
   return (
-    <div>
+    <div className='controlsContainer'>
       <h3>Filter</h3>
       <div>
         <h4>Difficulty</h4>
@@ -226,4 +226,4 @@ function ResultsFilter({ allMeals, selectedDinersMeals, setFilteredMeals }) {
   );
 }
 
-export default ResultsFilter;
+export default MealFilterControls;

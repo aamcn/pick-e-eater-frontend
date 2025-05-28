@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import PeopleSelector from "./components/filterByPeople/FilterByPeopleForm";
+import DinerSelector from "./components/filterByDiner/dinerSelector/DinerSelector";
 import MealResultsDisplay from "./components/mealsDisplay/MealResultsDisplay";
-import ResultsFilter from "./components/filterResults/ResultsFilter";
+import MealFilterControls from "./components/mealFilterComponents/mealFilterControls/MealFilterControls";
 import AddMealForm from "./components/addMealForm/AddMealForm";
 import AddDislikesForm from "./components/addDislikesForm/AddDislikesForm";
 import GetRandonMeals from "./components/randomMealSelector/getRandomMeals/GetRandomMeals";
@@ -80,32 +80,25 @@ function App() {
       <Header />
       <div className="allFormsContainer">
         <GetRandonMeals filteredMeals={filteredMeals} />
-        <div>
-          <AddMealForm />
-        </div>
-        <div>
-          <AddDislikesForm allMeals={allMeals} allDiners={allDiners} />
-        </div>
-        <PeopleSelector
+        <AddMealForm />
+        <AddDislikesForm allMeals={allMeals} allDiners={allDiners} />
+        <DinerSelector
           allDiners={allDiners}
           selectedDiners={selectedDiners}
           setSelectedDiners={setSelectedDiners}
           dislikedMeals={dislikedMeals}
           setDislikedMeals={setDislikedMeals}
         />
-        <div>
-          <ResultsFilter
+        <MealFilterControls
             setFilteredMeals={setFilteredMeals}
             selectedDinersMeals={selectedDinersMeals}
-            allMeals={allMeals}
+            allMeals={allMeals} 
           />
-        </div>
       </div>
-      <div className="mealResultsDisplay">
         <MealResultsDisplay
           filteredMeals={filteredMeals}
         />
-      </div>
+      
     </>
   );
 }

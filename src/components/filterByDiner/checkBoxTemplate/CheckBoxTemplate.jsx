@@ -1,4 +1,6 @@
-function TickBoxTemplate({ diner, setSelectedDiners, selectedDiners }) {
+import "./checkBoxTemplate.scss"
+
+function CheckBoxTemplate({ diner, setSelectedDiners, selectedDiners }) {
   /*
     Adds or removes a diner depending on whether the checkbox is checked or unchecked.
     If checkbox is checked, insert the defaultValue (A diner) into the selectedDiners array and updates state.
@@ -14,7 +16,7 @@ function TickBoxTemplate({ diner, setSelectedDiners, selectedDiners }) {
   };
 
   return (
-    <fieldset onChange={tickedBox}>
+    <fieldset className='dinerCheckBox' onChange={tickedBox}>
       <label htmlFor={diner.name}>{diner.name}</label>
       <input
         defaultValue={diner}
@@ -26,4 +28,4 @@ function TickBoxTemplate({ diner, setSelectedDiners, selectedDiners }) {
   );
 }
 
-export default TickBoxTemplate;
+export default CheckBoxTemplate;

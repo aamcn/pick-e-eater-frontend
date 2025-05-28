@@ -1,0 +1,8 @@
+@use '../../../base';
+
+.controlsContainer{
+  overflow: auto;
+  grid-column: 2;
+  grid-row: 2;
+  background-color: rgb(73, 58, 58);
+}

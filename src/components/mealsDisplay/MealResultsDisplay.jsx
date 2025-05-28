@@ -1,6 +1,11 @@
+
+import "./mealResultsDisplay.scss"
+
 function MealResultsDisplay({ meals, filteredMeals }) {
+
+
   return (
-    <>
+    <div className='mealDisplayContainer'>
       <h3>Meals</h3>
       <ol>
         <hr></hr>
@@ -17,7 +22,7 @@ function MealResultsDisplay({ meals, filteredMeals }) {
             );
           })}
       </ol>
-    </>
+    </div>
   );
 }
 

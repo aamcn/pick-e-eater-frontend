@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import TickBoxTemplate from "./TickBoxTemplate";
-
-function PeopleSelector({ allDiners, setDislikedMeals }) {
+import CheckBoxTemplate from "../checkBoxTemplate/CheckBoxTemplate";
+import './dinerSelector.scss'
+function DinerSelector({ allDiners, setDislikedMeals }) {
   const [selectedDiners, setSelectedDiners] = useState([]);
   const [hidden, setIsHidden] = useState(true);
 
@@ -37,14 +37,14 @@ function PeopleSelector({ allDiners, setDislikedMeals }) {
   }, [selectedDiners]);
 
   return (
-    <div>
+    <div className='dinerSelector'>
       <button onClick={handleToggle}>Choose Diners</button>
       {!hidden && (
         <form className="form">
           {allDiners &&
             allDiners.map((diner) => {
               return (
-                <TickBoxTemplate
+                <CheckBoxTemplate
                   key={`${diner.name}key`}
                   diner={diner}
                   selectedDiners={selectedDiners}
@@ -58,4 +58,4 @@ function PeopleSelector({ allDiners, setDislikedMeals }) {
   );
 }
 
-export default PeopleSelector;
+export default DinerSelector;
