@@ -18,7 +18,7 @@ function ResultsFilter({ allMeals, selectedDinersMeals, setFilteredMeals }) {
     Removes duplicates from the array and stores the array of unique strings in the 'difficultyFields' array in state.
   */
   function getMealDifficulties() {
-    const difficultyArr = allMeals.map((meal) => {
+    const difficultyArr = selectedDinersMeals.map((meal) => {
       return meal.difficulty;
     });
     setDifficultyFields([...new Set(difficultyArr)]);
@@ -66,6 +66,7 @@ function ResultsFilter({ allMeals, selectedDinersMeals, setFilteredMeals }) {
     }
   };
 
+
   /* 
     Adds or removes a 'Type' from 'checkedMealTypes' depending on whether the checkbox is checked or unchecked.
     If checkbox is checked, insert the defaultValue (Type) into the 'checkedMealTypes' array in state.
@@ -84,7 +85,7 @@ function ResultsFilter({ allMeals, selectedDinersMeals, setFilteredMeals }) {
     }
   };
 
-  /* 
+   /* 
     Adds or removes a 'sub_type' from 'checkedMealSubTypes' depending on whether the checkbox is checked or unchecked.
     If checkbox is checked, insert the defaultValue (sub_type) into the 'checkedMealSubTypes' array in state.
     If checkbox is unchecked, filter the defaultValue (sub_type) from the 'checkedMealSubTypes' array and update state.
@@ -135,8 +136,9 @@ function ResultsFilter({ allMeals, selectedDinersMeals, setFilteredMeals }) {
   };
 
   /*
-    
+  
   */
+  
   function removeDiffMeals() {
     const filteredArray = selectedDinersMeals.filter((meal) => {
       if (!checkedDifficulties.includes(meal.difficulty)) {
@@ -166,6 +168,7 @@ function ResultsFilter({ allMeals, selectedDinersMeals, setFilteredMeals }) {
   useEffect(() => {
     console.log(checkedMealTypes);
     console.log(checkedMealSubTypes);
+    console.log(checkedDifficulties);
     removeDiffMeals();
   }, [
     checkedDifficulties,

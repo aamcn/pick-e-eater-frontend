@@ -6,7 +6,7 @@ import ResultsFilter from "./components/filterResults/ResultsFilter";
 import AddMealForm from "./components/addMealForm/AddMealForm";
 import AddDislikesForm from "./components/addDislikesForm/AddDislikesForm";
 import GetRandonMeals from "./components/getRandomMeals/GetRandomMeals";
-
+import "./app.scss";
 function App() {
   const [allDiners, setAllDiners] = useState([]);
   const [allMeals, setAllMeals] = useState([]);

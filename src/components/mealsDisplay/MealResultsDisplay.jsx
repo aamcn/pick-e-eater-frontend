@@ -2,7 +2,7 @@ function MealResultsDisplay({ meals, filteredMeals }) {
   return (
     <>
       <h3>Meals</h3>
-      <ul>
+      <ol>
         <hr></hr>
         {filteredMeals &&
           filteredMeals.map((meal) => {
@@ -16,7 +16,7 @@ function MealResultsDisplay({ meals, filteredMeals }) {
               </li>
             );
           })}
-      </ul>
+      </ol>
     </>
   );
 }

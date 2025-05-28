@@ -1,3 +1,5 @@
+@use 'base';
+
 :root {
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -33,7 +35,7 @@ body {
   margin: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 30fr;
+  grid-template-rows: 1fr 10fr;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -41,6 +43,24 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-align: center;
+}
+
+
+fieldset{
+  border:solid;
+  text-align: center;
+}
+
+input{
+  border:solid;
+}
+
+ol{
+  overflow: auto;
+  height: 15%;
+  background-color: rgb(134, 134, 134);
+  border:solid;
 }
 
 button {
