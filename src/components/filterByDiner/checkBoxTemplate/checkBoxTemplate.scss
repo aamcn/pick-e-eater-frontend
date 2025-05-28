@@ -1,6 +1,8 @@
 @use '../../../base';
 
 .dinerCheckBox{
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
   background-color: base.$container-background-color;
 }
+

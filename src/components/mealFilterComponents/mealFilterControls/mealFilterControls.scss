@@ -1,6 +1,13 @@
 @use '../../../base';
 
 .controlsContainer{
-  overflow: auto;
   background-color: base.$container-background-color;
+  max-width:100vw;
+}
+
+.filterOptionsContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  overflow: scroll;
 }

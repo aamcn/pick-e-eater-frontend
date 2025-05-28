@@ -80,9 +80,9 @@ function App() {
     <>
       <Header />
       <div className="allFormsContainer">
-        <GetRandonMeals filteredMeals={filteredMeals} />
-        <AddMealForm />
-        <AddDislikesForm allMeals={allMeals} allDiners={allDiners} />
+        {/* <GetRandonMeals filteredMeals={filteredMeals} /> */}
+        {/* <AddMealForm /> */}
+        {/* <AddDislikesForm allMeals={allMeals} allDiners={allDiners} /> */}
         <DinerSelector
           allDiners={allDiners}
           selectedDiners={selectedDiners}

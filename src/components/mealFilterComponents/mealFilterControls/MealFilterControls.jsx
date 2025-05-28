@@ -179,12 +179,9 @@ function MealFilterControls({ allMeals, selectedDinersMeals, setFilteredMeals })
 
   return (
     <div className='controlsContainer'>
-      <h3>Filter</h3>
-      <div>
-        <h4>Difficulty</h4>
-        <button onClick={handleToggleDiff}>Choose Difficulty</button>
-        {!hiddenDiff &&
-          difficultyFields &&
+       <h4>Difficulty</h4>
+      <div className='filterOptionsContainer'>
+         { difficultyFields &&
           difficultyFields.map((difficultyField) => {
             return (
               <FilterCheckBox
@@ -194,11 +191,9 @@ function MealFilterControls({ allMeals, selectedDinersMeals, setFilteredMeals })
             );
           })}
       </div>
-      <div>
-        <h4>Type</h4>
-        <button onClick={handleToggleType}>Choose Types</button>
-        {!hiddenType &&
-          mealTypeFields &&
+      <h4>Type</h4>
+      <div className='filterOptionsContainer'>
+             { mealTypeFields &&
           mealTypeFields.map((typeField) => {
             return (
               <FilterCheckBox
@@ -208,11 +203,9 @@ function MealFilterControls({ allMeals, selectedDinersMeals, setFilteredMeals })
             );
           })}
       </div>
-      <div>
-        <h4>Cuisine</h4>
-        <button onClick={handleToggleSub}>Choose subTypes</button>
-        {!hiddenSub &&
-          mealSubTypeFields &&
+      <h4>Cuisine</h4>
+      <div className='filterOptionsContainer'>
+        { mealSubTypeFields &&
           mealSubTypeFields.map((subTypeField) => {
             return (
               <FilterCheckBox

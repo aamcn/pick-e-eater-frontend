@@ -37,10 +37,9 @@ function DinerSelector({ allDiners, setDislikedMeals }) {
   }, [selectedDiners]);
 
   return (
-    <div className='dinerSelector'>
-      <button onClick={handleToggle}>Choose Diners</button>
-      {!hidden && (
-        <form className="form">
+    <div className='dinerSelectorContainer'>
+      <h3 className="dinerSelectorTitle">Choose Who's Eating</h3>
+        <div className="dinerCheckBoxes">
           {allDiners &&
             allDiners.map((diner) => {
               return (
@@ -52,8 +51,7 @@ function DinerSelector({ allDiners, setDislikedMeals }) {
                 />
               );
             })}
-        </form>
-      )}
+        </div>
     </div>
   );
 }

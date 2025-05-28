@@ -1,5 +1,7 @@
 @use '../../../base';
 
-.checkBoxContainer{
+.filterCheckBox{
   background-color: base.$container-background-color;
+  padding:1em;
 }
+
