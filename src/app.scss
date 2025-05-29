@@ -68,6 +68,24 @@ button:hover {
   border-color: #646cff;
 }
 
+.toolBarButtons{
+  position:absolute;
+  display: flex;
+  flex-direction: row;
+  z-index:5;
+  bottom:9%;
+  justify-content: space-between;
+  align-items: center;
+  background-color:wheat;
+  padding:1em 0em 1em 0em;
+}
+
+.toolBarButton{
+  margin:0em 1em 0em 1em;
+  color: base.$main-color;
+  border:solid 0.5em base.$toolbar-background-color;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

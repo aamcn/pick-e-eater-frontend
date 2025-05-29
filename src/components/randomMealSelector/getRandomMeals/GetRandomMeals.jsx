@@ -32,7 +32,10 @@ function GetRandonMeals({ filteredMeals }) {
 
   return (
     <div className="randomMealContainer">
-      <input onChange={handleDayChange} type="number" min="1" max="7" />
+      <div>
+        <label>Number of Meals: </label>
+        <input onChange={handleDayChange} type="number" min="1" max="7" />
+      </div>
       <button onClick={handleGetRandomClick}>Submit</button>
       <div>
         <RandomMealsDisplay randomMeals={randomMeals} />

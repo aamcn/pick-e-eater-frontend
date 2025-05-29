@@ -3,7 +3,7 @@ import "./randomMealsDisplay.scss";
 function RandomMealsDisplay({ randomMeals }) {
   //Displays each meal from the array passed in as props
   return (
-    <div className="mealDisplayContainer">
+    <div className="randomDisplayContainer">
       {randomMeals.map((meal) => {
         return <p>{meal}</p>;
       })}

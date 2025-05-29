@@ -1,5 +1,13 @@
 @use "../../../base";
 
 .randomMealContainer {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding:1em;
+  position: absolute;
+  top:35%;
+  left:6%;
   background-color: base.$container-background-color;
+  width:80vw;
 }

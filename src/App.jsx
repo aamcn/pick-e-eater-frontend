@@ -16,6 +16,7 @@ function App() {
   const [selectedDinersMeals, setSelectedDinersMeals] = useState([]);
   const [filteredMeals, setFilteredMeals] = useState([]);
   const [selectedDiners, setSelectedDiners] = useState([]);
+  const [toolButtonsClassName, setToolButtonsClassName] = useState('toolBarButtons, hidden')
 
   //Fetches peopleData from the people database table and stores it in state
   function getUsers() {
@@ -79,9 +80,7 @@ function App() {
   return (
     <>
       <Header />
-        {/* <GetRandonMeals filteredMeals={filteredMeals} /> */}
-        {/* <AddMealForm /> */}
-        {/* <AddDislikesForm allMeals={allMeals} allDiners={allDiners} /> */}
+       
         <DinerSelector
           allDiners={allDiners}
           selectedDiners={selectedDiners}
@@ -95,7 +94,15 @@ function App() {
           allMeals={allMeals}
         />
       <MealResultsDisplay filteredMeals={filteredMeals} />
-      <ToolBar />
+      <ToolBar toolButtonsClassName={toolButtonsClassName} setToolButtonsClassName={setToolButtonsClassName}/>
+      <div className={toolButtonsClassName}>
+        <button className="toolBarButton" >Random Meal Generator</button>
+        <button className="toolBarButton" >Add New Meals</button>
+        <button className="toolBarButton" >Update Diner Preferences</button>
+      </div>
+       {/* <GetRandonMeals filteredMeals={filteredMeals} /> */}
+       {/* <AddMealForm /> */}
+       {/* <AddDislikesForm allMeals={allMeals} allDiners={allDiners} /> */}
     </>
   );
 }
