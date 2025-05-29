@@ -1,6 +1,6 @@
 @use "../../../base";
 
-.dinerCheckBox {
+.clicked {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -8,6 +8,23 @@
   background-color: base.$button-background-color;
   border-radius: 4em;
   border:solid base.$toolbar-background-color;
+  text-align: center;
+  min-width: 12vw;
+  height: 12vw;
+  padding: 1em;
+  font-family: base.$text-font;
+  color: base.$title-color;
+  margin:0em 0.5em 0em 0.5em;
+}
+
+.dinerCheckBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: base.$button-background-color;
+  border-radius: 4em;
+  border:solid white;
   text-align: center;
   min-width: 12vw;
   height: 12vw;
