@@ -6,8 +6,26 @@
   align-items: center;
   padding:1em;
   position: absolute;
-  top:35%;
-  left:6%;
+  left:2%;
+  top:40%;
   background-color: base.$container-background-color;
   width:80vw;
+  min-height: 20vh;
+  border:solid 1em base.$toolbar-background-color;
+  border-radius: 1em;
+  animation: grow-appear 0.5s;
 }
+
+@keyframes grow-appear {
+  0%{
+    opacity:0;
+    scale:0;
+  }
+}
+//  position: absolute;
+  
+//   
+//   display: grid;
+//   grid-template-rows: 11fr 1fr;
+//   z-index:4;
+//   background-color: base.$container-background-color; 

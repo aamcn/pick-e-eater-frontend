@@ -72,12 +72,14 @@ button:hover {
   position:absolute;
   display: flex;
   flex-direction: row;
-  z-index:5;
+  z-index:8;
   bottom:9%;
   justify-content: space-between;
   align-items: center;
   background-color:wheat;
   padding:1em 0em 1em 0em;
+  border-radius: 1em 1em 0em 0em;
+  animation: slide-up 0.5s;
 }
 
 .toolBarButton{
@@ -96,5 +98,11 @@ button:hover {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@keyframes slide-up {
+  0%{
+    transform: translateY(100%);
   }
 }
