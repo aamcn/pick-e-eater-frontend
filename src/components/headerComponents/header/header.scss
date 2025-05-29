@@ -1,6 +1,9 @@
 @use "../../../base";
 
 .headerContainer {
+  grid-row: 1;
+  grid-column: 1;
   display: flex;
   justify-content: center;
+  width:100vw;
 }

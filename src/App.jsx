@@ -79,7 +79,6 @@ function App() {
   return (
     <>
       <Header />
-      <div className="allFormsContainer">
         {/* <GetRandonMeals filteredMeals={filteredMeals} /> */}
         {/* <AddMealForm /> */}
         {/* <AddDislikesForm allMeals={allMeals} allDiners={allDiners} /> */}
@@ -89,13 +88,12 @@ function App() {
           setSelectedDiners={setSelectedDiners}
           dislikedMeals={dislikedMeals}
           setDislikedMeals={setDislikedMeals}
-        />
-        <MealFilterControls
+        /> 
+       <MealFilterControls
           setFilteredMeals={setFilteredMeals}
           selectedDinersMeals={selectedDinersMeals}
           allMeals={allMeals}
         />
-      </div>
       <MealResultsDisplay filteredMeals={filteredMeals} />
       <ToolBar />
     </>

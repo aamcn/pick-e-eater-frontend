@@ -13,7 +13,7 @@ function MealFilterControls({
   const [mealSubTypeFields, setMealSubTypeFields] = useState([]);
   const [checkedMealSubTypes, setCheckedMealSubTypes] = useState([]);
 
-  const [hiddenDiff, setIsHiddenDiff] = useState(true);
+  const [hiddenDiff, setIsHiddenDiff] = useState('controlsContainer, hidden');
   const [hiddenType, setIsHiddenType] = useState(true);
   const [hiddenSub, setIsHiddenSub] = useState(true);
 
@@ -109,32 +109,12 @@ function MealFilterControls({
   };
 
   //When button is clicked it toggles the display of the form depending on its current state.
-  const handleToggleDiff = (event) => {
+  const toggleFilterDisplay = (event) => {
     event.preventDefault();
-    if (hiddenDiff == true) {
-      setIsHiddenDiff(false);
+    if (hiddenDiff == 'controlsContainer') {
+      setIsHiddenDiff('controlsContainer, hidden');
     } else {
-      setIsHiddenDiff(true);
-    }
-  };
-
-  //When button is clicked it toggles the display of the form depending on its current state.
-  const handleToggleType = (event) => {
-    event.preventDefault();
-    if (hiddenType == true) {
-      setIsHiddenType(false);
-    } else {
-      setIsHiddenType(true);
-    }
-  };
-
-  //When button is clicked it toggles the display of the form depending on its current state.
-  const handleToggleSub = (event) => {
-    event.preventDefault();
-    if (hiddenSub == true) {
-      setIsHiddenSub(false);
-    } else {
-      setIsHiddenSub(true);
+      setIsHiddenDiff('controlsContainer');
     }
   };
 
@@ -181,44 +161,52 @@ function MealFilterControls({
   ]);
 
   return (
-    <div className="controlsContainer">
-      <h4>Difficulty</h4>
-      <div className="filterOptionsContainer">
-        {difficultyFields &&
-          difficultyFields.map((difficultyField) => {
-            return (
-              <FilterCheckBox
-                field={difficultyField}
-                onChange={handleDiffifcultyClick}
-              />
-            );
-          })}
+
+    <div className='mealFilterControls'>
+      <div className='filterToggleContainer'>
+        <button onClick={toggleFilterDisplay} className='toggleButton'>Filter</button>
       </div>
-      <h4>Type</h4>
-      <div className="filterOptionsContainer">
-        {mealTypeFields &&
-          mealTypeFields.map((typeField) => {
-            return (
-              <FilterCheckBox
-                field={typeField}
-                onChange={handleMealTypeClick}
-              />
-            );
-          })}
-      </div>
-      <h4>Cuisine</h4>
-      <div className="filterOptionsContainer">
-        {mealSubTypeFields &&
-          mealSubTypeFields.map((subTypeField) => {
-            return (
-              <FilterCheckBox
-                field={subTypeField}
-                onChange={handleMealSubTypeClick}
-              />
-            );
-          })}
+      <div className={hiddenDiff}>
+        <h4>Difficulty</h4>
+        <div className="filterOptionsContainer">
+          {difficultyFields &&
+            difficultyFields.map((difficultyField) => {
+              return (
+                <FilterCheckBox
+                  field={difficultyField}
+                  onChange={handleDiffifcultyClick}
+                />
+              );
+            })}
+        </div>
+        <h4>Type</h4>
+        <div className="filterOptionsContainer">
+          {mealTypeFields &&
+            mealTypeFields.map((typeField) => {
+              return (
+                <FilterCheckBox
+                  field={typeField}
+                  onChange={handleMealTypeClick}
+                />
+              );
+            })}
+        </div>
+        <h4>Cuisine</h4>
+        <div className="filterOptionsContainer">
+          {mealSubTypeFields &&
+            mealSubTypeFields.map((subTypeField) => {
+              return (
+                <FilterCheckBox
+                  field={subTypeField}
+                  onChange={handleMealSubTypeClick}
+                />
+              );
+            })}
+        </div>
+        
       </div>
     </div>
+
   );
 }
 
