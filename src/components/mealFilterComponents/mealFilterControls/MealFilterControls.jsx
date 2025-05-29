@@ -167,8 +167,11 @@ function MealFilterControls({
         <button onClick={toggleFilterDisplay} className='toggleButton'>Filter</button>
       </div>
       <div className={hiddenDiff}>
-        <h4>Difficulty</h4>
-        <div className="filterOptionsContainer">
+        <div className='filterOptionsContainer'>
+            <div className='filterTitleContainer'>
+          <h4 className='filterTitle'>Difficulty</h4>
+        </div>
+        <div className="filterOption">
           {difficultyFields &&
             difficultyFields.map((difficultyField) => {
               return (
@@ -179,8 +182,10 @@ function MealFilterControls({
               );
             })}
         </div>
-        <h4>Type</h4>
-        <div className="filterOptionsContainer">
+        <div className='filterTitleContainer'>
+          <h4 className='filterTitle'>Type</h4>
+        </div>
+        <div className="filterOption">
           {mealTypeFields &&
             mealTypeFields.map((typeField) => {
               return (
@@ -191,8 +196,10 @@ function MealFilterControls({
               );
             })}
         </div>
-        <h4>Cuisine</h4>
-        <div className="filterOptionsContainer">
+        <div className='filterTitleContainer'>
+          <h4 className='filterTitle'>Cuisine</h4>
+        </div>
+        <div className="filterOption">
           {mealSubTypeFields &&
             mealSubTypeFields.map((subTypeField) => {
               return (
@@ -203,7 +210,11 @@ function MealFilterControls({
               );
             })}
         </div>
+        </div>
         
+        <div className='filterToggleContainer'>
+          <button onClick={toggleFilterDisplay} className='toggleButton'>Done</button>
+        </div>
       </div>
     </div>
 
