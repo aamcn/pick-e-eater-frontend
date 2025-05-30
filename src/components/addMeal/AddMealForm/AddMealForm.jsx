@@ -62,8 +62,8 @@ function AddMealForm({ toggleFormDisplay }) {
           <input type="text" id="difficulty" name="difficulty" required />
         </fieldset>
         <div>
+          <button value="addMealForm" onClick={toggleFormDisplay} className='formButton' type="submit">Close</button>
           <button className='formButton' type="submit">Submit</button>
-          <button value="addMealForm" onClick={toggleFormDisplay} className='formButton' type="submit">Cancel</button>
         </div>
       </form>
     </div>

@@ -52,7 +52,7 @@ function AddDislikesForm({ allDiners, allMeals, toggleAddMealForm, toggleFormDis
 
   return (
     <div className="updateDislikesBackDrop">
-      <form  className="updateDislikesForm" onSubmit={handleFormSubmit}>
+      <form className="updateDislikesForm" onSubmit={handleFormSubmit}>
         <fieldset className='dislikesFieldSet'>
           <label htmlFor="personId">Person:</label>
           <select id="personId" name="personId" onChange={handleSelectChange}>
@@ -74,9 +74,8 @@ function AddDislikesForm({ allDiners, allMeals, toggleAddMealForm, toggleFormDis
           </select>
         </fieldset>
         <div>
+          <button value='updateDislikesForm' onClick={toggleFormDisplay} className='dislikesFormButton' type="button">Close</button>
           <button className='dislikesFormButton' type="submit">Submit</button>
-          <button value='updateDislikesForm' onClick={toggleFormDisplay} className='dislikesFormButton' type="button">Cancel</button>
-
         </div>
 
       </form>

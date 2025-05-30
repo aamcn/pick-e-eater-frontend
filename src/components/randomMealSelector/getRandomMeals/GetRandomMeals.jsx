@@ -17,12 +17,12 @@ function GetRandonMeals({ filteredMeals, toggleFormDisplay}) {
     to select a meal from the 'filteredMeals' array and add it to the randomMeals array in state.
   */
   const handleGetRandomClick = (event) => {
-    setRandomMeals([]);
-    for (let i = 0; i < numberOfMeals; i++) {
-      const mealIndex = getRandomInt(filteredMeals.length - 1);
-      const meal = filteredMeals[mealIndex];
-      setRandomMeals((randomMeals) => [...randomMeals, meal.name]);
+    let randomMealsArr = []
+    while(randomMealsArr.length < numberOfMeals) {
+      const meal = filteredMeals[getRandomInt(filteredMeals.length - 1)];
+      !randomMealsArr.includes(meal.name) ? randomMealsArr.push(meal.name) : null ;
     }
+    setRandomMeals(randomMealsArr);
   };
 
   //When the user changes the input value, the value is stored in state (numberOfMeals).
@@ -41,8 +41,8 @@ function GetRandonMeals({ filteredMeals, toggleFormDisplay}) {
         <RandomMealsDisplay randomMeals={randomMeals} />
       </div>
       <div>
-        <button className="randomMealFormButton" onClick={handleGetRandomClick}>Submit</button>
-        <button className="randomMealFormButton" value='randomMealForm' onClick={toggleFormDisplay}>Done</button>
+        <button className="randomMealFormButton" value='randomMealForm' onClick={toggleFormDisplay}>Close</button>
+        <button className="randomMealFormButton" onClick={handleGetRandomClick}>Randomize!</button>
       </div>
     </div>
     </div>
