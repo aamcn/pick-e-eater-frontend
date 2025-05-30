@@ -1,17 +1,26 @@
+import { useEffect, useState } from "react";
 import "./filterCheckBox.scss";
 
-function FilterCheckBox({ field, onChange }) {
+function FilterCheckBox({ field, onClick }) {
+
+const [isClicked, setIsClicked] = useState(true)
+
+const handleClicky = () => {
+  if(isClicked == false){
+    setIsClicked(true)
+  } else {
+    setIsClicked(false)
+  }
+}
+
+useEffect(() => {
+  console.log(isClicked)
+  onClick(isClicked, field)
+}, [isClicked])
+
   return (
-    <div className="filterCheckBox" onChange={onChange}>
-      <label htmlFor={field}>{field}</label>
-      <input
-        icon={"-"}
-        defaultChecked="checked"
-        defaultValue={field}
-        id={field}
-        name={field}
-        type="checkbox"
-      />
+    <div className={!isClicked ? 'filterCheckBox, isClicked' : 'filterCheckBox'} onClick={handleClicky}>
+      <p>{field}</p>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import "./checkBoxTemplate.scss";
 import { useState } from "react";
+
 function CheckBoxTemplate({ diner, setSelectedDiners, selectedDiners }) {
   const [isClicked, setIsClicked] = useState(false)
   /*
@@ -20,7 +21,7 @@ function CheckBoxTemplate({ diner, setSelectedDiners, selectedDiners }) {
 
   return (
     <div onClick={tickedBox} className={isClicked ? 'dinerCheckBox, clicked' : 'dinerCheckBox'} >
-      <p >{diner.name}</p>
+      <p>{diner.name}</p>
     </div>
   );
 }

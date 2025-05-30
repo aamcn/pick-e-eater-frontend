@@ -57,15 +57,15 @@ function MealFilterControls({
     If checkbox is checked, insert the defaultValue (difficulty) into the checkedDifficultiess array in state.
     If checkbox is unchecked, filter the defaultValue (difficulty) from the checkedDifficultiess array and update state.
   */
-  const handleDiffifcultyClick = (event) => {
-    if (!event.target.checked)
+  const handleDiffifcultyClick = (clicked, field) => {
+    if (clicked == false)
       setCheckedDifficulties((checkedDifficulties) => [
         ...checkedDifficulties,
-        event.target.value,
+        field,
       ]);
-    if (event.target.checked) {
+    if (clicked == true) {
       const filteredDifficultes = checkedDifficulties.filter(
-        (value) => value != event.target.value,
+        (value) => value != field,
       );
       setCheckedDifficulties(filteredDifficultes);
     }
@@ -76,15 +76,15 @@ function MealFilterControls({
     If checkbox is checked, insert the defaultValue (Type) into the 'checkedMealTypes' array in state.
     If checkbox is unchecked, filter the defaultValue (Type) from the 'checkedMealTypes' array and update state.
   */
-  const handleMealTypeClick = (event) => {
-    if (!event.target.checked)
+  const handleMealTypeClick = (clicked, field) => {
+    if (clicked == false)
       setCheckedMealTypes((checkedMealTypes) => [
         ...checkedMealTypes,
-        event.target.value,
+        field,
       ]);
-    if (event.target.checked) {
-      console.log(event.target.value);
-      const t = checkedMealTypes.filter((value) => value != event.target.value);
+    if (clicked == true) {
+      console.log(field);
+      const t = checkedMealTypes.filter((value) => value != field);
       setCheckedMealTypes(t);
     }
   };
@@ -94,16 +94,17 @@ function MealFilterControls({
     If checkbox is checked, insert the defaultValue (sub_type) into the 'checkedMealSubTypes' array in state.
     If checkbox is unchecked, filter the defaultValue (sub_type) from the 'checkedMealSubTypes' array and update state.
   */
-  const handleMealSubTypeClick = (event) => {
-    if (!event.target.checked)
+  const handleMealSubTypeClick = (clicked, field) => {
+    console.log(clicked)
+    if (clicked == false)
       setCheckedMealSubTypes((checkedMealSubTypes) => [
         ...checkedMealSubTypes,
-        event.target.value,
+        field,
       ]);
-    if (event.target.checked) {
-      console.log(event.target.value);
+    if (clicked == true) {
+      console.log(field);
       const r = checkedMealSubTypes.filter(
-        (value) => value !== event.target.value,
+        (value) => value !== field,
       );
       setCheckedMealSubTypes(r);
     }
@@ -184,7 +185,7 @@ function MealFilterControls({
               return (
                 <FilterCheckBox
                   field={difficultyField}
-                  onChange={handleDiffifcultyClick}
+                  onClick={handleDiffifcultyClick}
                 />
               );
             })}
@@ -198,7 +199,7 @@ function MealFilterControls({
               return (
                 <FilterCheckBox
                   field={typeField}
-                  onChange={handleMealTypeClick}
+                  onClick={handleMealTypeClick}
                 />
               );
             })}
@@ -212,7 +213,7 @@ function MealFilterControls({
               return (
                 <FilterCheckBox
                   field={subTypeField}
-                  onChange={handleMealSubTypeClick}
+                  onClick={handleMealSubTypeClick}
                 />
               );
             })}
