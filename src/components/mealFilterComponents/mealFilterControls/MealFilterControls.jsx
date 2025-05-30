@@ -14,7 +14,7 @@ function MealFilterControls({
   const [mealSubTypeFields, setMealSubTypeFields] = useState([]);
   const [checkedMealSubTypes, setCheckedMealSubTypes] = useState([]);
 
-  const [hiddenDiff, setIsHiddenDiff] = useState('controlsContainer, hidden');
+  const [hiddenDiff, setIsHiddenDiff] = useState('filterFormBackDrop, hidden');
   const [hiddenType, setIsHiddenType] = useState(true);
   const [hiddenSub, setIsHiddenSub] = useState(true);
 
@@ -116,10 +116,10 @@ function MealFilterControls({
     if(selectedDiners.length <= 0){
       alert('Please add a diner')
       return
-    }else if (hiddenDiff == 'controlsContainer') {
-      setIsHiddenDiff('controlsContainer, hidden');
+    }else if (hiddenDiff == 'filterFormBackDrop') {
+      setIsHiddenDiff('filterFormBackDrop, hidden');
     } else {
-      setIsHiddenDiff('controlsContainer');
+      setIsHiddenDiff('filterFormBackDrop');
     }
   };
 
@@ -171,8 +171,10 @@ function MealFilterControls({
       <div className='filterToggleContainer'>
         <button onClick={toggleFilterDisplay} className='toggleButton'>Filter</button>
       </div>
+
       <div className={hiddenDiff}>
-        <div className='filterOptionsContainer'>
+        <div className='filterForm'>
+            <div className='filterOptionsContainer'>
             <div className='filterTitleContainer'>
           <h4 className='filterTitle'>Difficulty</h4>
         </div>
@@ -220,6 +222,8 @@ function MealFilterControls({
         <div className='filterToggleContainer'>
           <button onClick={toggleFilterDisplay} className='toggleButton'>Done</button>
         </div>
+        </div>
+        
       </div>
     </div>
 
