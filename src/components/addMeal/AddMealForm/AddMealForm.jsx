@@ -43,27 +43,29 @@ function AddMealForm({ toggleFormDisplay }) {
   };
 
   return (
-    <div className="addMealContainer">
-        <form onSubmit={handleFormSubmit}>
-          <fieldset className="addMealFieldset">
-            <label htmlFor="name">Meal Name</label>
-            <input id="name" name="name" type="text" required/>
-          </fieldset>
-          <fieldset className="addMealFieldset">
-            <label htmlFor="type">Type</label>
-            <input id="type" name="type" type="text" required/>
-          </fieldset>
-          <fieldset className="addMealFieldset">
-            <label htmlFor="subType">Cuisine</label>
-            <input id="subType" name="subType" type="text" required/>
-          </fieldset>
-          <fieldset className="addMealFieldset">
-            <label htmlFor="difficulty">Difficulty</label>
-            <input type="text" id="difficulty" name="difficulty" required/>
-          </fieldset>
-          <button  className='formButton' type="submit">Submit</button>
+    <div className="addMealBackdrop">
+      <form className="addMealForm" onSubmit={handleFormSubmit}>
+        <fieldset className="addMealFieldset">
+          <label htmlFor="name">Meal Name</label>
+          <input id="name" name="name" type="text" required />
+        </fieldset>
+        <fieldset className="addMealFieldset">
+          <label htmlFor="type">Type</label>
+          <input id="type" name="type" type="text" required />
+        </fieldset>
+        <fieldset className="addMealFieldset">
+          <label htmlFor="subType">Cuisine</label>
+          <input id="subType" name="subType" type="text" required />
+        </fieldset>
+        <fieldset className="addMealFieldset">
+          <label htmlFor="difficulty">Difficulty</label>
+          <input type="text" id="difficulty" name="difficulty" required />
+        </fieldset>
+        <div>
+          <button className='formButton' type="submit">Submit</button>
           <button value="addMealForm" onClick={toggleFormDisplay} className='formButton' type="submit">Cancel</button>
-        </form>
+        </div>
+      </form>
     </div>
   );
 }

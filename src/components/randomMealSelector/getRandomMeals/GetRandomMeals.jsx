@@ -31,20 +31,21 @@ function GetRandonMeals({ filteredMeals, toggleFormDisplay}) {
   };
 
   return (
-    <div className="randomMealContainer">
+    <div className="formBackDrop">
+      <div className="randomMealContainer">
       <div>
         <label>Number of Meals: </label>
         <input onChange={handleDayChange} type="number" min="1" max="7" />
       </div>
-      <button onClick={handleGetRandomClick}>Submit</button>
       <div>
         <RandomMealsDisplay randomMeals={randomMeals} />
       </div>
       <div>
-        <button value='randomMealForm' onClick={toggleFormDisplay}>Done</button>
-        </div>
+        <button className="randomMealFormButton" onClick={handleGetRandomClick}>Submit</button>
+        <button className="randomMealFormButton" value='randomMealForm' onClick={toggleFormDisplay}>Done</button>
+      </div>
+    </div>
     </div>
   );
 }
-
 export default GetRandonMeals;

@@ -1,10 +1,22 @@
 @use "../../../base";
 
-.addMealContainer {
+
+.addMealBackdrop{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left:0%;
+  top:0%;
+  height:90vh;
+  width:100vw;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.addMealForm {
   position:absolute;
-  height: 40vh;
-  left:20%;
-  top:25%;
   overflow: auto;
   background-color: base.$container-background-color;
   display: flex;
@@ -13,6 +25,7 @@
   flex-direction: column;
   justify-content: center;
   animation: grow-appear 0.5s;
+  padding:1em;
 }
 
 .addMealFieldset{
