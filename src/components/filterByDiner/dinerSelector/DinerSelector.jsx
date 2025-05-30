@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import CheckBoxTemplate from "../checkBoxTemplate/CheckBoxTemplate";
 import "./dinerSelector.scss";
-function DinerSelector({ allDiners, setDislikedMeals }) {
-  const [selectedDiners, setSelectedDiners] = useState([]);
+function DinerSelector({ allDiners, setDislikedMeals, selectedDiners, setSelectedDiners }) {
   const [hidden, setIsHidden] = useState(true);
 
   //Extracts disliked meals from the currently selected diners and stores them in 'dislikesArray'.

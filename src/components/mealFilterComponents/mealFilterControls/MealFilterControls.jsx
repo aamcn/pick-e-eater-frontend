@@ -5,6 +5,7 @@ function MealFilterControls({
   allMeals,
   selectedDinersMeals,
   setFilteredMeals,
+  selectedDiners
 }) {
   const [difficultyFields, setDifficultyFields] = useState([]);
   const [checkedDifficulties, setCheckedDifficulties] = useState([]);
@@ -110,8 +111,12 @@ function MealFilterControls({
 
   //When button is clicked it toggles the display of the form depending on its current state.
   const toggleFilterDisplay = (event) => {
-    event.preventDefault();
-    if (hiddenDiff == 'controlsContainer') {
+    
+    console.log(selectedDiners)
+    if(selectedDiners.length <= 0){
+      alert('Please add a diner')
+      return
+    }else if (hiddenDiff == 'controlsContainer') {
       setIsHiddenDiff('controlsContainer, hidden');
     } else {
       setIsHiddenDiff('controlsContainer');

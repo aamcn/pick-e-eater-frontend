@@ -119,6 +119,7 @@ const toggleRandomMealSelector = (event) => {
           setDislikedMeals={setDislikedMeals}
         /> 
        <MealFilterControls
+          selectedDiners={selectedDiners}
           setFilteredMeals={setFilteredMeals}
           selectedDinersMeals={selectedDinersMeals}
           allMeals={allMeals}
