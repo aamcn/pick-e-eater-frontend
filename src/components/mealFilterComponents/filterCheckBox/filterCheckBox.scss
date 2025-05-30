@@ -5,10 +5,9 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  background-color: base.$container-background-color;
+  background-color: base.$mealcard-background-color;
   border:solid base.$toolbar-background-color;
   border-radius: 1em;
-  background-color: base.$button-background-color;
   margin:0em 0.1em 0em 0.1em;
   padding:0em 0.1em 0em 0.1em;
   font-family: base.$text-font;
@@ -20,18 +19,18 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  background-color: base.$container-background-color;
+  background-color: base.$button-background-color;
   border:solid white;
   border-radius: 1em;
-  background-color: base.$button-background-color;
   margin:0em 0.1em 0em 0.1em;
   font-family: base.$text-font;
-  min-width:20vw;
-  padding:0em 1em 0em 1em
+  min-width:23vw;
+  padding:0em 0.1em 0em 0.1em;
 }
 
 .filterOptionName{
   display: flex;
   flex-direction: row;
-  text-align: center; 
+  text-align: center;
+  color: base.$toolbar-background-color; 
 }
