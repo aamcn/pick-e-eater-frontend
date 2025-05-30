@@ -1,9 +1,38 @@
 @use "../../../base";
 
 .addMealContainer {
+  position:absolute;
+  height: 40vh;
+  left:20%;
+  top:25%;
   overflow: auto;
   background-color: base.$container-background-color;
   display: flex;
+  border:solid 1em base.$toolbar-background-color;
+  border-radius: 1em;
   flex-direction: column;
   justify-content: center;
+  animation: grow-appear 0.5s;
+}
+
+.addMealFieldset{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align:center;
+  border:none;
+  font-family: base.$title-font;
+}
+
+.formButton{
+  margin:0em 1em 0em 1em;
+  color: base.$main-color;
+  border:solid 0.5em base.$toolbar-background-color;
+}
+
+@keyframes grow-appear {
+  0%{
+    opacity:0;
+    scale:0;
+  }
 }

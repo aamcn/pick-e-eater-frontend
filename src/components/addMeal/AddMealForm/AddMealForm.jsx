@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import "./addMealForm.scss";
-function AddMealForm() {
+function AddMealForm({ toggleAddMealForm }) {
   const [hidden, setIsHidden] = useState(true);
 
   /* 
@@ -44,28 +44,26 @@ function AddMealForm() {
 
   return (
     <div className="addMealContainer">
-      <button onClick={handleToggle}>Update Meals</button>
-      {!hidden && (
         <form onSubmit={handleFormSubmit}>
-          <fieldset>
+          <fieldset className="addMealFieldset">
             <label htmlFor="name">Meal Name</label>
-            <input id="name" name="name" type="text" />
+            <input id="name" name="name" type="text" required/>
           </fieldset>
-          <fieldset>
+          <fieldset className="addMealFieldset">
             <label htmlFor="type">Type</label>
-            <input id="type" name="type" type="text" />
+            <input id="type" name="type" type="text" required/>
           </fieldset>
-          <fieldset>
+          <fieldset className="addMealFieldset">
             <label htmlFor="subType">Cuisine</label>
-            <input id="subType" name="subType" type="text" />
+            <input id="subType" name="subType" type="text" required/>
           </fieldset>
-          <fieldset>
+          <fieldset className="addMealFieldset">
             <label htmlFor="difficulty">Difficulty</label>
-            <input type="text" id="difficulty" name="difficulty" />
+            <input type="text" id="difficulty" name="difficulty" required/>
           </fieldset>
-          <button type="submit">Submit</button>
+          <button  className='formButton' type="submit">Submit</button>
+          <button onClick={toggleAddMealForm} className='formButton' type="submit">Cancel</button>
         </form>
-      )}
     </div>
   );
 }

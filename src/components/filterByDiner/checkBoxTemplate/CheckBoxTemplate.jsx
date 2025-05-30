@@ -19,8 +19,8 @@ function CheckBoxTemplate({ diner, setSelectedDiners, selectedDiners }) {
   };
 
   return (
-    <div className={isClicked ? 'dinerCheckBox, clicked' : 'dinerCheckBox'} >
-      <p onClick={tickedBox}>{diner.name}</p>
+    <div onClick={tickedBox} className={isClicked ? 'dinerCheckBox, clicked' : 'dinerCheckBox'} >
+      <p >{diner.name}</p>
     </div>
   );
 }

@@ -18,7 +18,7 @@ function App() {
   const [selectedDiners, setSelectedDiners] = useState([]);
   const [toolButtonsClassName, setToolButtonsClassName] = useState('toolBarButtons, hidden')
   const [randomMealsHidden, setRandomMealsHidden] = useState(true)
-
+  const [addMealHidden, setAddMealHidden] = useState(true)
 
 
   //Fetches peopleData from the people database table and stores it in state
@@ -89,6 +89,15 @@ const toggleRandomMealSelector = (event) => {
     }
   }
 
+  const toggleAddMealForm = (event) => {
+    event.preventDefault();
+    if (addMealHidden == true) {
+      setAddMealHidden(false);
+    } else {
+      setAddMealHidden(true);
+    }
+  }
+
 
   return (
     <>
@@ -109,11 +118,11 @@ const toggleRandomMealSelector = (event) => {
       <ToolBar toolButtonsClassName={toolButtonsClassName} setToolButtonsClassName={setToolButtonsClassName}/>
       <div className={toolButtonsClassName}>
         <button onClick={toggleRandomMealSelector} className="toolBarButton" >Random Meal Generator</button>
-        <button className="toolBarButton" >Add New Meals</button>
+        <button onClick={toggleAddMealForm} className="toolBarButton" >Add New Meals</button>
         <button className="toolBarButton" >Update Diner Preferences</button>
       </div>
       {!randomMealsHidden && <GetRandonMeals filteredMeals={filteredMeals} toggleRandomMealSelector={toggleRandomMealSelector}/>} 
-       {/* <AddMealForm /> */}
+       {!addMealHidden && <AddMealForm toggleAddMealForm={toggleAddMealForm} />}
        {/* <AddDislikesForm allMeals={allMeals} allDiners={allDiners} /> */}
     </>
   );
