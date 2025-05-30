@@ -6,12 +6,13 @@
   justify-content: space-evenly;
   align-items: center;
   background-color: base.$container-background-color;
-  padding: 0.5em;
   border:solid base.$toolbar-background-color;
   border-radius: 1em;
   background-color: base.$button-background-color;
-  margin:0em 0.5em 0em 0.5em;
+  margin:0em 0.1em 0em 0.1em;
+  padding:0em 0.1em 0em 0.1em;
   font-family: base.$text-font;
+  min-width:23vw;
 }
 
 .isClicked {
@@ -20,10 +21,17 @@
   justify-content: space-evenly;
   align-items: center;
   background-color: base.$container-background-color;
-  padding: 0.5em;
   border:solid white;
   border-radius: 1em;
   background-color: base.$button-background-color;
-  margin:0em 0.5em 0em 0.5em;
+  margin:0em 0.1em 0em 0.1em;
   font-family: base.$text-font;
+  min-width:20vw;
+  padding:0em 1em 0em 1em
+}
+
+.filterOptionName{
+  display: flex;
+  flex-direction: row;
+  text-align: center; 
 }

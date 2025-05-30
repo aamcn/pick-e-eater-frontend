@@ -20,7 +20,7 @@ useEffect(() => {
 
   return (
     <div className={!isClicked ? 'filterCheckBox, isClicked' : 'filterCheckBox'} onClick={handleClicky}>
-      <p>{field}</p>
+      <p className='filterOptionName'>{field}</p>
     </div>
   );
 }

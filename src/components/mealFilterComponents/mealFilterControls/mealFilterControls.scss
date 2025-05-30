@@ -14,7 +14,7 @@
   position: absolute;
   left:0%;
   top:0%;
-  height:90vh;
+  height:100vh;
   width:100vw;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
@@ -23,8 +23,7 @@
 .filterForm{
   position: absolute;
   height: 60vh;
-  left:6%;
-  top:20%;
+  width: 85vw;
   border:solid 1em base.$toolbar-background-color;
   border-radius: 1em;
   display: grid;
@@ -41,16 +40,15 @@
   display: flex;
   gap:0.5em;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   overflow: scroll;
-  width:80vw;
-  padding:0.5em 0em 0.5em 0em;
+  padding:1em 0.2em 1em 0.2em;
 }
 
 .filterOptionsContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   overflow: scroll;
 }
 
@@ -73,4 +71,5 @@
 
 .toggleButton{
   color:black;
+  border:solid base.$mealcard-background-color;
 }

@@ -23,16 +23,17 @@
   background-color: base.$container-background-color;
   width:60vw;
   min-height: 15vh;
-  border:solid 1em base.$toolbar-background-color;
+  border:solid 0.5em base.$toolbar-background-color;
+  outline: solid base.$mealcard-background-color;
   border-radius: 1em;
   animation: grow-appear 0.5s;
   font-family: base.$title-font;
 }
 
 .randomMealFormButton{
-  margin:0em 1em 0em 1em;
-  color: base.$main-color;
-  border:solid 0.5em base.$toolbar-background-color;
+   margin:2em 1em 0em 1em;
+  color: base.$mealcard-background-color;
+  background-color:base.$toolbar-background-color;
 }
 
 @keyframes grow-appear {
