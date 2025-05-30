@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import "./addMealForm.scss";
-function AddMealForm({ toggleAddMealForm }) {
+function AddMealForm({ toggleFormDisplay }) {
   const [hidden, setIsHidden] = useState(true);
 
   /* 
@@ -62,10 +62,12 @@ function AddMealForm({ toggleAddMealForm }) {
             <input type="text" id="difficulty" name="difficulty" required/>
           </fieldset>
           <button  className='formButton' type="submit">Submit</button>
-          <button onClick={toggleAddMealForm} className='formButton' type="submit">Cancel</button>
+          <button value="addMealForm" onClick={toggleFormDisplay} className='formButton' type="submit">Cancel</button>
         </form>
     </div>
   );
 }
+
+
 
 export default AddMealForm;

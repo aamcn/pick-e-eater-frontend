@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./getRandomMeals.scss";
 import RandomMealsDisplay from "../randomMealsDisplay/RandomMealsDisplay";
 
-function GetRandonMeals({ filteredMeals, toggleRandomMealSelector}) {
+function GetRandonMeals({ filteredMeals, toggleFormDisplay}) {
   const [randomMeals, setRandomMeals] = useState([]);
   const [numberOfMeals, setNumberOfMeals] = useState(0);
 
@@ -41,7 +41,7 @@ function GetRandonMeals({ filteredMeals, toggleRandomMealSelector}) {
         <RandomMealsDisplay randomMeals={randomMeals} />
       </div>
       <div>
-        <button onClick={toggleRandomMealSelector}>Done</button>
+        <button value='randomMealForm' onClick={toggleFormDisplay}>Done</button>
         </div>
     </div>
   );

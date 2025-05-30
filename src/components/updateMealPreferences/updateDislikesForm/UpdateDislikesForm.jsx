@@ -5,7 +5,7 @@ import "./updateDislikesForm.scss";
   Renders a form allowing the user to select a diner and a meal, on form submission the diner ID and the meal ID
   is posted to the server storing the meal in the diners disliked meals column.
 */
-function AddDislikesForm({ allDiners, allMeals, toggleUpdatePreferences }) {
+function AddDislikesForm({ allDiners, allMeals, toggleAddMealForm }) {
   const [hidden, setIsHidden] = useState(true);
 
   /* 
@@ -74,7 +74,7 @@ function AddDislikesForm({ allDiners, allMeals, toggleUpdatePreferences }) {
             </select>
           </fieldset>
           <button className='dislikesFormButton' type="submit">Submit</button>
-          <button onClick={toggleUpdatePreferences} className='dislikesFormButton' type="button">Cancel</button>
+          <button value='updateDislikesForm' onClick={toggleAddMealForm} className='dislikesFormButton' type="button">Cancel</button>
         </form>
     </div>
   );
