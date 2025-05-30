@@ -62,6 +62,7 @@
 .filterTitleContainer{
   align-content:center;
   padding-left:1em;
+  
 }
 
 .filterTitle{
@@ -70,6 +71,11 @@
 }
 
 .toggleButton{
-  color:black;
-  border:solid base.$mealcard-background-color;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: base.$mealcard-background-color;
+  border: none;
+  background-color: base.$toolbar-background-color;
+  padding:0.1em;
 }

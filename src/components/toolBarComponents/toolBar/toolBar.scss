@@ -14,6 +14,7 @@
 }
 
 .toolBarActionButton{
-  border:solid base.$mealcard-background-color;
+  padding:0em;
   color:base.$title-color;
+  background-color: base.$toolbar-background-color;
 }

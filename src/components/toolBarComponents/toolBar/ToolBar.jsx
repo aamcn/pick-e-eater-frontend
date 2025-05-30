@@ -1,5 +1,5 @@
 import "./toolBar.scss";
-
+import toolIcon from "../../../assets/svg/toolBarIcon.svg"
 
 function ToolBar({ toolButtonsClassName, setToolButtonsClassName }) {
 
@@ -14,7 +14,7 @@ function ToolBar({ toolButtonsClassName, setToolButtonsClassName }) {
 
   return (
     <div className="toolBarContainer">
-      <button onClick={toggleToolButtonsDisplay} className="toolBarActionButton">+</button>
+      <button onClick={toggleToolButtonsDisplay} className="toolBarActionButton"><img width='40vw' src={toolIcon}></img></button>
     </div>
   );
 }

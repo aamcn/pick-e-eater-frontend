@@ -9,6 +9,11 @@ import GetRandonMeals from "./components/randomMealSelector/getRandomMeals/GetRa
 import "./app.scss";
 import Header from "./components/headerComponents/header/Header";
 import ToolBar from "./components/toolBarComponents/toolBar/ToolBar";
+import addMealsIcon from './assets/svg/addMealsIcon.svg'
+import randomMealIcon from './assets/svg/randomMealIcon.svg'
+import preferencesIcon from './assets/svg/preferencesIcon.svg'
+
+
 function App() {
   const [allDiners, setAllDiners] = useState([]);
   const [allMeals, setAllMeals] = useState([]);
@@ -92,6 +97,7 @@ const toggleFormDisplay = (event) => {
   return (
     <>
       <Header />
+      
         <DinerSelector
           allDiners={allDiners}
           selectedDiners={selectedDiners}
@@ -105,12 +111,12 @@ const toggleFormDisplay = (event) => {
           selectedDinersMeals={selectedDinersMeals}
           allMeals={allMeals}
         />
-      <MealResultsDisplay filteredMeals={filteredMeals} />
+      <MealResultsDisplay filteredMeals={filteredMeals} /> 
       <ToolBar toolButtonsClassName={toolButtonsClassName} setToolButtonsClassName={setToolButtonsClassName}/>
       <div className={toolButtonsClassName}>
-        <button onClick={toggleFormDisplay} value='randomMealForm' className="toolBarButton" >Random Meal Generator</button>
-        <button onClick={toggleFormDisplay} value='addMealForm' className="toolBarButton" >Add New Meals</button>
-        <button onClick={toggleFormDisplay} value='updateDislikesForm' className="toolBarButton" >Update Diner Preferences</button>
+        <button onClick={toggleFormDisplay} value='randomMealForm' className="toolBarButton" >Random<img width='40vw' src={randomMealIcon}></img><br></br>Meals</button>
+        <button onClick={toggleFormDisplay} value='addMealForm' className="toolBarButton" >Add<br></br><img width='40vw' src={addMealsIcon}></img><br></br>Meal</button>
+        <button onClick={toggleFormDisplay} value='updateDislikesForm' className="toolBarButton" >Update<img width='37vw' src={preferencesIcon}></img>Preferences</button>
       </div>
       {formToDisplay == 'randomMealForm' && <GetRandonMeals filteredMeals={filteredMeals} toggleFormDisplay={toggleFormDisplay}/>} 
       {formToDisplay == 'addMealForm' && <AddMealForm toggleFormDisplay={toggleFormDisplay} />}

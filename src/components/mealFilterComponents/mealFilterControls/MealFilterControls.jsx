@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import FilterCheckBox from "../filterCheckBox/FilterCheckBox";
 import "./mealFilterControls.scss";
+import logo from '../../../assets/svg/cookBook.svg'
 function MealFilterControls({
   allMeals,
   selectedDinersMeals,
@@ -170,7 +171,8 @@ function MealFilterControls({
 
     <div className='mealFilterControls'>
       <div className='filterToggleContainer'>
-        <button onClick={toggleFilterDisplay} className='toggleButton'>Filter</button>
+        
+        <button onClick={toggleFilterDisplay} className='toggleButton'><img width='40vw' src={logo}></img>Filter</button>
       </div>
 
       <div className={hiddenDiff}>
