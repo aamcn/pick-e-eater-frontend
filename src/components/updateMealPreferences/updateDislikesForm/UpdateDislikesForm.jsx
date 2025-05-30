@@ -5,7 +5,7 @@ import "./updateDislikesForm.scss";
   Renders a form allowing the user to select a diner and a meal, on form submission the diner ID and the meal ID
   is posted to the server storing the meal in the diners disliked meals column.
 */
-function AddDislikesForm({ allDiners, allMeals }) {
+function AddDislikesForm({ allDiners, allMeals, toggleUpdatePreferences }) {
   const [hidden, setIsHidden] = useState(true);
 
   /* 
@@ -52,11 +52,9 @@ function AddDislikesForm({ allDiners, allMeals }) {
 
   return (
     <div className="updateDislikesContainer">
-      <button onClick={handleToggle}>Update dislikes</button>
-      {!hidden && (
         <form onSubmit={handleFormSubmit}>
-          <fieldset>
-            <label htmlFor="personId">Person:</label>|
+          <fieldset className='dislikesFieldSet'>
+            <label htmlFor="personId">Person:</label>
             <select id="personId" name="personId" onChange={handleSelectChange}>
               <option>Pick a Name</option>
               {allDiners &&
@@ -65,8 +63,8 @@ function AddDislikesForm({ allDiners, allMeals }) {
                 })}
             </select>
           </fieldset>
-          <fieldset>
-            <label htmlFor="mealId">Meal:</label>|
+          <fieldset className='dislikesFieldSet'>
+            <label htmlFor="mealId">Meal:</label>
             <select id="mealId" name="mealId" onChange={handleSelectChange}>
               <option>Pick a Meal</option>
               {allMeals &&
@@ -75,9 +73,9 @@ function AddDislikesForm({ allDiners, allMeals }) {
                 })}
             </select>
           </fieldset>
-          <button type="submit">Submit</button>
+          <button className='dislikesFormButton' type="submit">Submit</button>
+          <button onClick={toggleUpdatePreferences} className='dislikesFormButton' type="button">Cancel</button>
         </form>
-      )}
     </div>
   );
 }
