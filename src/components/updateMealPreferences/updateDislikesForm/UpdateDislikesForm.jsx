@@ -5,7 +5,12 @@ import "./updateDislikesForm.scss";
   Renders a form allowing the user to select a diner and a meal, on form submission the diner ID and the meal ID
   is posted to the server storing the meal in the diners disliked meals column.
 */
-function AddDislikesForm({ allDiners, allMeals, toggleAddMealForm, toggleFormDisplay }) {
+function AddDislikesForm({
+  allDiners,
+  allMeals,
+  toggleAddMealForm,
+  toggleFormDisplay,
+}) {
   const [hidden, setIsHidden] = useState(true);
 
   /* 
@@ -23,7 +28,7 @@ function AddDislikesForm({ allDiners, allMeals, toggleAddMealForm, toggleFormDis
   function postFormData(formData) {
     axios
       .post(
-        "http://localhost:3000/people/add-meal-to-dislikes",
+        "https://pick-e-eater-backend-production.up.railway.app/diners/add-meal-to-dislikes",
         { formData },
         { method: "cors" },
         { withCredentials: true },
@@ -53,7 +58,7 @@ function AddDislikesForm({ allDiners, allMeals, toggleAddMealForm, toggleFormDis
   return (
     <div className="updateDislikesBackDrop">
       <form className="updateDislikesForm" onSubmit={handleFormSubmit}>
-        <fieldset className='dislikesFieldSet'>
+        <fieldset className="dislikesFieldSet">
           <label htmlFor="personId">Person:</label>
           <select id="personId" name="personId" onChange={handleSelectChange}>
             <option>Pick a Name</option>
@@ -63,7 +68,7 @@ function AddDislikesForm({ allDiners, allMeals, toggleAddMealForm, toggleFormDis
               })}
           </select>
         </fieldset>
-        <fieldset className='dislikesFieldSet'>
+        <fieldset className="dislikesFieldSet">
           <label htmlFor="mealId">Meal:</label>
           <select id="mealId" name="mealId" onChange={handleSelectChange}>
             <option>Pick a Meal</option>
@@ -74,10 +79,18 @@ function AddDislikesForm({ allDiners, allMeals, toggleAddMealForm, toggleFormDis
           </select>
         </fieldset>
         <div>
-          <button value='updateDislikesForm' onClick={toggleFormDisplay} className='dislikesFormButton' type="button">Close</button>
-          <button className='dislikesFormButton' type="submit">Submit</button>
+          <button
+            value="updateDislikesForm"
+            onClick={toggleFormDisplay}
+            className="dislikesFormButton"
+            type="button"
+          >
+            Close
+          </button>
+          <button className="dislikesFormButton" type="submit">
+            Submit
+          </button>
         </div>
-
       </form>
     </div>
   );

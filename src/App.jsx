@@ -9,10 +9,9 @@ import GetRandonMeals from "./components/randomMealSelector/getRandomMeals/GetRa
 import "./app.scss";
 import Header from "./components/headerComponents/header/Header";
 import ToolBar from "./components/toolBarComponents/toolBar/ToolBar";
-import addMealsIcon from './assets/svg/addMealsIcon.svg'
-import randomMealIcon from './assets/svg/randomMealIcon.svg'
-import preferencesIcon from './assets/svg/preferencesIcon.svg'
-
+import addMealsIcon from "./assets/svg/addMealsIcon.svg";
+import randomMealIcon from "./assets/svg/randomMealIcon.svg";
+import preferencesIcon from "./assets/svg/preferencesIcon.svg";
 
 function App() {
   const [allDiners, setAllDiners] = useState([]);
@@ -21,14 +20,16 @@ function App() {
   const [selectedDinersMeals, setSelectedDinersMeals] = useState([]);
   const [filteredMeals, setFilteredMeals] = useState([]);
   const [selectedDiners, setSelectedDiners] = useState([]);
-  const [toolButtonsClassName, setToolButtonsClassName] = useState('toolBarButtons, hidden')
-  const [formToDisplay, setFormToDisplay] = useState(false)
+  const [toolButtonsClassName, setToolButtonsClassName] = useState(
+    "toolBarButtons, hidden",
+  );
+  const [formToDisplay, setFormToDisplay] = useState(false);
 
   //Fetches peopleData from the people database table and stores it in state
   function getUsers() {
     axios
       .get(
-        "http://localhost:3000/people",
+        "https://pick-e-eater-backend-production.up.railway.app/diners/",
         { method: "cors" },
         { withCredentials: true },
       )
@@ -44,7 +45,7 @@ function App() {
   function getMeals() {
     axios
       .get(
-        "http://localhost:3000/meals",
+        "https://pick-e-eater-backend-production.up.railway.app/meals/",
         { method: "cors" },
         { withCredentials: true },
       )
@@ -83,44 +84,81 @@ function App() {
     }
   }, [dislikedMeals]);
 
-const toggleFormDisplay = (event) => {
+  const toggleFormDisplay = (event) => {
     event.preventDefault();
     if (formToDisplay != event.target.value) {
       setFormToDisplay(event.target.value);
     } else {
       setFormToDisplay(false);
     }
-    setToolButtonsClassName('toolBarButtons, hidden')
-  }
-
+    setToolButtonsClassName("toolBarButtons, hidden");
+  };
 
   return (
     <>
       <Header />
-      
-        <DinerSelector
-          allDiners={allDiners}
-          selectedDiners={selectedDiners}
-          setSelectedDiners={setSelectedDiners}
-          dislikedMeals={dislikedMeals}
-          setDislikedMeals={setDislikedMeals}
-        /> 
-       <MealFilterControls
-          selectedDiners={selectedDiners}
-          setFilteredMeals={setFilteredMeals}
-          selectedDinersMeals={selectedDinersMeals}
-          allMeals={allMeals}
-        />
-      <MealResultsDisplay filteredMeals={filteredMeals} /> 
-      <ToolBar toolButtonsClassName={toolButtonsClassName} setToolButtonsClassName={setToolButtonsClassName}/>
+
+      <DinerSelector
+        allDiners={allDiners}
+        selectedDiners={selectedDiners}
+        setSelectedDiners={setSelectedDiners}
+        dislikedMeals={dislikedMeals}
+        setDislikedMeals={setDislikedMeals}
+      />
+      <MealFilterControls
+        selectedDiners={selectedDiners}
+        setFilteredMeals={setFilteredMeals}
+        selectedDinersMeals={selectedDinersMeals}
+        allMeals={allMeals}
+      />
+      <MealResultsDisplay filteredMeals={filteredMeals} />
+
+      <ToolBar
+        toolButtonsClassName={toolButtonsClassName}
+        setToolButtonsClassName={setToolButtonsClassName}
+      />
       <div className={toolButtonsClassName}>
-        <button onClick={toggleFormDisplay} value='randomMealForm' className="toolBarButton" >Random<img width='40vw' src={randomMealIcon}></img><br></br>Meals</button>
-        <button onClick={toggleFormDisplay} value='addMealForm' className="toolBarButton" >Add<br></br><img width='40vw' src={addMealsIcon}></img><br></br>Meal</button>
-        <button onClick={toggleFormDisplay} value='updateDislikesForm' className="toolBarButton" >Update<img width='37vw' src={preferencesIcon}></img>Preferences</button>
+        <button
+          onClick={toggleFormDisplay}
+          value="randomMealForm"
+          className="toolBarButton"
+        >
+          Random<img width="40vw" src={randomMealIcon}></img>
+          <br></br>Meals
+        </button>
+        <button
+          onClick={toggleFormDisplay}
+          value="addMealForm"
+          className="toolBarButton"
+        >
+          Add<br></br>
+          <img width="40vw" src={addMealsIcon}></img>
+          <br></br>Meal
+        </button>
+        <button
+          onClick={toggleFormDisplay}
+          value="updateDislikesForm"
+          className="toolBarButton"
+        >
+          Update<img width="37vw" src={preferencesIcon}></img>Preferences
+        </button>
       </div>
-      {formToDisplay == 'randomMealForm' && <GetRandonMeals filteredMeals={filteredMeals} toggleFormDisplay={toggleFormDisplay}/>} 
-      {formToDisplay == 'addMealForm' && <AddMealForm toggleFormDisplay={toggleFormDisplay} />}
-      {formToDisplay == 'updateDislikesForm' && <AddDislikesForm toggleFormDisplay={toggleFormDisplay} allMeals={allMeals} allDiners={allDiners} />}
+      {formToDisplay == "randomMealForm" && (
+        <GetRandonMeals
+          filteredMeals={filteredMeals}
+          toggleFormDisplay={toggleFormDisplay}
+        />
+      )}
+      {formToDisplay == "addMealForm" && (
+        <AddMealForm toggleFormDisplay={toggleFormDisplay} />
+      )}
+      {formToDisplay == "updateDislikesForm" && (
+        <AddDislikesForm
+          toggleFormDisplay={toggleFormDisplay}
+          allMeals={allMeals}
+          allDiners={allDiners}
+        />
+      )}
     </>
   );
 }

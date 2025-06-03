@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import FilterCheckBox from "../filterCheckBox/FilterCheckBox";
 import "./mealFilterControls.scss";
-import logo from '../../../assets/svg/cookBook.svg'
+import logo from "../../../assets/svg/cookBook.svg";
 function MealFilterControls({
   allMeals,
   selectedDinersMeals,
   setFilteredMeals,
-  selectedDiners
+  selectedDiners,
 }) {
   const [difficultyFields, setDifficultyFields] = useState([]);
   const [checkedDifficulties, setCheckedDifficulties] = useState([]);
@@ -15,7 +15,7 @@ function MealFilterControls({
   const [mealSubTypeFields, setMealSubTypeFields] = useState([]);
   const [checkedMealSubTypes, setCheckedMealSubTypes] = useState([]);
 
-  const [hiddenDiff, setIsHiddenDiff] = useState('filterFormBackDrop, hidden');
+  const [hiddenDiff, setIsHiddenDiff] = useState("filterFormBackDrop, hidden");
   const [hiddenType, setIsHiddenType] = useState(true);
   const [hiddenSub, setIsHiddenSub] = useState(true);
 
@@ -79,10 +79,7 @@ function MealFilterControls({
   */
   const handleMealTypeClick = (clicked, field) => {
     if (clicked == false)
-      setCheckedMealTypes((checkedMealTypes) => [
-        ...checkedMealTypes,
-        field,
-      ]);
+      setCheckedMealTypes((checkedMealTypes) => [...checkedMealTypes, field]);
     if (clicked == true) {
       console.log(field);
       const t = checkedMealTypes.filter((value) => value != field);
@@ -96,7 +93,7 @@ function MealFilterControls({
     If checkbox is unchecked, filter the defaultValue (sub_type) from the 'checkedMealSubTypes' array and update state.
   */
   const handleMealSubTypeClick = (clicked, field) => {
-    console.log(clicked)
+    console.log(clicked);
     if (clicked == false)
       setCheckedMealSubTypes((checkedMealSubTypes) => [
         ...checkedMealSubTypes,
@@ -104,24 +101,21 @@ function MealFilterControls({
       ]);
     if (clicked == true) {
       console.log(field);
-      const r = checkedMealSubTypes.filter(
-        (value) => value !== field,
-      );
+      const r = checkedMealSubTypes.filter((value) => value !== field);
       setCheckedMealSubTypes(r);
     }
   };
 
   //When button is clicked it toggles the display of the form depending on its current state.
   const toggleFilterDisplay = (event) => {
-    
-    console.log(selectedDiners)
-    if(selectedDiners.length <= 0){
-      alert('Please add a diner')
-      return
-    }else if (hiddenDiff == 'filterFormBackDrop') {
-      setIsHiddenDiff('filterFormBackDrop, hidden');
+    console.log(selectedDiners);
+    if (selectedDiners.length <= 0) {
+      alert("Please add a diner");
+      return;
+    } else if (hiddenDiff == "filterFormBackDrop") {
+      setIsHiddenDiff("filterFormBackDrop, hidden");
     } else {
-      setIsHiddenDiff('filterFormBackDrop');
+      setIsHiddenDiff("filterFormBackDrop");
     }
   };
 
@@ -168,68 +162,68 @@ function MealFilterControls({
   ]);
 
   return (
-
-    <div className='mealFilterControls'>
-      <div className='filterToggleContainer'>
-        
-        <button onClick={toggleFilterDisplay} className='toggleButton'><img width='40vw' src={logo}></img>Filter</button>
+    <div className="mealFilterControls">
+      <div className="filterToggleContainer">
+        <button onClick={toggleFilterDisplay} className="toggleButton">
+          <img width="40vw" src={logo}></img>Filter
+        </button>
       </div>
 
       <div className={hiddenDiff}>
-        <div className='filterForm'>
-            <div className='filterOptionsContainer'>
-            <div className='filterTitleContainer'>
-          <h4 className='filterTitle'>Difficulty</h4>
+        <div className="filterForm">
+          <div className="filterOptionsContainer">
+            <div className="filterTitleContainer">
+              <h4 className="filterTitle">Difficulty</h4>
+            </div>
+            <div className="filterOption">
+              {difficultyFields &&
+                difficultyFields.map((difficultyField) => {
+                  return (
+                    <FilterCheckBox
+                      field={difficultyField}
+                      onClick={handleDiffifcultyClick}
+                    />
+                  );
+                })}
+            </div>
+            <div className="filterTitleContainer">
+              <h4 className="filterTitle">Type</h4>
+            </div>
+            <div className="filterOption">
+              {mealTypeFields &&
+                mealTypeFields.map((typeField) => {
+                  return (
+                    <FilterCheckBox
+                      field={typeField}
+                      onClick={handleMealTypeClick}
+                    />
+                  );
+                })}
+            </div>
+            <div className="filterTitleContainer">
+              <h4 className="filterTitle">Cuisine</h4>
+            </div>
+            <div className="filterOption">
+              {mealSubTypeFields &&
+                mealSubTypeFields.map((subTypeField) => {
+                  return (
+                    <FilterCheckBox
+                      field={subTypeField}
+                      onClick={handleMealSubTypeClick}
+                    />
+                  );
+                })}
+            </div>
+          </div>
+
+          <div className="filterToggleContainer">
+            <button onClick={toggleFilterDisplay} className="toggleButton">
+              Done
+            </button>
+          </div>
         </div>
-        <div className="filterOption">
-          {difficultyFields &&
-            difficultyFields.map((difficultyField) => {
-              return (
-                <FilterCheckBox
-                  field={difficultyField}
-                  onClick={handleDiffifcultyClick}
-                />
-              );
-            })}
-        </div>
-        <div className='filterTitleContainer'>
-          <h4 className='filterTitle'>Type</h4>
-        </div>
-        <div className="filterOption">
-          {mealTypeFields &&
-            mealTypeFields.map((typeField) => {
-              return (
-                <FilterCheckBox
-                  field={typeField}
-                  onClick={handleMealTypeClick}
-                />
-              );
-            })}
-        </div>
-        <div className='filterTitleContainer'>
-          <h4 className='filterTitle'>Cuisine</h4>
-        </div>
-        <div className="filterOption">
-          {mealSubTypeFields &&
-            mealSubTypeFields.map((subTypeField) => {
-              return (
-                <FilterCheckBox
-                  field={subTypeField}
-                  onClick={handleMealSubTypeClick}
-                />
-              );
-            })}
-        </div>
-        </div>
-        
-        <div className='filterToggleContainer'>
-          <button onClick={toggleFilterDisplay} className='toggleButton'>Done</button>
-        </div>
-        </div>
-        
       </div>
     </div>
-
   );
 }
 

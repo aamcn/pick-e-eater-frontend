@@ -19,7 +19,7 @@ function AddMealForm({ toggleFormDisplay }) {
   function postFormData(formData) {
     axios
       .post(
-        "http://localhost:3000/meals/add-new-meal",
+        "https://pick-e-eater-backend-production.up.railway.app/meals/add-new-meal",
         { formData },
         { method: "cors" },
         { withCredentials: true },
@@ -62,14 +62,21 @@ function AddMealForm({ toggleFormDisplay }) {
           <input type="text" id="difficulty" name="difficulty" required />
         </fieldset>
         <div>
-          <button value="addMealForm" onClick={toggleFormDisplay} className='formButton' type="submit">Close</button>
-          <button className='formButton' type="submit">Submit</button>
+          <button
+            value="addMealForm"
+            onClick={toggleFormDisplay}
+            className="formButton"
+            type="submit"
+          >
+            Close
+          </button>
+          <button className="formButton" type="submit">
+            Submit
+          </button>
         </div>
       </form>
     </div>
   );
 }
-
-
 
 export default AddMealForm;

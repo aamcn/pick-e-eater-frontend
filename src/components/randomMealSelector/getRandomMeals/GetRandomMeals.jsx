@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./getRandomMeals.scss";
 import RandomMealsDisplay from "../randomMealsDisplay/RandomMealsDisplay";
 
-function GetRandonMeals({ filteredMeals, toggleFormDisplay}) {
+function GetRandonMeals({ filteredMeals, toggleFormDisplay }) {
   const [randomMeals, setRandomMeals] = useState([]);
   const [numberOfMeals, setNumberOfMeals] = useState(0);
 
@@ -17,10 +17,12 @@ function GetRandonMeals({ filteredMeals, toggleFormDisplay}) {
     to select a meal from the 'filteredMeals' array and add it to the randomMeals array in state.
   */
   const handleGetRandomClick = (event) => {
-    let randomMealsArr = []
-    while(randomMealsArr.length < numberOfMeals) {
+    let randomMealsArr = [];
+    while (randomMealsArr.length < numberOfMeals) {
       const meal = filteredMeals[getRandomInt(filteredMeals.length - 1)];
-      !randomMealsArr.includes(meal.name) ? randomMealsArr.push(meal.name) : null ;
+      !randomMealsArr.includes(meal.name)
+        ? randomMealsArr.push(meal.name)
+        : null;
     }
     setRandomMeals(randomMealsArr);
   };
@@ -33,18 +35,29 @@ function GetRandonMeals({ filteredMeals, toggleFormDisplay}) {
   return (
     <div className="formBackDrop">
       <div className="randomMealContainer">
-      <div>
-        <label>Number of Meals: </label>
-        <input onChange={handleDayChange} type="number" min="1" max="7" />
+        <div>
+          <label>Number of Meals: </label>
+          <input onChange={handleDayChange} type="number" min="1" max="7" />
+        </div>
+        <div>
+          <RandomMealsDisplay randomMeals={randomMeals} />
+        </div>
+        <div>
+          <button
+            className="randomMealFormButton"
+            value="randomMealForm"
+            onClick={toggleFormDisplay}
+          >
+            Close
+          </button>
+          <button
+            className="randomMealFormButton"
+            onClick={handleGetRandomClick}
+          >
+            Randomize!
+          </button>
+        </div>
       </div>
-      <div>
-        <RandomMealsDisplay randomMeals={randomMeals} />
-      </div>
-      <div>
-        <button className="randomMealFormButton" value='randomMealForm' onClick={toggleFormDisplay}>Close</button>
-        <button className="randomMealFormButton" onClick={handleGetRandomClick}>Randomize!</button>
-      </div>
-    </div>
     </div>
   );
 }

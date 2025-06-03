@@ -9,12 +9,12 @@
   justify-content: center;
   background-color: base.$toolbar-background-color;
   grid-row: 5;
-  z-index:9;
+  z-index: 9;
   padding: 1em 0em 1em 0em;
 }
 
-.toolBarActionButton{
-  padding:0em;
-  color:base.$title-color;
+.toolBarActionButton {
+  padding: 0em;
+  color: base.$title-color;
   background-color: base.$toolbar-background-color;
 }

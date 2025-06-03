@@ -9,9 +9,9 @@ function MealResultsDisplay({ meals, filteredMeals }) {
             return (
               <li className="mealCard" key={meal.id}>
                 <h4 className="mealTitle">{meal.name}</h4>
-                <p>{meal.type}</p>
-                <p>{meal.sub_type}</p>
-                <p>{meal.difficulty}</p>
+                <p className="typesContainer">
+                  {meal.type} | {meal.sub_type} | {meal.difficulty}
+                </p>
               </li>
             );
           })}

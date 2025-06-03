@@ -1,7 +1,7 @@
 @use "../../../base";
 
-.mealFilterControls{
-  grid-row:3;
+.mealFilterControls {
+  grid-row: 3;
   grid-column: 1;
   width: 100vw;
 }
@@ -12,37 +12,37 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  left:0%;
-  top:0%;
-  height:100vh;
-  width:100vw;
+  left: 0%;
+  top: 0%;
+  height: 100vh;
+  width: 100vw;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
 }
 
-.filterForm{
+.filterForm {
   position: absolute;
   height: 60vh;
   width: 85vw;
-  border:solid 1em base.$toolbar-background-color;
+  border: solid 1em base.$toolbar-background-color;
   border-radius: 1em;
   display: grid;
   grid-template-rows: 11fr 1fr;
-  z-index:4;
-  background-color: base.$container-background-color; 
+  z-index: 4;
+  background-color: base.$container-background-color;
 }
 
 .hidden {
-   display: none;
- }
+  display: none;
+}
 
 .filterOption {
   display: flex;
-  gap:0.5em;
+  gap: 0.5em;
   flex-direction: row;
   justify-content: space-evenly;
   overflow: scroll;
-  padding:1em 0.2em 1em 0.2em;
+  padding: 1em 0.2em 1em 0.2em;
 }
 
 .filterOptionsContainer {
@@ -52,31 +52,30 @@
   overflow: scroll;
 }
 
-.filterToggleContainer{
+.filterToggleContainer {
   display: flex;
   background-color: base.$toolbar-background-color;
   justify-content: end;
-  padding:1em;
+  padding: 1em;
 }
 
-.filterTitleContainer{
-  align-content:center;
-  padding-left:1em;
-  
+.filterTitleContainer {
+  align-content: center;
+  padding-left: 1em;
 }
 
-.filterTitle{
+.filterTitle {
   font-family: base.$title-font;
-  color:base.$title-color;
+  color: base.$title-color;
   font-size: 5vw;
 }
 
-.toggleButton{
-  display:flex;
+.toggleButton {
+  display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   color: base.$mealcard-background-color;
   border: none;
   background-color: base.$toolbar-background-color;
-  padding:0.1em;
+  padding: 0.1em;
 }

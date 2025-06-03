@@ -1,15 +1,15 @@
 @use "../../../base";
 
-.updateDislikesBackDrop{
+.updateDislikesBackDrop {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: absolute;
-  left:0%;
-  top:0%;
-  height:100vh;
-  width:100vw;
+  left: 0%;
+  top: 0%;
+  height: 100vh;
+  width: 100vw;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
 }
@@ -18,35 +18,33 @@
   overflow: auto;
   background-color: base.$container-background-color;
   display: flex;
-  border:solid 0.5em base.$toolbar-background-color;
-  outline:solid base.$mealcard-background-color;
+  border: solid 0.5em base.$toolbar-background-color;
+  outline: solid base.$mealcard-background-color;
   border-radius: 1em;
   flex-direction: column;
   justify-content: center;
-  padding:1em;
+  padding: 1em;
   animation: grow-appear 0.5s;
 }
 
-.dislikesFieldSet{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align:center;
-    border:none;
-    font-family: base.$title-font;
+.dislikesFieldSet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border: none;
+  font-family: base.$title-font;
 }
 
- 
-
-.dislikesFormButton{
-  margin:2em 1em 0em 1em;
+.dislikesFormButton {
+  margin: 2em 1em 0em 1em;
   color: base.$mealcard-background-color;
-  background-color:base.$toolbar-background-color;
+  background-color: base.$toolbar-background-color;
 }
 
 @keyframes grow-appear {
-  0%{
-    opacity:0;
-    scale:0;
+  0% {
+    opacity: 0;
+    scale: 0;
   }
 }

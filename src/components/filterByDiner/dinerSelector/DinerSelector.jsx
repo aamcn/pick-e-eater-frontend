@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import CheckBoxTemplate from "../checkBoxTemplate/CheckBoxTemplate";
 import "./dinerSelector.scss";
-function DinerSelector({ allDiners, setDislikedMeals, selectedDiners, setSelectedDiners }) {
+function DinerSelector({
+  allDiners,
+  setDislikedMeals,
+  selectedDiners,
+  setSelectedDiners,
+}) {
   const [hidden, setIsHidden] = useState(true);
 
   //Extracts disliked meals from the currently selected diners and stores them in 'dislikesArray'.
@@ -38,7 +43,9 @@ function DinerSelector({ allDiners, setDislikedMeals, selectedDiners, setSelecte
   return (
     <div className="dinerSelectorContainer">
       <hr></hr>
-      <h3 className="dinerSelectorTitle">Choose Who's Eating</h3>
+      <div className="titleStick">
+        <h3 className="dinerSelectorTitle">Choose Who's Eating</h3>
+      </div>
       <div className="dinerCheckBoxes">
         {allDiners &&
           allDiners.map((diner) => {

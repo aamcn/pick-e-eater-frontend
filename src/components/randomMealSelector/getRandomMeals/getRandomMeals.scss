@@ -1,44 +1,44 @@
 @use "../../../base";
 
-.formBackDrop{
+.formBackDrop {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: absolute;
-  left:0%;
-  top:0%;
-  height:100vh;
-  width:100vw;
-   -webkit-backdrop-filter: blur(5px);
+  left: 0%;
+  top: 0%;
+  height: 100vh;
+  width: 100vw;
+  -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
 }
 
 .randomMealContainer {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding:1em;
+  padding: 1em;
   background-color: base.$container-background-color;
-  width:60vw;
+  width: 60vw;
   min-height: 15vh;
-  border:solid 0.5em base.$toolbar-background-color;
+  border: solid 0.5em base.$toolbar-background-color;
   outline: solid base.$mealcard-background-color;
   border-radius: 1em;
   animation: grow-appear 0.5s;
   font-family: base.$title-font;
 }
 
-.randomMealFormButton{
-   margin:2em 1em 0em 1em;
+.randomMealFormButton {
+  margin: 2em 1em 0em 1em;
   color: base.$mealcard-background-color;
-  background-color:base.$toolbar-background-color;
+  background-color: base.$toolbar-background-color;
 }
 
 @keyframes grow-appear {
-  0%{
-    opacity:0;
-    scale:0;
+  0% {
+    opacity: 0;
+    scale: 0;
   }
 }
