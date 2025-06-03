@@ -29,7 +29,7 @@ function App() {
   function getUsers() {
     axios
       .get(
-        "http://localhost:3000/diners/",
+        "https://pick-e-eater-backend-production.up.railway.app/diners/",
         { method: "cors" },
         { withCredentials: true },
       )
@@ -45,7 +45,7 @@ function App() {
   function getMeals() {
     axios
       .get(
-        "http://localhost:3000/meals/",
+        "https://pick-e-eater-backend-production.up.railway.app/meals/",
         { method: "cors" },
         { withCredentials: true },
       )

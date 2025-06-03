@@ -37,7 +37,7 @@ function AddDislikesForm({
     console.log(formData)
     axios
       .post(
-        "http://localhost:3000/diners/add-meals-to-dislikes",
+        "https://pick-e-eater-backend-production.up.railway.app/diners/add-meals-to-dislikes",
         { formData },
         { method: "cors" },
         { withCredentials: true },
