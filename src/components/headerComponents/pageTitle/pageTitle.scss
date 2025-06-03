@@ -11,3 +11,11 @@
   flex-direction: column;
   justify-content: center;
 }
+
+@media screen and (min-width: 1024px) {
+  .pageTitle {
+  font-family: base.$title-font;
+  color: base.$title-color;
+  font-size: 5vw;
+}
+}
