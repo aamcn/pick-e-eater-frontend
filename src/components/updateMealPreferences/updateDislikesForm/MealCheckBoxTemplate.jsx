@@ -30,9 +30,9 @@ function MealCheckBoxTemplate({meal, chosenDiner, setChosenDislikedMeals, chosen
     }, [chosenDiner])
 
     return(
-       <div>
+       <div className="dislikeMealCheckbox">
               <label htmlFor={meal.id}>{meal.name}{meal.id}</label>
-              <input onChange={handleCheckedBox} name={meal.id} type="checkbox" value={meal.id} checked={isChecked}/>
+              <input  onChange={handleCheckedBox} name={meal.id} type="checkbox" value={meal.id} checked={isChecked}/>
            </div> 
     )
 }

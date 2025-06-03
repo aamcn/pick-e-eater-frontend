@@ -88,7 +88,7 @@ function AddDislikesForm({
   return (
     <div className="updateDislikesBackDrop">
       <form className="updateDislikesForm" onSubmit={handleFormSubmit}>
-        <fieldset className="dislikesFieldSet">
+        <fieldset className="dinerSelectContainer">
           <label htmlFor="personId">Person:</label>
           <select id="personId" name="personId" onChange={handleSelectChange}>
             <option>Pick a Name</option>
@@ -98,13 +98,13 @@ function AddDislikesForm({
               })}
           </select>
         </fieldset>
-        <fieldset className="dislikesFieldSet">
-          <label htmlFor="this">Meals:</label>
+        <fieldset className="mealsCheckBoxContainer">
+          <label className="checkboxTitle" htmlFor="this">Meals:</label>
           {chosenDiner && allMeals.map(meal => {
             return <MealCheckBoxTemplate meal={meal} chosenDiner={chosenDiner} chosenDislikedMeals={chosenDislikedMeals} setChosenDislikedMeals={setChosenDislikedMeals} />
           })}
         </fieldset>
-        <div>
+        <div className="dislikesFormButtons">
           <button
             value="updateDislikesForm"
             onClick={toggleFormDisplay}
@@ -123,3 +123,8 @@ function AddDislikesForm({
 }
 
 export default AddDislikesForm;
+
+
+
+
+
