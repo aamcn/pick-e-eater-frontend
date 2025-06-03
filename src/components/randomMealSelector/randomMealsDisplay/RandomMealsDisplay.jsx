@@ -5,7 +5,7 @@ function RandomMealsDisplay({ randomMeals }) {
   return (
     <div className="randomDisplayContainer">
       {randomMeals.map((meal) => {
-        return <p>{meal}</p>;
+        return <p className="randomMealName">{meal}</p>;
       })}
     </div>
   );

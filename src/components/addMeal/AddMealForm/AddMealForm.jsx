@@ -47,35 +47,35 @@ function AddMealForm({ toggleFormDisplay, getMeals}) {
     <div className="addMealBackdrop">
       <form className="addMealForm" onSubmit={handleFormSubmit}>
         <fieldset className="addMealFieldset">
-          <label htmlFor="name">Meal Name</label>
-          <input id="name" name="name" type="text" required />
+          <label htmlFor="name">Meal Name: </label>
+          <input className="addMealInput" id="name" name="name" type="text" required />
         </fieldset>
         <fieldset className="addMealFieldset">
-          <label htmlFor="type">Type</label>
-          <input id="type" name="type" type="text" required />
+          <label htmlFor="type">Type: </label>
+          <input className="addMealInput" id="type" name="type" type="text" required />
         </fieldset>
         <fieldset className="addMealFieldset">
-          <label htmlFor="subType">Main Ingredient</label>
-          <input id="subType" name="subType" type="text" required />
+          <label htmlFor="subType">Main Ingredient: </label>
+          <input className="addMealInput" id="subType" name="subType" type="text" required />
         </fieldset>
         <fieldset className="addMealFieldset">
-          <label htmlFor="difficulty">Difficulty</label>
-          <input type="text" id="difficulty" name="difficulty" required />
+          <label htmlFor="difficulty">Difficulty: </label>
+          <input className="addMealInput" type="text" id="difficulty" name="difficulty" required />
         </fieldset>
-        <div>
+        <div className="addMealButtons">
           <button
             value="addMealForm"
             onClick={toggleFormDisplay}
-            className="formButton"
+            className="addMealButton"
             type="submit"
           >
             Close
           </button>
-          <button  className="formButton" type="submit">
+          <button  className="addMealButton" type="submit">
             Submit
           </button>
-          <button className="formButton" type="reset">
-            reset
+          <button className="addMealButton" type="reset">
+            Reset
           </button>
         </div>
       </form>

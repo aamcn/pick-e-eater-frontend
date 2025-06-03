@@ -30,7 +30,22 @@
   font-family: base.$title-font;
 }
 
+.randomMealInput{
+ font-size: 3.8vw;
+}
+
+.inputContainer{
+  margin:0em 0em 1em 0em;
+}
+
+.randomMealFormButtons {
+  display: flex;
+  justify-content: center;
+}
+
 .randomMealFormButton {
+  display: flex;
+  justify-content: center;
   margin: 2em 1em 0em 1em;
   color: base.$mealcard-background-color;
   background-color: base.$toolbar-background-color;
@@ -41,4 +56,39 @@
     opacity: 0;
     scale: 0;
   }
+}
+
+
+@media screen and (min-width: 768px) {
+ 
+.randomMealContainer {
+  font-size: 3vw;
+}
+
+.randomMealInput{
+  margin-left: 1em;
+ font-size: 3vw;
+}
+
+.randomMealFormButton {
+  width:20vw;
+  font-size:3vw;
+}
+}
+
+@media screen and (min-width: 1024px) {
+ 
+.randomMealContainer {
+  font-size: 2vw;
+}
+
+.randomMealInput{
+  margin-left: 1em;
+  font-size: 2vw;
+}
+
+.randomMealFormButton {
+  width:20vw;
+  font-size:2vw;
+}
 }
