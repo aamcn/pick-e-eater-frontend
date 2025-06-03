@@ -29,7 +29,7 @@ function App() {
   function getUsers() {
     axios
       .get(
-        "https://pick-e-eater-backend-production.up.railway.app/diners/",
+        "http://localhost:3000/diners/",
         { method: "cors" },
         { withCredentials: true },
       )
@@ -45,7 +45,7 @@ function App() {
   function getMeals() {
     axios
       .get(
-        "https://pick-e-eater-backend-production.up.railway.app/meals/",
+        "http://localhost:3000/meals/",
         { method: "cors" },
         { withCredentials: true },
       )
@@ -157,6 +157,7 @@ function App() {
           toggleFormDisplay={toggleFormDisplay}
           allMeals={allMeals}
           allDiners={allDiners}
+          getUsers={getUsers}
         />
       )}
     </>

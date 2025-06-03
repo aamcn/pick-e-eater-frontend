@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./updateDislikesForm.scss";
+import MealCheckBoxTemplate from "./MealCheckBoxTemplate";
 /* 
   Renders a form allowing the user to select a diner and a meal, on form submission the diner ID and the meal ID
   is posted to the server storing the meal in the diners disliked meals column.
@@ -10,25 +11,33 @@ function AddDislikesForm({
   allMeals,
   toggleAddMealForm,
   toggleFormDisplay,
+  getUsers
 }) {
   const [hidden, setIsHidden] = useState(true);
-
+  const [chosenDiner, setChosenDiner ] = useState(null);
+  const [chosenDislikedMeals, setChosenDislikedMeals ] = useState([]);
   /* 
     prepares form data before posting to server by creating formData object from the event.target and coverts 
     it to JSON before passing it to the 'postFormData' function.
   */
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    const bodyFormData = new FormData(event.target);
+    const bodyFormData = new FormData();
+    chosenDislikedMeals.forEach(value =>  {
+  bodyFormData.append("mealIdArray[]", value) // you have to add array symbol after the key name
+})
+    bodyFormData.append("dinerId", chosenDiner.id)
     const formToJson = axios.formToJSON(bodyFormData);
     postFormData(formToJson);
+    console.log(formToJson)
   };
 
   //Function to post form to the server.
   function postFormData(formData) {
+    console.log(formData)
     axios
       .post(
-        "https://pick-e-eater-backend-production.up.railway.app/diners/add-meal-to-dislikes",
+        "http://localhost:3000/diners/add-meals-to-dislikes",
         { formData },
         { method: "cors" },
         { withCredentials: true },
@@ -52,8 +61,29 @@ function AddDislikesForm({
   };
 
   const handleSelectChange = (event) => {
-    console.log(event.target.value);
+    let index = event.target.value 
+    console.log(allDiners)
+    const t = allDiners.filter(diner => {
+      if(diner.id == index )
+        return diner
+    })
+    setChosenDiner(t[0])
   };
+
+  
+
+  useEffect(() =>{
+  setChosenDislikedMeals([])
+  if(chosenDiner){setChosenDislikedMeals(chosenDiner.dislikes)} 
+  if(chosenDiner){console.log(chosenDiner.dislikes)}
+   console.log(chosenDiner)
+   getUsers()
+  }, [chosenDiner])
+
+ useEffect(() =>{
+ 
+   console.log(chosenDislikedMeals)
+  }, [chosenDislikedMeals])
 
   return (
     <div className="updateDislikesBackDrop">
@@ -69,14 +99,10 @@ function AddDislikesForm({
           </select>
         </fieldset>
         <fieldset className="dislikesFieldSet">
-          <label htmlFor="mealId">Meal:</label>
-          <select id="mealId" name="mealId" onChange={handleSelectChange}>
-            <option>Pick a Meal</option>
-            {allMeals &&
-              allMeals.map((meal) => {
-                return <option value={meal.id}>{meal.name}</option>;
-              })}
-          </select>
+          <label htmlFor="this">Meals:</label>
+          {chosenDiner && allMeals.map(meal => {
+            return <MealCheckBoxTemplate meal={meal} chosenDiner={chosenDiner} chosenDislikedMeals={chosenDislikedMeals} setChosenDislikedMeals={setChosenDislikedMeals} />
+          })}
         </fieldset>
         <div>
           <button
