@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import "./addMealForm.scss";
-function AddMealForm({ toggleFormDisplay }) {
+function AddMealForm({ toggleFormDisplay, getMeals}) {
   const [hidden, setIsHidden] = useState(true);
 
   /* 
@@ -13,6 +13,7 @@ function AddMealForm({ toggleFormDisplay }) {
     const bodyFormData = new FormData(event.target);
     const formToJson = axios.formToJSON(bodyFormData);
     postFormData(formToJson);
+    getMeals()
   };
 
   //Posts passed in formData to the server.
@@ -70,8 +71,11 @@ function AddMealForm({ toggleFormDisplay }) {
           >
             Close
           </button>
-          <button className="formButton" type="submit">
+          <button  className="formButton" type="submit">
             Submit
+          </button>
+          <button className="formButton" type="reset">
+            reset
           </button>
         </div>
       </form>

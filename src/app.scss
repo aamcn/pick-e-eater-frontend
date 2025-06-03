@@ -49,6 +49,9 @@ h4 {
   margin: 0;
   color: base.$main-color;
 }
+p{
+  margin:0;
+}
 
 button {
   border-radius: 1em;
@@ -72,26 +75,18 @@ button:hover {
   display: flex;
   flex-direction: row;
   z-index: 8;
-  bottom: 9%;
+  bottom: 6%;
   justify-content: space-evenly;
   align-items: center;
   background-color: wheat;
-  padding: 1em 0em 1em 0em;
+  margin: 1em 0em 1em 0em;
   border-radius: 1em 1em 0em 0em;
   animation: slide-up 0.5s;
   width: 100vw;
-  height: 10vh;
+  height: 1fr;
 }
 
-.toolBarButton {
-  width: 30vw;
-  min-height: 8vh;
-  margin: 1em;
-  font-size: 3;
-  color: base.$mealcard-background-color;
-  background-color: base.$toolbar-background-color;
-  border-radius: 5em;
-}
+
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -110,4 +105,32 @@ button:hover {
   0% {
     transform: translateY(100%);
   }
+}
+
+@media screen and (min-width: 768px) {
+ .toolBarButtons {
+  z-index: 8;
+  bottom: 6%;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1em 0em 1em 0em;
+  border-radius: 1em 1em 0em 0em;
+  width: 100vw;
+  height: 15vh;
+}
+
+}
+
+@media screen and (min-width: 1023px) {
+ .toolBarButtons {
+  z-index: 8;
+  bottom: 8.5%;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1em 0em 1em 0em;
+  border-radius: 1em 1em 0em 0em;
+  width: 100vw;
+  height: 12vw;
+}
+
 }

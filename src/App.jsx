@@ -12,6 +12,7 @@ import ToolBar from "./components/toolBarComponents/toolBar/ToolBar";
 import addMealsIcon from "./assets/svg/addMealsIcon.svg";
 import randomMealIcon from "./assets/svg/randomMealIcon.svg";
 import preferencesIcon from "./assets/svg/preferencesIcon.svg";
+import ToolBarButton from "./components/toolBarComponents/toolBarButtons/ToolBarButton";
 
 function App() {
   const [allDiners, setAllDiners] = useState([]);
@@ -84,10 +85,10 @@ function App() {
     }
   }, [dislikedMeals]);
 
-  const toggleFormDisplay = (event) => {
-    event.preventDefault();
-    if (formToDisplay != event.target.value) {
-      setFormToDisplay(event.target.value);
+  function toggleFormDisplay(toggleValue) {
+    if (formToDisplay != toggleValue) {
+      console.log(toggleValue)
+      setFormToDisplay(toggleValue);
     } else {
       setFormToDisplay(false);
     }
@@ -118,30 +119,9 @@ function App() {
         setToolButtonsClassName={setToolButtonsClassName}
       />
       <div className={toolButtonsClassName}>
-        <button
-          onClick={toggleFormDisplay}
-          value="randomMealForm"
-          className="toolBarButton"
-        >
-          Random<img width="40vw" src={randomMealIcon}></img>
-          <br></br>Meals
-        </button>
-        <button
-          onClick={toggleFormDisplay}
-          value="addMealForm"
-          className="toolBarButton"
-        >
-          Add<br></br>
-          <img width="40vw" src={addMealsIcon}></img>
-          <br></br>Meal
-        </button>
-        <button
-          onClick={toggleFormDisplay}
-          value="updateDislikesForm"
-          className="toolBarButton"
-        >
-          Update<img width="37vw" src={preferencesIcon}></img>Preferences
-        </button>
+        <ToolBarButton topText={'Random'}  bottomText={'Meals'} randomMealIcon={randomMealIcon} toggleFormDisplay={toggleFormDisplay} toggleValue={'randomMealForm'}/>
+        <ToolBarButton topText={'Add'}  bottomText={'Meals'}  randomMealIcon={addMealsIcon} toggleFormDisplay={toggleFormDisplay} toggleValue={'addMealForm'}/>
+        <ToolBarButton topText={'Update'}  bottomText={'Likes'}  randomMealIcon={preferencesIcon} toggleFormDisplay={toggleFormDisplay} toggleValue={'updateDislikesForm'}/>
       </div>
       {formToDisplay == "randomMealForm" && (
         <GetRandonMeals
@@ -150,7 +130,7 @@ function App() {
         />
       )}
       {formToDisplay == "addMealForm" && (
-        <AddMealForm toggleFormDisplay={toggleFormDisplay} />
+        <AddMealForm toggleFormDisplay={toggleFormDisplay} getMeals={getMeals}/>
       )}
       {formToDisplay == "updateDislikesForm" && (
         <AddDislikesForm

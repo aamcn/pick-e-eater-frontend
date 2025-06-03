@@ -40,24 +40,20 @@
 }
 
 @media screen and (min-width: 758px) {
-
   .plateCenterShape {
-    width:  10vw;
+    width: 10vw;
     height: 10vw;
     border-radius: 50%;
     box-shadow: inset 0px 0px 0.5em 0px rgb(99, 98, 98);
   }
-
 }
 
 @media screen and (min-width: 1024px) {
-
-
   .dinerSelectorTitle {
-  font-size: 2vw;
-}
+    font-size: 2vw;
+  }
   .plateCenterShape {
-    width:  7vw;
+    width: 7vw;
     height: 7vw;
     border-radius: 50%;
     box-shadow: inset 0px 0px 0.5em 0px rgb(99, 98, 98);

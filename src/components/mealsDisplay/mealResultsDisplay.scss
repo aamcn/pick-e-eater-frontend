@@ -44,36 +44,34 @@
   justify-content: space-evenly;
 }
 
-
 @media screen and (min-width: 768px) {
   .mealCard {
-  font-size: 2vw;
+    font-size: 2vw;
   }
   .mealTitle {
-  font-size: 2.5vw;
-}
+    font-size: 2.5vw;
+  }
 
-.mealDisplay {
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1em;
+  .mealDisplay {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+  }
 }
-}
-
 
 @media screen and (min-width: 1024px) {
   .mealCard {
-  font-size: 1.5vw;
+    font-size: 1.5vw;
   }
   .mealTitle {
-  font-size: 2vw;
-}
+    font-size: 2vw;
+  }
 
-.mealDisplay {
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1em;
-}
+  .mealDisplay {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+  }
 }

@@ -13,7 +13,6 @@ function FilterCheckBox({ field, onClick }) {
   };
 
   useEffect(() => {
-    console.log(isClicked);
     onClick(isClicked, field);
   }, [isClicked]);
 

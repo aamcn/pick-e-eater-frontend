@@ -16,8 +16,7 @@ function MealFilterControls({
   const [checkedMealSubTypes, setCheckedMealSubTypes] = useState([]);
 
   const [hiddenDiff, setIsHiddenDiff] = useState("filterFormBackDrop, hidden");
-  const [hiddenType, setIsHiddenType] = useState(true);
-  const [hiddenSub, setIsHiddenSub] = useState(true);
+
 
   /*
     Extract each meals difficulty from the 'allMeals' array.
@@ -81,7 +80,6 @@ function MealFilterControls({
     if (clicked == false)
       setCheckedMealTypes((checkedMealTypes) => [...checkedMealTypes, field]);
     if (clicked == true) {
-      console.log(field);
       const t = checkedMealTypes.filter((value) => value != field);
       setCheckedMealTypes(t);
     }
@@ -93,14 +91,12 @@ function MealFilterControls({
     If checkbox is unchecked, filter the defaultValue (sub_type) from the 'checkedMealSubTypes' array and update state.
   */
   const handleMealSubTypeClick = (clicked, field) => {
-    console.log(clicked);
     if (clicked == false)
       setCheckedMealSubTypes((checkedMealSubTypes) => [
         ...checkedMealSubTypes,
         field,
       ]);
     if (clicked == true) {
-      console.log(field);
       const r = checkedMealSubTypes.filter((value) => value !== field);
       setCheckedMealSubTypes(r);
     }
@@ -108,7 +104,6 @@ function MealFilterControls({
 
   //When button is clicked it toggles the display of the form depending on its current state.
   const toggleFilterDisplay = (event) => {
-    console.log(selectedDiners);
     if (selectedDiners.length <= 0) {
       alert("Please add a diner");
       return;
@@ -150,9 +145,6 @@ function MealFilterControls({
   }, [selectedDinersMeals]);
 
   useEffect(() => {
-    console.log(checkedMealTypes);
-    console.log(checkedMealSubTypes);
-    console.log(checkedDifficulties);
     removeDiffMeals();
   }, [
     checkedDifficulties,
