@@ -38,7 +38,6 @@ function MealCheckBoxTemplate({
     <div className="dislikeMealCheckbox">
       <label htmlFor={meal.id}>
         {meal.name}
-        {meal.id}
       </label>
       <input
         onChange={handleCheckedBox}
