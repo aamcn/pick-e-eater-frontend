@@ -201,7 +201,7 @@ function MealFilterControls({
                 })}
             </div>
             <div className="filterTitleContainer">
-              <h4 className="filterTitle">Cuisine</h4>
+              <h4 className="filterTitle">Main Ingredient</h4>
             </div>
             <div className="filterOption">
               {mealSubTypeFields &&

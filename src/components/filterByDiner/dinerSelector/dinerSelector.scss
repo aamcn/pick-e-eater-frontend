@@ -27,3 +27,15 @@
   background-color: rgb(233, 211, 172);
   width: 80vw;
 }
+
+.plateCenterShape{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  min-width:19Vw;
+  min-height:19vw;
+  border-radius: 3em;
+  box-shadow: inset 0px 0px 5px 0px rgb(99, 98, 98);
+  outline:solid wheat;
+}

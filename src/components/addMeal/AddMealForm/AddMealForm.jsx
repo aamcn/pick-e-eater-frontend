@@ -54,7 +54,7 @@ function AddMealForm({ toggleFormDisplay }) {
           <input id="type" name="type" type="text" required />
         </fieldset>
         <fieldset className="addMealFieldset">
-          <label htmlFor="subType">Cuisine</label>
+          <label htmlFor="subType">Main Ingredient</label>
           <input id="subType" name="subType" type="text" required />
         </fieldset>
         <fieldset className="addMealFieldset">

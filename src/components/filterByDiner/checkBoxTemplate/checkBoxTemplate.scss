@@ -3,14 +3,15 @@
 .clicked {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   background-color: base.$mealcard-background-color;
   border-radius: 4em;
-  border: solid base.$toolbar-background-color;
+  box-shadow: 0px 0px 3px 3px base.$toolbar-background-color;
+  border: solid rgb(255, 247, 232);
   text-align: center;
-  min-width: 12vw;
-  height: 12vw;
+  min-width: 14vw;
+  height: 14vw;
   padding: 1em;
   font-family: base.$text-font;
   color: base.$title-color;
@@ -20,14 +21,15 @@
 .dinerCheckBox {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  background-color: base.$button-background-color;
+  background-color: rgb(255, 242, 217);
   border-radius: 4em;
-  border: solid white;
+  box-shadow:0px 0px 5px 0px rgb(85, 81, 73);
+  border: solid rgb(255, 247, 232);
   text-align: center;
-  min-width: 12vw;
-  height: 12vw;
+  min-width: 14vw;
+  height: 14vw;
   padding: 1em;
   font-family: base.$text-font;
   color: base.$title-color;
