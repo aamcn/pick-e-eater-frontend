@@ -20,10 +20,13 @@ function GetRandonMeals({ filteredMeals, toggleFormDisplay }) {
     let randomMealsArr = [];
     while (randomMealsArr.length < numberOfMeals) {
       const meal = filteredMeals[getRandomInt(filteredMeals.length - 1)];
-      !randomMealsArr.includes(meal.name)
-        ? randomMealsArr.push(meal.name)
-        : null;
+      /*
+        If the 'meal.name' is already present in 'randomMealsArr' the 'meal.name' is not pushed to the array and a new random 
+        index number is generated. 
+      */
+      !randomMealsArr.includes(meal.name) ? randomMealsArr.push(meal.name) : null;
     }
+    //Once randomMealsArr.length is equal to the numberOfMeals argument the array is stored in state.
     setRandomMeals(randomMealsArr);
   };
 
@@ -38,7 +41,7 @@ function GetRandonMeals({ filteredMeals, toggleFormDisplay }) {
         <div className="inputContainer">
           <label>Number of Meals: </label>
           <input
-            className="randomMealInput"
+            className="numberOfMealsInput"
             onChange={handleDayChange}
             type="number"
             min="1"
@@ -48,21 +51,22 @@ function GetRandonMeals({ filteredMeals, toggleFormDisplay }) {
         <div>
           <RandomMealsDisplay randomMeals={randomMeals} />
         </div>
+        
         <div className="randomMealFormButtons">
           <button
             className="randomMealFormButton"
             value="randomMealForm"
             onClick={toggleFormDisplay}
-          >
-            Close
+          >Close
           </button>
+          
           <button
             className="randomMealFormButton"
             onClick={handleGetRandomClick}
-          >
-            Randomize!
+          >Randomize!
           </button>
         </div>
+
       </div>
     </div>
   );
