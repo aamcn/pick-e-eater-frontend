@@ -3,10 +3,10 @@
 #root {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr 8fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 8fr 1fr;
   background-color: base.$main-background-color;
   color: base.$main-color;
-  max-height: 100vh;
+  max-height: 100dvh;
   max-width: 100vw;
 }
 

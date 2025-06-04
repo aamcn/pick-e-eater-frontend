@@ -1,6 +1,16 @@
-import axios from "axios";
+import axios, { all } from "axios";
 import "./addMealForm.scss";
-function AddMealForm({ toggleFormDisplay, getMeals }) {
+import { useEffect, useState } from "react";
+function AddMealForm({ toggleFormDisplay, getMeals, allMeals}) {
+  const [inputMealName, setInputMealName] = useState(null)
+  const [isMealDuplicate, setIsMealDuplicate] = useState(false)
+  const [errorMessage, setErrorMessage] = useState(null)
+  const [successMessage, setSuccessMessage] = useState(null)
+
+  const handleMealNameChange = (event) =>{
+    setInputMealName(event.target.value)
+    console.log(inputMealName)
+  }
 
   /* 
     prepares form data before posting to server by creating formData object from the event.target and coverts 
@@ -8,11 +18,19 @@ function AddMealForm({ toggleFormDisplay, getMeals }) {
   */
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    if(isMealDuplicate == true){
+      alert('Meal is already saved')
+      return;
+    }
     const bodyFormData = new FormData(event.target);
     const formToJson = axios.formToJSON(bodyFormData);
     postFormData(formToJson);
     //Calls getMeals function to collect updated 'meals' data from database.
     getMeals();
+    setSuccessMessage('Meal Added')
+    setTimeout(() => {
+    setSuccessMessage(null)
+    }, 3000)
   };
 
   //Posts passed in formData to the server.
@@ -32,12 +50,33 @@ function AddMealForm({ toggleFormDisplay, getMeals }) {
       });
   }
 
+  function checkIfDuplicate(allMealNames){
+    if(allMealNames.includes(inputMealName.toLowerCase())){
+      setErrorMessage(`${inputMealName} already exists`)
+      setIsMealDuplicate(true)
+    } else {
+      setErrorMessage(null)
+      setIsMealDuplicate(false)
+    }
+  }
+
+  useEffect(() => {
+   const allMealNames = allMeals.map(meal => {
+      return meal.name.toLowerCase()
+      })
+    if(inputMealName){
+      checkIfDuplicate(allMealNames)
+    }
+}, [inputMealName])
+
   return (
     <div className="addMealBackdrop">
       <form className="addMealForm" onSubmit={handleFormSubmit}>
+        {errorMessage && <p>{errorMessage}</p>}
+        {successMessage && <p>{successMessage}</p>}
         <fieldset className="addMealFieldset">
           <label htmlFor="name">Meal Name: </label>
-          <input
+          <input onChange={handleMealNameChange}
             className="addMealInput"
             id="name"
             name="name"

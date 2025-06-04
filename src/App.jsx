@@ -156,6 +156,7 @@ function App() {
       )}
       {formToDisplay == "addMealForm" && (
         <AddMealForm
+          allMeals={allMeals}
           toggleFormDisplay={toggleFormDisplay}
           getMeals={getMeals}
         />
@@ -169,7 +170,6 @@ function App() {
         />
       )}
 
-      <div className="bufferDiv"> </div>
     </>
   );
 }
