@@ -9,10 +9,9 @@ import MealCheckBoxTemplate from "./MealCheckBoxTemplate";
 function AddDislikesForm({
   allDiners,
   allMeals,
-  toggleAddMealForm,
   toggleFormDisplay,
-  getUsers,
-}) {
+  getUsers}) {
+
   const [hidden, setIsHidden] = useState(true);
   const [chosenDiner, setChosenDiner] = useState(null);
   const [chosenDislikedMeals, setChosenDislikedMeals] = useState([]);
@@ -24,12 +23,11 @@ function AddDislikesForm({
     event.preventDefault();
     const bodyFormData = new FormData();
     chosenDislikedMeals.forEach((value) => {
-      bodyFormData.append("mealIdArray[]", value); // you have to add array symbol after the key name
+    bodyFormData.append("mealIdArray[]", value); // you have to add array symbol after the key name
     });
     bodyFormData.append("dinerId", chosenDiner.id);
     const formToJson = axios.formToJSON(bodyFormData);
     postFormData(formToJson);
-    console.log(formToJson);
   };
 
   //Function to post form to the server.
@@ -49,24 +47,21 @@ function AddDislikesForm({
       });
   }
 
-  //When button is clicked it toggles the display of the form depending on its current state.
-  const handleToggle = (event) => {
-    event.preventDefault();
-    if (hidden == true) {
-      setIsHidden(false);
-    } else {
-      setIsHidden(true);
-    }
-  };
-
+ 
+//When a diners name is selected in the form the inputs value is used to store the diner in state.
   const handleSelectChange = (event) => {
     let index = event.target.value;
-    const t = allDiners.filter((diner) => {
+    const selectedDiner = allDiners.filter((diner) => {
       if (diner.id == index) return diner;
     });
-    setChosenDiner(t[0]);
+    setChosenDiner(selectedDiner[0]);
   };
 
+/*
+On render chosenDislikedMeals is reset. When there is a 'chosenDiner' stored in state their
+dislikes array is stored in chosenDislikedMeals. This is used to pre fillout the checkbox options
+with the diners disliked meals stored in database.
+*/
   useEffect(() => {
     setChosenDislikedMeals([]);
     if (chosenDiner) {

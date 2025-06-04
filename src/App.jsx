@@ -85,6 +85,10 @@ function App() {
     }
   }, [dislikedMeals]);
 
+  /* Each buttons value is a corresponds to a form. When a tool button is clicked its value is stored in state.
+    The form matching the string stored in state is then displayed. If the form is already displayed the value in state is set as false
+    hiding all forms. At the end of the function whether a form is displayed or hidden the toolbar menu is then hidden.
+*/
   function toggleFormDisplay(toggleValue) {
     if (formToDisplay != toggleValue) {
       setFormToDisplay(toggleValue);
@@ -105,23 +109,27 @@ function App() {
         dislikedMeals={dislikedMeals}
         setDislikedMeals={setDislikedMeals}
       />
+
       <MealFilterControls
         selectedDiners={selectedDiners}
         setFilteredMeals={setFilteredMeals}
         selectedDinersMeals={selectedDinersMeals}
         allMeals={allMeals}
       />
+
       <MealResultsDisplay filteredMeals={filteredMeals} />
 
       <ToolBar
         toolButtonsClassName={toolButtonsClassName}
         setToolButtonsClassName={setToolButtonsClassName}
       />
+
       <div className={toolButtonsClassName}>
         <ToolBarButton topText={'Random'}  bottomText={'Meals'} randomMealIcon={randomMealIcon} toggleFormDisplay={toggleFormDisplay} toggleValue={'randomMealForm'}/>
         <ToolBarButton topText={'Add'}  bottomText={'Meals'}  randomMealIcon={addMealsIcon} toggleFormDisplay={toggleFormDisplay} toggleValue={'addMealForm'}/>
         <ToolBarButton topText={'Update'}  bottomText={'Likes'}  randomMealIcon={preferencesIcon} toggleFormDisplay={toggleFormDisplay} toggleValue={'updateDislikesForm'}/>
       </div>
+
       {formToDisplay == "randomMealForm" && (
         <GetRandonMeals
           filteredMeals={filteredMeals}
@@ -139,9 +147,9 @@ function App() {
           getUsers={getUsers}
         />
       )}
-      <div className="bufferDiv">
+
+      <div className="bufferDiv"> </div>
       
-      </div>
     </>
   );
 }
