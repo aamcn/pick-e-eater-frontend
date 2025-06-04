@@ -4,14 +4,19 @@ import "./filterCheckBox.scss";
 function FilterCheckBox({ field, onClick }) {
   const [isClicked, setIsClicked] = useState(true);
 
-  const handleClicky = () => {
-    if (isClicked == false) {
-      setIsClicked(true);
-    } else {
-      setIsClicked(false);
-    }
-  };
 
+  /*
+    If isClicked is 'true' isClicked is set to 'false'. If not isClicked is set to 'true'.
+    This switches the div ClassName which changes the checkbox color signifying which options are selected or deselected.
+  */
+  const handleCheckBoxClick = () => {
+    isClicked ? setIsClicked(true) : setIsClicked(false);
+    };
+
+  /*
+    When isClicked is updated, the onClick props function is called and the 'isClicked' value and 'field' props are
+    passed as arguments.
+   */
   useEffect(() => {
     onClick(isClicked, field);
   }, [isClicked]);
@@ -19,7 +24,7 @@ function FilterCheckBox({ field, onClick }) {
   return (
     <div
       className={!isClicked ? "filterCheckBox, isClicked" : "filterCheckBox"}
-      onClick={handleClicky}
+      onClick={handleCheckBoxClick}
     >
       <p className="filterOptionName">{field}</p>
     </div>
