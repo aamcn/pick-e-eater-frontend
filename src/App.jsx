@@ -87,7 +87,6 @@ function App() {
 
   function toggleFormDisplay(toggleValue) {
     if (formToDisplay != toggleValue) {
-      console.log(toggleValue)
       setFormToDisplay(toggleValue);
     } else {
       setFormToDisplay(false);
