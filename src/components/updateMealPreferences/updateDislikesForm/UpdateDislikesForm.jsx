@@ -15,6 +15,7 @@ function AddDislikesForm({
   const [hidden, setIsHidden] = useState(true);
   const [chosenDiner, setChosenDiner] = useState(null);
   const [chosenDislikedMeals, setChosenDislikedMeals] = useState([]);
+ 
   /* 
     prepares form data before posting to server by creating formData object from the event.target and coverts 
     it to JSON before passing it to the 'postFormData' function.
