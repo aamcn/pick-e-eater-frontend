@@ -1,6 +1,8 @@
 import "./mealResultsDisplay.scss";
 
 function MealResultsDisplay({ meals, filteredMeals }) {
+
+  
   return (
     <div className="mealDisplayContainer">
       <ul className="mealDisplay">

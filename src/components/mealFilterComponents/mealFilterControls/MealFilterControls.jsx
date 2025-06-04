@@ -14,8 +14,7 @@ function MealFilterControls({
   const [checkedMealTypes, setCheckedMealTypes] = useState([]);
   const [mealSubTypeFields, setMealSubTypeFields] = useState([]);
   const [checkedMealSubTypes, setCheckedMealSubTypes] = useState([]);
-
-  const [hiddenDiff, setIsHiddenDiff] = useState("filterFormBackDrop, hidden");
+  const [filterFormClassName, setFilterFormClassName] = useState("filterFormBackDrop, hidden");
 
   /*
     Extract each meals difficulty from the 'allMeals' array.
@@ -51,53 +50,38 @@ function MealFilterControls({
     setMealSubTypeFields([...new Set(subTypeArr)]);
   }
 
-  /* 
-    Adds or removes a difficulty from 'checkedDifficulties' depending on whether the checkbox is checked or unchecked.
-    If checkbox is checked, insert the defaultValue (difficulty) into the checkedDifficultiess array in state.
-    If checkbox is unchecked, filter the defaultValue (difficulty) from the checkedDifficultiess array and update state.
-  */
+
+  //Adds or removes a difficulty from 'checkedDifficulties' depending on whether the checkbox is checked or unchecked.
   const handleDiffifcultyClick = (clicked, field) => {
-    if (clicked == false)
-      setCheckedDifficulties((checkedDifficulties) => [
-        ...checkedDifficulties,
-        field,
-      ]);
-    if (clicked == true) {
-      const filteredDifficultes = checkedDifficulties.filter(
-        (value) => value != field,
-      );
-      setCheckedDifficulties(filteredDifficultes);
+    // If clicked = false, insert the defaultValue (difficulty) into the checkedDifficultiess array in state.
+    if (!clicked)
+      setCheckedDifficulties((checkedDifficulties) => [...checkedDifficulties, field]);
+    //If clicked = true, filter the defaultValue (difficulty) from the checkedDifficultiess array and update state.
+    if (clicked) {
+      setCheckedDifficulties(checkedDifficulties.filter((value) => value != field))
     }
   };
 
-  /* 
-    Adds or removes a 'Type' from 'checkedMealTypes' depending on whether the checkbox is checked or unchecked.
-    If checkbox is checked, insert the defaultValue (Type) into the 'checkedMealTypes' array in state.
-    If checkbox is unchecked, filter the defaultValue (Type) from the 'checkedMealTypes' array and update state.
-  */
+  //Adds or removes a 'Type' from 'checkedMealTypes' depending on whether the checkbox is checked or unchecked.
   const handleMealTypeClick = (clicked, field) => {
-    if (clicked == false)
+    // If clicked is false, insert the defaultValue (Type) into the 'checkedMealTypes' array in state.
+    if (!clicked)
       setCheckedMealTypes((checkedMealTypes) => [...checkedMealTypes, field]);
-    if (clicked == true) {
-      const t = checkedMealTypes.filter((value) => value != field);
-      setCheckedMealTypes(t);
+    //If Clicked = true, filter the defaultValue (Type) from the 'checkedMealTypes' array and update state.
+    if (clicked) {
+      setCheckedMealTypes(checkedMealTypes.filter((value) => value != field));
     }
   };
 
-  /* 
-    Adds or removes a 'sub_type' from 'checkedMealSubTypes' depending on whether the checkbox is checked or unchecked.
-    If checkbox is checked, insert the defaultValue (sub_type) into the 'checkedMealSubTypes' array in state.
-    If checkbox is unchecked, filter the defaultValue (sub_type) from the 'checkedMealSubTypes' array and update state.
-  */
+
+  // Adds or removes a 'sub_type' from 'checkedMealSubTypes' depending on whether the checkbox is checked or unchecked.
   const handleMealSubTypeClick = (clicked, field) => {
-    if (clicked == false)
-      setCheckedMealSubTypes((checkedMealSubTypes) => [
-        ...checkedMealSubTypes,
-        field,
-      ]);
-    if (clicked == true) {
-      const r = checkedMealSubTypes.filter((value) => value !== field);
-      setCheckedMealSubTypes(r);
+    //If clicked is false, insert the defaultValue (sub_type) into the 'checkedMealSubTypes' array in state.
+    if (!clicked)
+      setCheckedMealSubTypes((checkedMealSubTypes) => [...checkedMealSubTypes, field]);
+    //If clicked is true, filter the defaultValue (sub_type) from the 'checkedMealSubTypes' array and update state.
+    if (clicked) {
+      setCheckedMealSubTypes(checkedMealSubTypes.filter((value) => value !== field));
     }
   };
 
@@ -106,45 +90,55 @@ function MealFilterControls({
     if (selectedDiners.length <= 0) {
       alert("Please add a diner");
       return;
-    } else if (hiddenDiff == "filterFormBackDrop") {
-      setIsHiddenDiff("filterFormBackDrop, hidden");
     } else {
-      setIsHiddenDiff("filterFormBackDrop");
+      filterFormClassName == "filterFormBackDrop" ?
+        setFilterFormClassName("filterFormBackDrop, hidden") : setFilterFormClassName("filterFormBackDrop");
     }
   };
 
   /*
-  
+    Reusable filter function for 'filterSelectedDinerMeals'.
+    If the 'optionArray' argument does not include the mealValue argument the mealValue argument is returned.
   */
-
-  function removeDiffMeals() {
-    const filteredArray = selectedDinersMeals.filter((meal) => {
-      if (!checkedDifficulties.includes(meal.difficulty)) {
-        return meal;
-      }
-    });
-    const typeFilter = filteredArray.filter((meal) => {
-      if (!checkedMealTypes.includes(meal.type)) {
-        return meal;
-      }
-    });
-    let mealResults = [];
-    const subTypeFilter = typeFilter.filter((meal) => {
-      if (!checkedMealSubTypes.includes(meal.sub_type)) {
-        mealResults.push(meal);
-      }
-    });
-    setFilteredMeals(mealResults);
+  function filterFunction(optionArray, mealValue) {
+    if (!optionArray.includes(mealValue))
+      return mealValue
   }
 
+  /*
+    Function filters 'selectedDinerMeals' by passing each meal through 'filterFunction'.
+    Each filter passes an 'optionArray' and 'mealValue' through 'filterFunction'. If the 'optionArray' does
+    not include the 'mealValue' for all three filters, the 'meal' is added to 'filteredArray'.
+  */
+  function filterSelectedDinersMeals() {
+    const filteredArray = selectedDinersMeals.filter(meal => {
+      return filterFunction(checkedDifficulties, meal.difficulty)
+    })
+      .filter((meal => {
+        return filterFunction(checkedMealTypes, meal.type)
+      }))
+      .filter((meal => {
+        return filterFunction(checkedMealSubTypes, meal.sub_type)
+      }));
+    setFilteredMeals(filteredArray);
+  }
+
+  /*
+    On render or if selectedDinersMeals changes, calls functions to get meal filter 
+    options (Difficulty, Type and Sub Type)
+  */
   useEffect(() => {
     getMealTypes();
     getMealDifficulties();
     getMealSubTypes();
   }, [selectedDinersMeals]);
 
+  /*
+    Calls the filterSelectedDinersMeals function if selectedDinersMeals or any checked filter options change, 
+    for example, the easy difficulty check box is clicked.
+  */
   useEffect(() => {
-    removeDiffMeals();
+    filterSelectedDinersMeals();
   }, [
     checkedDifficulties,
     checkedMealTypes,
@@ -160,7 +154,7 @@ function MealFilterControls({
         </button>
       </div>
 
-      <div className={hiddenDiff}>
+      <div className={filterFormClassName}>
         <div className="filterForm">
           <div className="filterOptionsContainer">
             <div className="filterTitleContainer">

@@ -10,9 +10,9 @@ function MealCheckBoxTemplate({
 
   const handleCheckedBox = (event) => {
     /*
-    If target checkbox checked status is true, the checkbox value (a meal id) is inserted in 
-    the array in chosenDislikedMeals. setIsChecked is set to true which 'checks' the clicked
-    checkbox.
+      If target checkbox checked status is true, the checkbox value (a meal id) is inserted in 
+      the array in chosenDislikedMeals. setIsChecked is set to true which 'checks' the clicked
+      checkbox.
     */
     if (event.target.checked == true) {
       setIsChecked(true);
@@ -23,9 +23,9 @@ function MealCheckBoxTemplate({
     }
 
     /*
-    If target checkbox checked status is false, the checkbox value (a meal id) is filtered from 
-    the array in chosenDislikedMeals. setIsChecked is set to 'false' which 'un-checks' the clicked
-    checkbox.
+      If target checkbox checked status is false, the checkbox value (a meal id) is filtered from 
+      the array in chosenDislikedMeals. setIsChecked is set to 'false' which 'un-checks' the clicked
+      checkbox.
     */
     if (event.target.checked == false) {
       setIsChecked(false);
