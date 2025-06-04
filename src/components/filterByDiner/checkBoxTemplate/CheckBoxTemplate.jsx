@@ -3,6 +3,7 @@ import { useState } from "react";
 
 function CheckBoxTemplate({ diner, setSelectedDiners, selectedDiners }) {
   const [isClicked, setIsClicked] = useState(false);
+  
   /*
     Adds or removes a diner depending on whether the checkbox is checked or unchecked.
     If checkbox is checked, insert the defaultValue (A diner) into the selectedDiners array and updates state.

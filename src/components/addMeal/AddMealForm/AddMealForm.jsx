@@ -1,8 +1,6 @@
 import axios from "axios";
-import { useState } from "react";
 import "./addMealForm.scss";
 function AddMealForm({ toggleFormDisplay, getMeals }) {
-  const [hidden, setIsHidden] = useState(true);
 
   /* 
     prepares form data before posting to server by creating formData object from the event.target and coverts 
@@ -13,6 +11,7 @@ function AddMealForm({ toggleFormDisplay, getMeals }) {
     const bodyFormData = new FormData(event.target);
     const formToJson = axios.formToJSON(bodyFormData);
     postFormData(formToJson);
+    //Calls getMeals function to collect updated 'meals' data from database.
     getMeals();
   };
 
@@ -32,16 +31,6 @@ function AddMealForm({ toggleFormDisplay, getMeals }) {
         console.log(error);
       });
   }
-
-  //When button is clicked it toggles the display of the form depending on its current state.
-  const handleToggle = (event) => {
-    event.preventDefault();
-    if (hidden == true) {
-      setIsHidden(false);
-    } else {
-      setIsHidden(true);
-    }
-  };
 
   return (
     <div className="addMealBackdrop">

@@ -4,7 +4,7 @@ import DinerSelector from "./components/filterByDiner/dinerSelector/DinerSelecto
 import MealResultsDisplay from "./components/mealsDisplay/MealResultsDisplay";
 import MealFilterControls from "./components/mealFilterComponents/mealFilterControls/MealFilterControls";
 import AddMealForm from "./components/addMeal/AddMealForm/AddMealForm";
-import AddDislikesForm from "./components/updateMealPreferences/updateDislikesForm/UpdateDislikesForm";
+import UpdateDislikesForm from "./components/updateMealPreferences/updateDislikesForm/UpdateDislikesForm";
 import GetRandonMeals from "./components/randomMealSelector/getRandomMeals/GetRandomMeals";
 import "./app.scss";
 import Header from "./components/headerComponents/header/Header";
@@ -27,7 +27,7 @@ function App() {
   const [formToDisplay, setFormToDisplay] = useState(false);
 
   //Fetches peopleData from the people database table and stores it in state
-  function getUsers() {
+  function getDiners() {
     axios
       .get(
         "https://pick-e-eater-backend-production.up.railway.app/diners/",
@@ -72,9 +72,9 @@ function App() {
     setSelectedDinersMeals(filteredArray);
   }
 
-  //On render the meals and users fetch functions are called.
+  //On render the meals and diners fetch functions are called.
   useEffect(() => {
-    getUsers();
+    getDiners();
     getMeals();
   }, []);
 
@@ -161,11 +161,11 @@ function App() {
         />
       )}
       {formToDisplay == "updateDislikesForm" && (
-        <AddDislikesForm
+        <UpdateDislikesForm
           toggleFormDisplay={toggleFormDisplay}
           allMeals={allMeals}
           allDiners={allDiners}
-          getUsers={getUsers}
+          getUsers={getDiners}
         />
       )}
 

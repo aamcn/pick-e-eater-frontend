@@ -7,34 +7,21 @@ function DinerSelector({
   selectedDiners,
   setSelectedDiners,
 }) {
-  const [hidden, setIsHidden] = useState(true);
+  
 
   //Extracts disliked meals from the currently selected diners and stores them in 'dislikesArray'.
   const collectDinerDislikes = () => {
     let dislikesArray = [];
-    selectedDiners.map((diner) => {
-      diner.dislikes.map((diner) => {
-        dislikesArray.push(diner);
-      });
-    });
-    //Removes duplicate dislikes from the array before setting it to state.
+  //'SelectedDiners' is mapped (diner) and each of their dislikes are mapped (dislikedMeal) and pushed to 'dislikesArray'.
+    selectedDiners.map(diner =>{diner.dislikes.map(dislikedMeal => {dislikesArray.push(dislikedMeal)} )
+  })
+    //Removes duplicate dislikes from the 'dislikedArray' before setting it to 'dislikedMeals' state.
     let unique = [...new Set(dislikesArray)];
     setDislikedMeals(unique);
   };
 
-  //When button is clicked it toggles the display of the form depending on its current state.
-  const handleToggle = (event) => {
-    event.preventDefault();
-    if (hidden == true) {
-      setIsHidden(false);
-    } else {
-      setIsHidden(true);
-    }
-  };
-
   /*
-  Calls the function to collect diners dislikes everytime selectedPeople is updated so that disliked meals can be filtered
-  immediately.
+    Calls the function to collect diners dislikes everytime 'selectedPeople' is updated so that disliked meals can be filtered.
   */
   useEffect(() => {
     collectDinerDislikes();

@@ -10,7 +10,7 @@ function FilterCheckBox({ field, onClick }) {
     This switches the div ClassName which changes the checkbox color signifying which options are selected or deselected.
   */
   const handleCheckBoxClick = () => {
-    isClicked ? setIsClicked(true) : setIsClicked(false);
+    !isClicked ? setIsClicked(true) : setIsClicked(false);
     };
 
   /*

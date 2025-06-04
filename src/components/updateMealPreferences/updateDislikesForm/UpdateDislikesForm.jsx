@@ -6,8 +6,7 @@ import MealCheckBoxTemplate from "./MealCheckBoxTemplate";
   Renders a form allowing the user to select a diner and a meal, on form submission the diner ID and the meal ID
   is posted to the server storing the meal in the diners disliked meals column.
 */
-function AddDislikesForm({ allDiners, allMeals, toggleFormDisplay, getUsers }) {
-  const [hidden, setIsHidden] = useState(true);
+function UpdateDislikesForm({ allDiners, allMeals, toggleFormDisplay, getUsers }) {
   const [chosenDiner, setChosenDiner] = useState(null);
   const [chosenDislikedMeals, setChosenDislikedMeals] = useState([]);
 
@@ -114,4 +113,4 @@ with the diners disliked meals stored in database.
   );
 }
 
-export default AddDislikesForm;
+export default UpdateDislikesForm;
