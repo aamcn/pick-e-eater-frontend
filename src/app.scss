@@ -3,7 +3,7 @@
 #root {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr 8fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 8fr 2fr;
   background-color: base.$main-background-color;
   color: base.$main-color;
   max-height: 100vh;
@@ -75,7 +75,7 @@ button:hover {
   display: flex;
   flex-direction: row;
   z-index: 8;
-  bottom: 6%;
+  bottom: 10.5%;
   justify-content: space-evenly;
   align-items: center;
   background-color: wheat;
@@ -110,7 +110,7 @@ button:hover {
 @media screen and (min-width: 768px) {
  .toolBarButtons {
   z-index: 8;
-  bottom: 6%;
+  bottom: 9%;
   justify-content: space-evenly;
   align-items: center;
   padding: 1em 0em 1em 0em;
@@ -124,7 +124,7 @@ button:hover {
 @media screen and (min-width: 1023px) {
  .toolBarButtons {
   z-index: 8;
-  bottom: 8.5%;
+  bottom: 10%;
   justify-content: space-evenly;
   align-items: center;
   padding: 1em 0em 1em 0em;
