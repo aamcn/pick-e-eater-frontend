@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import "./addMealForm.scss";
-function AddMealForm({ toggleFormDisplay, getMeals}) {
+function AddMealForm({ toggleFormDisplay, getMeals }) {
   const [hidden, setIsHidden] = useState(true);
 
   /* 
@@ -13,7 +13,7 @@ function AddMealForm({ toggleFormDisplay, getMeals}) {
     const bodyFormData = new FormData(event.target);
     const formToJson = axios.formToJSON(bodyFormData);
     postFormData(formToJson);
-    getMeals()
+    getMeals();
   };
 
   //Posts passed in formData to the server.
@@ -48,19 +48,43 @@ function AddMealForm({ toggleFormDisplay, getMeals}) {
       <form className="addMealForm" onSubmit={handleFormSubmit}>
         <fieldset className="addMealFieldset">
           <label htmlFor="name">Meal Name: </label>
-          <input className="addMealInput" id="name" name="name" type="text" required />
+          <input
+            className="addMealInput"
+            id="name"
+            name="name"
+            type="text"
+            required
+          />
         </fieldset>
         <fieldset className="addMealFieldset">
           <label htmlFor="type">Type: </label>
-          <input className="addMealInput" id="type" name="type" type="text" required />
+          <input
+            className="addMealInput"
+            id="type"
+            name="type"
+            type="text"
+            required
+          />
         </fieldset>
         <fieldset className="addMealFieldset">
           <label htmlFor="subType">Main Ingredient: </label>
-          <input className="addMealInput" id="subType" name="subType" type="text" required />
+          <input
+            className="addMealInput"
+            id="subType"
+            name="subType"
+            type="text"
+            required
+          />
         </fieldset>
         <fieldset className="addMealFieldset">
           <label htmlFor="difficulty">Difficulty: </label>
-          <input className="addMealInput" type="text" id="difficulty" name="difficulty" required />
+          <input
+            className="addMealInput"
+            type="text"
+            id="difficulty"
+            name="difficulty"
+            required
+          />
         </fieldset>
         <div className="addMealButtons">
           <button
@@ -71,7 +95,7 @@ function AddMealForm({ toggleFormDisplay, getMeals}) {
           >
             Close
           </button>
-          <button  className="addMealButton" type="submit">
+          <button className="addMealButton" type="submit">
             Submit
           </button>
           <button className="addMealButton" type="reset">

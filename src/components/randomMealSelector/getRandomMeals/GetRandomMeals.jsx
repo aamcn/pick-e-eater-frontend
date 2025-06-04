@@ -35,9 +35,15 @@ function GetRandonMeals({ filteredMeals, toggleFormDisplay }) {
   return (
     <div className="formBackDrop">
       <div className="randomMealContainer">
-        <div  className="inputContainer">
+        <div className="inputContainer">
           <label>Number of Meals: </label>
-          <input className="randomMealInput" onChange={handleDayChange} type="number" min="1" max="7" />
+          <input
+            className="randomMealInput"
+            onChange={handleDayChange}
+            type="number"
+            min="1"
+            max="7"
+          />
         </div>
         <div>
           <RandomMealsDisplay randomMeals={randomMeals} />

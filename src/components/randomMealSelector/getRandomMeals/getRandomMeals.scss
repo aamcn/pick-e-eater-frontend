@@ -30,12 +30,12 @@
   font-family: base.$title-font;
 }
 
-.randomMealInput{
- font-size: 3.8vw;
+.randomMealInput {
+  font-size: 3.8vw;
 }
 
-.inputContainer{
-  margin:0em 0em 1em 0em;
+.inputContainer {
+  margin: 0em 0em 1em 0em;
 }
 
 .randomMealFormButtons {
@@ -58,37 +58,34 @@
   }
 }
 
-
 @media screen and (min-width: 768px) {
- 
-.randomMealContainer {
-  font-size: 3vw;
-}
+  .randomMealContainer {
+    font-size: 3vw;
+  }
 
-.randomMealInput{
-  margin-left: 1em;
- font-size: 3vw;
-}
+  .randomMealInput {
+    margin-left: 1em;
+    font-size: 3vw;
+  }
 
-.randomMealFormButton {
-  width:20vw;
-  font-size:3vw;
-}
+  .randomMealFormButton {
+    width: 20vw;
+    font-size: 3vw;
+  }
 }
 
 @media screen and (min-width: 1024px) {
- 
-.randomMealContainer {
-  font-size: 2vw;
-}
+  .randomMealContainer {
+    font-size: 2vw;
+  }
 
-.randomMealInput{
-  margin-left: 1em;
-  font-size: 2vw;
-}
+  .randomMealInput {
+    margin-left: 1em;
+    font-size: 2vw;
+  }
 
-.randomMealFormButton {
-  width:20vw;
-  font-size:2vw;
-}
+  .randomMealFormButton {
+    width: 20vw;
+    font-size: 2vw;
+  }
 }

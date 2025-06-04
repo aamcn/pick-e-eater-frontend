@@ -6,12 +6,9 @@ function MealCheckBoxTemplate({
   setChosenDislikedMeals,
   chosenDislikedMeals,
 }) {
-
   const [isChecked, setIsChecked] = useState(false);
 
-
   const handleCheckedBox = (event) => {
-    
     /*
     If target checkbox checked status is true, the checkbox value (a meal id) is inserted in 
     the array in chosenDislikedMeals. setIsChecked is set to true which 'checks' the clicked
@@ -19,9 +16,12 @@ function MealCheckBoxTemplate({
     */
     if (event.target.checked == true) {
       setIsChecked(true);
-      setChosenDislikedMeals((chosenDislikedMeals) => [...chosenDislikedMeals, event.target.value]);
+      setChosenDislikedMeals((chosenDislikedMeals) => [
+        ...chosenDislikedMeals,
+        event.target.value,
+      ]);
     }
-    
+
     /*
     If target checkbox checked status is false, the checkbox value (a meal id) is filtered from 
     the array in chosenDislikedMeals. setIsChecked is set to 'false' which 'un-checks' the clicked
@@ -29,9 +29,13 @@ function MealCheckBoxTemplate({
     */
     if (event.target.checked == false) {
       setIsChecked(false);
-      setChosenDislikedMeals(chosenDislikedMeals.filter(mealId => { mealId != event.target.value ? meal : null }))
+      setChosenDislikedMeals(
+        chosenDislikedMeals.filter((mealId) => {
+          mealId != event.target.value ? meal : null;
+        }),
+      );
     }
-  }
+  };
 
   /* 
     On render and when chosenDiner is changed; 
@@ -48,9 +52,7 @@ function MealCheckBoxTemplate({
 
   return (
     <div className="dislikeMealCheckbox">
-     
-      <label htmlFor={meal.id}>{meal.name}
-      </label>
+      <label htmlFor={meal.id}>{meal.name}</label>
 
       <input
         onChange={handleCheckedBox}
@@ -59,7 +61,6 @@ function MealCheckBoxTemplate({
         value={meal.id}
         checked={isChecked}
       />
-      
     </div>
   );
 }

@@ -31,7 +31,7 @@
 
 .addMealFieldset {
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   text-align: center;
@@ -39,7 +39,7 @@
   font-family: base.$title-font;
 }
 
-.addMealButton{
+.addMealButton {
   margin: 2em 1em 0em 1em;
   color: base.$mealcard-background-color;
   background-color: base.$toolbar-background-color;
@@ -53,45 +53,43 @@
 }
 
 @media screen and (min-width: 768px) {
- 
-.addMealFieldset {
-  font-size: 3vw;
-  color: base.$toolbar-background-color;
-}
+  .addMealFieldset {
+    font-size: 3vw;
+    color: base.$toolbar-background-color;
+  }
 
-.addMealInput{
-  font-size: 2.5vw;
-}
+  .addMealInput {
+    font-size: 2.5vw;
+  }
 
-.randomMealInput{
-  margin-left: 1em;
-  font-size: 2vw;
-}
+  .randomMealInput {
+    margin-left: 1em;
+    font-size: 2vw;
+  }
 
-.addMealButton {
-  width:20vw;
-  font-size:3vw;
-}
+  .addMealButton {
+    width: 20vw;
+    font-size: 3vw;
+  }
 }
 
 @media screen and (min-width: 1024px) {
- 
-.addMealFieldset {
-  font-size: 2vw;
-  color: base.$toolbar-background-color;
-}
+  .addMealFieldset {
+    font-size: 2vw;
+    color: base.$toolbar-background-color;
+  }
 
-.addMealInput{
-  font-size: 2vw;
-}
+  .addMealInput {
+    font-size: 2vw;
+  }
 
-.randomMealInput{
-  margin-left: 1em;
-  font-size: 2vw;
-}
+  .randomMealInput {
+    margin-left: 1em;
+    font-size: 2vw;
+  }
 
-.addMealButton {
-  width:20vw;
-  font-size:2vw;
-}
+  .addMealButton {
+    width: 20vw;
+    font-size: 2vw;
+  }
 }

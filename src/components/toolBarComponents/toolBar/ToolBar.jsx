@@ -2,13 +2,14 @@ import "./toolBar.scss";
 import toolIcon from "../../../assets/svg/toolBarIcon.svg";
 
 function ToolBar({ toolButtonsClassName, setToolButtonsClassName }) {
+
+  /* 
+  On Click: If ToolButtonsClassName is "toolBarButtons" then it's value is set to "toolBarButtons, hidden".
+  Else ToolButtonsClassName is set to "toolBarButtons"
+  */
   const toggleToolButtonsDisplay = (event) => {
-    event.preventDefault();
-    if (toolButtonsClassName == "toolBarButtons") {
-      setToolButtonsClassName("toolBarButtons, hidden");
-    } else {
+    toolButtonsClassName == "toolBarButtons" ? setToolButtonsClassName("toolBarButtons, hidden") :
       setToolButtonsClassName("toolBarButtons");
-    }
   };
 
   return (

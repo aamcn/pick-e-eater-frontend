@@ -96,7 +96,7 @@ function App() {
       setFormToDisplay(false);
     }
     setToolButtonsClassName("toolBarButtons, hidden");
-  };
+  }
 
   return (
     <>
@@ -125,9 +125,27 @@ function App() {
       />
 
       <div className={toolButtonsClassName}>
-        <ToolBarButton topText={'Random'}  bottomText={'Meals'} randomMealIcon={randomMealIcon} toggleFormDisplay={toggleFormDisplay} toggleValue={'randomMealForm'}/>
-        <ToolBarButton topText={'Add'}  bottomText={'Meals'}  randomMealIcon={addMealsIcon} toggleFormDisplay={toggleFormDisplay} toggleValue={'addMealForm'}/>
-        <ToolBarButton topText={'Update'}  bottomText={'Likes'}  randomMealIcon={preferencesIcon} toggleFormDisplay={toggleFormDisplay} toggleValue={'updateDislikesForm'}/>
+        <ToolBarButton
+          topText={"Random"}
+          bottomText={"Meals"}
+          randomMealIcon={randomMealIcon}
+          toggleFormDisplay={toggleFormDisplay}
+          toggleValue={"randomMealForm"}
+        />
+        <ToolBarButton
+          topText={"Add"}
+          bottomText={"Meals"}
+          randomMealIcon={addMealsIcon}
+          toggleFormDisplay={toggleFormDisplay}
+          toggleValue={"addMealForm"}
+        />
+        <ToolBarButton
+          topText={"Update"}
+          bottomText={"Likes"}
+          randomMealIcon={preferencesIcon}
+          toggleFormDisplay={toggleFormDisplay}
+          toggleValue={"updateDislikesForm"}
+        />
       </div>
 
       {formToDisplay == "randomMealForm" && (
@@ -137,7 +155,10 @@ function App() {
         />
       )}
       {formToDisplay == "addMealForm" && (
-        <AddMealForm toggleFormDisplay={toggleFormDisplay} getMeals={getMeals}/>
+        <AddMealForm
+          toggleFormDisplay={toggleFormDisplay}
+          getMeals={getMeals}
+        />
       )}
       {formToDisplay == "updateDislikesForm" && (
         <AddDislikesForm
@@ -149,7 +170,6 @@ function App() {
       )}
 
       <div className="bufferDiv"> </div>
-      
     </>
   );
 }

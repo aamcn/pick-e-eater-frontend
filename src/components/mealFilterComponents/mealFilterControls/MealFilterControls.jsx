@@ -17,7 +17,6 @@ function MealFilterControls({
 
   const [hiddenDiff, setIsHiddenDiff] = useState("filterFormBackDrop, hidden");
 
-
   /*
     Extract each meals difficulty from the 'allMeals' array.
     Removes duplicates from the array and stores the array of unique strings in the 'difficultyFields' array in state.

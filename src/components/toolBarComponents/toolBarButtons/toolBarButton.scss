@@ -15,40 +15,38 @@
   border-radius: 5em;
 }
 
-.toolButtonImage{
-  width:6vw;
+.toolButtonImage {
+  width: 6vw;
 }
 
-.toolButtonTopText{
-   margin-bottom: 0.5em;
+.toolButtonTopText {
+  margin-bottom: 0.5em;
 }
 
-.toolButtonBottomText{
+.toolButtonBottomText {
   margin-top: 0.5em;
 }
 
 @media screen and (min-width: 768px) {
-  
-.toolBarButton {
-  width: 18vw;
-  height: 18vw;
-  margin: 1em;
-  font-size: 2.5vw;
-  border-radius: 50%;
-}
+  .toolBarButton {
+    width: 18vw;
+    height: 18vw;
+    margin: 1em;
+    font-size: 2.5vw;
+    border-radius: 50%;
+  }
 }
 
 @media screen and (min-width: 1023px) {
-  
-.toolBarButton {
-  width: 11vw;
-  height: 11vw;
-  margin: 1em;
-  font-size: 1.5vw;
-  border-radius: 50%;
-}
+  .toolBarButton {
+    width: 11vw;
+    height: 11vw;
+    margin: 1em;
+    font-size: 1.5vw;
+    border-radius: 50%;
+  }
 
-.toolButtonImage{
-  width:3.5vw;
-}
+  .toolButtonImage {
+    width: 3.5vw;
+  }
 }

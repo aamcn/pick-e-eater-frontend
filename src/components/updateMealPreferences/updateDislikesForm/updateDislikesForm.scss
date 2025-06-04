@@ -80,54 +80,50 @@
   }
 }
 
-
 @media screen and (min-width: 768px) {
- 
-.dinerSelectContainer{
-  font-size: 4vw;
-}
+  .dinerSelectContainer {
+    font-size: 4vw;
+  }
 
-.dinerSelectorInput{
-  font-size: 3vw;
-}
+  .dinerSelectorInput {
+    font-size: 3vw;
+  }
 
-.dislikeMealCheckbox{
-  font-size: 3vw;
-}
+  .dislikeMealCheckbox {
+    font-size: 3vw;
+  }
 
-.checkboxTitle {
-  font-size: 4vw;
-  margin-bottom: 1em;
-}
+  .checkboxTitle {
+    font-size: 4vw;
+    margin-bottom: 1em;
+  }
 
-.dislikesFormButton {
-  width:20vw;
-  font-size:3vw;
+  .dislikesFormButton {
+    width: 20vw;
+    font-size: 3vw;
+  }
 }
-}
-
 
 @media screen and (min-width: 1023px) {
- 
-.dinerSelectContainer{
-  font-size: 2vw;
-}
+  .dinerSelectContainer {
+    font-size: 2vw;
+  }
 
-.dinerSelectorInput{
-  font-size: 2vw;
-}
+  .dinerSelectorInput {
+    font-size: 2vw;
+  }
 
-.dislikeMealCheckbox{
-  font-size: 2vw;
-}
+  .dislikeMealCheckbox {
+    font-size: 2vw;
+  }
 
-.checkboxTitle {
-  font-size: 3vw;
-  margin-bottom: 1em;
-}
+  .checkboxTitle {
+    font-size: 3vw;
+    margin-bottom: 1em;
+  }
 
-.dislikesFormButton {
-  width:20vw;
-  font-size:2vw;
-}
+  .dislikesFormButton {
+    width: 20vw;
+    font-size: 2vw;
+  }
 }
