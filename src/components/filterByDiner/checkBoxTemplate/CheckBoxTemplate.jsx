@@ -1,5 +1,6 @@
 import "./checkBoxTemplate.scss";
 import { useState } from "react";
+import { tickedBox } from "./checkedBoxTemplateModules/tickedBox";
 
 function CheckBoxTemplate({ diner, setSelectedDiners, selectedDiners }) {
   const [isClicked, setIsClicked] = useState(false);
@@ -9,20 +10,15 @@ function CheckBoxTemplate({ diner, setSelectedDiners, selectedDiners }) {
     If checkbox is checked, insert the defaultValue (A diner) into the selectedDiners array and updates state.
     If checkbox is unchecked, filter the defaultValue (diner) from the selectedDiners array and updates state.
   */
-  const tickedBox = () => {
-    if (!isClicked)
-      setSelectedDiners([...selectedDiners, diner]);
-    setIsClicked(true);
-    if (isClicked) {
-      const filteredDiners = selectedDiners.filter((value) => value != diner);
-      setSelectedDiners(filteredDiners);
-      setIsClicked(false);
-    }
+  
+
+  const handleClick = () => {
+    tickedBox(selectedDiners, setIsClicked, isClicked, diner, setSelectedDiners);
   };
 
   return (
     <div
-      onClick={tickedBox}
+      onClick={handleClick}
       className={isClicked ? "dinerCheckBox, clicked" : "dinerCheckBox"}
       data-testid="diner-checkbox"
     >

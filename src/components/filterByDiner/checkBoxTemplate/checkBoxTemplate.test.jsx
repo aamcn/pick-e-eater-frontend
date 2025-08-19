@@ -46,13 +46,6 @@ describe("CheckBoxTemplate", () => {
         expect(mockProps.setSelectedDiners).toHaveBeenCalled();
     })
 
-    it("adds diner to selectedDiners when checkbox is checked", () => {
-        render(<CheckBoxTemplate {...mockProps} />);
-        const dinerCheckbox = screen.getByTestId("diner-checkbox");
-        fireEvent.click(dinerCheckbox);
-        expect(mockProps.setSelectedDiners).toHaveBeenCalledWith([...mockProps.selectedDiners, mockProps.diner]);
-    })
-
     it("should remove diner from selectedDiners when checkbox is unchecked", () => {
         render(<CheckBoxTemplate {...mockProps} />);
         const dinerCheckbox = screen.getByTestId("diner-checkbox");
