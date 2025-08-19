@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./filterCheckBox.scss";
 
-function FilterCheckBox({ clickFunction, field }) {
+function FilterCheckBox({ clickFunction, field, setCheckedFields, checkedFields}) {
   const [isClicked, setIsClicked] = useState(true);
 
 
@@ -18,10 +18,10 @@ function FilterCheckBox({ clickFunction, field }) {
     passed as arguments.
    */
   useEffect(() => {
-    clickFunction(isClicked, field);
-  }, [isClicked, field, clickFunction]);
+    clickFunction(isClicked, field, setCheckedFields, checkedFields);
+  }, [isClicked, field]);
 
-  return (
+  return (  
     <div
       className={!isClicked ? "filterCheckBox, isClicked" : "filterCheckBox"}
       onClick={handleCheckBoxClick}

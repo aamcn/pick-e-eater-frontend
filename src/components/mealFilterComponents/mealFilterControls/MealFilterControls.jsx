@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import FilterCheckBox from "../filterCheckBox/FilterCheckBox";
 import "./mealFilterControls.scss";
 import logo from "../../../assets/svg/cookBook.svg";
-import { getMealDifficulties, getMealTypes, getMealSubTypes} from "./utilities/getMealPropterties/getMealProperties/";
+import { getMealDifficulties, getMealTypes, getMealSubTypes} from "./utilities/getMealProperties/getMealProperties";
 import { filterSelectedDinersMeals } from "./utilities/filterSelectedDinersMeals/filterSelectedDInersMeals";
-
+import { handleDifficultyClick, handleMealTypeClick, handleMealSubTypeClick} from "./utilities/filterClickFunctions/filterClickFunctions";
 function MealFilterControls({
   allMeals,
   selectedDinersMeals,
@@ -19,44 +19,7 @@ function MealFilterControls({
   const [checkedMealSubTypes, setCheckedMealSubTypes] = useState([]);
   const [filterFormClassName, setFilterFormClassName] = useState("filterFormBackDrop, hidden");
 
-  
 
-
-
-
-  //Adds or removes a difficulty from 'checkedDifficulties' depending on whether the checkbox is checked or unchecked.
-  const handleDiffifcultyClick = (clicked, field) => {
-    // If clicked = false, insert the defaultValue (difficulty) into the checkedDifficultiess array in state.
-    if (!clicked)
-      setCheckedDifficulties((checkedDifficulties) => [...checkedDifficulties, field]);
-    //If clicked = true, filter the defaultValue (difficulty) from the checkedDifficultiess array and update state.
-    if (clicked) {
-      setCheckedDifficulties(checkedDifficulties.filter((value) => value != field))
-    }
-  };
-
-  //Adds or removes a 'Type' from 'checkedMealTypes' depending on whether the checkbox is checked or unchecked.
-  const handleMealTypeClick = (clicked, field) => {
-    // If clicked is false, insert the defaultValue (Type) into the 'checkedMealTypes' array in state.
-    if (!clicked)
-      setCheckedMealTypes((checkedMealTypes) => [...checkedMealTypes, field]);
-    //If Clicked = true, filter the defaultValue (Type) from the 'checkedMealTypes' array and update state.
-    if (clicked) {
-      setCheckedMealTypes(checkedMealTypes.filter((value) => value != field));
-    }
-  };
-
-
-  // Adds or removes a 'sub_type' from 'checkedMealSubTypes' depending on whether the checkbox is checked or unchecked.
-  const handleMealSubTypeClick = (clicked, field) => {
-    //If clicked is false, insert the defaultValue (sub_type) into the 'checkedMealSubTypes' array in state.
-    if (!clicked)
-      setCheckedMealSubTypes((checkedMealSubTypes) => [...checkedMealSubTypes, field]);
-    //If clicked is true, filter the defaultValue (sub_type) from the 'checkedMealSubTypes' array and update state.
-    if (clicked) {
-      setCheckedMealSubTypes(checkedMealSubTypes.filter((value) => value !== field));
-    }
-  };
 
   //When button is clicked it toggles the display of the form depending on its current state.
   const toggleFilterDisplay = () => {
@@ -75,9 +38,9 @@ function MealFilterControls({
   */
   useEffect(() => {
     getMealTypes(allMeals, setMealTypeFields);
-    getMealDifficulties(selectedDinersMeals, setDifficultyFields);
+    getMealDifficulties(allMeals, setDifficultyFields);
     getMealSubTypes(allMeals, setMealSubTypeFields);
-  }, []);
+  }, [selectedDiners]);
 
   /*
     Calls the filterSelectedDinersMeals function if selectedDinersMeals or any checked filter options change, 
@@ -91,13 +54,7 @@ function MealFilterControls({
         checkedMealSubTypes,
         setFilteredMeals
       );
-  }, [
-    checkedDifficulties,
-    checkedMealTypes,
-    checkedMealSubTypes,
-    selectedDinersMeals,
-    setFilteredMeals
-  ]);
+  }, [selectedDinersMeals, checkedDifficulties, checkedMealTypes, checkedMealSubTypes]);
 
   return (
     <div className="mealFilterControls">
@@ -119,7 +76,9 @@ function MealFilterControls({
                   return (
                     <FilterCheckBox
                       field={difficultyField}
-                      clickFunction={handleDiffifcultyClick}
+                      clickFunction={handleDifficultyClick}
+                      setCheckedFields={setCheckedDifficulties}
+                      checkedFields={checkedDifficulties}
                     />
                   );
                 })}
@@ -134,6 +93,8 @@ function MealFilterControls({
                     <FilterCheckBox
                       field={typeField}
                       clickFunction={handleMealTypeClick}
+                      setCheckedFields={setCheckedMealTypes}
+                      checkedFields={checkedMealTypes}
                     />
                   );
                 })}
@@ -148,6 +109,8 @@ function MealFilterControls({
                     <FilterCheckBox
                       field={subTypeField}
                       clickFunction={handleMealSubTypeClick}
+                      setCheckedFields={setCheckedMealSubTypes}
+                      checkedFields={checkedMealSubTypes}
                     />
                   );
                 })}
