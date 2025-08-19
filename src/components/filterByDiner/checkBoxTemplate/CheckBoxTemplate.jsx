@@ -1,6 +1,6 @@
 import "./checkBoxTemplate.scss";
 import { useState } from "react";
-import { tickedBox } from "./checkedBoxTemplateModules/tickedBox";
+import { tickedBox } from "./utilities/tickedBox/tickedBox";
 
 function CheckBoxTemplate({ diner, setSelectedDiners, selectedDiners }) {
   const [isClicked, setIsClicked] = useState(false);
