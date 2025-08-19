@@ -1,11 +1,16 @@
 import "./mealResultsDisplay.scss";
+import PropTypes from "prop-types";
 
-function MealResultsDisplay({ meals, filteredMeals }) {
+function MealResultsDisplay({ filteredMeals }) {
 
-  
+  // If there are no meals in the filteredMeals array, display a message indicating that no meals were found.
+  if(filteredMeals.length === 0){
+    return <p>No meals found</p>;
+  }
+
   return (
-    <div className="mealDisplayContainer">
-      <ul className="mealDisplay">
+    <div className="mealDisplayContainer" data-testid="meal-results-container">
+      <ul className="mealDisplay" data-testid="meal-results-list">
         {filteredMeals &&
           filteredMeals.map((meal) => {
             return (
@@ -21,5 +26,19 @@ function MealResultsDisplay({ meals, filteredMeals }) {
     </div>
   );
 }
+
+const mealResultsDisplayPropTypes = {
+  filteredMeals: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      sub_type: PropTypes.string.isRequired,
+      difficulty: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
+
+MealResultsDisplay.propTypes = mealResultsDisplayPropTypes;
 
 export default MealResultsDisplay;
