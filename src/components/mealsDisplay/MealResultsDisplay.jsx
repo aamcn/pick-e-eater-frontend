@@ -27,7 +27,8 @@ function MealResultsDisplay({ filteredMeals }) {
   );
 }
 
-const mealResultsDisplayPropTypes = {
+
+MealResultsDisplay.propTypes = {
   filteredMeals: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -38,7 +39,5 @@ const mealResultsDisplayPropTypes = {
     })
   ).isRequired,
 };
-
-MealResultsDisplay.propTypes = mealResultsDisplayPropTypes;
 
 export default MealResultsDisplay;

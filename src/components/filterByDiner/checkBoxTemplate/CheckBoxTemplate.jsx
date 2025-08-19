@@ -9,9 +9,9 @@ function CheckBoxTemplate({ diner, setSelectedDiners, selectedDiners }) {
     If checkbox is checked, insert the defaultValue (A diner) into the selectedDiners array and updates state.
     If checkbox is unchecked, filter the defaultValue (diner) from the selectedDiners array and updates state.
   */
-  const tickedBox = (event) => {
+  const tickedBox = () => {
     if (!isClicked)
-      setSelectedDiners((selectedDiners) => [...selectedDiners, diner]);
+      setSelectedDiners([...selectedDiners, diner]);
     setIsClicked(true);
     if (isClicked) {
       const filteredDiners = selectedDiners.filter((value) => value != diner);
@@ -24,6 +24,7 @@ function CheckBoxTemplate({ diner, setSelectedDiners, selectedDiners }) {
     <div
       onClick={tickedBox}
       className={isClicked ? "dinerCheckBox, clicked" : "dinerCheckBox"}
+      data-testid="diner-checkbox"
     >
       <div className="plateCenterShape">
         <p>{diner.name}</p>
