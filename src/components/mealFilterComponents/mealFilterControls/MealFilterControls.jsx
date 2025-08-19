@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import FilterCheckBox from "../filterCheckBox/FilterCheckBox";
 import "./mealFilterControls.scss";
 import logo from "../../../assets/svg/cookBook.svg";
+import { getMealDifficulties, getMealTypes, getMealSubTypes} from "./utilities/getMealPropterties/getMealProperties/";
+import { filterSelectedDinersMeals } from "./utilities/filterSelectedDinersMeals/filterSelectedDInersMeals";
+
 function MealFilterControls({
   allMeals,
   selectedDinersMeals,
@@ -16,39 +19,9 @@ function MealFilterControls({
   const [checkedMealSubTypes, setCheckedMealSubTypes] = useState([]);
   const [filterFormClassName, setFilterFormClassName] = useState("filterFormBackDrop, hidden");
 
-  /*
-    Extract each meals difficulty from the 'allMeals' array.
-    Removes duplicates from the array and stores the array of unique strings in the 'difficultyFields' array in state.
-  */
-  function getMealDifficulties() {
-    const difficultyArr = selectedDinersMeals.map((meal) => {
-      return meal.difficulty;
-    });
-    setDifficultyFields([...new Set(difficultyArr)]);
-  }
+  
 
-  /* 
-    Extract each meals 'Type' from the 'allMeals' array. 
-    Removes duplicate types from the array and stores the array of unique types in the 'mealTypeFields' array in state.
-  */
-  function getMealTypes() {
-    const mealTypeArr = allMeals.map((meal) => {
-      return meal.type;
-    });
-    setMealTypeFields([...new Set(mealTypeArr)]);
-  }
 
-  /*
-    Extract each meals 'sub_type' from the 'allMeals' array.
-    Removes duplicate 'sub_type' from the array and stores the array of unique 'sub_type' in the 'mealSubTypeFields' 
-    array in state.
-  */
-  function getMealSubTypes() {
-    const subTypeArr = allMeals.map((meal) => {
-      return meal.sub_type;
-    });
-    setMealSubTypeFields([...new Set(subTypeArr)]);
-  }
 
 
   //Adds or removes a difficulty from 'checkedDifficulties' depending on whether the checkbox is checked or unchecked.
@@ -86,7 +59,7 @@ function MealFilterControls({
   };
 
   //When button is clicked it toggles the display of the form depending on its current state.
-  const toggleFilterDisplay = (event) => {
+  const toggleFilterDisplay = () => {
     if (selectedDiners.length <= 0) {
       alert("Please add a diner");
       return;
@@ -97,53 +70,33 @@ function MealFilterControls({
   };
 
   /*
-    Reusable filter function for 'filterSelectedDinerMeals'.
-    If the 'optionArray' argument does not include the mealValue argument the mealValue argument is returned.
-  */
-  function filterFunction(optionArray, mealValue) {
-    if (!optionArray.includes(mealValue))
-      return mealValue
-  }
-
-  /*
-    Function filters 'selectedDinerMeals' by passing each meal through 'filterFunction'.
-    Each filter passes an 'optionArray' and 'mealValue' through 'filterFunction'. If the 'optionArray' does
-    not include the 'mealValue' for all three filters, the 'meal' is added to 'filteredArray'.
-  */
-  function filterSelectedDinersMeals() {
-    const filteredArray = selectedDinersMeals.filter(meal => {
-      return filterFunction(checkedDifficulties, meal.difficulty)
-    })
-      .filter((meal => {
-        return filterFunction(checkedMealTypes, meal.type)
-      }))
-      .filter((meal => {
-        return filterFunction(checkedMealSubTypes, meal.sub_type)
-      }));
-    setFilteredMeals(filteredArray);
-  }
-
-  /*
     On render or if selectedDinersMeals changes, calls functions to get meal filter 
     options (Difficulty, Type and Sub Type)
   */
   useEffect(() => {
-    getMealTypes();
-    getMealDifficulties();
-    getMealSubTypes();
-  }, [selectedDinersMeals]);
+    getMealTypes(allMeals, setMealTypeFields);
+    getMealDifficulties(selectedDinersMeals, setDifficultyFields);
+    getMealSubTypes(allMeals, setMealSubTypeFields);
+  }, []);
 
   /*
     Calls the filterSelectedDinersMeals function if selectedDinersMeals or any checked filter options change, 
     for example, the easy difficulty check box is clicked.
   */
   useEffect(() => {
-    filterSelectedDinersMeals();
+      filterSelectedDinersMeals(
+        selectedDinersMeals,
+        checkedDifficulties,
+        checkedMealTypes,
+        checkedMealSubTypes,
+        setFilteredMeals
+      );
   }, [
     checkedDifficulties,
     checkedMealTypes,
     checkedMealSubTypes,
     selectedDinersMeals,
+    setFilteredMeals
   ]);
 
   return (
@@ -166,7 +119,7 @@ function MealFilterControls({
                   return (
                     <FilterCheckBox
                       field={difficultyField}
-                      onClick={handleDiffifcultyClick}
+                      clickFunction={handleDiffifcultyClick}
                     />
                   );
                 })}
@@ -180,7 +133,7 @@ function MealFilterControls({
                   return (
                     <FilterCheckBox
                       field={typeField}
-                      onClick={handleMealTypeClick}
+                      clickFunction={handleMealTypeClick}
                     />
                   );
                 })}
@@ -194,7 +147,7 @@ function MealFilterControls({
                   return (
                     <FilterCheckBox
                       field={subTypeField}
-                      onClick={handleMealSubTypeClick}
+                      clickFunction={handleMealSubTypeClick}
                     />
                   );
                 })}
