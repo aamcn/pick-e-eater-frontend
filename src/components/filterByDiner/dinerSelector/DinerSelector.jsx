@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import CheckBoxTemplate from "../checkBoxTemplate/CheckBoxTemplate";
+import { collectDinerDislikes } from "./utilities/collectDinerDislikes/collectDinerDislikes";
 import "./dinerSelector.scss";
 function DinerSelector({
   allDiners,
@@ -7,30 +8,19 @@ function DinerSelector({
   selectedDiners,
   setSelectedDiners,
 }) {
-  
-
-  //Extracts disliked meals from the currently selected diners and stores them in 'dislikesArray'.
-  const collectDinerDislikes = () => {
-    let dislikesArray = [];
-  //'SelectedDiners' is mapped (diner) and each of their dislikes are mapped (dislikedMeal) and pushed to 'dislikesArray'.
-    selectedDiners.map(diner =>{diner.dislikes.map(dislikedMeal => {dislikesArray.push(dislikedMeal)} )
-  })
-    //Removes duplicate dislikes from the 'dislikedArray' before setting it to 'dislikedMeals' state.
-    let unique = [...new Set(dislikesArray)];
-    setDislikedMeals(unique);
-  };
 
   /*
     Calls the function to collect diners dislikes everytime 'selectedPeople' is updated so that disliked meals can be filtered.
   */
   useEffect(() => {
-    collectDinerDislikes();
-  }, [selectedDiners]);
+    collectDinerDislikes(selectedDiners, setDislikedMeals);
+  }, [selectedDiners, setDislikedMeals]);
 
   return (
-    <div className="dinerSelectorContainer">
+    <div className="dinerSelectorContainer"
+    data-testid="diner-selector">
       <hr></hr>
-      <div className="titleStick">
+      <div className="titleStick" data-testid="diner-selector-title">
         <h3 className="dinerSelectorTitle">Choose Who's Eating</h3>
       </div>
       <div className="dinerCheckBoxes">
