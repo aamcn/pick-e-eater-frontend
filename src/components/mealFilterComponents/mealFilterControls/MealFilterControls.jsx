@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import FilterCheckBox from "../filterCheckBox/FilterCheckBox";
 import "./mealFilterControls.scss";
-import logo from "../../../assets/svg/cookBook.svg";
+import filterIcon from "../../../assets/svg/cookBook.svg";
 import { getMealDifficulties, getMealTypes, getMealSubTypes} from "./utilities/getMealProperties/getMealProperties";
 import { filterSelectedDinersMeals } from "./utilities/filterSelectedDinersMeals/filterSelectedDInersMeals";
 import { handleDifficultyClick, handleMealTypeClick, handleMealSubTypeClick} from "./utilities/filterClickFunctions/filterClickFunctions";
+
 function MealFilterControls({
   allMeals,
   selectedDinersMeals,
@@ -57,15 +58,16 @@ function MealFilterControls({
   }, [selectedDinersMeals, checkedDifficulties, checkedMealTypes, checkedMealSubTypes]);
 
   return (
-    <div className="mealFilterControls">
+    <div className="mealFilterControls" data-testid="meal-filter-controls">
+      
       <div className="filterToggleContainer">
-        <button onClick={toggleFilterDisplay} className="toggleButton">
-          <img width="40vw" src={logo}></img>Filter
+        <button onClick={toggleFilterDisplay} className="toggleButton" data-testid="filter-form-toggle">
+          <img width="40vw" src={filterIcon}></img>Filter
         </button>
       </div>
 
-      <div className={filterFormClassName}>
-        <div className="filterForm">
+      <div className={filterFormClassName} data-testid="filter-form-backdrop">
+        <div className="filterForm" data-testid="filter-form">
           <div className="filterOptionsContainer">
             <div className="filterTitleContainer">
               <h4 className="filterTitle">Difficulty</h4>
@@ -84,7 +86,7 @@ function MealFilterControls({
                 })}
             </div>
             <div className="filterTitleContainer">
-              <h4 className="filterTitle">Type</h4>
+              <h4 className="filterTitle" data-testid="filter-title-type">Type</h4>
             </div>
             <div className="filterOption">
               {mealTypeFields &&
