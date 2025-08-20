@@ -93,6 +93,7 @@ function MealFilterControls({
                 mealTypeFields.map((typeField) => {
                   return (
                     <FilterCheckBox
+                      mealTypeFields={mealTypeFields}
                       field={typeField}
                       clickFunction={handleMealTypeClick}
                       setCheckedFields={setCheckedMealTypes}

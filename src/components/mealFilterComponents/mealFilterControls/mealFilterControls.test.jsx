@@ -5,7 +5,7 @@ import { fireEvent } from "@testing-library/react";
 
 const mockProps = {
   allMeals: [{ id: 1, name: "Spaghetti", type: "Pasta", subType: "Italian", difficulty: "Easy" }, { id: 2, name: "Salad", type: "Vegetarian", subType: "Raw", difficulty: "Medium" }],
-  selectedDinersMeals: [],
+  selectedDinersMeals: [{ id: 1, name: "Spaghetti", type: "Pasta", subType: "Italian", difficulty: "Easy" }, { id: 2, name: "Salad", type: "Vegetarian", subType: "Raw", difficulty: "Medium" }],
   setFilteredMeals: vi.fn(),
   selectedDiners: [{ id: 1, name: "John Doe" }, { id: 2, name: "Jane Smith" }],
 };

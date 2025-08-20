@@ -16,7 +16,7 @@ function GetRandonMeals({ filteredMeals, toggleFormDisplay }) {
     For the total 'numberOfMeals' a random integer is created, this integer is used as the index number 
     to select a meal from the 'filteredMeals' array and add it to the randomMeals array in state.
   */
-  const handleGetRandomClick = (event) => {
+  const handleGetRandomClick = () => {
     let randomMealsArr = [];
     while (randomMealsArr.length < numberOfMeals) {
       const meal = filteredMeals[getRandomInt(filteredMeals.length - 1)];

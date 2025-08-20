@@ -22,8 +22,11 @@ function FilterCheckBox({
     passed as arguments.
    */
   useEffect(() => {
+    if (!field || field === null) {
+      return;
+    }
     clickFunction(isClicked, field, setCheckedFields, checkedFields);
-  }, [isClicked, field]);
+  }, [isClicked]);
 
   return (
     <div
