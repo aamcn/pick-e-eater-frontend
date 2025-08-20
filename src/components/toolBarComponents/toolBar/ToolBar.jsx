@@ -13,10 +13,11 @@ function ToolBar({ toolButtonsClassName, setToolButtonsClassName }) {
   };
 
   return (
-    <div className="toolBarContainer">
+    <div className="toolBarContainer" data-testid="tool-bar-container">
       <button
         onClick={toggleToolButtonsDisplay}
         className="toolBarActionButton"
+        data-testid="tool-toggle-button"
       >
         <img width="40vw" src={toolIcon}></img>
       </button>
