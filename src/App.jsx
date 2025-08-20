@@ -128,21 +128,21 @@ function App() {
         <ToolBarButton
           topText={"Random"}
           bottomText={"Meals"}
-          randomMealIcon={randomMealIcon}
+          toolButtonIcon={randomMealIcon}
           toggleFormDisplay={toggleFormDisplay}
           toggleValue={"randomMealForm"}
         />
         <ToolBarButton
           topText={"Add"}
           bottomText={"Meals"}
-          randomMealIcon={addMealsIcon}
+          toolButtonIcon={addMealsIcon}
           toggleFormDisplay={toggleFormDisplay}
           toggleValue={"addMealForm"}
         />
         <ToolBarButton
           topText={"Update"}
           bottomText={"Likes"}
-          randomMealIcon={preferencesIcon}
+          toolButtonIcon={preferencesIcon}
           toggleFormDisplay={toggleFormDisplay}
           toggleValue={"updateDislikesForm"}
         />
