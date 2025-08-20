@@ -7,7 +7,7 @@ function ToolBar({ toolButtonsClassName, setToolButtonsClassName }) {
   On Click: If ToolButtonsClassName is "toolBarButtons" then it's value is set to "toolBarButtons, hidden".
   Else ToolButtonsClassName is set to "toolBarButtons"
   */
-  const toggleToolButtonsDisplay = (event) => {
+  const toggleToolButtonsDisplay = () => {
     toolButtonsClassName == "toolBarButtons" ? setToolButtonsClassName("toolBarButtons, hidden") :
       setToolButtonsClassName("toolBarButtons");
   };
