@@ -5,7 +5,7 @@ import MealResultsDisplay from "./components/mealsDisplay/MealResultsDisplay";
 import MealFilterControls from "./components/mealFilterComponents/mealFilterControls/MealFilterControls";
 import AddMealForm from "./components/addMeal/AddMealForm/AddMealForm";
 import UpdateDislikesForm from "./components/updateMealPreferences/updateDislikesForm/UpdateDislikesForm";
-import GetRandonMeals from "./components/randomMealSelector/getRandomMeals/GetRandomMeals";
+import GetRandomMeals from "./components/randomMealSelector/getRandomMeals/GetRandomMeals";
 import "./app.scss";
 import Header from "./components/headerComponents/header/Header";
 import ToolBar from "./components/toolBarComponents/toolBar/ToolBar";
@@ -149,7 +149,7 @@ function App() {
       </div>
 
       {formToDisplay == "randomMealForm" && (
-        <GetRandonMeals
+        <GetRandomMeals
           filteredMeals={filteredMeals}
           toggleFormDisplay={toggleFormDisplay}
         />

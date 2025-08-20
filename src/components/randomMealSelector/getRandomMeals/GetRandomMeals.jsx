@@ -1,15 +1,12 @@
 import { useState } from "react";
 import "./getRandomMeals.scss";
 import RandomMealsDisplay from "../randomMealsDisplay/RandomMealsDisplay";
-
-function GetRandonMeals({ filteredMeals, toggleFormDisplay }) {
+import { getRandomInt } from "../../../modules/getRandomInt/getRandomInt";
+import { checkForArrayDuplicates } from "../../../modules/checkForArrayDuplicates/checkForArrayDuplicates";
+function GetRandomMeals({ filteredMeals, toggleFormDisplay }) {
   const [randomMeals, setRandomMeals] = useState([]);
   const [numberOfMeals, setNumberOfMeals] = useState(0);
 
-  //Returns a random integer between 0 and the passed in argument.
-  function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-  }
 
   /*
     When the user clicks the submit button the current random meals are cleared.
@@ -24,7 +21,8 @@ function GetRandonMeals({ filteredMeals, toggleFormDisplay }) {
         If the 'meal.name' is already present in 'randomMealsArr' the 'meal.name' is not pushed to the array and a new random 
         index number is generated. 
       */
-      !randomMealsArr.includes(meal.name) ? randomMealsArr.push(meal.name) : null;
+     //      !randomMealsArr.includes(meal.name) ? randomMealsArr.push(meal.name) : null;
+      checkForArrayDuplicates(randomMealsArr, meal.name);
     }
     //Once randomMealsArr.length is equal to the numberOfMeals argument the array is stored in state.
     setRandomMeals(randomMealsArr);
@@ -34,6 +32,7 @@ function GetRandonMeals({ filteredMeals, toggleFormDisplay }) {
   const handleDayChange = (event) => {
     setNumberOfMeals(event.target.value);
   };
+
 
   return (
     <div className="formBackDrop">
@@ -71,4 +70,4 @@ function GetRandonMeals({ filteredMeals, toggleFormDisplay }) {
     </div>
   );
 }
-export default GetRandonMeals;
+export default GetRandomMeals;
