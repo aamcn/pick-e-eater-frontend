@@ -3,7 +3,7 @@ import FilterCheckBox from "../filterCheckBox/FilterCheckBox";
 import "./mealFilterControls.scss";
 import filterIcon from "../../../assets/svg/cookBook.svg";
 import { getMealDifficulties, getMealTypes, getMealSubTypes} from "./utilities/getMealProperties/getMealProperties";
-import { filterSelectedDinersMeals } from "./utilities/filterSelectedDinersMeals/filterSelectedDInersMeals";
+import { filterSelectedDinersMeals } from "./utilities/filterSelectedDinersMeals/filterSelectedDinersMeals";
 import { handleDifficultyClick, handleMealTypeClick, handleMealSubTypeClick} from "./utilities/filterClickFunctions/filterClickFunctions";
 
 function MealFilterControls({
