@@ -4,7 +4,7 @@ import DinerSelector from "./components/filterByDiner/dinerSelector/DinerSelecto
 import MealResultsDisplay from "./components/mealsDisplay/MealResultsDisplay";
 import MealFilterControls from "./components/mealFilterComponents/mealFilterControls/MealFilterControls";
 import AddMealForm from "./components/addMeal/AddMealForm/AddMealForm";
-import UpdateDislikesForm from "./components/updateMealPreferences/updateDislikesForm/UpdateDislikesForm";
+import MealPreferenceForm from "./components/updateMealPreferences/mealPreferenceForm/MealPreferenceForm";
 import GetRandomMeals from "./components/randomMealSelector/getRandomMeals/GetRandomMeals";
 import "./app.scss";
 import Header from "./components/headerComponents/header/Header";
@@ -144,7 +144,7 @@ function App() {
           bottomText={"Likes"}
           toolButtonIcon={preferencesIcon}
           toggleFormDisplay={toggleFormDisplay}
-          toggleValue={"updateDislikesForm"}
+          toggleValue={"mealPreferenceForm"}
         />
       </div>
 
@@ -161,8 +161,8 @@ function App() {
           getMeals={getMeals}
         />
       )}
-      {formToDisplay == "updateDislikesForm" && (
-        <UpdateDislikesForm
+      {formToDisplay == "mealPreferenceForm" && (
+        <MealPreferenceForm
           toggleFormDisplay={toggleFormDisplay}
           allMeals={allMeals}
           allDiners={allDiners}

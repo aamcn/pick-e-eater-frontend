@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./updateDislikesForm.scss";
-import MealCheckBoxTemplate from "./MealCheckBoxTemplate";
+import MealCheckBoxTemplate from "./MealCheckBoxTemplate/MealCheckBoxTemplate";
 /* 
   Renders a form allowing the user to select a diner and a meal, on form submission the diner ID and the meal ID
   is posted to the server storing the meal in the diners disliked meals column.
