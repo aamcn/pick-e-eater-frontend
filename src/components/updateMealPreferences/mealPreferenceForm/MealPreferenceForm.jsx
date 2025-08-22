@@ -7,8 +7,8 @@ import MealCheckBoxTemplate from "./MealCheckBoxTemplate/MealCheckBoxTemplate";
   is posted to the server storing the meal in the diners disliked meals column.
 */
 function UpdateDislikesForm({ allDiners, allMeals, toggleFormDisplay, getUsers }) {
-  const [chosenDiner, setChosenDiner] = useState(null);
-  const [chosenDislikedMeals, setChosenDislikedMeals] = useState([]);
+  const [selectedDiner, setSelectedDiner] = useState(null);
+  const [dinerDislikedMeals, setDinerDislikedMeals] = useState([]);
 
   /* 
     prepares form data before posting to server by creating formData object from the event.target and coverts 
@@ -17,10 +17,10 @@ function UpdateDislikesForm({ allDiners, allMeals, toggleFormDisplay, getUsers }
   const handleFormSubmit = (event) => {
     event.preventDefault();
     const bodyFormData = new FormData();
-    chosenDislikedMeals.forEach((value) => {
+    dinerDislikedMeals.forEach((value) => {
       bodyFormData.append("mealIdArray[]", value); // you have to add array symbol after the key name
     });
-    bodyFormData.append("dinerId", chosenDiner.id);
+    bodyFormData.append("dinerId", selectedDiner.id);
     const formToJson = axios.formToJSON(bodyFormData);
     postFormData(formToJson);
   };
@@ -48,21 +48,21 @@ function UpdateDislikesForm({ allDiners, allMeals, toggleFormDisplay, getUsers }
     const selectedDiner = allDiners.filter((diner) => {
       if (diner.id == index) return diner;
     });
-    setChosenDiner(selectedDiner[0]);
+    setSelectedDiner(selectedDiner[0]);
   };
 
   /*
-On render chosenDislikedMeals is reset. When there is a 'chosenDiner' stored in state their
+On render chosenDislikedMeals is reset. When there is a 'selectedDiner' stored in state their
 dislikes array is stored in chosenDislikedMeals. This is used to pre fillout the checkbox options
 with the diners disliked meals stored in database.
 */
   useEffect(() => {
-    setChosenDislikedMeals([]);
-    if (chosenDiner) {
-      setChosenDislikedMeals(chosenDiner.dislikes);
+    setDinerDislikedMeals([]);
+    if (selectedDiner) {
+      setDinerDislikedMeals(selectedDiner.dislikes);
     }
     getUsers();
-  }, [chosenDiner]);
+  }, [selectedDiner]);
 
   return (
     <div className="updateDislikesBackDrop">
@@ -83,14 +83,14 @@ with the diners disliked meals stored in database.
           </select>
         </fieldset>
         <fieldset className="mealsCheckBoxContainer">
-          {chosenDiner &&
+          {selectedDiner &&
             allMeals.map((meal) => {
               return (
                 <MealCheckBoxTemplate
                   meal={meal}
-                  chosenDiner={chosenDiner}
-                  chosenDislikedMeals={chosenDislikedMeals}
-                  setChosenDislikedMeals={setChosenDislikedMeals}
+                  selectedDiner={selectedDiner}
+                  dinerDislikedMeals={dinerDislikedMeals}
+                  setDinerDislikedMeals={setDinerDislikedMeals}
                 />
               );
             })}
