@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 
 function MealCheckBoxTemplate({
   meal,
-  chosenDiner,
-  setChosenDislikedMeals,
-  chosenDislikedMeals,
+  selectedDiner,
+  setDinerDislikedMeals,
+  dinerDislikedMeals,
 }) {
   const [isChecked, setIsChecked] = useState(false);
 
@@ -16,8 +16,8 @@ function MealCheckBoxTemplate({
     */
     if (event.target.checked == true) {
       setIsChecked(true);
-      setChosenDislikedMeals((chosenDislikedMeals) => [
-        ...chosenDislikedMeals,
+      setDinerDislikedMeals((dinerDislikedMeals) => [
+        ...dinerDislikedMeals,
         event.target.value,
       ]);
     }
@@ -29,8 +29,8 @@ function MealCheckBoxTemplate({
     */
     if (event.target.checked == false) {
       setIsChecked(false);
-      setChosenDislikedMeals(
-        chosenDislikedMeals.filter((mealId) => {
+      setDinerDislikedMeals(
+        dinerDislikedMeals.filter((mealId) => {
           mealId != event.target.value ? meal : null;
         }),
       );
@@ -43,15 +43,16 @@ function MealCheckBoxTemplate({
     If not present 'isChecked' is set to 'false' making the checkbox display as 'un-ticked'.
   */
   useEffect(() => {
-    if (chosenDiner.dislikes.includes(meal.id)) {
+    if (selectedDiner.dislikes.includes(meal.id)) {
       setIsChecked(true);
     } else {
       setIsChecked(false);
     }
-  }, [chosenDiner]);
+  }, [selectedDiner]);
 
   return (
-    <div className="dislikeMealCheckbox">
+    <div className="dislikeMealCheckbox"
+    data-testid="meal-checkbox">
       <label htmlFor={meal.id}>{meal.name}</label>
 
       <input
@@ -60,6 +61,7 @@ function MealCheckBoxTemplate({
         type="checkbox"
         value={meal.id}
         checked={isChecked}
+        data-testid="meal-checkbox-input"
       />
     </div>
   );
