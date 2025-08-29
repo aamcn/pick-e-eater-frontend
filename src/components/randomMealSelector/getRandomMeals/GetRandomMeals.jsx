@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./getRandomMeals.scss";
 import RandomMealsDisplay from "../randomMealsDisplay/RandomMealsDisplay";
 import { getRandomInt } from "../../../modules/getRandomInt/getRandomInt";
-import { checkForArrayDuplicates } from "../../../modules/checkForArrayDuplicates/checkForArrayDuplicates";
+import { filterArrayDuplicates } from "../../../modules/filterArrayDuplicates/filterArrayDuplicates";
 
 
 function GetRandomMeals({ filteredMeals, toggleFormDisplay }) {
@@ -19,7 +19,7 @@ function GetRandomMeals({ filteredMeals, toggleFormDisplay }) {
     while (randomMealsArr.length < numberOfMeals) {
       const meal = filteredMeals[getRandomInt(filteredMeals.length - 1)];
       // If the 'meal.name' is already present in 'randomMealsArr' the 'meal.name' is not pushed to the array and a new random index number is generated.
-      checkForArrayDuplicates(randomMealsArr, meal.name);
+      filterArrayDuplicates(randomMealsArr, meal.name);
     }
     //Once randomMealsArr.length is equal to the numberOfMeals argument the array is stored in state.
     setRandomMeals(randomMealsArr);
