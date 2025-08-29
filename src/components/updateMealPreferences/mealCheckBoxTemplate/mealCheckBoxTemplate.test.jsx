@@ -48,4 +48,6 @@ describe("MealCheckBoxTemplate", () => {
     expect(mockProps.setDinerDislikedMeals).toHaveBeenCalledTimes(4);
   });
 
+  
+
   });
