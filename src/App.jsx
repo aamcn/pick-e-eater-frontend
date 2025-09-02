@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import DinerSelector from "./components/filterByDiner/dinerSelector/DinerSelector";
 import MealResultsDisplay from "./components/mealsDisplay/MealResultsDisplay";
 import MealFilterControls from "./components/mealFilterComponents/mealFilterControls/MealFilterControls";
@@ -50,11 +49,6 @@ function App() {
     setFilteredMeals(meals);
   };
 
-  getDiners(setAllDiners)
-
-  getMeals(setFilteredMeals, setAllMeals)
-
-
   /*
     Filters the full meal list by returning meals that are NOT found in the 'dislikedMeals' array in state.
     The filtered array is then stored in 'currentPeopleMeals' state.
@@ -70,8 +64,8 @@ function App() {
 
   //On render the meals and diners fetch functions are called.
   useEffect(() => {
-    getDiners();
-    getMeals();
+     getDiners(setAllDiners)
+    getMeals(setFilteredMeals, setAllMeals)
   }, []);
 
   //When 'dislikedMeals' state is updated 'removeDislikedMeals' function is called.

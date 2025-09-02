@@ -1,6 +1,6 @@
 import axios from "axios";
 import "./addMealForm.scss";
-import { checkIfDuplicate } from "./addMealModules/checkIfDuplicate/checkIfDuplicate";
+import { checkIfDuplicate } from "./utilities/checkIfDuplicate/checkIfDuplicate";
 import { postNewMeal } from "./addMealModules/postNewMeal/postNewMeal";
 import { useEffect, useState } from "react";
 
@@ -12,7 +12,6 @@ function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
 
   const handleMealNameChange = (event) => {
     setInputMealName(event.target.value);
-    console.log(inputMealName);
   };
 
   /* 
@@ -21,10 +20,12 @@ function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
   */
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    
     if (isMealDuplicate == true) {
       alert("Meal is already saved");
       return;
     }
+
     const bodyFormData = new FormData(event.target);
     const formToJson = axios.formToJSON(bodyFormData);
     postNewMeal(formToJson);
