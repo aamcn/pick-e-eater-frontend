@@ -1,7 +1,10 @@
 import "./mealResultsDisplay.scss";
 import PropTypes from "prop-types";
+import { useContext } from "react";
+import { appContext } from "../../App";
 
-function MealResultsDisplay({ filteredMeals }) {
+function MealResultsDisplay() {
+  const { filteredMeals} = useContext(appContext);
 
   // If there are no meals in the filteredMeals array, display a message indicating that no meals were found.
   if(filteredMeals.length === 0){

@@ -14,6 +14,17 @@ import randomMealIcon from "./assets/svg/randomMealIcon.svg";
 import preferencesIcon from "./assets/svg/preferencesIcon.svg";
 import ToolBarButton from "./components/toolBarComponents/toolBarButtons/ToolBarButton";
 
+import { createContext } from "react";
+
+export const appContext = createContext({
+  allDiners: [],
+  storeAllDiners: () => {},
+  allMeals: [],
+  storeAllMeals: () => {},
+  filteredMeals: [],
+  storeFilteredMeals: () => {},
+});
+
 function App() {
   const [allDiners, setAllDiners] = useState([]);
   const [allMeals, setAllMeals] = useState([]);
@@ -25,6 +36,18 @@ function App() {
     "toolBarButtons, hidden",
   );
   const [formToDisplay, setFormToDisplay] = useState(false);
+
+  const storeAllDiners = (diners) => {
+    setAllDiners(diners);
+  };
+
+  const storeAllMeals = (meals) => {
+    setAllMeals(meals);
+  };
+
+  const storeFilteredMeals = (meals) => {
+    setFilteredMeals(meals);
+  };
 
   //Fetches peopleData from the people database table and stores it in state
   function getDiners() {
@@ -90,7 +113,7 @@ function App() {
     hiding all forms. At the end of the function whether a form is displayed or hidden the toolbar menu is then hidden.
 */
   function toggleFormDisplay(toggleValue) {
-    if (formToDisplay != toggleValue) {
+    if (formToDisplay !== toggleValue) {
       setFormToDisplay(toggleValue);
     } else {
       setFormToDisplay(false);
@@ -100,7 +123,15 @@ function App() {
 
   return (
     <>
-      <Header />
+      <appContext.Provider value={{
+        allDiners,
+        storeAllDiners,
+        allMeals,
+        storeAllMeals,
+        filteredMeals,
+        storeFilteredMeals
+      }}>
+        <Header />
 
       <DinerSelector
         allDiners={allDiners}
@@ -116,8 +147,8 @@ function App() {
         selectedDinersMeals={selectedDinersMeals}
         allMeals={allMeals}
       />
-
-      <MealResultsDisplay filteredMeals={filteredMeals} />
+      
+      <MealResultsDisplay />
 
       <ToolBar
         toolButtonsClassName={toolButtonsClassName}
@@ -169,7 +200,7 @@ function App() {
           getUsers={getDiners}
         />
       )}
-
+      </appContext.Provider>
     </>
   );
 }
