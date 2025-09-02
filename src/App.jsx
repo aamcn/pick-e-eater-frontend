@@ -13,8 +13,9 @@ import addMealsIcon from "./assets/svg/addMealsIcon.svg";
 import randomMealIcon from "./assets/svg/randomMealIcon.svg";
 import preferencesIcon from "./assets/svg/preferencesIcon.svg";
 import ToolBarButton from "./components/toolBarComponents/toolBarButtons/ToolBarButton";
-
-import { createContext } from "react";
+import { getMeals } from "../services/backendCalls/getMeals";
+import { getDiners } from "../services/backendCalls/getDiners";
+import { createContext } from "react"; 
 
 export const appContext = createContext({
   allDiners: [],
@@ -49,38 +50,10 @@ function App() {
     setFilteredMeals(meals);
   };
 
-  //Fetches peopleData from the people database table and stores it in state
-  function getDiners() {
-    axios
-      .get(
-        "https://pick-e-eater-backend-production.up.railway.app/diners/",
-        { method: "cors" },
-        { withCredentials: true },
-      )
-      .then(function (response) {
-        setAllDiners(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
+  getDiners(setAllDiners)
 
-  //Fetches mealsData from the meals database table and stores it in state
-  function getMeals() {
-    axios
-      .get(
-        "https://pick-e-eater-backend-production.up.railway.app/meals/",
-        { method: "cors" },
-        { withCredentials: true },
-      )
-      .then(function (response) {
-        setFilteredMeals(response.data);
-        setAllMeals(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
+  getMeals(setFilteredMeals, setAllMeals)
+
 
   /*
     Filters the full meal list by returning meals that are NOT found in the 'dislikedMeals' array in state.
