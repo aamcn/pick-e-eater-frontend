@@ -2,21 +2,20 @@
 
 .pageTitle {
   font-family: base.$title-font;
-  color: base.$title-color;
+  color: base.$mealcard-background-color;
   font-size: 6vw;
+  
 }
 
 .titleContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding:1em;
+  padding: 1em;
 }
 
 @media screen and (min-width: 1024px) {
   .pageTitle {
-    font-family: base.$title-font;
-    color: base.$title-color;
     font-size: 5vw;
   }
 }
