@@ -50,13 +50,16 @@
   flex-direction: column;
   justify-content: space-evenly;
   overflow: scroll;
+  
 }
 
 .filterToggleContainer {
   display: flex;
   background-color: base.$toolbar-background-color;
   justify-content: end;
-  padding: 1em;
+  padding: 0.5em;
+  border-bottom: solid 0.2em black;
+
 }
 
 .filterTitleContainer {
@@ -84,10 +87,9 @@
 @media screen and (min-width: 1024px) {
   .toggleButton {
     font-size: 2vw;
-    padding: 1em;
   }
 
   .filterToggleContainer {
-    padding: 0.1em;
+    padding: 0.5em;
   }
 }

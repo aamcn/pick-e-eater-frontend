@@ -6,6 +6,8 @@
   display: flex;
   justify-content: center;
   width: 100vw;
+  background-color: base.$toolbar-background-color;
+  border-bottom: solid 0.2em black;
 }
 
 @media screen and (min-width: 1024px) {
