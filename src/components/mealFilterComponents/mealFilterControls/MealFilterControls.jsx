@@ -6,6 +6,8 @@ import { getMealDifficulties, getMealTypes, getMealSubTypes} from "./utilities/g
 import { filterSelectedDinersMeals } from "./utilities/filterSelectedDinersMeals/filterSelectedDinersMeals";
 import { handleDifficultyClick, handleMealTypeClick, handleMealSubTypeClick} from "./utilities/filterClickFunctions/filterClickFunctions";
 
+
+
 function MealFilterControls({
   allMeals,
   selectedDinersMeals,
@@ -19,8 +21,6 @@ function MealFilterControls({
   const [mealSubTypeFields, setMealSubTypeFields] = useState([]);
   const [checkedMealSubTypes, setCheckedMealSubTypes] = useState([]);
   const [filterFormClassName, setFilterFormClassName] = useState("filterFormBackDrop, hidden");
-
-
 
   //When button is clicked it toggles the display of the form depending on its current state.
   const toggleFilterDisplay = () => {
@@ -43,7 +43,7 @@ function MealFilterControls({
     getMealSubTypes(allMeals, setMealSubTypeFields);
   }, [selectedDiners]);
 
-  /*
+  /*z
     Calls the filterSelectedDinersMeals function if selectedDinersMeals or any checked filter options change, 
     for example, the easy difficulty check box is clicked.
   */
@@ -55,7 +55,7 @@ function MealFilterControls({
         checkedMealSubTypes,
         setFilteredMeals
       );
-  }, [selectedDinersMeals, checkedDifficulties, checkedMealTypes, checkedMealSubTypes]);
+  }, [selectedDiners,checkedDifficulties, checkedMealTypes, checkedMealSubTypes]);
 
   return (
     <div className="mealFilterControls" data-testid="meal-filter-controls">
@@ -81,6 +81,7 @@ function MealFilterControls({
                       clickFunction={handleDifficultyClick}
                       setCheckedFields={setCheckedDifficulties}
                       checkedFields={checkedDifficulties}
+                      key={'difficulty-' + difficultyField}
                     />
                   );
                 })}
@@ -98,6 +99,7 @@ function MealFilterControls({
                       clickFunction={handleMealTypeClick}
                       setCheckedFields={setCheckedMealTypes}
                       checkedFields={checkedMealTypes}
+                      key={'type-' + typeField}
                     />
                   );
                 })}
@@ -114,6 +116,7 @@ function MealFilterControls({
                       clickFunction={handleMealSubTypeClick}
                       setCheckedFields={setCheckedMealSubTypes}
                       checkedFields={checkedMealSubTypes}
+                      key={'subType-' + subTypeField}
                     />
                   );
                 })}
