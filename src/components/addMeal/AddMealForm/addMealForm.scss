@@ -24,9 +24,9 @@
   border-radius: 1em;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   animation: grow-appear 0.5s;
-  padding: 1em;
+  padding: 0.5em;
+  width: 80vw;
 }
 
 .addMealFieldset {
@@ -37,6 +37,13 @@
   text-align: center;
   border: none;
   font-family: base.$title-font;
+}
+
+.addMealButtons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .addMealButton {
