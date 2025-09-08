@@ -4,7 +4,6 @@
   grid-row: 4;
   background-color: base.$container-background-color;
   padding: 0.5em;
-  margin-bottom: 0.2em;
   overflow: scroll;
 }
 
@@ -24,13 +23,12 @@
   background-color: base.$lolly-stick-color;
   padding: 1em 0em 0.5em 0em;
   font-family: base.$text-font;
-  font-size: 3.5vw;
-  border-bottom: solid base.$toolbar-background-color;
+  border-bottom: solid 0.2em base.$toolbar-background-color;
 }
 
 .mealTitle {
   display: flex;
-  font-size: 4vw;
+  font-size: 3.5vw;
   margin: 0em 0em 0em 1em;
   font-family: base.$title-font;
   color: base.$title-color;
@@ -42,14 +40,13 @@
   align-items: center;
   flex-direction: row;
   justify-content: space-evenly;
+  font-size: 1.3vh;
 }
 
 @media screen and (min-width: 768px) {
-  .mealCard {
-    font-size: 2vw;
-  }
+  
   .mealTitle {
-    font-size: 2.5vw;
+    font-size: 1.8vw;
   }
 
   .mealDisplay {
@@ -57,15 +54,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1em;
+  }
+
+  .typesContainer{
+    font-size: 1.5vw;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .mealCard {
-    font-size: 1.5vw;
-  }
+
   .mealTitle {
-    font-size: 2vw;
+    font-size: 1.2vw;
   }
 
   .mealDisplay {
@@ -74,4 +73,9 @@
     grid-template-columns: 1fr 1fr;
     gap: 1em;
   }
+
+  .typesContainer {
+    font-size: 1.5vw;
+  }
+
 }
