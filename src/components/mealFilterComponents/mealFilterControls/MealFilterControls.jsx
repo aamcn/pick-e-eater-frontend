@@ -62,7 +62,7 @@ function MealFilterControls({
       
       <div className="filterToggleContainer">
         <button onClick={toggleFilterDisplay} className="toggleButton" data-testid="filter-form-toggle">
-          <img width="40vw" src={filterIcon}></img>Filter
+          <img width="35vw" src={filterIcon} className="filterIcon"></img>Filter
         </button>
       </div>
 
