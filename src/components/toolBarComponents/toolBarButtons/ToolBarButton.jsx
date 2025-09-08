@@ -13,6 +13,8 @@ function ToolBarButton({
   };
 
   return (
+        <div className="toolBarBackdrop" data-testid="tool-bar-backdrop">
+
     <div
       onClick={handleToolButtonClick}
       value={toggleValue}
@@ -24,6 +26,7 @@ function ToolBarButton({
       </p>
       <img className="toolButtonImage" src={toolButtonIcon} data-testid="tool-button-icon" />
       <p className="toolButtonBottomText" data-testid="tool-button-bottom-text">{bottomText}</p>
+    </div>
     </div>
   );
 }
