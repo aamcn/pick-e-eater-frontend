@@ -1,7 +1,7 @@
 import axios from "axios";
 import "./addMealForm.scss";
-import { checkIfDuplicate } from "./utilities/checkIfDuplicate/checkIfDuplicate";
-import { postNewMeal } from "./addMealModules/postNewMeal/postNewMeal";
+import { checkIfDuplicate } from "./utillities/checkIfDuplicate/checkIfDuplicate";
+import { postNewMeal } from "./utillities/postNewMeal/postNewMeal";
 import { useEffect, useState } from "react";
 
 function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
@@ -37,6 +37,7 @@ function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
     }, 3000);
   };
 
+  
   useEffect(() => {
     const allMealNames = allMeals.map((meal) => {
       return meal.name.toLowerCase();
