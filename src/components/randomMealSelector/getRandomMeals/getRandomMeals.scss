@@ -17,7 +17,7 @@
 .randomMealContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   padding: 1em;
   background-color: base.$container-background-color;
@@ -40,15 +40,18 @@
 
 .randomMealFormButtons {
   display: flex;
-  justify-content: center;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .randomMealFormButton {
   display: flex;
   justify-content: center;
-  margin: 2em 1em 0em 1em;
   color: base.$mealcard-background-color;
   background-color: base.$toolbar-background-color;
+  padding: 1em;
+  width: 40%;
+
 }
 
 @keyframes grow-appear {
@@ -69,23 +72,29 @@
   }
 
   .randomMealFormButton {
-    width: 20vw;
     font-size: 3vw;
   }
 }
 
 @media screen and (min-width: 1024px) {
+
+
   .randomMealContainer {
     font-size: 2vw;
+    width: 20vw;
+    max-height: 50dvh;
   }
 
   .numberOfMealsInput {
     margin-left: 1em;
-    font-size: 2vw;
+    font-size: 1vw;
   }
 
   .randomMealFormButton {
-    width: 20vw;
-    font-size: 2vw;
+    font-size: 1vw;
+  }
+
+  .inputContainer{
+        font-size: 1.5vw;
   }
 }
