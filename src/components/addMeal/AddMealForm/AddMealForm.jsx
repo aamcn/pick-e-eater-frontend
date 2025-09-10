@@ -55,6 +55,8 @@ function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
   return (
     <div className="addMealBackdrop" >
       <form className="addMealForm" onSubmit={handleFormSubmit} data-testid="add-meal-form">
+              <h3 className="addMealTitle">Add a New Meal</h3>
+
         {errorMessage && <p>{errorMessage}</p>}
         {successMessage && <p>{successMessage}</p>}
         <fieldset className="addMealFieldset">
