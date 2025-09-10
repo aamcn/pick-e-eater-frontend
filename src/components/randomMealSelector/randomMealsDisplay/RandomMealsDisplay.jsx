@@ -9,11 +9,13 @@ function RandomMealsDisplay({ randomMeals }) {
     </div>;
   }
 
+  console.log(randomMeals);
+
   //Displays each meal from the array passed in as props
   return (
     <div className="randomDisplayContainer" data-testid="random-meal-backdrop">
       {randomMeals.map((meal) => {
-        return <p className="randomMealName" key={meal.id} data-testid="random-meal-item">{meal.name}</p>;
+        return <p className="randomMealName" key={meal.id} data-testid="random-meal-item">{meal}</p>;
       })}
     </div>
   );
