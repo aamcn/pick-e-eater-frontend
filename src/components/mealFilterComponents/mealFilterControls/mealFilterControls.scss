@@ -85,10 +85,13 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .toggleButton {
-    font-size: 2vw;
+ 
+  
+  .filterText{
+    margin-top: 0.5em;
+    font-size: 1vw;
   }
-
+  
   .filterTitle {
   font-family: base.$title-font;
   color: base.$title-color;
