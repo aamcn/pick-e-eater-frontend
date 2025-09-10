@@ -9,9 +9,10 @@
   border: solid base.$toolbar-background-color;
   border-radius: 1em;
   margin: 0em 0.1em 0em 0.1em;
-  padding: 0em 0.1em 0em 0.1em;
+  padding: 1em;
   font-family: base.$text-font;
-  min-width: 23vw;
+  width: fit-content;
+  text-wrap: nowrap;
 }
 
 .isClicked {
@@ -24,8 +25,9 @@
   border-radius: 1em;
   margin: 0em 0.1em 0em 0.1em;
   font-family: base.$text-font;
-  min-width: 23vw;
-  padding: 0em 0.1em 0em 0.1em;
+  padding: 1em;
+  width: fit-content;
+  text-wrap: nowrap;
 }
 
 .filterOptionName {

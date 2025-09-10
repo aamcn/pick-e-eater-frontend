@@ -70,7 +70,7 @@
 .filterTitle {
   font-family: base.$title-font;
   color: base.$title-color;
-  font-size: 5vw;
+  font-size: 4vw;
 }
 
 .toggleButton {
@@ -81,7 +81,7 @@
   border: none;
   background-color: base.$toolbar-background-color;
   padding: 0.1em;
-  font-size: 2.5vw;
+  font-size: 3.5vw;
 }
 
 @media screen and (min-width: 1024px) {
@@ -89,7 +89,17 @@
     font-size: 2vw;
   }
 
+  .filterTitle {
+  font-family: base.$title-font;
+  color: base.$title-color;
+  font-size: 2vw;
+}
+
   .filterToggleContainer {
     padding: 0.5em;
   }
+
+  .filterForm {
+  width: 50vw;
+}
 }

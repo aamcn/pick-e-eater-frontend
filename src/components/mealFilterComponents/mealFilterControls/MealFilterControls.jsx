@@ -7,7 +7,6 @@ import { filterSelectedDinersMeals } from "./utilities/filterSelectedDinersMeals
 import { handleDifficultyClick, handleMealTypeClick, handleMealSubTypeClick} from "./utilities/filterClickFunctions/filterClickFunctions";
 
 
-
 function MealFilterControls({
   allMeals,
   selectedDinersMeals,
