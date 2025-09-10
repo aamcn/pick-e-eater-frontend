@@ -10,22 +10,20 @@ function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
   const [errorMessage, setErrorMessage] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
 
+  // Updates inputMealName state on every change to the meal name input field.
   const handleMealNameChange = (event) => {
     setInputMealName(event.target.value);
   };
 
-  /* 
-    prepares form data before posting to server by creating formData object from the event.target and coverts 
-    it to JSON before passing it to the 'postFormData' function.
-  */
+  // Handles form submission.
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    
+    // If meal is a duplicate, alert user and do not submit form.
     if (isMealDuplicate == true) {
       alert("Meal is already saved");
       return;
     }
-
+    //Create formData object and convert to JSON and calls post function.
     const bodyFormData = new FormData(event.target);
     const formToJson = axios.formToJSON(bodyFormData);
     postNewMeal(formToJson);
@@ -37,10 +35,10 @@ function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
     }, 3000);
   };
 
-  
   useEffect(() => {
+    // Create array of all meal names in lowercase to check for duplicates.
     const allMealNames = allMeals.map((meal) => {
-      return meal.name.toLowerCase();
+    return meal.name.toLowerCase();
     });
     if (inputMealName) {
       checkIfDuplicate(
@@ -53,9 +51,13 @@ function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
   }, [inputMealName, allMeals]);
 
   return (
-    <div className="addMealBackdrop" >
-      <form className="addMealForm" onSubmit={handleFormSubmit} data-testid="add-meal-form">
-              <h3 className="addMealTitle">Add a New Meal</h3>
+    <div className="addMealBackdrop">
+      <form
+        className="addMealForm"
+        onSubmit={handleFormSubmit}
+        data-testid="add-meal-form"
+      >
+        <h3 className="addMealTitle">Add a New Meal</h3>
 
         {errorMessage && <p>{errorMessage}</p>}
         {successMessage && <p>{successMessage}</p>}
