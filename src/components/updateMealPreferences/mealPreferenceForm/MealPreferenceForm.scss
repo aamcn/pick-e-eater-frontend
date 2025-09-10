@@ -26,10 +26,16 @@
   justify-content: center;
   padding: 1em;
   animation: grow-appear 0.5s;
-  width: 80%;
-  height: 60%;
+  width: 70dvw;
+  height: 50dvh;
   z-index: 9;
 }
+
+  .dinerSelectorInput {
+    border-radius: 1em;
+    padding: 0.5em;
+    font-size: 3vw;
+  }
 
 .mealsCheckBoxContainer {
   display: flex;
@@ -106,16 +112,23 @@
 }
 
 @media screen and (min-width: 1023px) {
+
+  .updateDislikesForm {
+  width: 30dvw;
+  height: 50dvh;
+}
+
   .dinerSelectContainer {
-    font-size: 2vw;
+    align-items: center;
+    font-size: 1.5vw;
   }
 
   .dinerSelectorInput {
-    font-size: 2vw;
+    font-size: 1vw;
   }
 
   .dislikeMealCheckbox {
-    font-size: 2vw;
+    font-size: 1.5vw;
   }
 
   .checkboxTitle {
@@ -124,7 +137,7 @@
   }
 
   .dislikesFormButton {
-    width: 20vw;
-    font-size: 2vw;
+    width: 10vw;
+    font-size: 1vw;
   }
 }
