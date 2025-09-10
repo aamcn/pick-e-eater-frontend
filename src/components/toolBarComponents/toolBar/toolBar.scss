@@ -7,19 +7,45 @@
   width: 100%;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   background-color: base.$toolbar-background-color;
   grid-row: 5;
   z-index: 9;
-  padding: 1em 0em 1em 0em;
   border-top: solid 0.2em black;
   border-bottom: solid 0.1em black;
-
 }
-
-
 
 .toolBarActionButton {
   padding: 0em;
-  color: base.$title-color;
+  color: base.$mealcard-background-color;
   background-color: base.$toolbar-background-color;
+}
+
+.toolBarIcon {
+  width: 12vw;
+  animation: cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite pulse;
+}
+
+@media screen and (min-width: 1024px) {
+  
+  .toolBarContainer{
+    height: 8vh;
+  }
+
+  .toolBarIcon {
+    width: 4vw;
+  }
+
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1.1)
+  }
+  50%{
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
 }
