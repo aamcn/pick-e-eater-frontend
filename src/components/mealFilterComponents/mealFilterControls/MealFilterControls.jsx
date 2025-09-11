@@ -54,7 +54,7 @@ function MealFilterControls({
         checkedMealSubTypes,
         setFilteredMeals
       );
-  }, [selectedDiners,checkedDifficulties, checkedMealTypes, checkedMealSubTypes]);
+  }, [selectedDinersMeals, checkedDifficulties, checkedMealTypes, checkedMealSubTypes]);
 
   return (
     <div className="mealFilterControls" data-testid="meal-filter-controls">

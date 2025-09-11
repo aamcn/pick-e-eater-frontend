@@ -65,11 +65,11 @@ function App() {
   //On render the meals and diners fetch functions are called.
   useEffect(() => {
      getDiners(setAllDiners)
-    getMeals(setFilteredMeals, setAllMeals)
+     getMeals(setFilteredMeals, setAllMeals)
   }, []);
 
   //When 'dislikedMeals' state is updated 'removeDislikedMeals' function is called.
-  useEffect(() => {
+    useEffect(() => {
     if (dislikedMeals.length >= 1) {
       removeDislikedMeals();
     }
@@ -106,6 +106,7 @@ function App() {
         setSelectedDiners={setSelectedDiners}
         dislikedMeals={dislikedMeals}
         setDislikedMeals={setDislikedMeals}
+        
       />
 
       <MealFilterControls
@@ -113,9 +114,10 @@ function App() {
         setFilteredMeals={setFilteredMeals}
         selectedDinersMeals={selectedDinersMeals}
         allMeals={allMeals}
+        dislikedMeals={dislikedMeals}
       />
-      
-      <MealResultsDisplay />
+
+      <MealResultsDisplay filteredMeals={filteredMeals} />
 
       <ToolBar
         toolButtonsClassName={toolButtonsClassName}
