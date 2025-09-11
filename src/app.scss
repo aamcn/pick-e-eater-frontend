@@ -34,17 +34,10 @@ body {
   max-width: 100vw;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+
+
 
 h1 {
-  font-size: 3.2em;
   line-height: 1.1;
   text-align: center;
 }
@@ -54,7 +47,6 @@ h2,
 h3,
 h4 {
   margin: 0;
-  color: base.$main-color;
 }
 p {
   margin: 0;
@@ -76,20 +68,19 @@ button:hover {
   border-color: #646cff;
 }
 
-.toolBarButtons {
+.toolBarBackDrop {
   position: absolute;
   display: flex;
   flex-direction: row;
   z-index: 8;
-  bottom: 0%;
+  bottom: 0dvh;
   justify-content: space-evenly;
-  align-items: center;
-  align-items: center;
+  align-items: end;
   margin: 1em 0em 1em 0em;
   border-radius: 1em 1em 0em 0em;
   height: 100dvh;
   width: 100vw;
-  animation: slide-up 0.5s;
+  padding-bottom: 7dvh;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
 }
@@ -107,34 +98,14 @@ button:hover {
   }
 }
 
-@keyframes slide-up {
-  0% {
-    transform: translateY(100%);
-  }
-}
-
 @media screen and (min-width: 768px) {
-  .toolBarButtons {
-    z-index: 8;
-    bottom: 9%;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 1em 0em 1em 0em;
-    border-radius: 1em 1em 0em 0em;
-    width: 100vw;
-    height: 15vh;
+  .toolBarBackDrop {
+      padding-bottom: 10dvh;
   }
 }
 
-@media screen and (min-width: 1023px) {
-  .toolBarButtons {
-    z-index: 8;
-    bottom: 10%;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 1em 0em 1em 0em;
-    border-radius: 1em 1em 0em 0em;
-    width: 100vw;
-    height: 12vw;
+@media screen and (min-width: 1024px) {
+  .toolBarBackDrop {
+      padding-bottom: 10dvh;
   }
 }

@@ -1,8 +1,7 @@
 @use "../../../base";
 
 .dinerSelectorContainer {
-  background-color: base.$container-background-color;
-  width: 100vw;
+  width: 100dvw;
 }
 
 .dinerCheckBoxes {
@@ -19,12 +18,6 @@
   margin-left: 1em;
   color: base.$toolbar-background-color;
   font-size: 3vw;
-}
-
-.titleStick {
-  border-radius: 0.5em;
-  margin-left: 1em;
-  width: 80vw;
 }
 
 .plateCenterShape {
@@ -51,6 +44,7 @@
   .dinerSelectorTitle {
     font-size: 2vw;
   }
+
   .plateCenterShape {
     width: 5vw;
     height: 5vw;
