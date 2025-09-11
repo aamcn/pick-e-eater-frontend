@@ -8,11 +8,11 @@ export function tickedBox(
 ) {
   if (!isClicked)
     // Add diner to selectedDiners
-    setSelectedDiners((selectedDiners) => [...selectedDiners, diner]);
-  setIsClicked(true);
+    setSelectedDiners([...selectedDiners, diner]);
+    setIsClicked(true);
   if (isClicked) {
     // Remove diner from selectedDiners
-    const filteredDiners = selectedDiners.filter((value) => value != diner);
+    const filteredDiners = selectedDiners.filter((selectedDiner) => selectedDiner.name !== diner.name);
     setSelectedDiners(filteredDiners);
     setIsClicked(false);
   }
