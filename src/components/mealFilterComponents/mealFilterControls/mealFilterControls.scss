@@ -108,7 +108,7 @@
 @media screen and (min-width: 768px) {
   .filterText {
     margin-top: 0.5em;
-    font-size: 1vw;
+    font-size:2vw;
   }
 
   .filterTitle {
@@ -119,6 +119,7 @@
 
   .filterToggleContainer {
     padding: 0.5em;
+    
   }
 
   .filterForm {
@@ -127,9 +128,9 @@
   }
 
 
-.filterCloseButton {
-  font-size: 4vw;
-}
+  .filterCloseButton {
+    font-size: 4vw;
+  }
 
 }
 
