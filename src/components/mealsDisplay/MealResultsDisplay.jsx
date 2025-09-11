@@ -1,13 +1,9 @@
 import "./mealResultsDisplay.scss";
 import PropTypes from "prop-types";
-import { useContext } from "react";
-import { appContext } from "../../App";
 
-function MealResultsDisplay() {
-  const { filteredMeals} = useContext(appContext);
-
+function MealResultsDisplay({ filteredMeals }) {
   // If there are no meals in the filteredMeals array, display a message indicating that no meals were found.
-  if(filteredMeals.length === 0){
+  if (filteredMeals.length === 0) {
     return <p>No meals found</p>;
   }
 
@@ -30,7 +26,6 @@ function MealResultsDisplay() {
   );
 }
 
-
 MealResultsDisplay.propTypes = {
   filteredMeals: PropTypes.arrayOf(
     PropTypes.shape({
@@ -39,7 +34,7 @@ MealResultsDisplay.propTypes = {
       type: PropTypes.string.isRequired,
       sub_type: PropTypes.string.isRequired,
       difficulty: PropTypes.string.isRequired,
-    })
+    }),
   ).isRequired,
 };
 
