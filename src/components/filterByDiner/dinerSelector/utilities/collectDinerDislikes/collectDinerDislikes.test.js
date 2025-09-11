@@ -1,16 +1,15 @@
-import { collectDinerDislikes } from "./collectDinerDislikes";  
+import { collectDinerDislikes } from "./collectDinerDislikes";
 import { describe, expect, it, vi } from "vitest";
 
- const selectedDiners = [
-      { name: "John", dislikes: ["pizza", "sushi"] },
-      { name: "Jane", dislikes: ["sushi", "burger"] },
-    ];
+const selectedDiners = [
+  { name: "John", dislikes: ["pizza", "sushi"] },
+  { name: "Jane", dislikes: ["sushi", "burger"] },
+];
 
 const setDislikedMeals = vi.fn();
 
 describe("collectDinerDislikes", () => {
   it("collects and sets unique disliked meals", () => {
-
     collectDinerDislikes(selectedDiners, setDislikedMeals);
 
     expect(setDislikedMeals).toHaveBeenCalledWith(["pizza", "sushi", "burger"]);
@@ -46,5 +45,4 @@ describe("collectDinerDislikes", () => {
     collectDinerDislikes(selectedDiners, setDislikedMeals);
     expect(selectedDiners).toEqual(originalDiners);
   });
-
-})
+});
