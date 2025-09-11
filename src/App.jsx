@@ -5,7 +5,7 @@ import MealFilterControls from "./components/mealFilterComponents/mealFilterCont
 import AddMealForm from "./components/addMeal/AddMealForm/AddMealForm";
 import MealPreferenceForm from "./components/updateMealPreferences/mealPreferenceForm/MealPreferenceForm";
 import GetRandomMeals from "./components/randomMealSelector/getRandomMeals/GetRandomMeals";
-import "./app.scss";
+import "./sass/app.scss";
 import Header from "./components/headerComponents/header/Header";
 import ToolBar from "./components/toolBarComponents/toolBar/ToolBar";
 import addMealsIcon from "./assets/svg/addMealsIcon.svg";
