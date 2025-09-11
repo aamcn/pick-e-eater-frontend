@@ -2,7 +2,7 @@
   "name": "pick-e-eater-frontend",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://aamcn.github.io/pick-e-eater-frontend",
+  "homepage": "https://aamcn.github.io/pick-e-eater-frontend/",
   "type": "module",
   "scripts": {
     "dev": "vite",
