@@ -143,8 +143,8 @@ function MealFilterControls({
             </div>
           </div>
 
-          <div className="filterToggleContainer">
-            <button onClick={toggleFilterDisplay} className="toggleButton">
+          <div className="filterCloseContainer">
+            <button onClick={toggleFilterDisplay} className="filterCloseButton">
               Done
             </button>
           </div>
