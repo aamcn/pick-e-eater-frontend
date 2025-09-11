@@ -9,7 +9,7 @@ function FilterCheckBox({
 }) {
   const [isClicked, setIsClicked] = useState(true);
 
-  /*
+  /* 
     If isClicked is 'true' isClicked is set to 'false'. If not isClicked is set to 'true'.
     This switches the div ClassName which changes the checkbox color signifying which options are selected or deselected.
   */
@@ -18,9 +18,9 @@ function FilterCheckBox({
   };
 
   /*
-    When isClicked is updated, the onClick props function is called and the 'isClicked' value and 'field' props are
-    passed as arguments.
-   */
+  When isClicked is updated, the onClick props function is called and the 'isClicked' value and 'field' props are
+  passed as arguments.
+  */
   useEffect(() => {
     if (!field || field === null) {
       return;
@@ -40,3 +40,5 @@ function FilterCheckBox({
 }
 
 export default FilterCheckBox;
+
+
