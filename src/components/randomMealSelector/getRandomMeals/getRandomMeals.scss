@@ -51,7 +51,6 @@
   background-color: base.$toolbar-background-color;
   padding: 1em;
   width: 40%;
-
 }
 
 @keyframes grow-appear {
@@ -77,8 +76,6 @@
 }
 
 @media screen and (min-width: 1024px) {
-
-
   .randomMealContainer {
     font-size: 2vw;
     width: 20vw;
@@ -94,7 +91,7 @@
     font-size: 1vw;
   }
 
-  .inputContainer{
-        font-size: 1.5vw;
+  .inputContainer {
+    font-size: 1.5vw;
   }
 }

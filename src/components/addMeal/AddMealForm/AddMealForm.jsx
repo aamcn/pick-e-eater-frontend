@@ -38,7 +38,7 @@ function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
   useEffect(() => {
     // Create array of all meal names in lowercase to check for duplicates.
     const allMealNames = allMeals.map((meal) => {
-    return meal.name.toLowerCase();
+      return meal.name.toLowerCase();
     });
     if (inputMealName) {
       checkIfDuplicate(

@@ -5,13 +5,13 @@ export function getDiners(setAllDiners) {
   axios
     .get(
       "https://pick-e-eater-backend-production.up.railway.app/diners/",
-        { method: "cors" },
-        { withCredentials: true },
-      )
-      .then(function (response) {
-        setAllDiners(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  } 
+      { method: "cors" },
+      { withCredentials: true },
+    )
+    .then(function (response) {
+      setAllDiners(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}

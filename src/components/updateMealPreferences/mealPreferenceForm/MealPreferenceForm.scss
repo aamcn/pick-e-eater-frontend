@@ -31,11 +31,11 @@
   z-index: 9;
 }
 
-  .dinerSelectorInput {
-    border-radius: 1em;
-    padding: 0.5em;
-    font-size: 3vw;
-  }
+.dinerSelectorInput {
+  border-radius: 1em;
+  padding: 0.5em;
+  font-size: 3vw;
+}
 
 .mealsCheckBoxContainer {
   display: flex;
@@ -112,11 +112,10 @@
 }
 
 @media screen and (min-width: 1023px) {
-
   .updateDislikesForm {
-  width: 30dvw;
-  height: 50dvh;
-}
+    width: 30dvw;
+    height: 50dvh;
+  }
 
   .dinerSelectContainer {
     align-items: center;

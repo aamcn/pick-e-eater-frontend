@@ -6,7 +6,7 @@ function DinerSelector({
   allDiners,
   setDislikedMeals,
   selectedDiners,
-  setSelectedDiners
+  setSelectedDiners,
 }) {
   /*
     Calls the function to collect diners dislikes everytime 'selectedDiners' is updated.
@@ -14,7 +14,6 @@ function DinerSelector({
   useEffect(() => {
     collectDinerDislikes(selectedDiners, setDislikedMeals);
   }, [selectedDiners, setDislikedMeals]);
-
 
   return (
     <div className="dinerSelectorContainer" data-testid="diner-selector">

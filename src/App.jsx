@@ -14,7 +14,7 @@ import preferencesIcon from "./assets/svg/preferencesIcon.svg";
 import ToolBarButton from "./components/toolBarComponents/toolBarButtons/ToolBarButton";
 import { getMeals } from "../services/backendCalls/getMeals";
 import { getDiners } from "../services/backendCalls/getDiners";
-import { createContext } from "react"; 
+import { createContext } from "react";
 
 export const appContext = createContext({
   allDiners: [],
@@ -64,12 +64,12 @@ function App() {
 
   //On render the meals and diners fetch functions are called.
   useEffect(() => {
-     getDiners(setAllDiners)
-     getMeals(setFilteredMeals, setAllMeals)
+    getDiners(setAllDiners);
+    getMeals(setFilteredMeals, setAllMeals);
   }, []);
 
   //When 'dislikedMeals' state is updated 'removeDislikedMeals' function is called.
-    useEffect(() => {
+  useEffect(() => {
     if (dislikedMeals.length >= 1) {
       removeDislikedMeals();
     }
@@ -90,85 +90,86 @@ function App() {
 
   return (
     <>
-      <appContext.Provider value={{
-        allDiners,
-        storeAllDiners,
-        allMeals,
-        storeAllMeals,
-        filteredMeals,
-        storeFilteredMeals
-      }}>
+      <appContext.Provider
+        value={{
+          allDiners,
+          storeAllDiners,
+          allMeals,
+          storeAllMeals,
+          filteredMeals,
+          storeFilteredMeals,
+        }}
+      >
         <Header />
 
-      <DinerSelector
-        allDiners={allDiners}
-        selectedDiners={selectedDiners}
-        setSelectedDiners={setSelectedDiners}
-        dislikedMeals={dislikedMeals}
-        setDislikedMeals={setDislikedMeals}
-        
-      />
-
-      <MealFilterControls
-        selectedDiners={selectedDiners}
-        setFilteredMeals={setFilteredMeals}
-        selectedDinersMeals={selectedDinersMeals}
-        allMeals={allMeals}
-        dislikedMeals={dislikedMeals}
-      />
-
-      <MealResultsDisplay filteredMeals={filteredMeals} />
-
-      <ToolBar
-        toolButtonsClassName={toolButtonsClassName}
-        setToolButtonsClassName={setToolButtonsClassName}
-      />
-
-      <div className={toolButtonsClassName}>
-        <ToolBarButton
-          topText={"Random"}
-          bottomText={"Meals"}
-          toolButtonIcon={randomMealIcon}
-          toggleFormDisplay={toggleFormDisplay}
-          toggleValue={"randomMealForm"}
-        />
-        <ToolBarButton
-          topText={"Add"}
-          bottomText={"Meals"}
-          toolButtonIcon={addMealsIcon}
-          toggleFormDisplay={toggleFormDisplay}
-          toggleValue={"addMealForm"}
-        />
-        <ToolBarButton
-          topText={"Update"}
-          bottomText={"Likes"}
-          toolButtonIcon={preferencesIcon}
-          toggleFormDisplay={toggleFormDisplay}
-          toggleValue={"mealPreferenceForm"}
-        />
-      </div>
-
-      {formToDisplay == "randomMealForm" && (
-        <GetRandomMeals
-          filteredMeals={filteredMeals}
-          toggleFormDisplay={toggleFormDisplay}
-        />
-      )}
-      {formToDisplay == "addMealForm" && (
-        <AddMealForm
-          allMeals={allMeals}
-          toggleFormDisplay={toggleFormDisplay}
-          getMeals={getMeals}
-        />
-      )}
-      {formToDisplay == "mealPreferenceForm" && (
-        <MealPreferenceForm
-          toggleFormDisplay={toggleFormDisplay}
-          allMeals={allMeals}
+        <DinerSelector
           allDiners={allDiners}
-          getUsers={getDiners}
+          selectedDiners={selectedDiners}
+          setSelectedDiners={setSelectedDiners}
+          dislikedMeals={dislikedMeals}
+          setDislikedMeals={setDislikedMeals}
         />
-      )}
+
+        <MealFilterControls
+          selectedDiners={selectedDiners}
+          setFilteredMeals={setFilteredMeals}
+          selectedDinersMeals={selectedDinersMeals}
+          allMeals={allMeals}
+          dislikedMeals={dislikedMeals}
+        />
+
+        <MealResultsDisplay filteredMeals={filteredMeals} />
+
+        <ToolBar
+          toolButtonsClassName={toolButtonsClassName}
+          setToolButtonsClassName={setToolButtonsClassName}
+        />
+
+        <div className={toolButtonsClassName}>
+          <ToolBarButton
+            topText={"Random"}
+            bottomText={"Meals"}
+            toolButtonIcon={randomMealIcon}
+            toggleFormDisplay={toggleFormDisplay}
+            toggleValue={"randomMealForm"}
+          />
+          <ToolBarButton
+            topText={"Add"}
+            bottomText={"Meals"}
+            toolButtonIcon={addMealsIcon}
+            toggleFormDisplay={toggleFormDisplay}
+            toggleValue={"addMealForm"}
+          />
+          <ToolBarButton
+            topText={"Update"}
+            bottomText={"Likes"}
+            toolButtonIcon={preferencesIcon}
+            toggleFormDisplay={toggleFormDisplay}
+            toggleValue={"mealPreferenceForm"}
+          />
+        </div>
+
+        {formToDisplay == "randomMealForm" && (
+          <GetRandomMeals
+            filteredMeals={filteredMeals}
+            toggleFormDisplay={toggleFormDisplay}
+          />
+        )}
+        {formToDisplay == "addMealForm" && (
+          <AddMealForm
+            allMeals={allMeals}
+            toggleFormDisplay={toggleFormDisplay}
+            getMeals={getMeals}
+          />
+        )}
+        {formToDisplay == "mealPreferenceForm" && (
+          <MealPreferenceForm
+            toggleFormDisplay={toggleFormDisplay}
+            allMeals={allMeals}
+            allDiners={allDiners}
+            getUsers={getDiners}
+          />
+        )}
       </appContext.Provider>
     </>
   );

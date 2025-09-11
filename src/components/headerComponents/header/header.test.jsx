@@ -2,7 +2,6 @@ import Header from "./Header";
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-
 describe("Header", () => {
   it("renders correctly", () => {
     render(<Header />);
@@ -15,6 +14,4 @@ describe("Header", () => {
     const title = screen.getByRole("heading", { name: /Pick 'e' Eater/i });
     expect(title).toBeInTheDocument();
   });
-
-
 });

@@ -8,7 +8,7 @@ export function handleDifficultyClick(
   setCheckedDifficulties,
   checkedDifficulties,
 ) {
-  if(!field || field === null) {
+  if (!field || field === null) {
     throw new Error("Field cannot be empty or null");
   }
   if (!clicked)
@@ -33,7 +33,7 @@ export function handleMealTypeClick(
   setCheckedMealTypes,
   checkedMealTypes,
 ) {
-    if(!field || field === null) {
+  if (!field || field === null) {
     throw new Error("Field cannot be empty or null");
   }
   if (!clicked)
@@ -53,7 +53,7 @@ export function handleMealSubTypeClick(
   setCheckedMealSubTypes,
   checkedMealSubTypes,
 ) {
-    if(!field || field === null) {
+  if (!field || field === null) {
     throw new Error("Field cannot be empty or null");
   }
   if (!clicked)

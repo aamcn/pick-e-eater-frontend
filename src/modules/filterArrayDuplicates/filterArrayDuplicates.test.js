@@ -1,8 +1,6 @@
 import { filterArrayDuplicates } from "./filterArrayDuplicates";
 import { describe, expect, it } from "vitest";
 
-
-
 describe("filterArrayDuplicates", () => {
   it("should add an entry to the array if it doesn't exist", () => {
     const array = [1, 2, 3];
@@ -33,7 +31,9 @@ describe("filterArrayDuplicates", () => {
 
   it("should throw an error if no entry is provided", () => {
     const array = [1, 2, 3];
-    expect(() => filterArrayDuplicates(array)).toThrowError("No entry provided to filterArrayDuplicates function");
+    expect(() => filterArrayDuplicates(array)).toThrowError(
+      "No entry provided to filterArrayDuplicates function",
+    );
   });
 
   it("should add an entry to an empty array", () => {
@@ -52,5 +52,4 @@ describe("filterArrayDuplicates", () => {
     expect(array).toContain(5);
     expect(array).toContain(6);
   });
-
-})
+});

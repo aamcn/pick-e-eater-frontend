@@ -2,14 +2,14 @@ import ToolBar from "./ToolBar";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 
-    const mockProps = {
-        toolButtonsClassName: "toolBarButtons",
-        setToolButtonsClassName: vi.fn(),
-    }
+const mockProps = {
+  toolButtonsClassName: "toolBarButtons",
+  setToolButtonsClassName: vi.fn(),
+};
 
 beforeEach(() => {
-    vi.clearAllMocks();
-})
+  vi.clearAllMocks();
+});
 
 describe("ToolBar", () => {
   it("renders the toolbar", () => {
@@ -19,7 +19,7 @@ describe("ToolBar", () => {
   });
 
   it("contains the correct number of buttons", () => {
-    render(<ToolBar {...mockProps}/>);
+    render(<ToolBar {...mockProps} />);
     const buttons = screen.getAllByRole("button");
     expect(buttons.length).toBe(1);
   });
@@ -28,14 +28,22 @@ describe("ToolBar", () => {
     render(<ToolBar {...mockProps} />);
     const button = screen.getByTestId("tool-toggle-button");
     fireEvent.click(button);
-    expect(mockProps.setToolButtonsClassName).toHaveBeenCalledWith("toolBarButtons, hidden");
+    expect(mockProps.setToolButtonsClassName).toHaveBeenCalledWith(
+      "toolBarButtons, hidden",
+    );
   });
 
   it("calls setToolButtonsClassName with correct value when button is clicked to display element", () => {
-    render(<ToolBar {...mockProps} toolButtonsClassName={"toolBarButtons, hidden"} />);
+    render(
+      <ToolBar
+        {...mockProps}
+        toolButtonsClassName={"toolBarButtons, hidden"}
+      />,
+    );
     const button = screen.getByTestId("tool-toggle-button");
     fireEvent.click(button);
-    expect(mockProps.setToolButtonsClassName).toHaveBeenCalledWith("toolBarButtons");
+    expect(mockProps.setToolButtonsClassName).toHaveBeenCalledWith(
+      "toolBarButtons",
+    );
   });
-
 });

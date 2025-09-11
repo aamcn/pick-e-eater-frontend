@@ -14,5 +14,4 @@ describe("PageTitle", () => {
     const title = screen.getByRole("heading", { name: /Pick 'e' Eater/i });
     expect(title).toBeInTheDocument();
   });
-
 });

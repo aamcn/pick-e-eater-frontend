@@ -12,23 +12,19 @@
   font-size: 4vw;
 }
 
-
 @media screen and (min-width: 768px) {
-  
 }
 
 @media screen and (min-width: 1024px) {
-
   .randomDisplayContainer {
-  background-color: base.$container-background-color;
-  text-align: center;
-  font-family: base.$text-font;
-  color: base.$toolbar-background-color;
-}
+    background-color: base.$container-background-color;
+    text-align: center;
+    font-family: base.$text-font;
+    color: base.$toolbar-background-color;
+  }
 
   .randomMealName {
     margin: 0.5em;
     font-size: 1.5vw;
   }
-
 }

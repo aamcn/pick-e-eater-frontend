@@ -2,11 +2,7 @@ import { useEffect, useState } from "react";
 import { validateAndSetCheckboxState } from "./utilities/validateAndSetCheckboxState/validateAndSetCheckboxState";
 import { updateMealCheckedState } from "./utilities/updateDinerDislikedMeals/updateDinerDislikedMeals";
 
-function MealCheckBoxTemplate({
-  meal,
-  selectedDiner,
-  setDinerDislikedMeals,
-}) {
+function MealCheckBoxTemplate({ meal, selectedDiner, setDinerDislikedMeals }) {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckedBoxClick = (event) => {
@@ -19,14 +15,11 @@ function MealCheckBoxTemplate({
     If not present 'isChecked' is set to 'false' making the checkbox display as 'un-ticked'.
   */
   useEffect(() => {
-    updateMealCheckedState(selectedDiner, meal, setIsChecked);  
+    updateMealCheckedState(selectedDiner, meal, setIsChecked);
   }, [selectedDiner]);
 
-  
-
   return (
-    <div className="dislikeMealCheckbox"
-    data-testid="meal-checkbox">
+    <div className="dislikeMealCheckbox" data-testid="meal-checkbox">
       <label htmlFor={meal.id}>{meal.name}</label>
 
       <input

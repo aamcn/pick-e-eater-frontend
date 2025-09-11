@@ -50,7 +50,6 @@
   flex-direction: column;
   justify-content: space-evenly;
   overflow: scroll;
-  
 }
 
 .filterToggleContainer {
@@ -59,7 +58,6 @@
   justify-content: end;
   padding: 0.5em;
   border-bottom: solid 0.2em black;
-
 }
 
 .filterTitleContainer {
@@ -85,24 +83,22 @@
 }
 
 @media screen and (min-width: 1024px) {
- 
-  
-  .filterText{
+  .filterText {
     margin-top: 0.5em;
     font-size: 1vw;
   }
-  
+
   .filterTitle {
-  font-family: base.$title-font;
-  color: base.$title-color;
-  font-size: 2vw;
-}
+    font-family: base.$title-font;
+    color: base.$title-color;
+    font-size: 2vw;
+  }
 
   .filterToggleContainer {
     padding: 0.5em;
   }
 
   .filterForm {
-  width: 50vw;
-}
+    width: 50vw;
+  }
 }

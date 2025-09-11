@@ -13,20 +13,28 @@ function ToolBarButton({
   };
 
   return (
-        <div className="toolBarBackdrop" data-testid="tool-bar-backdrop">
-
-    <div
-      onClick={handleToolButtonClick}
-      value={toggleValue}
-      className="toolBarButton"
-      data-testid="tool-button-container"
-    >
-      <p className="toolButtonTopText"  data-testid="tool-button-top-text">
-        {topText}
-      </p>
-      <img className="toolButtonImage" src={toolButtonIcon} data-testid="tool-button-icon" />
-      <p className="toolButtonBottomText" data-testid="tool-button-bottom-text">{bottomText}</p>
-    </div>
+    <div className="toolBarBackdrop" data-testid="tool-bar-backdrop">
+      <div
+        onClick={handleToolButtonClick}
+        value={toggleValue}
+        className="toolBarButton"
+        data-testid="tool-button-container"
+      >
+        <p className="toolButtonTopText" data-testid="tool-button-top-text">
+          {topText}
+        </p>
+        <img
+          className="toolButtonImage"
+          src={toolButtonIcon}
+          data-testid="tool-button-icon"
+        />
+        <p
+          className="toolButtonBottomText"
+          data-testid="tool-button-bottom-text"
+        >
+          {bottomText}
+        </p>
+      </div>
     </div>
   );
 }

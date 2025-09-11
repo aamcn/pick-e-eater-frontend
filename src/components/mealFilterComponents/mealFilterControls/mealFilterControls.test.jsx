@@ -1,13 +1,46 @@
 import MealFilterControls from "./MealFilterControls";
 import { render, screen } from "@testing-library/react";
-import { afterEach, describe, expect, it, vi} from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { fireEvent } from "@testing-library/react";
 
 const mockProps = {
-  allMeals: [{ id: 1, name: "Spaghetti", type: "Pasta", subType: "Italian", difficulty: "Easy" }, { id: 2, name: "Salad", type: "Vegetarian", subType: "Raw", difficulty: "Medium" }],
-  selectedDinersMeals: [{ id: 1, name: "Spaghetti", type: "Pasta", subType: "Italian", difficulty: "Easy" }, { id: 2, name: "Salad", type: "Vegetarian", subType: "Raw", difficulty: "Medium" }],
+  allMeals: [
+    {
+      id: 1,
+      name: "Spaghetti",
+      type: "Pasta",
+      subType: "Italian",
+      difficulty: "Easy",
+    },
+    {
+      id: 2,
+      name: "Salad",
+      type: "Vegetarian",
+      subType: "Raw",
+      difficulty: "Medium",
+    },
+  ],
+  selectedDinersMeals: [
+    {
+      id: 1,
+      name: "Spaghetti",
+      type: "Pasta",
+      subType: "Italian",
+      difficulty: "Easy",
+    },
+    {
+      id: 2,
+      name: "Salad",
+      type: "Vegetarian",
+      subType: "Raw",
+      difficulty: "Medium",
+    },
+  ],
   setFilteredMeals: vi.fn(),
-  selectedDiners: [{ id: 1, name: "John Doe" }, { id: 2, name: "Jane Smith" }],
+  selectedDiners: [
+    { id: 1, name: "John Doe" },
+    { id: 2, name: "Jane Smith" },
+  ],
 };
 
 afterEach(() => {
@@ -15,7 +48,6 @@ afterEach(() => {
 });
 
 describe("MealFilterControls", () => {
-
   it("renders the component container", () => {
     render(<MealFilterControls {...mockProps} />);
     const filterControlsContainer = screen.getByTestId("meal-filter-controls");
@@ -54,13 +86,12 @@ describe("MealFilterControls", () => {
     const container = screen.getByTestId("filter-form-backdrop");
 
     expect(container).toHaveClass("filterFormBackDrop, hidden");
-    
+
     fireEvent.click(button);
     expect(container).toHaveClass("filterFormBackDrop");
 
     fireEvent.click(button);
     expect(container).toHaveClass("filterFormBackDrop, hidden");
-
   });
 
   it("should alert when no diners are selected", () => {
@@ -72,8 +103,7 @@ describe("MealFilterControls", () => {
     fireEvent.click(button);
 
     expect(window.alert).toHaveBeenCalledWith("Please add a diner");
-    
+
     window.alert = originalAlert; // Restore original alert
   });
-
 });

@@ -40,5 +40,3 @@ function FilterCheckBox({
 }
 
 export default FilterCheckBox;
-
-

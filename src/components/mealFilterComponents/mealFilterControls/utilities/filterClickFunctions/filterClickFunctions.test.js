@@ -135,7 +135,6 @@ const mockMealTypeArguments = {
   checkedMealTypes: ["lunch"],
 };
 
-
 describe("handleMealTypeClick ", () => {
   describe("When handleMealTypeClick is called with clicked === false", () => {
     it("should call setCheckedMealTypes when clicked is false", () => {
@@ -145,7 +144,7 @@ describe("handleMealTypeClick ", () => {
         mockMealTypeArguments.setCheckedMealTypes,
         mockMealTypeArguments.checkedMealTypes,
       );
-        expect(mockMealTypeArguments.setCheckedMealTypes).toHaveBeenCalled();
+      expect(mockMealTypeArguments.setCheckedMealTypes).toHaveBeenCalled();
     });
 
     it("should handle empty checkedMealTypes array when clicked is false", () => {
@@ -182,14 +181,14 @@ describe("handleMealTypeClick ", () => {
   });
 
   describe("When handleMealTypeClick is called with clicked === true", () => {
-     it("should call setCheckedMealTypes when clicked is true", () => {
+    it("should call setCheckedMealTypes when clicked is true", () => {
       handleMealTypeClick(
-        true, 
+        true,
         mockMealTypeArguments.field,
         mockMealTypeArguments.setCheckedMealTypes,
         mockMealTypeArguments.checkedMealTypes,
       );
-        expect(mockMealTypeArguments.setCheckedMealTypes).toHaveBeenCalled();
+      expect(mockMealTypeArguments.setCheckedMealTypes).toHaveBeenCalled();
     });
 
     it("should filter the checkedMealTypes array when clicked is true", () => {

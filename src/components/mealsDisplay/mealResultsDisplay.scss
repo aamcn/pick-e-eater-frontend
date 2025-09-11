@@ -44,7 +44,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  
   .mealTitle {
     font-size: 1.8vw;
   }
@@ -56,13 +55,12 @@
     gap: 1em;
   }
 
-  .typesContainer{
+  .typesContainer {
     font-size: 1.5vw;
   }
 }
 
 @media screen and (min-width: 1024px) {
-
   .mealTitle {
     font-size: 1.2vw;
   }
@@ -77,5 +75,4 @@
   .typesContainer {
     font-size: 1.5vw;
   }
-
 }

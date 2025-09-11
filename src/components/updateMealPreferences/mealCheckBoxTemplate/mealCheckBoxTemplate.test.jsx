@@ -3,18 +3,23 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
 const mockProps = {
-  meal: {id: 1, name: "Pizza", type: "Fast Food", sub_type: "Italian", difficulty: "Easy"},
-  selectedDiner: {id: 1, name: "John", dislikes: []},
+  meal: {
+    id: 1,
+    name: "Pizza",
+    type: "Fast Food",
+    sub_type: "Italian",
+    difficulty: "Easy",
+  },
+  selectedDiner: { id: 1, name: "John", dislikes: [] },
   setDinerDislikedMeals: vi.fn(),
   dinerDislikedMeals: [],
-}
+};
 
 beforeEach(() => {
- vi.resetAllMocks();
+  vi.resetAllMocks();
 });
 
 describe("MealCheckBoxTemplate", () => {
-  
   it("renders correctly", () => {
     render(<MealCheckBoxTemplate {...mockProps} />);
     const container = screen.getByTestId("meal-checkbox");
@@ -47,7 +52,4 @@ describe("MealCheckBoxTemplate", () => {
     fireEvent.click(input);
     expect(mockProps.setDinerDislikedMeals).toHaveBeenCalledTimes(4);
   });
-
-  
-
-  });
+});

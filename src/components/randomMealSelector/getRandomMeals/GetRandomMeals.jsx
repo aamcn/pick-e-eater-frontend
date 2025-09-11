@@ -4,7 +4,6 @@ import RandomMealsDisplay from "../randomMealsDisplay/RandomMealsDisplay";
 import { getRandomInt } from "../../../modules/getRandomInt/getRandomInt";
 import { filterArrayDuplicates } from "../../../modules/filterArrayDuplicates/filterArrayDuplicates";
 
-
 function GetRandomMeals({ filteredMeals, toggleFormDisplay }) {
   const [randomMeals, setRandomMeals] = useState([]);
   const [numberOfMeals, setNumberOfMeals] = useState(0);
@@ -25,7 +24,7 @@ function GetRandomMeals({ filteredMeals, toggleFormDisplay }) {
     setRandomMeals(randomMealsArr);
   };
 
-  //When the user changes the input value, the value is stored in state (numberOfMeals).
+  //When the user changes the number of meals input value, the value is stored in state (numberOfMeals).
   const numberOfMealsChange = (event) => {
     setNumberOfMeals(event.target.value);
   };

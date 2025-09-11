@@ -3,20 +3,20 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 
 const mockProps = {
-    topText: "Mock TopText",
-    bottomText: "Mock Bottom Text",
-    toggleValue: "Mock Toggle Value",
-    toolButtonIcon: "mock/path/to/icon.png",
-    toggleFormDisplay: vi.fn(),
+  topText: "Mock TopText",
+  bottomText: "Mock Bottom Text",
+  toggleValue: "Mock Toggle Value",
+  toolButtonIcon: "mock/path/to/icon.png",
+  toggleFormDisplay: vi.fn(),
 };
 
 beforeEach(() => {
-    vi.clearAllMocks();
+  vi.clearAllMocks();
 });
 
 describe("ToolBarButton", () => {
   it("renders correctly", () => {
-    render(<ToolBarButton {...mockProps}/>);
+    render(<ToolBarButton {...mockProps} />);
     const toolButtonTopText = screen.getByTestId("tool-button-top-text");
     expect(toolButtonTopText).toBeInTheDocument();
     expect(toolButtonTopText.textContent).toEqual("Mock TopText");
@@ -38,21 +38,26 @@ describe("ToolBarButton", () => {
     render(<ToolBarButton {...mockProps} />);
     const toolButtonToggleValue = screen.getByTestId("tool-button-container");
     expect(toolButtonToggleValue).toBeInTheDocument();
-    expect(toolButtonToggleValue.getAttribute("value")).toEqual("Mock Toggle Value");
+    expect(toolButtonToggleValue.getAttribute("value")).toEqual(
+      "Mock Toggle Value",
+    );
   });
 
   it("renders with the correct image", () => {
     render(<ToolBarButton {...mockProps} />);
     const toolButtonImage = screen.getByTestId("tool-button-icon");
     expect(toolButtonImage).toBeInTheDocument();
-    expect(toolButtonImage.getAttribute("src")).toEqual("mock/path/to/icon.png");
+    expect(toolButtonImage.getAttribute("src")).toEqual(
+      "mock/path/to/icon.png",
+    );
   });
 
   it("calls toggleFormDisplay on click", () => {
     render(<ToolBarButton {...mockProps} />);
     const toolButtonContainer = screen.getByTestId("tool-button-container");
     fireEvent.click(toolButtonContainer);
-    expect(mockProps.toggleFormDisplay).toHaveBeenCalledWith("Mock Toggle Value");
+    expect(mockProps.toggleFormDisplay).toHaveBeenCalledWith(
+      "Mock Toggle Value",
+    );
   });
-  
 });
