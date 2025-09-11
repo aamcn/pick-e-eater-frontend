@@ -13,6 +13,7 @@
   color: base.$mealcard-background-color;
   background-color: base.$toolbar-background-color;
   border-radius: 5em;
+  animation: slide-up 0.2s;
 }
 
 .toolButtonImage {
@@ -31,7 +32,6 @@
   .toolBarButton {
     width: 18vw;
     height: 18vw;
-    margin: 1em;
     font-size: 2.5vw;
     border-radius: 50%;
   }
@@ -41,12 +41,19 @@
   .toolBarButton {
     width: 11vw;
     height: 11vw;
-    margin: 1em;
     font-size: 1.5vw;
     border-radius: 50%;
   }
 
   .toolButtonImage {
     width: 3.5vw;
+  }
+}
+
+
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
   }
 }

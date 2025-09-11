@@ -7,9 +7,9 @@ function ToolBar({ toolButtonsClassName, setToolButtonsClassName }) {
   Else ToolButtonsClassName is set to "toolBarButtons"
   */
   const toggleToolButtonsDisplay = () => {
-    toolButtonsClassName == "toolBarButtons"
-      ? setToolButtonsClassName("toolBarButtons, hidden")
-      : setToolButtonsClassName("toolBarButtons");
+    toolButtonsClassName == "toolBarBackDrop"
+      ? setToolButtonsClassName("toolBarBackDrop, hidden")
+      : setToolButtonsClassName("toolBarBackDrop");
   };
 
   return (

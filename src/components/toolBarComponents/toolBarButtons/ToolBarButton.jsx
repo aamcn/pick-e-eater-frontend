@@ -13,12 +13,12 @@ function ToolBarButton({
   };
 
   return (
-    <div className="toolBarBackdrop" data-testid="tool-bar-backdrop">
+    <div className="toolBarButtonContainer" data-testid="tool-bar-button-container">
       <div
         onClick={handleToolButtonClick}
         value={toggleValue}
         className="toolBarButton"
-        data-testid="tool-button-container"
+        data-testid="tool-button"
       >
         <p className="toolButtonTopText" data-testid="tool-button-top-text">
           {topText}
