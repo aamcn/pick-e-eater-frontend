@@ -5,6 +5,12 @@ export function checkIfDuplicate(
   setIsMealDuplicate,
   inputMealName,
 ) {
+  // If inputMealName is null, undefined, or only whitespace, clear error message and duplicate flag.
+  if (!inputMealName || inputMealName.trim() === "") {
+    setErrorMessage("Input name cannot be empty.");
+    setIsMealDuplicate(false);
+    return;
+  }
   // Check if the inputMealName exists in allMealNames array, if true update errorMessage and isMealDuplicate.
   if (allMealNames.includes(inputMealName.toLowerCase())) {
     setErrorMessage(`${inputMealName} is already on the list!`);
