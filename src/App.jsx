@@ -14,16 +14,16 @@ import preferencesIcon from "./assets/svg/preferencesIcon.svg";
 import ToolBarButton from "./components/toolBarComponents/toolBarButtons/ToolBarButton";
 import { getMeals } from "../services/backendCalls/getMeals";
 import { getDiners } from "../services/backendCalls/getDiners";
-import { createContext } from "react";
+// import { createContext } from "react";
 
-export const appContext = createContext({
-  allDiners: [],
-  storeAllDiners: () => {},
-  allMeals: [],
-  storeAllMeals: () => {},
-  filteredMeals: [],
-  storeFilteredMeals: () => {},
-});
+// export const appContext = createContext({
+//   allDiners: [],
+//   storeAllDiners: () => {},
+//   allMeals: [],
+//   storeAllMeals: () => {},
+//   filteredMeals: [],
+//   storeFilteredMeals: () => {},
+// });
 
 function App() {
   const [allDiners, setAllDiners] = useState([]);
@@ -37,17 +37,17 @@ function App() {
   );
   const [formToDisplay, setFormToDisplay] = useState(false);
 
-  const storeAllDiners = (diners) => {
-    setAllDiners(diners);
-  };
+  // const storeAllDiners = (diners) => {
+  //   setAllDiners(diners);
+  // };
 
-  const storeAllMeals = (meals) => {
-    setAllMeals(meals);
-  };
+  // const storeAllMeals = (meals) => {
+  //   setAllMeals(meals);
+  // };
 
-  const storeFilteredMeals = (meals) => {
-    setFilteredMeals(meals);
-  };
+  // const storeFilteredMeals = (meals) => {
+  //   setFilteredMeals(meals);
+  // };
 
   /*
     Filters the full meal list by returning meals that are NOT found in the 'dislikedMeals' array in state.
@@ -90,7 +90,7 @@ function App() {
 
   return (
     <>
-      <appContext.Provider
+      {/* <appContext.Provider
         value={{
           allDiners,
           storeAllDiners,
@@ -99,7 +99,7 @@ function App() {
           filteredMeals,
           storeFilteredMeals,
         }}
-      >
+      > */}
         <Header />
 
         <DinerSelector
@@ -170,7 +170,7 @@ function App() {
             getUsers={getDiners}
           />
         )}
-      </appContext.Provider>
+      {/* </appContext.Provider> */}
     </>
   );
 }
