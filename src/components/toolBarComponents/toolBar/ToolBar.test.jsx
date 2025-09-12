@@ -1,9 +1,10 @@
 import ToolBar from "./ToolBar";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
+import toolIcon from "../../../assets/svg/toolBarIcon.svg";
 
 const mockProps = {
-  toolButtonsClassName: "toolBarButtons",
+  toolButtonsClassName: "toolBarBackDrop",
   setToolButtonsClassName: vi.fn(),
 };
 
@@ -16,12 +17,12 @@ describe("ToolBar", () => {
     render(<ToolBar {...mockProps} />);
     const toolBar = screen.getByTestId("tool-bar-container");
     expect(toolBar).toBeInTheDocument();
-  });
+  }); 
 
   it("contains the correct number of buttons", () => {
     render(<ToolBar {...mockProps} />);
     const buttons = screen.getAllByRole("button");
-    expect(buttons.length).toBe(1);
+    expect(buttons.length).toBe(1); 
   });
 
   it("calls setToolButtonsClassName with correct value when button is clicked to hide element", () => {
@@ -29,7 +30,7 @@ describe("ToolBar", () => {
     const button = screen.getByTestId("tool-toggle-button");
     fireEvent.click(button);
     expect(mockProps.setToolButtonsClassName).toHaveBeenCalledWith(
-      "toolBarButtons, hidden",
+      "toolBarBackDrop, hidden",
     );
   });
 
@@ -43,7 +44,20 @@ describe("ToolBar", () => {
     const button = screen.getByTestId("tool-toggle-button");
     fireEvent.click(button);
     expect(mockProps.setToolButtonsClassName).toHaveBeenCalledWith(
-      "toolBarButtons",
+      "toolBarBackDrop",
     );
   });
+
+  it("renders the filter meals icon", () => {
+    render(<ToolBar {...mockProps} />);
+    const icon = screen.getByTestId("filter-meals-icon");
+    expect(icon).toBeInTheDocument();
+  })
+
+  it("renders the filter meals icon", () => {
+    render(<ToolBar {...mockProps} />);
+    const icon = screen.getByTestId("filter-meals-icon");
+    expect(icon.getAttribute("src")).toBe(toolIcon);
+  })
+
 });
