@@ -62,8 +62,12 @@ function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
       >
         <h3 className="addMealTitle">Add a New Meal</h3>
 
-        {errorMessage && <p data-testid="error-message-element">{errorMessage}</p>}
-        {successMessage && <p data-testid="success-message-element">{successMessage}</p>}
+        {errorMessage && (
+          <p data-testid="error-message-element">{errorMessage}</p>
+        )}
+        {successMessage && (
+          <p data-testid="success-message-element">{successMessage}</p>
+        )}
         <fieldset className="addMealFieldset">
           <label htmlFor="name">Meal Name: </label>
           <input
