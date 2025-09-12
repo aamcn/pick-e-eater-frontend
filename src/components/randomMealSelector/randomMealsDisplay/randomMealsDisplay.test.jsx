@@ -3,29 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const mockProps = {
-  randomMeals: [
-    {
-      id: 1,
-      name: "Spaghetti",
-      type: "Italian",
-      sub_type: "Pasta",
-      difficulty: "Medium",
-    },
-    {
-      id: 2,
-      name: "Burger",
-      type: "American",
-      sub_type: "Main",
-      difficulty: "Easy",
-    },
-    {
-      id: 3,
-      name: "Salad",
-      type: "Healthy",
-      sub_type: "Side",
-      difficulty: "Easy",
-    },
-  ],
+  randomMeals: ["Spaghetti", "Burger", "Salad"],
 };
 
 beforeEach(() => {
@@ -49,24 +27,12 @@ describe("RandomMealsDisplay Component", () => {
     render(<RandomMealsDisplay {...mockProps} />);
     const mealItems = screen.getAllByTestId("random-meal-item");
     mealItems.forEach((item, index) => {
-      expect(item).toHaveTextContent(mockProps.randomMeals[index].name);
+      expect(item).toHaveTextContent(mockProps.randomMeals[index]);
     });
   });
 
   it("handles single entry in randomMeals array", () => {
-    render(
-      <RandomMealsDisplay
-        randomMeals={[
-          {
-            id: 1,
-            name: "Spaghetti",
-            type: "Italian",
-            sub_type: "Pasta",
-            difficulty: "Medium",
-          },
-        ]}
-      />,
-    );
+    render(<RandomMealsDisplay randomMeals={["Spaghetti"]} />);
     const mealItem = screen.getByTestId("random-meal-item");
     expect(mealItem).toBeInTheDocument();
     expect(mealItem).toHaveTextContent("Spaghetti");

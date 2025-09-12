@@ -14,7 +14,6 @@ function RandomMealsDisplay({ randomMeals }) {
       </div>
     );
   }
-
   console.log(randomMeals);
 
   //Displays each meal name from the array passed in as props.
