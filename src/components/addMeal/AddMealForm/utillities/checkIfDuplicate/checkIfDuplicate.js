@@ -7,7 +7,7 @@ export function checkIfDuplicate(
 ) {
   // Check if the inputMealName exists in allMealNames array, if true update errorMessage and isMealDuplicate.
   if (allMealNames.includes(inputMealName.toLowerCase())) {
-    setErrorMessage(`${inputMealName} already exists`);
+    setErrorMessage(`${inputMealName} is already on the list!`);
     setIsMealDuplicate(true);
   } else {
     // If not a duplicate, clear any previous error messages and set duplicate flag to false.

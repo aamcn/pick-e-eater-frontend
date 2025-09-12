@@ -20,7 +20,7 @@ function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
     event.preventDefault();
     // If meal is a duplicate, alert user and do not submit form.
     if (isMealDuplicate == true) {
-      alert("Meal is already saved");
+      setErrorMessage("Meal is already on the list");
       return;
     }
     //Create formData object and convert to JSON and calls post function.
@@ -29,7 +29,10 @@ function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
     postNewMeal(formToJson);
     //Calls getMeals function to collect updated 'meals' data from database.
     getMeals();
-    setSuccessMessage("Meal Added");
+    setSuccessMessage(`${inputMealName} has been submitted!`);
+    // Resets the form fields.
+    event.target.reset();
+    // After 3 seconds the success message is removed from display.
     setTimeout(() => {
       setSuccessMessage(null);
     }, 3000);
@@ -59,8 +62,8 @@ function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
       >
         <h3 className="addMealTitle">Add a New Meal</h3>
 
-        {errorMessage && <p>{errorMessage}</p>}
-        {successMessage && <p>{successMessage}</p>}
+        {errorMessage && <p data-testid="error-message-element">{errorMessage}</p>}
+        {successMessage && <p data-testid="success-message-element">{successMessage}</p>}
         <fieldset className="addMealFieldset">
           <label htmlFor="name">Meal Name: </label>
           <input
