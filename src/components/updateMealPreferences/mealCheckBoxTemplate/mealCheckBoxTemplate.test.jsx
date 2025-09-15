@@ -52,4 +52,28 @@ describe("MealCheckBoxTemplate", () => {
     fireEvent.click(input);
     expect(mockProps.setDinerDislikedMeals).toHaveBeenCalledTimes(4);
   });
+
+  it("checkbox is unchecked if meal is not in dinerDislikedMeals", () => {
+    render(<MealCheckBoxTemplate {...mockProps} />);
+    const input = screen.getByTestId("meal-checkbox-input");
+    expect(input.checked).toBe(false);
+  });
+
+  it("checkbox is checked if meal is already in dinerDislikedMeals on render", () => {
+    const mockProps = {
+      meal: {
+        id: 1,
+        name: "Pizza",
+        type: "Fast Food",
+        sub_type: "Italian",
+        difficulty: "Easy",
+      },
+      selectedDiner: { id: 1, name: "John", dislikes: [1] },
+      setDinerDislikedMeals: vi.fn(),
+      dinerDislikedMeals: [],
+    };
+    render(<MealCheckBoxTemplate {...mockProps} />);
+    const input = screen.getByTestId("meal-checkbox-input");
+    expect(input.checked).toBe(true);
+  });
 });
