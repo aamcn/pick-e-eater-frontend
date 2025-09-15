@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { validateAndSetCheckboxState } from "./utilities/validateAndSetCheckboxState/validateAndSetCheckboxState";
-import { updateMealCheckedState } from "./utilities/updateDinerDislikedMeals/updateDinerDislikedMeals";
+import { updateMealCheckedState } from "./utilities/updateDinerDislikedMeals/updateMealCheckedState";
 
 function MealCheckBoxTemplate({ meal, selectedDiner, setDinerDislikedMeals }) {
   const [isChecked, setIsChecked] = useState(false);
@@ -9,6 +9,7 @@ function MealCheckBoxTemplate({ meal, selectedDiner, setDinerDislikedMeals }) {
     validateAndSetCheckboxState(event, setIsChecked, setDinerDislikedMeals);
   };
 
+  console.log(selectedDiner)
   /* 
     On render and when chosenDiner is changed; 
     If the meal.id is present the 'diners.dislikes' array 'isChecked' is set to 'true' making the checkbox display as'ticked'.
