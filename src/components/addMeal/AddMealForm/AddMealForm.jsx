@@ -19,7 +19,7 @@ function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     // If meal is a duplicate, alert user and do not submit form.
-    if (isMealDuplicate == true) {
+    if (isMealDuplicate === true) {
       setErrorMessage("Meal is already on the list");
       return;
     }
