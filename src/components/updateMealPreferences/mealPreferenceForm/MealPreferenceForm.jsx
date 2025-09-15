@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./mealPreferenceForm.scss";
 import MealCheckBoxTemplate from "../mealCheckBoxTemplate/MealCheckBoxTemplate";
+import React from "react";
 /* 
   Renders a form allowing the user to select a diner and a meal, on form submission the diner ID and the meal ID
   is posted to the server storing the meal in the diners disliked meals column.
@@ -48,7 +49,7 @@ function UpdateDislikesForm({
   }
 
   //When a diners name is selected in the form the inputs value is used to store the diner in state.
-  const handleSelectChange = (event) => {
+  function handleSelectChange (event){
     let index = event.target.value;
     const selectedDiner = allDiners.filter((diner) => {
       if (diner.id == index) return diner;
@@ -70,7 +71,7 @@ with the diners disliked meals stored in database.
   }, [selectedDiner]);
 
   return (
-    <div className="updateDislikesBackDrop">
+    <div className="updateDislikesBackDrop" data-testid="meal-preference-form-container">
       <form className="updateDislikesForm" onSubmit={handleFormSubmit}>
         <fieldset className="dinerSelectContainer">
           <label htmlFor="personId">Person:</label>
@@ -78,16 +79,19 @@ with the diners disliked meals stored in database.
             className="dinerSelectorInput"
             id="personId"
             name="personId"
+            defaultChecked={"Pick a Name"}
             onChange={handleSelectChange}
+            data-testid="diner-select"
+
           >
-            <option>Pick a Name</option>
+            <option data-testid="diner-option">Pick a Name</option>
             {allDiners &&
               allDiners.map((person) => {
-                return <option value={person.id}>{person.name}</option>;
+                return <option value={person.id} data-testid="diner-option">{person.name}</option>;
               })}
           </select>
         </fieldset>
-        <fieldset className="mealsCheckBoxContainer">
+        <fieldset className="mealsCheckBoxContainer" data-testid="meals-checkbox-container">
           {selectedDiner &&
             allMeals.map((meal) => {
               return (
@@ -96,6 +100,7 @@ with the diners disliked meals stored in database.
                   selectedDiner={selectedDiner}
                   dinerDislikedMeals={dinerDislikedMeals}
                   setDinerDislikedMeals={setDinerDislikedMeals}
+                  
                 />
               );
             })}
