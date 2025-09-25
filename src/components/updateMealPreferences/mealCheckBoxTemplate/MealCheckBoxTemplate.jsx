@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import { setCheckboxState } from "./utilities/setCheckboxState/setCheckboxState";
 import { updateMealCheckedState } from "./utilities/updateDinerDislikedMeals/updateMealCheckedState";
 
@@ -16,9 +16,9 @@ function MealCheckBoxTemplate({ meal, selectedDiner, setDinerDislikedMeals }) {
     If the meal.id is present the 'diners.dislikes' array 'isChecked' is set to 'true' making the checkbox display as'ticked'.
     If not present 'isChecked' is set to 'false' making the checkbox display as 'un-ticked'.
   */
-  useEffect(() => {
+  useMemo(() => {
     updateMealCheckedState(selectedDiner, meal, setIsChecked);
-  }, [selectedDiner]);
+  }, [selectedDiner, meal]);
 
   return (
     <div className="dislikeMealCheckbox" data-testid="meal-checkbox">
