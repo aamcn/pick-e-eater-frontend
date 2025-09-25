@@ -2,25 +2,48 @@ import axios from "axios";
 import "./addMealForm.scss";
 import { checkIfDuplicate } from "./utillities/checkIfDuplicate/checkIfDuplicate";
 import { postNewMeal } from "./utillities/postNewMeal/postNewMeal";
-import { useEffect, useState } from "react";
+import { useState, useMemo } from "react";
 
 function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
   const [inputMealName, setInputMealName] = useState(null);
   const [isMealDuplicate, setIsMealDuplicate] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
+  const [allMealNames, setAllMealNames] = useState([]);
 
   // Updates inputMealName state on every change to the meal name input field.
   const handleMealNameChange = (event) => {
     setInputMealName(event.target.value);
   };
 
+  function getAllMealNames() {
+    const allMealNames = allMeals.map((meal) => {
+      return meal.name.toLowerCase();
+    });
+    setAllMealNames(allMealNames);
+  }
+
+  // useMemo hook to update allMealNames array whenever allMeals changes.
+  useMemo(() => {
+    getAllMealNames();
+  }, [allMeals]);
+
+  // useMemo hook to check for duplicate meal names whenever inputMealName changes.
+  useMemo(() => {
+    checkIfDuplicate(
+      allMealNames,
+      setErrorMessage,
+      setIsMealDuplicate,
+      inputMealName,
+    );
+  }, [inputMealName]);
+
   // Handles form submission.
   const handleFormSubmit = (event) => {
     event.preventDefault();
     // If meal is a duplicate, alert user and do not submit form.
     if (isMealDuplicate === true) {
-      setErrorMessage("Meal is already on the list");
+      alert("This meal is already on the list!");
       return;
     }
     //Create formData object and convert to JSON and calls post function.
@@ -38,20 +61,7 @@ function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
     }, 3000);
   };
 
-  useEffect(() => {
-    // Create array of all meal names in lowercase to check for duplicates.
-    const allMealNames = allMeals.map((meal) => {
-      return meal.name.toLowerCase();
-    });
-    if (inputMealName) {
-      checkIfDuplicate(
-        allMealNames,
-        setErrorMessage,
-        setIsMealDuplicate,
-        inputMealName,
-      );
-    }
-  }, [inputMealName, allMeals]);
+  
 
   return (
     <div className="addMealBackdrop">
