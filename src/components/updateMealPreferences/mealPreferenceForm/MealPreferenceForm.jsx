@@ -11,7 +11,6 @@ function UpdateDislikesForm({
   allDiners,
   allMeals,
   toggleFormDisplay,
-  getUsers,
 }) {
   const [selectedDiner, setSelectedDiner] = useState(null);
   const [dinerDislikedMeals, setDinerDislikedMeals] = useState([]);
@@ -67,7 +66,6 @@ with the diners disliked meals stored in database.
     if (selectedDiner) {
       setDinerDislikedMeals(selectedDiner.dislikes);
     }
-    getUsers();
   }, [selectedDiner]);
 
   return (
