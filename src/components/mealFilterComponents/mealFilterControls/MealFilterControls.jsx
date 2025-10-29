@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import FilterCheckBox from "../filterCheckBox/FilterCheckBox";
 import "./mealFilterControls.scss";
-import filterIcon from "../../../assets/svg/cookBook.svg";
+import filterIcon from "../../../assets/svg/filter.svg";
 import {
   getMealDifficulties,
   getMealTypes,
