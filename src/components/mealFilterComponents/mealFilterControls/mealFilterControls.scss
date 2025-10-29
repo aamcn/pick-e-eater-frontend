@@ -29,7 +29,7 @@
   display: grid;
   grid-template-rows: 11fr 1fr;
   z-index: 4;
-  background-color: base.$container-background-color;
+  background-color: base.$white-background-color;
 }
 
 .hidden {
@@ -75,7 +75,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: base.$mealcard-background-color;
+  color: base.$title-color;
   border: none;
   background-color: base.$toolbar-background-color;
   padding: 0.1em;

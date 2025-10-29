@@ -11,18 +11,18 @@
   background-color: base.$toolbar-background-color;
   grid-row: 5;
   z-index: 9;
-  border-top: solid 0.2em black;
+  border-top: solid 0.2em ;
   border-bottom: solid 0.1em black;
 }
 
 .toolBarActionButton {
-  padding: 0em;
+  padding: 0.5em 0em 0.5em 0em;
   color: base.$mealcard-background-color;
   background-color: base.$toolbar-background-color;
 }
 
 .toolBarIcon {
-  width: 12vw;
+  width: 10dvw;
   animation: cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite pulse;
 }
 

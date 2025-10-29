@@ -1,5 +1,5 @@
 import "./toolBar.scss";
-import toolIcon from "../../../assets/svg/toolBarIcon.svg";
+import toolIcon from "../../../assets/svg/cookBook.svg";
 
 function ToolBar({ toolButtonsClassName, setToolButtonsClassName }) {
   /* 

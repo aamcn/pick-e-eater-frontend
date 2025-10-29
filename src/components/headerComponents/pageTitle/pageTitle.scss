@@ -1,15 +1,12 @@
 @use "../../../sass/base";
 
 .pageTitle {
-  font-family: base.$title-font;
-  color: base.$mealcard-background-color;
-  font-size: 6vw;
+  font-family: base.$header-font;
+  color: base.$title-color;
+  font-size: 8dvw;
 }
 
 .titleContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: 1em;
 }
 

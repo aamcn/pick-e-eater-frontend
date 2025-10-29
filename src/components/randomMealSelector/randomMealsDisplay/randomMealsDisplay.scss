@@ -1,7 +1,7 @@
 @use "../../../sass/base";
 
 .randomDisplayContainer {
-  background-color: base.$container-background-color;
+  background-color: base.$white-background-color;
   text-align: center;
   font-family: base.$text-font;
   color: base.$toolbar-background-color;
@@ -17,7 +17,6 @@
 
 @media screen and (min-width: 1024px) {
   .randomDisplayContainer {
-    background-color: base.$container-background-color;
     text-align: center;
     font-family: base.$text-font;
     color: base.$toolbar-background-color;
