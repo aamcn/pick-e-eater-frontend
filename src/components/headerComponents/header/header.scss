@@ -1,16 +1,16 @@
 @use "../../../sass/base";
 
-.headerContainer {
+.header-container {
+  grid-row: 1;
   display: flex;
   justify-content: center;
   width: 100dvw;
+  height: 10dvh;
   background-color: base.$white-color;
-border-radius: 0em 0em 1em 1em;;
 }
 
-@media screen and (min-width: 1024px) {
-  .headerContainer {
-    height: 10vh;
+@media screen and (min-width: 768px) and (orientation: portrait) {
+  .header-container {
     justify-content: flex-start;
   }
 }

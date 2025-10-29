@@ -3,7 +3,7 @@ import "./header.scss";
 
 function Header() {
   return (
-    <div className="headerContainer" data-testid="header">
+    <div className="header-container" data-testid="header">
       <PageTitle />
     </div>
   );
