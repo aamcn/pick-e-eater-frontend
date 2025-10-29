@@ -69,15 +69,15 @@ with the diners disliked meals stored in database.
   }, [selectedDiner]);
 
   return (
-    <div className="updateDislikesBackDrop" data-testid="meal-preference-form-container">
-      <form className="updateDislikesForm" onSubmit={handleFormSubmit}>
+    <div className="meal-preference-form-backdrop" data-testid="meal-preference-form-container">
+      <form className="meal-preference-form" onSubmit={handleFormSubmit}>
         <div>
-          <h2 className="mealPreferenceFormTitle">Update Meal Preferences</h2>
+          <h2 className="meal-preference-form-title">Update Meal Preferences</h2>
         </div>
-        <fieldset className="dinerSelectContainer">
+        <fieldset className="diner-select-container">
           <label htmlFor="personId">Person:</label>
           <select
-            className="dinerSelectorInput"
+            className="diner-selector-input"
             id="personId"
             name="personId"
             defaultChecked={"Pick a Name"}
@@ -92,7 +92,7 @@ with the diners disliked meals stored in database.
               })}
           </select>
         </fieldset>
-        <fieldset className="mealsCheckBoxContainer" data-testid="meals-checkbox-container">
+        <fieldset className="meals-checkbox-container" data-testid="meals-checkbox-container">
           {selectedDiner &&
             allMeals.map((meal) => {
               return (
@@ -106,16 +106,16 @@ with the diners disliked meals stored in database.
               );
             })}
         </fieldset>
-        <div className="preferenceFormButtons">
+        <div className="meal-preference-form-buttons">
           <button
             value="updatepreferenceForm"
             onClick={toggleFormDisplay}
-            className="preferenceFormButton"
+            className="meal-preference-form-button"
             type="button"
           >
             Close
           </button>
-          <button className="preferenceFormButton" type="submit">
+          <button className="meal-preference-form-button" type="submit">
             Submit
           </button>
         </div>

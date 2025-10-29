@@ -1,71 +1,49 @@
 @use "../../../sass/base";
 
-.addMealBackdrop {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  left: 0%;
-  top: 0%;
-  height: 100dvh;
-  width: 100dvw;
-  backdrop-filter: blur(5px);
+.add-meal-form-backdrop {
+    @include base.backdrop-template;
 }
 
-.addMealForm {
-  background-color: base.$off-white-color;
-  border: solid 0.5em base.$white-color;
-  outline: solid base.$pale-blue-color;
-  border-radius: 1em;
+.add-meal-form {
+  @include base.form-style-template;
   animation: grow-appear 0.5s;
-  padding: 0.5em;
 }
 
-.addMealFieldset {
+.add-meal-fieldset {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  text-align: center;
   border: none;
   font-family: base.$text-font;
-  color: base.$off-black-color;
 }
 
-.addMealButtons {
+.add-meal-title {
+ @include base.form-title-style;
+}
+
+.add-meal-input {
+  font-size: 3dvw;
+  border: solid 0.2em base.$light-grey-color;
+}
+
+.add-meal-buttons {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.addMealButton {
-  margin: 1em 1em 0em 1em;
-  padding: 0.8em 1em;
-  border-radius: 0.5em;
-  color: base.$button-blue-color;
-  background-color: base.$white-color;
+.add-meal-button {
+ @include base.form-button-style;
 }
 
-.addMealInput {
-  font-size: 3dvw;
-  border: solid 0.2em base.$light-grey-color;
-}
-
-.addMealErrorMessage{
+.add-meal-error-message {
   color: base.$title-color;
   font-size: 4dvw;
   margin-bottom: 1em; 
   text-align: center;
 }
 
-.addMealTitle {
-  font-family: base.$header-font;
-  font-size: 5vw;
-  color: base.$title-color;
-  text-align: center;
-  margin-bottom: 1em;
-}
 
 @media screen and (min-width: 768px) {
   .addMealForm {

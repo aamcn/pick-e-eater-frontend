@@ -44,3 +44,46 @@ $font-stack: Helvetica, sans-serif;
 $title-font: "Nunito Sans", sans-serif;
 $header-font: "pacifico", sans-serif;
 $text-font: "Josefin Sans", sans-serif;
+
+
+// MIXINS
+
+// FORMS 
+
+@mixin form-style-template {
+  background-color: $off-white-color;
+  border: solid 0.5em $white-color;
+  outline: solid $pale-blue-color;
+  border-radius: 0.5em;
+  padding: 0.5em;
+}
+
+@mixin form-title-style {
+  font-family:$header-font;
+  font-size: 5vw;
+  color: $title-color;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+@mixin form-button-style {
+  margin: 1em 1em 0em 1em;
+  padding: 0.8em 1em;
+  border-radius: 0.5em;
+  color: $button-blue-color;
+  background-color: $white-color;
+}
+
+@mixin backdrop-template {
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  height: 100dvh;
+  width: 100vw;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}

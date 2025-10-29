@@ -21,7 +21,7 @@ function MealCheckBoxTemplate({ meal, selectedDiner, setDinerDislikedMeals }) {
   }, [selectedDiner, meal]);
 
   return (
-    <div className="preferenceMealCheckbox" data-testid="meal-checkbox">
+    <div className="preference-meal-checkbox" data-testid="meal-checkbox">
       <label htmlFor={meal.id}>{meal.name}</label>
 
       <input

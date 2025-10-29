@@ -1,28 +1,14 @@
 @use "../../../sass/base";
 
-.updateDislikesBackDrop {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  left: 0%;
-  top: 0%;
-  height: 100dvh;
-  width: 100vw;
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
+.meal-preference-form-backdrop {
+   @include base.backdrop-template;
 }
 
-
-.updateDislikesForm {
-  background-color: base.$off-white-color;
+.meal-preference-form {
+  @include base.form-style-template;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 5fr 1fr;
-  border: solid 0.5em base.$white-color;
-  outline: solid base.$pale-blue-color;
-  border-radius: 1em;
   flex-direction: column;
   justify-content: center;
   padding: 1em;
@@ -32,15 +18,11 @@
   z-index: 9;
 }
 
-.mealPreferenceFormTitle{
-  font-family: base.$header-font;
-  font-size: 5vw;
-  color: base.$title-color;
-  text-align: center;
-  margin-bottom: 0.5em;
+.meal-preference-form-title{
+   @include base.form-title-style;
 }
 
-.dinerSelectorInput {
+.diner-selector-input {
   border-radius: 0.5em;
   padding: 0.5em 0em;
   font-size: 4vw;
@@ -49,7 +31,7 @@
   border: none;
 }
 
-.mealsCheckBoxContainer {
+.meals-checkbox-container {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -59,7 +41,7 @@
   font-family: base.$text-font;
 }
 
-.dinerSelectContainer {
+.diner-select-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -68,29 +50,28 @@
   font-family: base.$title-font;
 }
 
-.preferenceMealCheckbox {
+.preference-meal-checkbox {
   margin: 0.5em 0em 0.5em 0em;
   color: base.$light-text-grey;
   font-size: 4.5vw;
 }
 
-.preferenceMealCheckbox:first-child {
+.preference-meal-checkbox:first-child {
   margin-top: 0em;
 }
 
-.preferenceFormButtons {
+.meal-preference-form-buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-.preferenceFormButton {
-  margin: 0em 1em 0em 1em;
-  color: base.$button-blue-color;
-  background-color: base.$white-color;
+.meal-preference-form-button {
+  @include base.form-button-style;
+
 }
 
-.checkboxTitle {
+.checkbox-title {
   font-family: base.$title-font;
   font-size: 6vw;
   margin: 0.5em 0em 2em 0em;
@@ -105,54 +86,54 @@
 }
 
 @media screen and (min-width: 768px) {
-  .dinerSelectContainer {
+  .diner-select-container {
     font-size: 4vw;
   }
 
-  .dinerSelectorInput {
+  .diner-selector-input {
     font-size: 3vw;
   }
 
-  .dislikeMealCheckbox {
+  .preference-meal-checkbox {
     font-size: 3vw;
   }
 
-  .checkboxTitle {
+  .checkbox-title {
     font-size: 4vw;
     margin-bottom: 1em;
   }
 
-  .dislikesFormButton {
+  .meal-preference-form-button {
     width: 20vw;
     font-size: 3vw;
   }
 }
 
 @media screen and (min-width: 1023px) {
-  .updateDislikesForm {
+  .meal-preference-form {
     width: 30dvw;
     height: 50dvh;
   }
 
-  .dinerSelectContainer {
+  .diner-select-container {
     align-items: center;
     font-size: 1.5vw;
   }
 
-  .dinerSelectorInput {
+  .diner-selector-input {
     font-size: 1vw;
   }
 
-  .dislikeMealCheckbox {
+  .preference-meal-checkbox {
     font-size: 1.5vw;
   }
 
-  .checkboxTitle {
+  .checkbox-title {
     font-size: 3vw;
     margin-bottom: 1em;
   }
 
-  .dislikesFormButton {
+  .meal-preference-form-button {
     width: 10vw;
     font-size: 1vw;
   }

@@ -11,7 +11,7 @@ function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
   const [successMessage, setSuccessMessage] = useState(null);
   const [allMealNames, setAllMealNames] = useState([]);
 
-  // Updates inputMealName state on every change to the meal name input field.
+
   const handleMealNameChange = (event) => {
     setInputMealName(event.target.value);
   };
@@ -38,7 +38,7 @@ function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
     );
   }, [inputMealName]);
 
-  // Handles form submission.
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
     // If meal is a duplicate, alert user and do not submit form.
@@ -46,92 +46,89 @@ function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
       alert("This meal is already on the list!");
       return;
     }
+
     //Create formData object and convert to JSON and calls post function.
     const bodyFormData = new FormData(event.target);
     const formToJson = axios.formToJSON(bodyFormData);
     postNewMeal(formToJson);
-    //Calls getMeals function to collect updated 'meals' data from database.
     getMeals();
     setSuccessMessage(`${inputMealName} has been submitted!`);
-    // Resets the form fields.
     event.target.reset();
-    // After 3 seconds the success message is removed from display.
     setTimeout(() => {
       setSuccessMessage(null);
     }, 3000);
   };
 
-  
 
   return (
-    <div className="addMealBackdrop">
+    <div className="add-meal-form-backdrop">
       <form
-        className="addMealForm"
+        className="add-meal-form"
         onSubmit={handleFormSubmit}
         data-testid="add-meal-form"
       >
-        <h3 className="addMealTitle">Add a New Meal</h3>
+        <h3 className="add-meal-title">Add a New Meal</h3>
 
         {errorMessage && (
-          <p className="addMealErrorMessage" data-testid="error-message-element">{errorMessage}</p>
+          <p className="add-meal-error-message" data-testid="error-message-element">{errorMessage}</p>
         )}
         {successMessage && (
           <p data-testid="success-message-element">{successMessage}</p>
         )}
-        <fieldset className="addMealFieldset">
+        <fieldset className="add-meal-fieldset">
           <label htmlFor="name">Meal Name: </label>
           <input
             onChange={handleMealNameChange}
-            className="addMealInput"
+            className="add-meal-input"
             id="name"
             name="name"
             type="text"
             required
           />
         </fieldset>
-        <fieldset className="addMealFieldset">
+        <fieldset className="add-meal-fieldset">
           <label htmlFor="type">Type: </label>
           <input
-            className="addMealInput"
+            className="add-meal-input"
             id="type"
             name="type"
             type="text"
             required
           />
         </fieldset>
-        <fieldset className="addMealFieldset">
+        <fieldset className="add-meal-fieldset">
           <label htmlFor="subType">Main Ingredient: </label>
           <input
-            className="addMealInput"
+            className="add-meal-input"
             id="subType"
             name="subType"
             type="text"
             required
           />
         </fieldset>
-        <fieldset className="addMealFieldset">
+        <fieldset className="add-meal-fieldset">
           <label htmlFor="difficulty">Difficulty: </label>
           <input
-            className="addMealInput"
+            className="add-meal-input"
             type="text"
             id="difficulty"
             name="difficulty"
             required
           />
         </fieldset>
-        <div className="addMealButtons">
+        <div className="add-meal-buttons">
           <button
             value="addMealForm"
             onClick={toggleFormDisplay}
-            className="addMealButton"
+            className="add-meal-button"
             type="submit"
           >
             Close
           </button>
-          <button className="addMealButton" type="submit">
+          <button className="add-meal-button" type="submit">
             Submit
           </button>
-          <button className="addMealButton" type="reset">
+          <button className="add-meal-button" type="reset">
             Reset
           </button>
         </div>
