@@ -24,12 +24,12 @@
   position: absolute;
   height: 60dvh;
   width: 85dvw;
-  border: solid 0.3em base.$toolbar-background-color;
+  border: solid 0.3em base.$white-color;
   border-radius: 1em;
   display: grid;
   grid-template-rows: 11fr 1fr;
   z-index: 4;
-  background-color: base.$white-background-color;
+  background-color: base.$off-white-color;
 }
 
 .hidden {
@@ -54,7 +54,7 @@
 
 .filterToggleContainer {
   display: flex;
-  background-color: base.$toolbar-background-color;
+  background-color: base.$white-color;
   justify-content: end;
   padding: 0.5em;
   border-bottom: solid 0.2em black;
@@ -77,14 +77,14 @@
   align-items: center;
   color: base.$title-color;
   border: none;
-  background-color: base.$toolbar-background-color;
+  background-color: base.$white-color;
   padding: 0.1em;
   font-size: 3.5vw;
 }
 
 .filterToggleContainer {
   display: flex;
-  background-color: base.$toolbar-background-color;
+  background-color: base.$white-color;
   justify-content: end;
   padding: 0.5em;
   border-bottom: solid 0.2em black;
@@ -92,15 +92,15 @@
 
 .filterCloseContainer {
   display: flex;
-  background-color: base.$toolbar-background-color;
+  background-color: base.$white-color;
   justify-content: center;
 }
 
 .filterCloseButton {
-  color: base.$mealcard-background-color;
+  color: base.$pale-blue-color;
   width: 80%;
   height: 100%;
-  background-color: base.$toolbar-background-color;
+  background-color: base.$white-color;
   padding: 0.1em;
   font-size: 6vw;
 }
@@ -113,7 +113,6 @@
 
   .filterTitle {
     font-family: base.$title-font;
-    color: base.$title-color;
     font-size: 2vw;
   }
 
@@ -142,7 +141,6 @@
 
   .filterTitle {
     font-family: base.$title-font;
-    color: base.$title-color;
     font-size: 2vw;
   }
 

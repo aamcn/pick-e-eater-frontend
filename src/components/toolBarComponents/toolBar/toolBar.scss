@@ -8,17 +8,22 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: base.$toolbar-background-color;
+  background-color: base.$white-color;
   grid-row: 5;
   z-index: 9;
   border-top: solid 0.2em ;
   border-bottom: solid 0.1em black;
+  padding: 0.5em 0em;
 }
 
 .toolBarActionButton {
-  padding: 0.5em 0em 0.5em 0em;
-  color: base.$mealcard-background-color;
-  background-color: base.$toolbar-background-color;
+  color: base.$pale-blue-color;
+  background-color: base.$off-white-color;
+  border: solid 0.14em base.$title-color;
+  padding:0.4em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
 }
 
 .toolBarIcon {

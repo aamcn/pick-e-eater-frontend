@@ -16,12 +16,12 @@
 
 
 .updateDislikesForm {
-  background-color: base.$white-background-color;
+  background-color: base.$off-white-color;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 5fr 1fr;
-  border: solid 0.5em base.$toolbar-background-color;
-  outline: solid base.$mealcard-background-color;
+  border: solid 0.5em base.$white-color;
+  outline: solid base.$pale-blue-color;
   border-radius: 1em;
   flex-direction: column;
   justify-content: center;
@@ -70,7 +70,7 @@
 
 .preferenceMealCheckbox {
   margin: 0.5em 0em 0.5em 0em;
-  color: base.$shading-color;
+  color: base.$light-text-grey;
   font-size: 4.5vw;
 }
 
@@ -87,7 +87,7 @@
 .preferenceFormButton {
   margin: 0em 1em 0em 1em;
   color: base.$button-blue-color;
-  background-color: base.$toolbar-background-color;
+  background-color: base.$white-color;
 }
 
 .checkboxTitle {

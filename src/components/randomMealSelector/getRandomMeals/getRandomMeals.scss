@@ -20,11 +20,11 @@
   justify-content: space-evenly;
   align-items: center;
   padding: 1em;
-  background-color: base.$white-background-color;
+  background-color: base.$off-white-color;
   width: 60vw;
   min-height: 15vh;
-  border: solid 0.5em base.$toolbar-background-color;
-  outline: solid base.$mealcard-background-color;
+  border: solid 0.5em base.$white-color;
+  outline: solid base.$pale-blue-color;
   border-radius: 1em;
   animation: grow-appear 0.5s;
   font-family: base.$title-font;
@@ -56,7 +56,7 @@
   display: flex;
   justify-content: center;
   color: base.$button-blue-color;
-  background-color: base.$toolbar-background-color;
+  background-color: base.$white-color;
   padding: 1em;
   width: 40%;
 }

@@ -1,16 +1,15 @@
 @use "../../../sass/base";
 
 .randomDisplayContainer {
-  background-color: base.$white-background-color;
+  background-color: base.$off-white-color;
   text-align: center;
   font-family: base.$text-font;
-  color: base.$toolbar-background-color;
 }
 
 .randomMealName {
   margin: 1em;
   font-size: 4dvw;
-  color: base.$shading-color;
+  color: base.$light-text-grey;
 }
 
 .randomMealName.error {
@@ -24,7 +23,6 @@
   .randomDisplayContainer {
     text-align: center;
     font-family: base.$text-font;
-    color: base.$toolbar-background-color;
   }
 
   .randomMealName {

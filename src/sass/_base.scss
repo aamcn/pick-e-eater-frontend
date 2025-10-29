@@ -1,35 +1,10 @@
 
-$main-background-color: #fff1f5;
-$button-background-color: #fee2e2;
-$button-color: #eaeeed;
 
-$mealcard-background-color: #9ed4da;
-$button-blue-color: #5ba8b0;
 
 // Color Palette
-
-$title-color: #af3833;
-$subtitle-color: #262B2C;
-
-$diner-highlight-color: #fed687;
-
-$main-color: #262B2C;
-$toolbar-background-color: #ffffff;
-
-$white-background-color: #eaeeed;
-
-$shading-color: #474344;
-$light-grey-color: #c9c8cc;
-
-// lolly stick colors
-$lolly-stick-color: rgb(255, 242, 217);
-$meal-title-color: #af3833;
-
-$off-black-color: #262B2C;
-
-// af3833 red
+// af3833 red - Titles, error text.
 // 53b176 green
-// eba889 pale pink
+// eba889 pale pink 
 // c9c8cc light grey
 // 9ed4da light blue
 // 70998e teal
@@ -37,19 +12,35 @@ $off-black-color: #262B2C;
 // 474344 dark grey
 // 262B2C blackish grey
 
-// font 
+// Text Colors
+$title-color: #af3833;
+$subtitle-color: #262B2C;
+$light-text-grey: #474344;
+$white-color: #f7f1f1;
+
+// Highlight Colors
+$diner-highlight-color: #fed687;
+
+// Dark Colors, borders and outlines
+$off-black-color: #262B2C;
+$light-grey-color: #c9c8cc;
+
+// Background Colors
+$white-color: #ffffff;
+$off-white-color: #eaeeed;
+ 
+//Form Colors
+$pale-blue-color: #9ed4da;
+$button-blue-color: #5ba8b0;
+
+// Meal stick colors
+$mealcard-background-color: rgb(255, 242, 217);
+$meal-title-color: #af3833;
+
+
+// FONTS
 
 $font-stack: Helvetica, sans-serif;
 $title-font: "Nunito Sans", sans-serif;
 $header-font: "pacifico", sans-serif;
 $text-font: "Josefin Sans", sans-serif;
-
-
-
-// #CE6272 raspberry
-// #EAEEED pink/white
-// #FED687 yellow
-// #EEC0C3 pink
-// #AF5B73 pink shadow
-// #FFF1F5 background
-

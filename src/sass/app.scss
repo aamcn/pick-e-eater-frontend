@@ -6,16 +6,8 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr 8fr 1fr;
   background-color:white;
-  color: base.$main-color;
   max-height: 100dvh;
   max-width: 100vw;
-}
-
-.bufferDiv {
-  background-color: base.$mealcard-background-color;
-  height: 8vh;
-  width: 100vw;
-  grid-row: 6;
 }
 
 body {
@@ -59,8 +51,6 @@ button {
   padding: 1em;
   font-weight: 500;
   font-family: base.$text-font;
-  color: base.$button-color;
-  background-color: base.$button-background-color;
   cursor: pointer;
   transition: border-color 0.25s;
 }

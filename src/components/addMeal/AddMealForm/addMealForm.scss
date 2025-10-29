@@ -14,9 +14,9 @@
 }
 
 .addMealForm {
-  background-color: base.$white-background-color;
-  border: solid 0.5em base.$toolbar-background-color;
-  outline: solid base.$mealcard-background-color;
+  background-color: base.$off-white-color;
+  border: solid 0.5em base.$white-color;
+  outline: solid base.$pale-blue-color;
   border-radius: 1em;
   animation: grow-appear 0.5s;
   padding: 0.5em;
@@ -44,7 +44,7 @@
   padding: 0.8em 1em;
   border-radius: 0.5em;
   color: base.$button-blue-color;
-  background-color: base.$toolbar-background-color;
+  background-color: base.$white-color;
 }
 
 .addMealInput {
@@ -74,7 +74,7 @@
 
   .addMealFieldset {
     font-size: 3vw;
-    color: base.$toolbar-background-color;
+    color: base.$white-color;
   }
 
   .addMealInput {
@@ -99,7 +99,6 @@
 
   .addMealFieldset {
     font-size: 1vw;
-    color: base.$toolbar-background-color;
   }
 
   .addMealInput {
