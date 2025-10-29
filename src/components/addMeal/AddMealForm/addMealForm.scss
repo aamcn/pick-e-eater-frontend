@@ -74,21 +74,13 @@
 }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) and (orientation: landscape){
   .add-meal-form {
     width: 30dvw;
   }
 
-  .add-meal-fieldset {
-    font-size: 1vw;
-  }
-
   .add-meal-input {
-    font-size: 1vw;
-  }
-
-  .add-meal-input {
-    font-size: 1vw;
+    font-size: 1.5dvw;
   }
 
   .add-meal-button {
@@ -96,8 +88,16 @@
   }
 
   .add-meal-title {
-    font-size: 1.5vw;
+    font-size: 3dvw;
     margin-bottom: 1em;
+  }
+
+    .add-meal-error-message {
+  font-size: 1.5dvw;
+}
+
+.add-meal-button {
+    font-size: 1.5dvw;
   }
 }
 

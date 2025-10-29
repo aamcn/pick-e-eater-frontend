@@ -5,12 +5,17 @@
   display: flex;
   justify-content: center;
   width: 100dvw;
-  height: 10dvh;
   background-color: base.$white-color;
 }
 
 @media screen and (min-width: 768px) and (orientation: portrait) {
   .header-container {
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (min-width: 1024px) and (orientation: landscape) {
+   .header-container {
     justify-content: flex-start;
   }
 }

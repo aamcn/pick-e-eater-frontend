@@ -1,7 +1,7 @@
 @use "../../../sass/base";
 
 .meal-preference-form-backdrop {
-   @include base.backdrop-template;
+  @include base.backdrop-template;
 }
 
 .meal-preference-form {
@@ -18,8 +18,8 @@
   z-index: 9;
 }
 
-.meal-preference-form-title{
-   @include base.form-title-style;
+.meal-preference-form-title {
+  @include base.form-title-style;
 }
 
 .diner-selector-input {
@@ -68,7 +68,6 @@
 
 .meal-preference-form-button {
   @include base.form-button-style;
-
 }
 
 .checkbox-title {
@@ -85,10 +84,20 @@
   }
 }
 
-@media screen and (min-width: 768px) and (orientation: portrait){
+@media screen and (min-width: 768px) and (orientation: portrait) {
+  
+  .meal-preference-form {
+    width: 50dvw;
+    height: 50dvh;
+  }
+  
   .diner-select-container {
     font-size: 3dvw;
     margin: 0em;
+  }
+
+   .meal-preference-form-title {
+    font-size: 4.5dvw;
   }
 
   .diner-selector-input {
@@ -100,11 +109,11 @@
   }
 
   .checkbox-title {
-    font-size: 4vw;
+    font-size: 4dvw;
     margin-bottom: 1em;
   }
 
-  .meals-checkbox-container{
+  .meals-checkbox-container {
     margin-bottom: 0em;
   }
 
@@ -115,19 +124,23 @@
   }
 }
 
-@media screen and (min-width: 1023px) {
+@media screen and (min-width: 1024px) and (orientation: landscape) {
   .meal-preference-form {
     width: 30dvw;
     height: 50dvh;
   }
 
+  .meal-preference-form-title {
+    font-size: 2.5dvw;
+  }
+
   .diner-select-container {
     align-items: center;
-    font-size: 1.5vw;
+    font-size: 1.8dvw;
   }
 
   .diner-selector-input {
-    font-size: 1vw;
+    font-size: 1.4dvw;
   }
 
   .preference-meal-checkbox {
@@ -140,7 +153,7 @@
   }
 
   .meal-preference-form-button {
-    width: 10vw;
-    font-size: 1vw;
+    width: 10dvw;
+    font-size: 1.5dvw;
   }
 }

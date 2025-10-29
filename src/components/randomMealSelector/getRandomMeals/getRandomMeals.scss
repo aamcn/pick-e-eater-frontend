@@ -69,26 +69,29 @@
   width: 40%;
 }
 
-
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) and (orientation: landscape) {
+  .randomMealFormHeader{
+  font-size: 3dvw;
+}
+  
   .randomMealContainer {
-    font-size: 2vw;
-    width: 20vw;
+    font-size: 2dvw;
+    width: 25dvw;
     max-height: 50dvh;
   }
 
   .numberOfMealsInput {
     margin-left: 1em;
-    font-size: 1vw;
+    font-size: 1.5dvw;
   }
 
   .randomMealFormButton {
-    font-size: 1vw;
+    font-size: 1.5dvw;
   }
 
   .inputContainer {
-    font-size: 1.5vw;
+    font-size: 1.8dvw;
   }
 }

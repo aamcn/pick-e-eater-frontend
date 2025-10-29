@@ -41,24 +41,17 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) and (orientation: landscape) {
   .clicked {
-    font-size: 1vw;
-    font-weight: 1000;
-
-    width: 5vw;
-    height: 5vw;
-  }
-
-  .clicked {
-    width: 5vw;
-    height: 5vw;
+    font-size: 1dvw;
+    width: 5dvw;
+    height: 5dvw;
   }
 
   .diner-check-box {
-    font-size: 1vw;
+    font-size: 1dvw;
     font-weight: 1000;
-    width: 5vw;
-    height: 5vw;
+    width: 5dvw;
+    height: 5dvw;
   }
 }

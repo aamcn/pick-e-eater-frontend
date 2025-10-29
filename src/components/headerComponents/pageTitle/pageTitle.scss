@@ -12,6 +12,16 @@
 
 @media screen and (min-width: 768px) and (orientation: portrait) {
   .page-title {
-    font-size: 9vw;
+    font-size: 9dvw;
+  }
+}
+
+@media screen and (min-width: 1024px) and (orientation: landscape) {
+  .page-title {
+    font-size: 4dvw;
+  }
+
+  .title-container {
+    padding: 1em;
   }
 }

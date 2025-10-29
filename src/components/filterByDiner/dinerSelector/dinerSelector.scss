@@ -42,14 +42,14 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) and (orientation: landscape) {
   .diner-selector-title {
-    font-size: 2vw;
+    font-size: dvw;
   }
 
   .plate-center-shape {
-    width: 5vw;
-    height: 5vw;
+    width: 5dvw;
+    height: 5dvw;
     border-radius: 50%;
     box-shadow: inset 0px 0px 0.5em 0px rgb(99, 98, 98);
   }
