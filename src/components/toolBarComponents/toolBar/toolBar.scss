@@ -18,7 +18,7 @@
 
 .toolBarActionButton {
   color: base.$pale-blue-color;
-  background-color: base.$off-white-color;
+  background-color: base.$white-color;
   border: solid 0.14em base.$title-color;
   padding:0.4em;
   border-radius: 50%;
@@ -31,13 +31,13 @@
   animation: cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite pulse;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) and (orientation: portrait){
   .toolBarContainer {
     height: 8dvh;
   }
 
   .toolBarIcon {
-    width: 4dvw;
+    width: 8dvw;
   }
 }
 

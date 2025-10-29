@@ -85,13 +85,14 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (orientation: portrait){
   .diner-select-container {
-    font-size: 4vw;
+    font-size: 3dvw;
+    margin: 0em;
   }
 
   .diner-selector-input {
-    font-size: 3vw;
+    font-size: 2.5vw;
   }
 
   .preference-meal-checkbox {
@@ -103,9 +104,14 @@
     margin-bottom: 1em;
   }
 
+  .meals-checkbox-container{
+    margin-bottom: 0em;
+  }
+
   .meal-preference-form-button {
-    width: 20vw;
-    font-size: 3vw;
+    width: 30%;
+    font-size: 3dvw;
+    padding: 1em;
   }
 }
 

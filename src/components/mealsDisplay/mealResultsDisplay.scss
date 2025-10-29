@@ -1,20 +1,20 @@
 @use "../../sass/base";
 
-.mealDisplayContainer {
+.meal-display-container {
   grid-row: 4;
   background-color: white;
   padding: 0.5em;
   overflow: scroll;
 }
 
-.mealDisplay {
+.meal-display {
   padding: 0;
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
 
-.mealCard {
+.meal-card {
   display: flex;
   justify-content: space-between;
   border-radius: 4em;
@@ -22,10 +22,10 @@
   text-align: center;
   padding: 1.5em 0em 1.5em 0em;
   font-family: base.$text-font;
-  border:solid base.$light-grey-color;
+  border: solid base.$light-grey-color;
 }
 
-.mealTitle {
+.meal-title {
   display: flex;
   font-size: 3.5dvw;
   padding-left: 1em;
@@ -34,7 +34,7 @@
   line-height: 0;
 }
 
-.typesContainer {
+.types-container {
   margin: 0em 1em 0em 1em;
   display: flex;
   align-items: center;
@@ -44,36 +44,35 @@
   line-height: 0;
 }
 
-@media screen and (min-width: 768px) {
-  .mealTitle {
-    font-size: 1.8vw;
+@media screen and (min-width: 768px) and (orientation: portrait) {
+  .meal-title {
+    font-size: 1.5dvw;
   }
 
-  .mealDisplay {
-    padding: 0;
+  .meal-display {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1em;
   }
 
-  .typesContainer {
-    font-size: 1.5vw;
+  .types-container {
+    font-size: 1.5dvw;
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .mealTitle {
+@media screen and (min-width: 1024px) and (orientation: landscape) {
+  .meal-title {
     font-size: 1.2vw;
   }
 
-  .mealDisplay {
+  .meal-display {
     padding: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1em;
   }
 
-  .typesContainer {
+  .types-container {
     font-size: 1.5vw;
   }
 }

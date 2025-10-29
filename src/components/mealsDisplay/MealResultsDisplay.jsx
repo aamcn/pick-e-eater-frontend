@@ -8,14 +8,17 @@ function MealResultsDisplay({ filteredMeals }) {
   }
 
   return (
-    <div className="mealDisplayContainer" data-testid="meal-results-container">
-      <ul className="mealDisplay" data-testid="meal-results-list">
+    <div
+      className="meal-display-container"
+      data-testid="meal-results-container"
+    >
+      <ul className="meal-display" data-testid="meal-results-list">
         {filteredMeals &&
           filteredMeals.map((meal) => {
             return (
-              <li className="mealCard" key={meal.id}>
-                <h4 className="mealTitle">{meal.name}</h4>
-                <p className="typesContainer">
+              <li className="meal-card" key={meal.id}>
+                <h4 className="meal-title">{meal.name}</h4>
+                <p className="types-container">
                   {meal.type} | {meal.sub_type} | {meal.difficulty}
                 </p>
               </li>

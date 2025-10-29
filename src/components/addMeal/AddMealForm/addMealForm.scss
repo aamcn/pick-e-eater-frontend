@@ -39,59 +39,63 @@
 
 .add-meal-error-message {
   color: base.$title-color;
+  font-family: base.$text-font;
   font-size: 4dvw;
   margin-bottom: 1em; 
   text-align: center;
 }
 
 
-@media screen and (min-width: 768px) {
-  .addMealForm {
-    width: 60dvw;
+@media screen and (min-width: 768px) and (orientation: portrait){
+
+  .add-meal-form {
+    width: 50dvw;
   }
 
-  .addMealFieldset {
+  .add-meal-fieldset {
     font-size: 3vw;
-    color: base.$white-color;
   }
 
-  .addMealInput {
+  .add-meal-input {
     font-size: 2.5vw;
   }
 
-  .randomMealInput {
+  .add-meal-input {
     margin-left: 1em;
     font-size: 2vw;
   }
 
-  .addMealButton {
-    width: 20vw;
-    font-size: 3vw;
+  .add-meal-button {
+    font-size: 2.5dvw;
   }
+
+  .add-meal-error-message {
+  font-size: 2.5dvw;
+}
 }
 
 @media screen and (min-width: 1024px) {
-  .addMealForm {
+  .add-meal-form {
     width: 30dvw;
   }
 
-  .addMealFieldset {
+  .add-meal-fieldset {
     font-size: 1vw;
   }
 
-  .addMealInput {
+  .add-meal-input {
     font-size: 1vw;
   }
 
-  .randomMealInput {
+  .add-meal-input {
     font-size: 1vw;
   }
 
-  .addMealButton {
+  .add-meal-button {
     font-size: 1vw;
   }
 
-  .addMealTitle {
+  .add-meal-title {
     font-size: 1.5vw;
     margin-bottom: 1em;
   }
