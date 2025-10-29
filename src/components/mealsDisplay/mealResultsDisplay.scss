@@ -5,6 +5,42 @@
   background-color: white;
   padding: 0.5em;
   overflow: scroll;
+  -webkit-overflow-scrolling: scroll !important;
+}
+
+.meal-display-container::-webkit-scrollbar {
+  width: 1em;
+}
+
+.meal-display-container::-webkit-scrollbar:horizontal {
+  display: none;
+}
+
+.meal-display-container::-webkit-scrollbar-button {
+  display:block;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.meal-display-container::-webkit-scrollbar-button:vertical:start:decrement {
+  width: 22px;
+  background-position: center;
+  background-image: url("../../assets/svg/caret-up-fill.svg");
+}
+
+.meal-display-container::-webkit-scrollbar-button:vertical:start:increment {
+  display: none;
+}
+
+.meal-display-container::-webkit-scrollbar-button:vertical:end:decrement {
+  display: none;
+}
+
+.meal-display-container::-webkit-scrollbar-button:vertical:end:increment {
+  width: 22px;
+  background-position: center;
+  background-image: url("../../assets/svg/caret-down-fill.svg");
 }
 
 .meal-display {
@@ -61,6 +97,14 @@
 }
 
 @media screen and (min-width: 1024px) and (orientation: landscape) {
+  .meal-display-container {
+    grid-row: 4;
+    background-color: white;
+    padding: 0.5em;
+    overflow: scroll;
+    -webkit-overflow-scrolling: scroll !important;
+  }
+
   .meal-title {
     font-size: 1.2vw;
   }
