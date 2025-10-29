@@ -8,7 +8,7 @@ function RandomMealsDisplay({ randomMeals }) {
         className="randomDisplayContainer"
         data-testid="random-meal-backdrop"
       >
-        <p className="randomMealName" data-testid="no-meals-element">
+        <p className="randomMealName error" data-testid="no-meals-element">
           No meals found
         </p>
       </div>

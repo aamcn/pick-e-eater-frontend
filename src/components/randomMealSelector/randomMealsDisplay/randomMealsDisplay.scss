@@ -9,7 +9,12 @@
 
 .randomMealName {
   margin: 1em;
-  font-size: 4vw;
+  font-size: 4dvw;
+  color: base.$shading-color;
+}
+
+.randomMealName.error {
+  color: base.$title-color;
 }
 
 @media screen and (min-width: 768px) {

@@ -30,6 +30,14 @@
   font-family: base.$title-font;
 }
 
+.randomMealFormHeader{
+  font-family: base.$header-font;
+  color: base.$title-color;
+  font-size: 5dvw;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
 .numberOfMealsInput {
   font-size: 3.8vw;
 }
@@ -47,7 +55,7 @@
 .randomMealFormButton {
   display: flex;
   justify-content: center;
-  color: base.$mealcard-background-color;
+  color: base.$button-blue-color;
   background-color: base.$toolbar-background-color;
   padding: 1em;
   width: 40%;

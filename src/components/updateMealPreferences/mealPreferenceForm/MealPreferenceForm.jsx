@@ -71,6 +71,9 @@ with the diners disliked meals stored in database.
   return (
     <div className="updateDislikesBackDrop" data-testid="meal-preference-form-container">
       <form className="updateDislikesForm" onSubmit={handleFormSubmit}>
+        <div>
+          <h2 className="mealPreferenceFormTitle">Update Meal Preferences</h2>
+        </div>
         <fieldset className="dinerSelectContainer">
           <label htmlFor="personId">Person:</label>
           <select
@@ -103,16 +106,16 @@ with the diners disliked meals stored in database.
               );
             })}
         </fieldset>
-        <div className="dislikesFormButtons">
+        <div className="preferenceFormButtons">
           <button
-            value="updateDislikesForm"
+            value="updatepreferenceForm"
             onClick={toggleFormDisplay}
-            className="dislikesFormButton"
+            className="preferenceFormButton"
             type="button"
           >
             Close
           </button>
-          <button className="dislikesFormButton" type="submit">
+          <button className="preferenceFormButton" type="submit">
             Submit
           </button>
         </div>

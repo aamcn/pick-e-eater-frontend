@@ -32,6 +32,10 @@ function GetRandomMeals({ filteredMeals, toggleFormDisplay }) {
   return (
     <div className="formBackDrop" data-testid="random-meal-form-backdrop">
       <div className="randomMealContainer">
+        <div >
+          <h4 className="randomMealFormHeader">Random Meals</h4>
+          </div>
+
         <div className="inputContainer">
           <label>Number of Meals: </label>
           <input
