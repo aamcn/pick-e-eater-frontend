@@ -4,36 +4,51 @@
   grid-row: 3;
   grid-column: 1;
   width: 100dvw;
+  height: 10dvh;
+}
+
+.filterToggleContainer {
+  display: flex;
+  background-color: base.$white-color;
+  justify-content: end;
+  padding: 0.5em;
+  border-bottom: solid 0.2em black;
+}
+
+.toggleButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: base.$title-color;
+  border: none;
+  background-color: base.$white-color;
+  padding: 0.1em;
+  font-size: 3dvw;
 }
 
 .filterFormBackDrop {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  left: 0%;
-  top: 0%;
-  height: 100dvh;
-  width: 100dvw;
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
+  @include base.backdrop-template;
 }
 
 .filterForm {
-  position: absolute;
+  @include base.form-style-template;
   height: 60dvh;
   width: 85dvw;
-  border: solid 0.3em base.$white-color;
   border-radius: 1em;
   display: grid;
   grid-template-rows: 11fr 1fr;
   z-index: 4;
-  background-color: base.$off-white-color;
 }
 
 .hidden {
   display: none;
+}
+
+.filterOptionsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  overflow: scroll;
 }
 
 .filterOption {
@@ -45,21 +60,6 @@
   padding: 1em 0.2em 1em 0.2em;
 }
 
-.filterOptionsContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  overflow: scroll;
-}
-
-.filterToggleContainer {
-  display: flex;
-  background-color: base.$white-color;
-  justify-content: end;
-  padding: 0.5em;
-  border-bottom: solid 0.2em black;
-}
-
 .filterTitleContainer {
   align-content: center;
   padding-left: 1em;
@@ -69,25 +69,6 @@
   font-family: base.$title-font;
   color: base.$title-color;
   font-size: 4vw;
-}
-
-.toggleButton {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: base.$title-color;
-  border: none;
-  background-color: base.$white-color;
-  padding: 0.1em;
-  font-size: 3.5vw;
-}
-
-.filterToggleContainer {
-  display: flex;
-  background-color: base.$white-color;
-  justify-content: end;
-  padding: 0.5em;
-  border-bottom: solid 0.2em black;
 }
 
 .filterCloseContainer {
@@ -105,32 +86,33 @@
   font-size: 6vw;
 }
 
-@media screen and (min-width: 768px) {
-  .filterText {
-    margin-top: 0.5em;
-    font-size:2vw;
+@media screen and (min-width: 768px) and (orientation: portrait) {
+  .filterForm {
+    height: 60dvw;
+    width: 65dvw;
   }
 
   .filterTitle {
-    font-family: base.$title-font;
-    font-size: 2vw;
+    font-size: 3dvw;
+  }
+
+  .filterOption {
+    gap: 0.5em;
+    justify-content: left;
+    padding: 1em 0.2em;
+  }
+
+  .filterText {
+    font-size: 2dvw;
   }
 
   .filterToggleContainer {
     padding: 0.5em;
-    
   }
-
-  .filterForm {
-    width: 60dvw;
-    height: 60dvh;
-  }
-
 
   .filterCloseButton {
-    font-size: 4vw;
+    font-size: 3dvw;
   }
-
 }
 
 @media screen and (min-width: 1024px) {
@@ -153,7 +135,6 @@
   }
 
   .filterCloseButton {
-  font-size: 2vw;
-}
-
+    font-size: 2vw;
+  }
 }

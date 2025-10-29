@@ -1,10 +1,11 @@
 @use "../../../sass/base";
 
-.dinerSelectorContainer {
+.diner-selector-container {
+  grid-row:2;
   width: 100dvw;
 }
 
-.dinerCheckBoxes {
+.diner-check-boxes {
   display: flex;
   overflow: scroll;
   flex-direction: row;
@@ -12,40 +13,41 @@
   padding: 1em 0em 1em 0em;
 }
 
-.dinerSelectorTitle {
+.diner-selector-title {
   font-family: base.$title-font;
   text-align: left;
-  margin-left: 1em;
+  margin-left: 0.5em;
   color: base.$subtitle-color;
   font-size: 2.5dvh;
 }
 
-.plateCenterShape {
+.plate-center-shape {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 16vw;
-  height: 16vw;
+  width: 16dvw;
+  height: 16dvw;
   border-radius: 3em;
-  box-shadow: inset 0px 0px 5px 0px rgb(99, 98, 98);
+  box-shadow: inset 0px 0px 0.5em 0px rgb(99, 98, 98);
   outline: solid wheat;
 }
 
-@media screen and (min-width: 758px) {
-  .plateCenterShape {
-    width: 10vw;
-    height: 10vw;
-    border-radius: 50%;
-    box-shadow: inset 0px 0px 0.5em 0px rgb(99, 98, 98);
+@media screen and (min-width: 768px) and (orientation: portrait) {
+  .diner-selector-title {
+    font-size: 3vw;
+  }
+.plate-center-shape {
+    width: 10dvw;
+    height: 10dvw;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .dinerSelectorTitle {
+  .diner-selector-title {
     font-size: 2vw;
   }
 
-  .plateCenterShape {
+  .plate-center-shape {
     width: 5vw;
     height: 5vw;
     border-radius: 50%;

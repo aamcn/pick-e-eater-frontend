@@ -16,12 +16,12 @@ function DinerSelector({
   }, [selectedDiners, setDislikedMeals]);
 
   return (
-    <div className="dinerSelectorContainer" data-testid="diner-selector">
+    <div className="diner-selector-container" data-testid="diner-selector">
       <hr></hr>
-      <div className="titleStick" data-testid="diner-selector-title">
-        <h3 className="dinerSelectorTitle">Choose Who's Eating</h3>
+      <div className="diner-selector-title" data-testid="diner-selector-title">
+        <h3 className="diner-selector-title">Choose Who's Eating</h3>
       </div>
-      <div className="dinerCheckBoxes">
+      <div className="diner-check-boxes">
         {allDiners &&
           allDiners.map((diner) => {
             return (
