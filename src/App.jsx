@@ -126,6 +126,7 @@ function App() {
         />
 
         <div className={toolButtonsClassName}>
+          <div className="toolBarButtonsContainer">
           <ToolBarButton
             topText={"Random"}
             bottomText={"Meals"}
@@ -147,6 +148,8 @@ function App() {
             toggleFormDisplay={toggleFormDisplay}
             toggleValue={"mealPreferenceForm"}
           />
+          </div>
+        
         </div>
 
         {formToDisplay == "randomMealForm" && (

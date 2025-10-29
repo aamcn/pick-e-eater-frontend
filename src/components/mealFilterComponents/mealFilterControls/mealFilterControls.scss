@@ -5,14 +5,17 @@
   grid-column: 1;
   width: 100dvw;
   height: 10dvh;
+  align-self: center;
 }
 
 .filterToggleContainer {
   display: flex;
   background-color: base.$white-color;
   justify-content: end;
-  padding: 0.5em;
-  border-bottom: solid 0.2em black;
+  align-content: center;
+  border: solid  black;
+  padding: 0.4em;
+  border-width: 0.1em 0em 0.1em 0em;
 }
 
 .toggleButton {

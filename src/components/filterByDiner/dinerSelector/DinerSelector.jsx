@@ -34,7 +34,6 @@ function DinerSelector({
             );
           })}
       </div>
-      <hr></hr>
     </div>
   );
 }

@@ -1,5 +1,14 @@
 @use "../../../sass/base";
 
+.toolBarButtonsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  position: absolute;
+  bottom: 10dvh;
+  width: 100%;
+}
+
 .toolBarButton {
   display: flex;
   flex-direction: column;
@@ -17,11 +26,11 @@
 }
 
 .toolButtonImage {
-  width: 6vw;
+  width: 6dvw;
 }
 
 .toolButtonTopText {
-  margin-bottom: 0.5em;
+  margin-bottom:1em;
 }
 
 .toolButtonBottomText {
