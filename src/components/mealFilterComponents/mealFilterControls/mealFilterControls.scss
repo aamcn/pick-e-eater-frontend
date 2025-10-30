@@ -86,7 +86,7 @@
   height: 100%;
   background-color: base.$white-color;
   padding: 0.1em;
-  font-size: 6vw;
+  font-size: 4dvw;
 }
 
 @media screen and (min-width: 768px) and (orientation: portrait) {
@@ -114,7 +114,7 @@
   }
 
   .filterCloseButton {
-    font-size: 3dvw;
+    font-size: 3vw;
   }
 }
 
@@ -138,6 +138,6 @@
   }
 
   .filterCloseButton {
-    font-size: 2vw;
+    font-size: 1.5dvw;
   }
 }
