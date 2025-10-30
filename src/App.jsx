@@ -145,6 +145,8 @@ function App() {
             allMeals={allMeals}
             toggleFormDisplay={toggleFormDisplay}
             getMeals={getMeals}
+            setAllMeals={setAllMeals}
+            
           />
         )}
         {formToDisplay == "mealPreferenceForm" && (
@@ -152,7 +154,8 @@ function App() {
             toggleFormDisplay={toggleFormDisplay}
             allMeals={allMeals}
             allDiners={allDiners}
-            getUsers={getDiners}
+            getDiners={getDiners}
+            setAllDiners={setAllDiners}
           />
         )}
       {/* </appContext.Provider> */}

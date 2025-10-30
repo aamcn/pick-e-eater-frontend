@@ -4,13 +4,18 @@ import { checkIfDuplicate } from "./utillities/checkIfDuplicate/checkIfDuplicate
 import { postNewMeal } from "./utillities/postNewMeal/postNewMeal";
 import { useState, useMemo } from "react";
 
-function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
+function AddMealForm({
+  toggleFormDisplay,
+  getMeals,
+  allMeals,
+  setAllMeals,
+  setFilteredMeals,
+}) {
   const [inputMealName, setInputMealName] = useState(null);
   const [isMealDuplicate, setIsMealDuplicate] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
   const [allMealNames, setAllMealNames] = useState([]);
-
 
   const handleMealNameChange = (event) => {
     setInputMealName(event.target.value);
@@ -29,23 +34,22 @@ function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
   }, [allMeals]);
 
   // useMemo hook to check for duplicate meal names whenever inputMealName changes.
-  useMemo(() => {
+
+
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
     checkIfDuplicate(
       allMealNames,
       setErrorMessage,
       setIsMealDuplicate,
       inputMealName,
     );
-  }, [inputMealName]);
-
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
     // If meal is a duplicate, alert user and do not submit form.
     if (isMealDuplicate === true) {
       alert("This meal is already on the list!");
       return;
-    }
+    } else {
 
     //Create formData object and convert to JSON and calls post function.
     const bodyFormData = new FormData(event.target);
@@ -56,9 +60,13 @@ function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
     event.target.reset();
     setTimeout(() => {
       setSuccessMessage(null);
-    }, 3000);
+      getMeals().then((meals) => {
+        setAllMeals(meals);
+        setFilteredMeals(meals);
+      });
+    }, 3000); 
+  }
   };
-
 
   return (
     <div className="add-meal-form-backdrop">
@@ -70,7 +78,12 @@ function AddMealForm({ toggleFormDisplay, getMeals, allMeals }) {
         <h3 className="add-meal-title">Add a New Meal</h3>
 
         {errorMessage && (
-          <p className="add-meal-error-message" data-testid="error-message-element">{errorMessage}</p>
+          <p
+            className="add-meal-error-message"
+            data-testid="error-message-element"
+          >
+            {errorMessage}
+          </p>
         )}
         {successMessage && (
           <p data-testid="success-message-element">{successMessage}</p>
