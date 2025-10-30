@@ -18,8 +18,7 @@ function DinerSelector({
 
   return (
     <div className="diner-selector-container" data-testid="diner-selector">
-      <hr></hr>
-      <div className="diner-selector-title" data-testid="diner-selector-title">
+      <div className="diner-selector-title-container" data-testid="diner-selector-title">
         <h3 className="diner-selector-title">Choose Who's Eating</h3>
       </div>
       <div className="diner-check-boxes">

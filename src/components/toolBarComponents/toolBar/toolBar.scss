@@ -8,22 +8,25 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: base.$white-color;
   grid-row: 5;
   z-index: 9;
-  border-top: solid 0.2em ;
+  border-top: solid 0.2em rgb(158, 46, 46);
   border-bottom: solid 0.1em black;
   padding: 0.5em 0em;
+  background-color: base.$pale-blue-color;
+  box-shadow: inset 0px 0px 1em 0.5em base.$button-blue-color;
 }
 
 .toolBarActionButton {
   color: base.$pale-blue-color;
-  background-color: base.$white-color;
+  background-color: base.$mealcard-background-color;
   border: solid 0.14em base.$title-color;
   padding:0.4em;
   border-radius: 50%;
   display: flex;
   justify-content: center;
+    box-shadow:  0px 0px 0.5em 0.2em base.$button-blue-color;
+
 }
 
 .toolBarIcon {
@@ -37,13 +40,17 @@
   }
 
   .toolBarIcon {
-    width: 8dvw;
+    width: 6dvw;
   }
 }
 
 @media screen and (min-width: 1024px) and (orientation: landscape){
   .toolBarContainer {
-    height:9dvh;
+    grid-column: 1/3;
+    grid-row: 4;
+    height:inherit;
+    width: 100dvw;
+    border:none;
   }
 
   .toolBarIcon {

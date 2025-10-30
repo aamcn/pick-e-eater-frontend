@@ -6,6 +6,8 @@
   padding: 0.5em;
   overflow: scroll;
   -webkit-overflow-scrolling: scroll !important;
+  box-shadow: inset 0px 0px 0.5em 0px rgb(234, 221, 221);
+
 }
 
 .meal-display-container::-webkit-scrollbar {
@@ -58,7 +60,9 @@
   text-align: center;
   padding: 1.5em 0em 1.5em 0em;
   font-family: base.$text-font;
-  border: solid base.$light-grey-color;
+  background-color: base.$mealcard-background-color;
+  box-shadow: inset 0px 0px 0.5em 0px rgb(226, 161, 161);
+
 }
 
 .meal-title {
@@ -78,6 +82,7 @@
   justify-content: space-evenly;
   font-size: 3dvw;
   line-height: 0;
+  
 }
 
 @media screen and (min-width: 768px) and (orientation: portrait) {
@@ -98,11 +103,11 @@
 
 @media screen and (min-width: 1024px) and (orientation: landscape) {
   .meal-display-container {
-    grid-row: 4;
+    grid-row: 3;
+    grid-column: 2;
     background-color: white;
     padding: 0.5em;
-    overflow: scroll;
-    -webkit-overflow-scrolling: scroll !important;
+    height: inherit;
   }
 
   .meal-title {

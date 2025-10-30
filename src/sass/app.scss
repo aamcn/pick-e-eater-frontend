@@ -27,9 +27,6 @@ body {
   max-width: 100vw;
 }
 
-
-
-
 h1 {
   line-height: 1.1;
   text-align: center;
@@ -53,10 +50,6 @@ button {
   font-family: base.$text-font;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-
-button:hover {
-  border-color: #646cff;
 }
 
 .toolBarBackDrop {
@@ -84,7 +77,8 @@ button:hover {
 }
 
 @media screen and (min-width: 1024px) {
-  .toolBarBackDrop {
-      padding-bottom: 10dvh;
-  }
+  #root {
+  grid-template-columns: 15dvw 11fr;
+  grid-template-rows: 12dvh 8dvh 70dvh 10dvh;
+}
 }
