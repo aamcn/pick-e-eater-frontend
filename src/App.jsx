@@ -54,9 +54,7 @@ function App() {
 
   //When 'dislikedMeals' state is updated 'removeDislikedMeals' function is called.
   useEffect(() => {
-    if (dislikedMeals.length >= 1) {
       removeDislikedMeals();
-    }
   }, [dislikedMeals, removeDislikedMeals]);
 
   /* Each buttons value is a corresponds to a form. When a tool button is clicked its value is stored in state.
