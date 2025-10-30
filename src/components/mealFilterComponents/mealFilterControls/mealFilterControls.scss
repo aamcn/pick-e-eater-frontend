@@ -3,19 +3,27 @@
 .mealFilterControls {
   grid-row: 3;
   grid-column: 1;
-  width: 100dvw;
-  height: 10dvh;
-  border: solid black;
+  width: inherit;
 }
 
 .filterToggleContainer {
   display: flex;
   background-color: base.$white-color;
   justify-content: end;
-  align-content: center;
-  padding: 0.4em;
-  border-width: 0.1em 0em 0.1em 0em;
+  align-items: center;
+  padding-right: 1em;
+  height: 100%;
 }
+
+  .filterText {
+    font-size: 3dvw;
+  }
+
+  .filterIcon {
+    color: base.$pale-blue-color;
+    width: 6dvw;
+    height: 6dvw;
+  }
 
 .toggleButton {
   display: flex;
@@ -24,9 +32,11 @@
   color: base.$title-color;
   border: none;
   background-color: base.$white-color;
-  padding: 0.1em;
-  font-size: 3dvw;
+  padding: 0em;
+  font-size: 2dvw;
 }
+
+// Form Styles
 
 .filterFormBackDrop {
   @include base.backdrop-template;
@@ -89,6 +99,17 @@
 }
 
 @media screen and (min-width: 768px) and (orientation: portrait) {
+  
+    .filterText {
+    font-size: 3dvw;
+  }
+
+  .filterIcon {
+    color: base.$pale-blue-color;
+    width: 4dvw;
+    height: 5dvw;
+  }
+  
   .filterForm {
     height: 60dvw;
     width: 65dvw;
@@ -108,9 +129,6 @@
     font-size: 2dvw;
   }
 
-  .filterToggleContainer {
-    padding: 0.5em;
-  }
 
   .filterCloseButton {
     font-size: 3vw;
