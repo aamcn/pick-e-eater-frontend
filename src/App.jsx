@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import DinerSelector from "./components/filterByDiner/dinerSelector/DinerSelector";
 import MealResultsDisplay from "./components/mealsDisplay/MealResultsDisplay";
 import MealFilterControls from "./components/mealFilterComponents/mealFilterControls/MealFilterControls";
@@ -14,16 +14,8 @@ import preferencesIcon from "./assets/svg/preferencesIcon.svg";
 import ToolBarButton from "./components/toolBarComponents/toolBarButtons/ToolBarButton";
 import { getMeals } from "../services/backendCalls/getMeals";
 import { getDiners } from "../services/backendCalls/getDiners";
-// import { createContext } from "react";
 
-// export const appContext = createContext({
-//   allDiners: [],
-//   storeAllDiners: () => {},
-//   allMeals: [],
-//   storeAllMeals: () => {},
-//   filteredMeals: [],
-//   storeFilteredMeals: () => {},
-// });
+
 
 function App() {
   const [allDiners, setAllDiners] = useState([]);
@@ -37,35 +29,27 @@ function App() {
   );
   const [formToDisplay, setFormToDisplay] = useState(false);
 
-  // const storeAllDiners = (diners) => {
-  //   setAllDiners(diners);
-  // };
-
-  // const storeAllMeals = (meals) => {
-  //   setAllMeals(meals);
-  // };
-
-  // const storeFilteredMeals = (meals) => {
-  //   setFilteredMeals(meals);
-  // };
-
   /*
     Filters the full meal list by returning meals that are NOT found in the 'dislikedMeals' array in state.
     The filtered array is then stored in 'currentPeopleMeals' state.
   */
-  function removeDislikedMeals() {
+
+  const removeDislikedMeals = useCallback(() => {
     const filteredArray = allMeals.filter((meal) => {
       if (!dislikedMeals.includes(meal.id)) {
         return meal;
       }
     });
     setSelectedDinersMeals(filteredArray);
-  }
+  }, [allMeals, dislikedMeals]);
 
   //On render the meals and diners fetch functions are called.
   useEffect(() => {
-    getDiners(setAllDiners);
-    getMeals(setFilteredMeals, setAllMeals);
+    getDiners().then((diners) => setAllDiners(diners));
+    getMeals().then((meals) => {
+      setAllMeals(meals);
+      setFilteredMeals(meals);
+    });
   }, []);
 
   //When 'dislikedMeals' state is updated 'removeDislikedMeals' function is called.
@@ -73,7 +57,7 @@ function App() {
     if (dislikedMeals.length >= 1) {
       removeDislikedMeals();
     }
-  }, [dislikedMeals]);
+  }, [dislikedMeals, removeDislikedMeals]);
 
   /* Each buttons value is a corresponds to a form. When a tool button is clicked its value is stored in state.
     The form matching the string stored in state is then displayed. If the form is already displayed the value in state is set as false

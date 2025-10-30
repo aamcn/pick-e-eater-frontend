@@ -1,4 +1,4 @@
-export function collectDinerDislikes(selectedDiners, setDislikedMeals) {
+export function collectDinerDislikes(selectedDiners) {
   let dislikesArray = [];
   //For each diner, copies their dislikes array into the 'dislikesArray'.
   selectedDiners.map((diner) => {
@@ -6,5 +6,5 @@ export function collectDinerDislikes(selectedDiners, setDislikedMeals) {
   });
   //Removes duplicate dislikes from the 'dislikedArray' before storing it in 'dislikedMeals' state.
   let unique = [...new Set(dislikesArray)];
-  setDislikedMeals(unique);
+  return(unique);
 }
