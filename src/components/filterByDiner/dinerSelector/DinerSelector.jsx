@@ -13,10 +13,8 @@ function DinerSelector({
   */
   useEffect(() => {
    setDislikedMeals(collectDinerDislikes(selectedDiners));
-  }, [selectedDiners]);
+  }, [selectedDiners, setDislikedMeals]);
 
-
-console.log("render")
 
   return (
     <div className="diner-selector-container" data-testid="diner-selector">

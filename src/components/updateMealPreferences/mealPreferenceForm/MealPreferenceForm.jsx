@@ -2,13 +2,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./mealPreferenceForm.scss";
 import MealCheckBoxTemplate from "../mealCheckBoxTemplate/MealCheckBoxTemplate";
-import React from "react";
+import { getDiners } from "../../../../services/backendCalls/getDiners";
 /* 
   Renders a form allowing the user to select a diner and a meal, on form submission the diner ID and the meal ID
   is posted to the server storing the meal in the diners disliked meals column.
 */
 function UpdateDislikesForm({
   allDiners,
+  setAllDiners,
   allMeals,
   toggleFormDisplay,
 }) {
@@ -64,7 +65,9 @@ with the diners disliked meals stored in database.
   useEffect(() => {
     setDinerDislikedMeals([]);
     if (selectedDiner) {
+      getDiners().then((diners) => setAllDiners(diners));
       setDinerDislikedMeals(selectedDiner.dislikes);
+      console.log(selectedDiner.dislikes);
     }
   }, [selectedDiner]);
 

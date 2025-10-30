@@ -1,16 +1,21 @@
 import { useMemo, useState } from "react";
-import { setCheckboxState } from "./utilities/setCheckboxState/setCheckboxState";
 import { updateMealCheckedState } from "./utilities/updateDinerDislikedMeals/updateMealCheckedState";
 
 function MealCheckBoxTemplate({ meal, selectedDiner, setDinerDislikedMeals }) {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckedBoxClick = (event) => {
-    setCheckboxState(event, setIsChecked, setDinerDislikedMeals);
-    console.log("Checkbox clicked", event.target.checked);
+    if (event.target.checked) {
+      setIsChecked(true);
+      setDinerDislikedMeals((prev) => [...prev, meal.id]);
+    } else {
+      setIsChecked(false);
+      setDinerDislikedMeals((prev) =>
+        prev.filter((mealId) => mealId !== meal.id),
+      );
+    }
   };
 
-  
   /* 
     On render and when chosenDiner is changed; 
     If the meal.id is present the 'diners.dislikes' array 'isChecked' is set to 'true' making the checkbox display as'ticked'.
@@ -31,7 +36,7 @@ function MealCheckBoxTemplate({ meal, selectedDiner, setDinerDislikedMeals }) {
         value={meal.id}
         checked={isChecked}
         data-testid="meal-checkbox-input"
-      /> 
+      />
     </div>
   );
 }
