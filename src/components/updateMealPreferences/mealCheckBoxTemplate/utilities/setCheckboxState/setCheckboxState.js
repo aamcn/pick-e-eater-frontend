@@ -1,8 +1,4 @@
-export function setCheckboxState(
-  event,
-  setIsChecked,
-  setDinerDislikedMeals,
-) {
+export function setCheckboxState(event, setIsChecked, setDinerDislikedMeals) {
   if (!event || !event.target || typeof event.target.checked !== "boolean") {
     throw new Error("Invalid event object");
   }

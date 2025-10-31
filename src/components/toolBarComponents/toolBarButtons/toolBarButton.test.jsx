@@ -22,8 +22,6 @@ describe("ToolBarButton", () => {
     expect(toolButtonTopText.textContent).toEqual("Mock TopText");
   });
 
- 
-
   it("calls onClick when clicked", () => {
     render(<ToolBarButton {...mockProps} />);
     const toolButtonBottomText = screen.getByTestId("tool-button-bottom-text");
@@ -37,7 +35,7 @@ describe("ToolBarButton", () => {
     expect(toolButtonBottomText.textContent).toEqual("Mock Bottom Text");
   });
 
-  it("renders with correct toggleValue", () => { 
+  it("renders with correct toggleValue", () => {
     render(<ToolBarButton {...mockProps} />);
     const toolButtonToggleValue = screen.getByTestId("tool-button");
     expect(toolButtonToggleValue).toBeInTheDocument();

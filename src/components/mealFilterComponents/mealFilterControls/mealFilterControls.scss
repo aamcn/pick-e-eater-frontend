@@ -15,15 +15,15 @@
   height: 100%;
 }
 
-  .filterText {
-    font-size: 3dvw;
-  }
+.filterText {
+  font-size: 3dvw;
+}
 
-  .filterIcon {
-    color: base.$pale-blue-color;
-    width: 6dvw;
-    height: 6dvw;
-  }
+.filterIcon {
+  color: base.$pale-blue-color;
+  width: 6dvw;
+  height: 6dvw;
+}
 
 .toggleButton {
   display: flex;
@@ -99,8 +99,7 @@
 }
 
 @media screen and (min-width: 768px) and (orientation: portrait) {
-  
-    .filterText {
+  .filterText {
     font-size: 3dvw;
   }
 
@@ -109,7 +108,7 @@
     width: 4dvw;
     height: 5dvw;
   }
-  
+
   .filterForm {
     height: 60dvw;
     width: 65dvw;
@@ -129,7 +128,6 @@
     font-size: 2dvw;
   }
 
-
   .filterCloseButton {
     font-size: 3vw;
   }
@@ -144,14 +142,13 @@
   .filterToggleContainer {
     height: 100%;
     border: solid base.$pale-blue-color;
-        border-width: 0.2em 0em 0.2em 0em;
-
+    border-width: 0.2em 0em 0.2em 0em;
   }
 
   .filterText {
     font-size: 1dvw;
   }
- .filterIcon {
+  .filterIcon {
     width: 3dvw;
     height: 3dvw;
   }

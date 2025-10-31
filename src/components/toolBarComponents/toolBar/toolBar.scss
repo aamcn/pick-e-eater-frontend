@@ -16,12 +16,11 @@
   color: base.$pale-blue-color;
   background-color: base.$mealcard-background-color;
   border: solid 0.14em base.$title-color;
-  padding:0.4em;
+  padding: 0.4em;
   border-radius: 50%;
   display: flex;
   justify-content: center;
-    box-shadow:  0px 0px 0.5em 0.2em base.$button-blue-color;
-
+  box-shadow: 0px 0px 0.5em 0.2em base.$button-blue-color;
 }
 
 .toolBarIcon {
@@ -29,24 +28,23 @@
   animation: cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite pulse;
 }
 
-@media screen and (min-width: 768px) and (orientation: portrait){
-
+@media screen and (min-width: 768px) and (orientation: portrait) {
   .toolBarIcon {
     width: 6dvw;
   }
 }
 
-@media screen and (min-width: 1024px) and (orientation: landscape){
+@media screen and (min-width: 1024px) and (orientation: landscape) {
   .toolBarContainer {
     grid-column: 1/3;
     grid-row: 4;
     width: 100dvw;
-    border:none;
+    border: none;
     border-top: solid 0.2em base.$white-color;
   }
 
   .toolBarIcon {
-    width: 4dvw;
+    width: 3.5dvw;
   }
 }
 

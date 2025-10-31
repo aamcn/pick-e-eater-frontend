@@ -6,5 +6,5 @@ export function collectDinerDislikes(selectedDiners) {
   });
   //Removes duplicate dislikes from the 'dislikedArray' before storing it in 'dislikedMeals' state.
   let unique = [...new Set(dislikesArray)];
-  return(unique);
+  return unique;
 }

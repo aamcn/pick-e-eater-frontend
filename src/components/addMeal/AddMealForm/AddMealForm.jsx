@@ -28,14 +28,9 @@ function AddMealForm({
     setAllMealNames(allMealNames);
   }
 
-  // useMemo hook to update allMealNames array whenever allMeals changes.
   useMemo(() => {
     getAllMealNames();
   }, [allMeals]);
-
-  // useMemo hook to check for duplicate meal names whenever inputMealName changes.
-
-
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -50,22 +45,21 @@ function AddMealForm({
       alert("This meal is already on the list!");
       return;
     } else {
-
-    //Create formData object and convert to JSON and calls post function.
-    const bodyFormData = new FormData(event.target);
-    const formToJson = axios.formToJSON(bodyFormData);
-    postNewMeal(formToJson);
-    getMeals();
-    setSuccessMessage(`${inputMealName} has been submitted!`);
-    event.target.reset();
-    setTimeout(() => {
-      setSuccessMessage(null);
-      getMeals().then((meals) => {
-        setAllMeals(meals);
-        setFilteredMeals(meals);
-      });
-    }, 3000); 
-  }
+      //Create formData object and convert to JSON and calls post function.
+      const bodyFormData = new FormData(event.target);
+      const formToJson = axios.formToJSON(bodyFormData);
+      postNewMeal(formToJson);
+      getMeals();
+      setSuccessMessage(`${inputMealName} has been submitted!`);
+      event.target.reset();
+      setTimeout(() => {
+        setSuccessMessage(null);
+        getMeals().then((meals) => {
+          setAllMeals(meals);
+          setFilteredMeals(meals);
+        });
+      }, 3000);
+    }
   };
 
   return (

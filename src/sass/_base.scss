@@ -1,10 +1,7 @@
-
-
-
 // Color Palette
 // af3833 red - Titles, error text.
 // 53b176 green
-// eba889 pale pink 
+// eba889 pale pink
 // c9c8cc light grey
 // 9ed4da light blue
 // 70998e teal
@@ -14,7 +11,7 @@
 
 // Text Colors
 $title-color: #af3833;
-$subtitle-color: #262B2C;
+$subtitle-color: #262b2c;
 $light-text-grey: #474344;
 $white-color: #f7f1f1;
 
@@ -22,13 +19,13 @@ $white-color: #f7f1f1;
 $diner-highlight-color: #fed687;
 
 // Dark Colors, borders and outlines
-$off-black-color: #262B2C;
+$off-black-color: #262b2c;
 $light-grey-color: #c9c8cc;
 
 // Background Colors
 $white-color: #ffffff;
 $off-white-color: #eaeeed;
- 
+
 //Form Colors
 $pale-blue-color: #9ed4da;
 $button-blue-color: #5ba8b0;
@@ -37,7 +34,6 @@ $button-blue-color: #5ba8b0;
 $mealcard-background-color: rgb(255, 242, 217);
 $meal-title-color: #af3833;
 
-
 // FONTS
 
 $font-stack: Helvetica, sans-serif;
@@ -45,10 +41,9 @@ $title-font: "Nunito Sans", sans-serif;
 $header-font: "pacifico", sans-serif;
 $text-font: "Josefin Sans", sans-serif;
 
-
 // MIXINS
 
-// FORMS 
+// FORMS
 
 @mixin form-style-template {
   background-color: $off-white-color;
@@ -59,7 +54,7 @@ $text-font: "Josefin Sans", sans-serif;
 }
 
 @mixin form-title-style {
-  font-family:$header-font;
+  font-family: $header-font;
   font-size: 5vw;
   color: $title-color;
   text-align: center;
@@ -75,7 +70,7 @@ $text-font: "Josefin Sans", sans-serif;
 }
 
 @mixin backdrop-template {
-    display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;

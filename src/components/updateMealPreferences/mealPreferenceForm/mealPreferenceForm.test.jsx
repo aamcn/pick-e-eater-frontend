@@ -17,18 +17,17 @@ const mockProps = {
 };
 
 afterEach(() => {
-  vi.clearAllMocks();   
-})
+  vi.clearAllMocks();
+});
 
 describe("MealPreferenceForm", () => {
-    
-    it("should render successfully", () => {
+  it("should render successfully", () => {
     render(<MealPreferenceForm {...mockProps} />);
     const formElement = screen.getByTestId("meal-preference-form-container");
     expect(formElement).toBeInTheDocument();
   });
 
-    it("should display the correct number of diner options", () => {
+  it("should display the correct number of diner options", () => {
     render(<MealPreferenceForm {...mockProps} />);
     const dinerOptions = screen.getAllByRole("option");
     expect(dinerOptions).toHaveLength(mockProps.allDiners.length + 1); // +1 for the "Pick a Name" option});
@@ -36,12 +35,12 @@ describe("MealPreferenceForm", () => {
     expect(dinerOptions[2].textContent).toBe("Bob");
   });
 
- it("should call toggleFormDisplay when Close button is clicked", async () => {
+  it("should call toggleFormDisplay when Close button is clicked", async () => {
     const user = userEvent.setup();
     render(<MealPreferenceForm {...mockProps} />);
     const closeButton = screen.getByText("Close");
     await user.click(closeButton);
-    expect(mockProps.toggleFormDisplay).toHaveBeenCalled(); 
+    expect(mockProps.toggleFormDisplay).toHaveBeenCalled();
     expect(mockProps.toggleFormDisplay).toHaveBeenCalledTimes(1);
   });
 
@@ -51,7 +50,7 @@ describe("MealPreferenceForm", () => {
     expect(mockProps.getUsers).toHaveBeenCalledTimes(1);
   });
 
-    it("should update selectedDiner state when a diner is selected", async () => {  
+  it("should update selectedDiner state when a diner is selected", async () => {
     render(<MealPreferenceForm {...mockProps} />);
     const selectElement = screen.getByTestId("diner-select");
     const dinerOptions = screen.getAllByTestId("diner-option");
@@ -66,7 +65,4 @@ describe("MealPreferenceForm", () => {
     expect(dinerOptions[2].selected).toBe(true);
     expect(dinerOptions[1].selected).toBe(false);
   });
-
-  
-})
-
+});

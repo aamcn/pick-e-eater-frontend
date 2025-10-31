@@ -19,7 +19,12 @@ function ToolBar({ toolButtonsClassName, setToolButtonsClassName }) {
         className="toolBarActionButton"
         data-testid="tool-toggle-button"
       >
-        <img className="toolBarIcon" src={toolIcon} data-testid="filter-meals-icon" alt="'Filter meals' Button Icon"></img>
+        <img
+          className="toolBarIcon"
+          src={toolIcon}
+          data-testid="filter-meals-icon"
+          alt="'Filter meals' Button Icon"
+        ></img>
       </button>
     </div>
   );

@@ -49,13 +49,13 @@ function UpdateDislikesForm({
   }
 
   //When a diners name is selected in the form the inputs value is used to store the diner in state.
-  function handleSelectChange (event){
+  function handleSelectChange(event) {
     let index = event.target.value;
     const selectedDiner = allDiners.filter((diner) => {
       if (diner.id == index) return diner;
     });
     setSelectedDiner(selectedDiner[0]);
-  };
+  }
 
   /*
 On render chosenDislikedMeals is reset. When there is a 'selectedDiner' stored in state their
@@ -72,10 +72,15 @@ with the diners disliked meals stored in database.
   }, [selectedDiner]);
 
   return (
-    <div className="meal-preference-form-backdrop" data-testid="meal-preference-form-container">
+    <div
+      className="meal-preference-form-backdrop"
+      data-testid="meal-preference-form-container"
+    >
       <form className="meal-preference-form" onSubmit={handleFormSubmit}>
         <div>
-          <h2 className="meal-preference-form-title">Update Meal Preferences</h2>
+          <h2 className="meal-preference-form-title">
+            Update Meal Preferences
+          </h2>
         </div>
         <fieldset className="diner-select-container">
           <label htmlFor="personId">Person:</label>
@@ -86,16 +91,22 @@ with the diners disliked meals stored in database.
             defaultChecked={"Pick a Name"}
             onChange={handleSelectChange}
             data-testid="diner-select"
-
           >
             <option data-testid="diner-option">Pick a Name</option>
             {allDiners &&
               allDiners.map((person) => {
-                return <option value={person.id} data-testid="diner-option">{person.name}</option>;
+                return (
+                  <option value={person.id} data-testid="diner-option">
+                    {person.name}
+                  </option>
+                );
               })}
           </select>
         </fieldset>
-        <fieldset className="meals-checkbox-container" data-testid="meals-checkbox-container">
+        <fieldset
+          className="meals-checkbox-container"
+          data-testid="meals-checkbox-container"
+        >
           {selectedDiner &&
             allMeals.map((meal) => {
               return (
@@ -104,7 +115,6 @@ with the diners disliked meals stored in database.
                   selectedDiner={selectedDiner}
                   dinerDislikedMeals={dinerDislikedMeals}
                   setDinerDislikedMeals={setDinerDislikedMeals}
-                  
                 />
               );
             })}

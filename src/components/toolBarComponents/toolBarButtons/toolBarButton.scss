@@ -21,7 +21,7 @@
   font-family: base.$text-font;
   color: base.$light-text-grey;
   background-color: base.$white-color;
-  border:solid 0.5em base.$pale-blue-color;
+  border: solid 0.5em base.$pale-blue-color;
   border-radius: 5em;
   animation: slide-up 0.2s;
 }
@@ -31,14 +31,14 @@
 }
 
 .toolButtonTopText {
-  margin-bottom:0.2em;
+  margin-bottom: 0.2em;
 }
 
 .toolButtonBottomText {
   margin-top: 0.2em;
 }
 
-@media screen and (min-width: 768px) and (orientation: portrait){
+@media screen and (min-width: 768px) and (orientation: portrait) {
   .toolBarButton {
     width: 18vw;
     height: 18vw;
@@ -47,19 +47,18 @@
   }
 }
 
-@media screen and (min-width: 1024px) and (orientation: landscape){
-  
-.toolBarButtonsContainer {
-  bottom: 12dvh;
-}
+@media screen and (min-width: 1024px) and (orientation: landscape) {
+  .toolBarButtonsContainer {
+    bottom: 12dvh;
+  }
 
-.toolBarButtonsContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-  
-  .toolBarButton {  
+  .toolBarButtonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .toolBarButton {
     width: 9vw;
     height: 9dvw;
     font-size: 1.4vw;

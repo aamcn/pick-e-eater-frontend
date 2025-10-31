@@ -15,8 +15,6 @@ import ToolBarButton from "./components/toolBarComponents/toolBarButtons/ToolBar
 import { getMeals } from "../services/backendCalls/getMeals";
 import { getDiners } from "../services/backendCalls/getDiners";
 
-
-
 function App() {
   const [allDiners, setAllDiners] = useState([]);
   const [allMeals, setAllMeals] = useState([]);
@@ -54,7 +52,7 @@ function App() {
 
   //When 'dislikedMeals' state is updated 'removeDislikedMeals' function is called.
   useEffect(() => {
-      removeDislikedMeals();
+    removeDislikedMeals();
   }, [dislikedMeals, removeDislikedMeals]);
 
   /* Each buttons value is a corresponds to a form. When a tool button is clicked its value is stored in state.
@@ -82,33 +80,33 @@ function App() {
           storeFilteredMeals,
         }}
       > */}
-        <Header />
+      <Header />
 
-        <DinerSelector
-          allDiners={allDiners}
-          selectedDiners={selectedDiners}
-          setSelectedDiners={setSelectedDiners}
-          dislikedMeals={dislikedMeals}
-          setDislikedMeals={setDislikedMeals}
-        />
+      <DinerSelector
+        allDiners={allDiners}
+        selectedDiners={selectedDiners}
+        setSelectedDiners={setSelectedDiners}
+        dislikedMeals={dislikedMeals}
+        setDislikedMeals={setDislikedMeals}
+      />
 
-        <MealFilterControls
-          selectedDiners={selectedDiners}
-          setFilteredMeals={setFilteredMeals}
-          selectedDinersMeals={selectedDinersMeals}
-          allMeals={allMeals}
-          dislikedMeals={dislikedMeals}
-        />
+      <MealFilterControls
+        selectedDiners={selectedDiners}
+        setFilteredMeals={setFilteredMeals}
+        selectedDinersMeals={selectedDinersMeals}
+        allMeals={allMeals}
+        dislikedMeals={dislikedMeals}
+      />
 
-        <MealResultsDisplay filteredMeals={filteredMeals} />
+      <MealResultsDisplay filteredMeals={filteredMeals} />
 
-        <ToolBar
-          toolButtonsClassName={toolButtonsClassName}
-          setToolButtonsClassName={setToolButtonsClassName}
-        />
+      <ToolBar
+        toolButtonsClassName={toolButtonsClassName}
+        setToolButtonsClassName={setToolButtonsClassName}
+      />
 
-        <div className={toolButtonsClassName}>
-          <div className="toolBarButtonsContainer">
+      <div className={toolButtonsClassName}>
+        <div className="toolBarButtonsContainer">
           <ToolBarButton
             topText={"Random"}
             bottomText={"Meals"}
@@ -130,34 +128,32 @@ function App() {
             toggleFormDisplay={toggleFormDisplay}
             toggleValue={"mealPreferenceForm"}
           />
-          </div>
-        
         </div>
+      </div>
 
-        {formToDisplay == "randomMealForm" && (
-          <GetRandomMeals
-            filteredMeals={filteredMeals}
-            toggleFormDisplay={toggleFormDisplay}
-          />
-        )}
-        {formToDisplay == "addMealForm" && (
-          <AddMealForm
-            allMeals={allMeals}
-            toggleFormDisplay={toggleFormDisplay}
-            getMeals={getMeals}
-            setAllMeals={setAllMeals}
-            
-          />
-        )}
-        {formToDisplay == "mealPreferenceForm" && (
-          <MealPreferenceForm
-            toggleFormDisplay={toggleFormDisplay}
-            allMeals={allMeals}
-            allDiners={allDiners}
-            getDiners={getDiners}
-            setAllDiners={setAllDiners}
-          />
-        )}
+      {formToDisplay == "randomMealForm" && (
+        <GetRandomMeals
+          filteredMeals={filteredMeals}
+          toggleFormDisplay={toggleFormDisplay}
+        />
+      )}
+      {formToDisplay == "addMealForm" && (
+        <AddMealForm
+          allMeals={allMeals}
+          toggleFormDisplay={toggleFormDisplay}
+          getMeals={getMeals}
+          setAllMeals={setAllMeals}
+        />
+      )}
+      {formToDisplay == "mealPreferenceForm" && (
+        <MealPreferenceForm
+          toggleFormDisplay={toggleFormDisplay}
+          allMeals={allMeals}
+          allDiners={allDiners}
+          getDiners={getDiners}
+          setAllDiners={setAllDiners}
+        />
+      )}
       {/* </appContext.Provider> */}
     </>
   );

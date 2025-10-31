@@ -12,7 +12,7 @@ function CheckBoxTemplate({ diner, setSelectedDiners, selectedDiners }) {
   */
 
   const handleClick = () => {
-      tickedBox(
+    tickedBox(
       selectedDiners,
       setIsClicked,
       isClicked,

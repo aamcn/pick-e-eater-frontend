@@ -13,7 +13,10 @@ function ToolBarButton({
   };
 
   return (
-    <div className="toolBarButtonContainer" data-testid="toolbar-button-container">
+    <div
+      className="toolBarButtonContainer"
+      data-testid="toolbar-button-container"
+    >
       <div
         onClick={handleToolButtonClick}
         value={toggleValue}

@@ -1,7 +1,7 @@
 @use "../../../sass/base";
 
 .add-meal-form-backdrop {
-    @include base.backdrop-template;
+  @include base.backdrop-template;
 }
 
 .add-meal-form {
@@ -18,7 +18,7 @@
 }
 
 .add-meal-title {
- @include base.form-title-style;
+  @include base.form-title-style;
 }
 
 .add-meal-input {
@@ -34,20 +34,18 @@
 }
 
 .add-meal-button {
- @include base.form-button-style;
+  @include base.form-button-style;
 }
 
 .add-meal-error-message {
   color: base.$title-color;
   font-family: base.$text-font;
   font-size: 4dvw;
-  margin-bottom: 1em; 
+  margin-bottom: 1em;
   text-align: center;
 }
 
-
-@media screen and (min-width: 768px) and (orientation: portrait){
-
+@media screen and (min-width: 768px) and (orientation: portrait) {
   .add-meal-form {
     width: 50dvw;
   }
@@ -70,11 +68,11 @@
   }
 
   .add-meal-error-message {
-  font-size: 2.5dvw;
-}
+    font-size: 2.5dvw;
+  }
 }
 
-@media screen and (min-width: 1024px) and (orientation: landscape){
+@media screen and (min-width: 1024px) and (orientation: landscape) {
   .add-meal-form {
     width: 30dvw;
   }
@@ -92,11 +90,11 @@
     margin-bottom: 1em;
   }
 
-    .add-meal-error-message {
-  font-size: 1.5dvw;
-}
+  .add-meal-error-message {
+    font-size: 1.5dvw;
+  }
 
-.add-meal-button {
+  .add-meal-button {
     font-size: 1.5dvw;
   }
 }

@@ -14,7 +14,7 @@
   text-wrap: nowrap;
 }
 
-.isClicked{
+.isClicked {
   background-color: base.$light-grey-color;
   border: solid base.$off-black-color;
   color: base.$off-black-color;
@@ -28,13 +28,10 @@
 }
 
 @media screen and (min-width: 768px) and (orientation: portrait) {
-
   .filterCheckBox {
-  // border-radius: 0.5em;
-  // margin: 0em 0.1em 0em 0.1em;
-  // padding: 0.6em 1em;
-  font-size: 2dvw;
-}
-
-
+    // border-radius: 0.5em;
+    // margin: 0em 0.1em 0em 0.1em;
+    // padding: 0.6em 1em;
+    font-size: 2dvw;
+  }
 }

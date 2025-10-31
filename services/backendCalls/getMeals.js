@@ -1,7 +1,6 @@
 import axios from "axios";
 //Fetches mealsData from the meals database table and stores it in state
 export async function getMeals() {
-  
   const mealData = await axios
     .get(
       "https://pick-e-eater-backend-production.up.railway.app/meals/",
@@ -15,5 +14,5 @@ export async function getMeals() {
       console.log(error);
     });
 
-    return mealData;
+  return mealData;
 }

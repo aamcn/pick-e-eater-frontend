@@ -30,7 +30,9 @@ function FilterCheckBox({
 
   return (
     <div
-      className={!isClicked ? "filterCheckBox" + " isClicked" : "filterCheckBox"}
+      className={
+        !isClicked ? "filterCheckBox" + " isClicked" : "filterCheckBox"
+      }
       onClick={handleCheckBoxClick}
       data-testid="filter-checkbox-container"
     >

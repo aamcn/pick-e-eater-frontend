@@ -17,12 +17,12 @@ describe("ToolBar", () => {
     render(<ToolBar {...mockProps} />);
     const toolBar = screen.getByTestId("tool-bar-container");
     expect(toolBar).toBeInTheDocument();
-  }); 
+  });
 
   it("contains the correct number of buttons", () => {
     render(<ToolBar {...mockProps} />);
     const buttons = screen.getAllByRole("button");
-    expect(buttons.length).toBe(1); 
+    expect(buttons.length).toBe(1);
   });
 
   it("calls setToolButtonsClassName with correct value when button is clicked to hide element", () => {
@@ -52,12 +52,11 @@ describe("ToolBar", () => {
     render(<ToolBar {...mockProps} />);
     const icon = screen.getByTestId("filter-meals-icon");
     expect(icon).toBeInTheDocument();
-  })
+  });
 
   it("renders the filter meals icon", () => {
     render(<ToolBar {...mockProps} />);
     const icon = screen.getByTestId("filter-meals-icon");
     expect(icon.getAttribute("src")).toBe(toolIcon);
-  })
-
+  });
 });
